@@ -43,9 +43,26 @@
 %% The lineno packages adds line numbers. Start line numbering with
 %% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
 %% for the whole article with \linenumbers.
-%% \usepackage{lineno}
 
-\journal{??????}
+\usepackage{lineno}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{threeparttable}
+\usepackage{biblatex}
+\addbibresource{references.bib} %Imports bibliography file
+
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+
+\usepackage[utf8]{inputenc}
+\usepackage[hyphens]{url}
+
+\journal{Journal X}
 
 \begin{document}
 
@@ -96,7 +113,7 @@
 
 
 
-\author[inst1,inst2]{Jason Mc Guire}
+\author[inst1,inst2]{Jason Mc Guire\footnote{Contact: j.mcguire@ucc.ie}}
 
 \affiliation[inst1]{organization={Energy Policy and Modelling Group, MaREI Centre,},%Department and Organization
             addressline={Environmental Research Institute}, 
@@ -111,14 +128,19 @@
 
 \author[inst1,inst2]{Fionn Rogan}
 \author[inst1,inst2]{Olexandr Balyk}
-\author[inst1,inst2]{Tomás Mac Uidhir}
 \author[inst1,inst2]{Hannah Daly}
-\author[inst1,inst2]{Brian Ó Gallachóir}
-
+\author[inst1,inst2]{ \& Brian Ó Gallachóir}
 
 \begin{abstract}
 %% Text of abstract
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Under the climate action bill, the Irish government have set legally binding targets to reduce greenhouse gas (GHG) emissions by 51\% in 2030, compared to 2018 and to achieve “net-zero” GHG emissions by 2050. These legally binding targets are set, so Ireland must comply with the objective of the Paris Agreement. 
+Ireland and impartiular Ireland's residential sector is preforming poorly when compared to other EU countries. Ireland has the lowest renewable heat of 6.3\% \cite{2021EurostatExplorer}
+% In 2018 only 7.8% of the population of Ireland lived in flats, this is the lowest percentage in the EU-27, the second lowest was the Netherlands at 20.2% (Eurostat, 2018). The average EU-27 was 46% and the closest in comparison was the UK at 14.8% (Eurostat, 2018). Ireland has a low urbanisation percentage of 63.2%, where the European average is 74.5% and the UK is 83.4% (United Nations, Department of Economic and Social Affairs, Population Division . World Urbanization Prospects, 2018). Ireland has the 3rd largest residential living space per capita in Europe at 41.75 m2/capita, behind Denmark and Cyprus. The European average is 33.8 m2/capita (Average Floor Area per Capita, 2008). Ireland’s low urbanisation percentage has contributed to a low number of flats, and therefore a high percentage of detached, semi-detached and terrace dwellings. Ireland’s dwellings are heated primarily by individual systems sourced from fossil fuels and the large size of Ireland’s dwellings has compounded the challenge of Ireland’s settlement patterns on climate change obligations.
+The Energy system optimization models (ESOMs) have been used extensively in providing insights to decision makers on issues related to climate and energy policy. 
+
+Reducing GHG emission in the residential sector is key..
+ five-year  carbon  budgets. 
+ Energy  systems  optimisa-tion modelling (ESOM) is a widely-used tool to inform pathways to addresslong-term energy challenges.  This article describes a new ESOM developedto inform Ireland’s energy system decarbonisation challenge.  The TIMES-Ireland Model (TIM) is an optimisation model of the Irish energy system,which  calculates  the  cost-optimal  fuel  and  technology  mix  to  meet  futureenergy service demands in the transport, buildings, industry and agriculturesectors,  while  respecting  constraints  in  greenhouse-gas  emissions,  primaryenergy  resources and  feasible  deployment  rates.   TIM is  developed  to  takeinto account Ireland’s unique energy system context, including a very highpotential for offshore wind energy and the challenge of integrating this on arelatively isolated grid, a very ambitious decarbonisation target in the periodto 2030, the policy need to inform five-year carbon budgets to meet policytargets, and the challenge of decarbonising heat in the context of low buildingstock thermal efficiency and high reliance on fossil fuels.  To that end, modelfeatures of note include “future proofing” with flexible timeslice and spatialdefinitions, with optional hourly time resolution in electricity generation and
 \end{abstract}
 
 %%Graphical abstract
@@ -134,12 +156,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 \begin{keyword}
 %% keywords here, in the form: keyword \sep keyword
-keyword one \sep keyword two
+Energy systems optimisation model (ESOM) \sep The integrated MARKAL-EFOM system (TIMES) \sep Residential Building Stock \sep Building Efficiency sep\ Renewable Heat \sep Model description 
 %% PACS codes here, in the form: \PACS code \sep code
-\PACS 0000 \sep 1111
+%%\PACS 0000 \sep 1111
 %% MSC codes here, in the form: \MSC code \sep code
 %% or \MSC[2008] code \sep code (2000 is the default)
-\MSC 0000 \sep 1111
+%% \MSC 0000 \sep 1111
 \end{keyword}
 
 \end{frontmatter}
@@ -150,13 +172,14 @@ keyword one \sep keyword two
 \section{Sample Section Title}
 \label{sec:sample1}
 
+
 %% For citations use: 
 %%       \citet{<label>} ==> Jones et al. (2015)
 %%       \citep{<label>} ==> (Jones et al., 2015)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing \citep{Fabioetal2013} elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud \citet{Blondeletal2008} exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit \citep{Blondeletal2008,FabricioLiang2013} anim id est laborum.
+%Lorem ipsum dolor sit amet, consectetur adipiscing \citep{Fabioetal2013} elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud \citet{Blondeletal2008} exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit \citep{Blondeletal2008,FabricioLiang2013} anim id est laborum.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum see appendix~\ref{sec:sample:appendix}.
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum see appendix~\ref{sec:sample:appendix}.
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
@@ -169,13 +192,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor s
 %% If you have bibdatabase file and want bibtex to generate the
 %% bibitems, please use
 %%
-\bibliographystyle{elsarticle-harv} 
-\bibliography{cas-refs}
+
+\printbibliography
 
 %% else use the following coding to input the bibitems directly in the
 %% TeX file.
 
-% \begin{thebibliography}{00}
+%%\begin{thebibliography}{00}
+
 
 % %% \bibitem[Author(year)]{label}
 % %% Text of bibliographic item
@@ -184,7 +208,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor s
 
 % \end{thebibliography}
 \end{document}
-
 \endinput
 %%
 %% End of file `elsarticle-template-harv.tex'.
