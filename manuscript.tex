@@ -18,7 +18,7 @@
 %% with harvard style bibliographic references
 
 \documentclass[preprint,12pt,authoryear]{elsarticle}
-
+%\documentclass[10pt,final,journal,compsoc,a4paper]{IEEEtran}
 %% Use the option review to obtain double line spacing
 %% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
 
@@ -37,6 +37,12 @@
 
 %% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
+\usepackage{pgf-pie}
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{anyfontsize}
+
 %% The amsthm package provides extended theorem environments
 %% \usepackage{amsthm}
 
@@ -44,17 +50,8 @@
 %% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
 %% for the whole article with \linenumbers.
 
-\usepackage{lineno}
-\usepackage{xcolor}
-\usepackage{textcomp}
-\usepackage{gensymb}
-\usepackage{multirow}
-\usepackage{makecell}
-\usepackage{float}
-\usepackage{longtable}
-\usepackage{threeparttable}
-\usepackage{biblatex}
-\bibliography{references.bib} %Imports bibliography file
+
+\addbibresource{references.bib} %Imports bibliography file
 
 
 \journal{Journal X}
@@ -110,15 +107,11 @@
 
 \begin{abstract}
 %% Text of abstract
-Under the climate action bill, the Irish government have set legally binding targets to reduce greenhouse gas (GHG) emissions by 51\% in 2030, compared to 2018 and to achieve “net-zero” GHG emissions by 2050 \cite{2021Climate2021}. These legally binding targets are set to ensure Ireland complies the Paris Agreement. 
-Ireland and particularly Ireland's residential sector is preforming poorly. Ireland has the lowest renewable heat of 6.3\% \cite{2021EurostatExplorer}, large and poor fabric houses is hindering progress
-Heat Pumps are offering a chance to change that Heat Pump renewable energy and decarbonising electricity secotr and high COPs with large rural detached settle patterns. 
-% In 2018 only 7.8% of the population of Ireland lived in flats, this is the lowest percentage in the EU-27, the second lowest was the Netherlands at 20.2% (Eurostat, 2018). The average EU-27 was 46% and the closest in comparison was the UK at 14.8% (Eurostat, 2018). Ireland has a low urbanisation percentage of 63.2%, where the European average is 74.5% and the UK is 83.4% (United Nations, Department of Economic and Social Affairs, Population Division . World Urbanization Prospects, 2018). Ireland has the 3rd largest residential living space per capita in Europe at 41.75 m2/capita, behind Denmark and Cyprus. The European average is 33.8 m2/capita (Average Floor Area per Capita, 2008). Ireland’s low urbanisation percentage has contributed to a low number of flats, and therefore a high percentage of detached, semi-detached and terrace dwellings. Ireland’s dwellings are heated primarily by individual systems sourced from fossil fuels and the large size of Ireland’s dwellings has compounded the challenge of Ireland’s settlement patterns on climate change obligations.
-The Energy system optimization models (ESOMs) have been used extensively in providing insights to decision makers on issues related to climate and energy policy. 
 
-Reducing GHG emission in the residential sector is key..
- five-year  carbon  budgets. 
- Energy  systems  optimisa-tion modelling (ESOM) is a widely-used tool to inform pathways to addresslong-term energy challenges.  This article describes a new ESOM developedto inform Ireland’s energy system decarbonisation challenge.  The TIMES-Ireland Model (TIM) is an optimisation model of the Irish energy system,which  calculates  the  cost-optimal  fuel  and  technology  mix  to  meet  futureenergy service demands in the transport, buildings, industry and agriculturesectors,  while  respecting  constraints  in  greenhouse-gas  emissions,  primaryenergy  resources and  feasible  deployment  rates.   TIM is  developed  to  takeinto account Ireland’s unique energy system context, including a very highpotential for offshore wind energy and the challenge of integrating this on arelatively isolated grid, a very ambitious decarbonisation target in the periodto 2030, the policy need to inform five-year carbon budgets to meet policytargets, and the challenge of decarbonising heat in the context of low buildingstock thermal efficiency and high reliance on fossil fuels.  To that end, modelfeatures of note include “future proofing” with flexible timeslice and spatialdefinitions, with optional hourly time resolution in electricity generation and
+Ireland and particularly the residential sector has underachieved in previous climate targets. In the EU, Ireland has the lowest renewable heat of 6.3\% \cite{Eurostat2021ShareSourcesnrg_ind_ren}. The settlement patterns, floor area, occupancy behaviour, high reliance on fossil fuels and low thermal efficiency of Irelands housing stock has hindered climate action progress.
+Energy system optimization models (ESOMs) have been used extensively to inform pathways in addressing long-term energy challenges which provides insights to decision makers on issues related to climate and energy policy. 
+The TIMES-Ireland Model (TIM) is an optimisation model of the Irish energy system,which  calculates  the  cost-optimal  fuel  and  technology  mix  to  meet  future energy service demands 
+ 
 \end{abstract}
 
 %%Graphical abstract
@@ -134,7 +127,7 @@ Reducing GHG emission in the residential sector is key..
 
 \begin{keyword}
 %% keywords here, in the form: keyword \sep keyword
-Energy systems optimisation model (ESOM) \sep The integrated MARKAL-EFOM system (TIMES) \sep Residential Building Stock \sep Building Efficiency sep\ Renewable Heat \sep Model description 
+Energy systems optimisation model (ESOM) \sep The integrated MARKAL-EFOM system (TIMES) \sep Residential Building Stock \sep Building Efficiency \sep Model description \sep Residential Energy Transition
 %% PACS codes here, in the form: \PACS code \sep code
 %%\PACS 0000 \sep 1111
 %% MSC codes here, in the form: \MSC code \sep code
@@ -147,9 +140,137 @@ Energy systems optimisation model (ESOM) \sep The integrated MARKAL-EFOM system 
 %% \linenumbers
 
 %% main text
-\section{Sample Section Title}
-\label{sec:sample1}
+\section{Introduction}
+\label{sec:Introduction}
+\subsection{Climate Targets}
+\label{Intro:Climate Targerts}
+\par % Paragraph 1 - Intro
+Under the Climate Action and Low Carbon Development (Amendment) Act 2021, the Irish government have proposed legally binding targets to reduce greenhouse gas (GHG) emissions by 51\% in 2030 compared to 2018, and a long-term target to achieve a climate neutral economy or ``net-zero" by 2050 \cite{2021Climate2021}. Ireland's national target accounts for all GHGs - both Emission Trading System (ETS) and non-ETS emissions and sets out to develop sectoral five year carbon budgets to aid progress of long-term targets. 
+The Irish national targets are at the least consistent with the European Union's (EU's) updated first Nationally Determined Contribution (NDC), which increases EU's GHG reduction target from 40\% to at least 55\% by 2030 compared to 1990 \cite{SUBMISSIONSTATES}. Ireland's non-ETS decarbonisation pathway which is set out in the Climate Action Plan 2019 (CAP2019) compiles with EU's 40\% reduction. In CAP2019, Ireland's target was to reduce Non-ETS GHG by 30\% in 2030 compared to 2005 levels \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. To proportionally reflect the increased EU ambition would mean Ireland would get a new Non-ETS target of approx. 45\%. While ETS emissions reduction would require a shift from a 43\% to approx. 60\% ETS reduction in 2030 compared to 2005. This would still Ireland's national 2030 target is about 15\% more ambitious than the EU's updated first NDC.While this covers the GHG targets, there is also EU 2030 energy targets for transport (RES-T), heat (RES-H) and electricity (RES-E) under renewable directive (EU) 2018/2001, and energy efficiency targets under (EU) 2018/2002. The overview of Ireland's climate targets are shown in Fig.\ref{fig:IrelandClimatetargets}. 
 
+ 
+\begin{figure}[!htbp]
+ \centering
+ \includegraphics[scale=0.4]{Figures/Non-ETS-Share.png} 
+ \caption{Overview of Ireland's 2030 Climate Targets}
+ \label{fig:IrelandClimatetargets}
+\end{figure}
+
+Ireland is a unique EU member state, located on the peripherals of Europe, with a the second highest GDP per captia at more than twice the average EU27 \cite{EurostatReal}, the highest proportion of agriculture Non-ETS GHG emmsions from agruclure at 34\% in 2018  \cite{EPA2020Irelands1990-2018}, and high dependency on fossil fuel imports with little electricity or gas grid interconnections. Under (EU) 2020/2126 Ireland has been afforded higher flexibility allowances in non-ETS targets, to compensate for some of the barriers. The Climate Change Advisory Council (CCAC) aims to set fair, robust and evidence-based sectoral five year carbon budgets, which comply with all of Ireland's climate targets.
+% Insert Figure about most ambitious 2030 targets -
+ 
+\subsection{Energy System Optimisation Models}
+\label{Intro:ESOM}
+\par % Paragraph 2 - ESOM
+A Energy System Optimisation Model (ESOM) can be a key tool in developing least cost decarbonisation pathways. ESOMs can take account of a large number of dynamic variables, and complex interconnections in each time period and economic sector. The Integrated MARKAL-EFOM System (TIMES) modelling framework is the ESOM developed in this paper. TIMES has been developed and maintained by ETSAP (Energy Technology Systems Analysis Program) under the aegis of the International Energy Agency (IEA), with the key focus to \textit{``establish, maintain and expand a consistent multi-country energy/economy/environment/ engineering analytical capability mainly based on TIMES"} \cite{InternationalEnergyAgency2015InternationalIA}. The contracting parties of ETSAP are the governments of eighteen countries and the European Commission.
+
+\par While other ESOM frameworks are available to explore Ireland's decarbonisation pathway such as  EnergyPLAN \cite{stergaard2015ReviewingSimulations}, MESSAGE \cite{Messner1995WorkingE}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOYS \cite{Howells2011OSeMOSYS:Development.}. TIMES is the most understood and used, and because of the expertise among energy policy researchers in Ireland and the global network of ETSAP modellers, TIMES is the preferred ESOM. TIMES is a ``hybrid" ESOM with combines high technological detail and macroeconomic variables covering all energy sectors. The previous Irish TIMES model was extracted from the PET36 model (Pan European TIMES model) and was then updated with national data and assumptions, specific to Ireland. This previous Irish TIMES model was used extensively in the past to provide input to energy and climate policy \cite{Gallachoir2012EPAModel,Deane2017Irish2,Gallachoir2020The3,Resources2015Irelands2015-2030,DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019,Deane2013TechnicalIreland,IrishGovernment2017National2017},however there was a need to design an ESOM to specifically explore Ireland's long term climate targets and a new model called TIMES Ireland Model (TIM) was built in 2021 to address this need. TIMES has also been used in UK \cite{Li2018IncorporatingModel,Kannan2009ModellingApproaches}, Denmark \cite{Petrovic2016ResidentialSystem,Tattini2018ImprovingModel}, Sweden \cite{Krook-Riekkola2014ModellingStudy,Aberg2011OptimisationBuildings} and China \cite{Shi2016ModellingModel} to find least cost pathways with a focus on the residential sector.While the many climate targets further add to complexity, the need for an ESOM is strengthened. An ESOM can provide insights to least cost energy system pathways, the energy system  transition policymakers must also consider the maximum benefits to the economy to truly optimise the transition. TIM can provide vital input to the discussions or further modelling required, and thus the transparency of an ESOM is critical to ensure absorptive capacity of all stakeholders. 
+
+\subsection{Ireland: Residential Sector}
+\label{Intro:IreRSD}
+\par
+Under the United Nations Framework Convention on Climate Change (UNFCCC) GHG reporting guidelines, set out in ( decision 24/CP.19 ), states the 2006  Intergovernmental Panel on Climate Change (IPCC) guidelines are to be adhere to for national GHG reporting. Ireland’s residential sector accounted for 14.2\%of all GHGs in 2018 \cite{Howley2005ENERGY-RELATEDIreland}. Fig. \ref{fig:Ireland2018GHG} shows an overview of Irelands GHG emissions, with a focus on the energy related GHG emissions. The residential sector accounts for 47\% of heat emissions 30\% of electricity emissions, therefore the residential sector plays a pivotal role in the energy-related GHG emissions in Ireland. 
+
+\begin{figure}[h]
+    \begin{tikzpicture}[every node/.style={align=center}, pin distance=17mm]
+    \pie[cloud,text=inside, radius = 2.7]{34/Agriculture,7/Other,59/Energy-related}
+    \draw [->, line width=4pt] (5.8,-0.3) -- (6.8,-.3);
+    \hspace{9cm}
+    \pie[text=inside,radius=2.2,color={black!30,red!70,yellow!40}]{40/Transport,33/Heat,27/ Electricity}
+    \end{tikzpicture}
+    \caption{Ireland 2018 GHG Share \cite{Howley2005ENERGY-RELATEDIreland}}
+    \label{fig:Ireland2018GHG}
+\end{figure}
+
+ While the national GHG should reduce 51\% by 2030, the residential sector is expected to be reduce GHGs even further, due to the higher cost-effectiveness when compared with other sectors. The high ambition in residential is due to its dependency on receiving low carbon intensity electricity. The decarbonisation of the power generation sector is well underway, with carbon intensity falling annually to 375 gCO2/kWh in 2018, 40\% lower than 2005 levels \cite{Howley2005ENERGY-RELATEDIreland}. However the on-shore wind energy capacity is almost saturated, and policy looks to guide investment into off-shore wind to continue a reduction in carbon intensity. Under CAP2019 this continued growth and decarbonisation of the electricity will be the fundamental to lowering energy-related GHG in not only electricity, but heat and transport also. 
+ 
+\begin{figure}[!htbp]
+ \centering
+ \includegraphics[scale=1.0]{Figures/CAP2019MACC.png} 
+ \caption{Climate Action Plan 2019 - Marginal Abatement Cost Curve}
+ \label{fig:CAP2019:MACC} \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}
+\end{figure}
+
+\par
+The CAP2019 had a Marginal Abatement Cost Curve (MACC) is based on  based on Environmental Protection Agency (EPA) GHG emission projection report \cite{EPA2018EPAReport} and provides a solid analytical foundation on the most cost-effective pathway to reduce Non-ETS GHG by 30\% in 2030 compared to 2005 levels. The MACC explores technological, behavioural and fuel switching. The x-axis (width of each bar chart) shows the potential reduction of annual MtCO2eq. emissions in 2030 from the technology or fuel switch. The y-axis (height of each bar chart ) shows the associated average cost of abating one tonne of CO2eq. over the 2021 to 2030 period. The columns are organised from the most economical (left side) to the most expensive technology (right side) in EUR/tCO2eq \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. In the least-cost pathway Ireland would increase Onshore wind by 8.2 GW and Offshore would grow to 3.5 GW,this would be expected to save 7 to 8 MtCO2eq. This would help to indirectly reduce the GHG in the residential sector. However specific residential solutions in the MACC include: 
+\begin{itemize}
+    \item{Retrofit oil boiler existing dwellings to B2 equivalent}
+    \item{Switch from oil boilers to heat pumps in existing dwellings}
+    \item{Retrofit gas boiler and solid fuel stove existing dwellings to B2 equivalent}
+    \item{Introduce CO2-free heating in new buildings}
+\end{itemize} 
+
+McKinsey and Company's modelling tools have helped develop the MACC shown in Fig.\ref{fig:CAP2019:MACC}, with more ambitious Non-ETS 2030 target due this year and a national GHG target for 2030, there is a requirement for a new MACC, from which a new residential five-year carbon budgets will arise. 
+Sustainable Energy Authority of Ireland (SEAI) and others have been part of the renovation wave in Ireland, the uptake of heat pumps in existing homes is gradually building due to grants, awareness and increasing the ease of upgrades for homeowners, while new homes have a strict regulation to comply with, so heat pumps despite their high capital costs are preferred. The building regulations in 2021 will require a 70\% reduction of CO2 emissions in new dwellings compared to 2005 \cite{DepartmentofHousingGov.ieBuildings}. The CAP2019 plan to deliever a new retrofitting model to upgrade 500,000 existing homes to a Building Energy Rating (BER) ‘B2’ by 2030, highlighting the energy efficiency first approach in how Ireland aims to progress.
+ 
+\subsection{Ireland: Residential Sector Background}
+\label{Intro:IreRSDBack}
+
+\par
+Ireland’s decarbonisation pathway, is further separated from other EU member states when focusing on the residential sector, this is largely down to Ireland’s high reliance on fossil fuels and settlement patterns of low thermal efficiency of the housing stock. Ireland's lower than average urbanisation which is connected to only 5.8\% of the population of Ireland living in apartments in 2018, the lowest and well below the average EU-27 of 25.3\% \cite{EurostatDistributionSurveyilc_lvho01}, the lower density relates translates to more expensive mitigation. 33\% of the population of the EU were deemed to live in dwellings too large for their needs in 2018, in Ireland the rate was 71.4\% \cite{EurostatShareSurveyilc_lvho50a}.  
+Ireland set out national policy objectives under 10 strategic investment priorities \cite{Ireland2018ProjectFramework}. The first of strategic investment priority is ``Compact Growth" which aims to  achieve \textit{``effective density and consolidation, rather than more sprawl of urban development, is a top priority".}, which will indirectly effect both electricity and transport GHG emission. 
+In the last 30 years, the extraction of indigenous peat has declined and consequently peat consumption has halved in the last 30 years, and in 2018 peat accounted for 12.3\% of residential GHG emissions. Residential coal GHG emissions has also declined to 6.9\% in 2018. However, the decline in peat and coal has been offset by more significant growth in oil boilers in rural dwellings in the same period, where oil accounts for 34.8\% of residential GHG emissions \cite{Howley2005ENERGY-RELATEDIreland}. Urban dwellings prefer gas as a heating fuel, which is cheaper, more secure ( 61\% of gas in 2018 was indigenous ) and less carbon intensive. Gas accounted for 15.5\% of residential GHG emission in 2018, significantly lower than oil due to the lower carbon intensity. 
+Gas Network Ireland (GNI) anticipates that by 2026 or 2027 the supply from Corrib ( Irelands only indigenous gas supply ) will be less than 30\% of 2018 levels \cite{Dineen2020ENERGYReport}
+In summary, the residential sector is highly reliant on fossil fuels as shown in Fig.\ref{fig:ResFuel}. 
+\begin{figure}[!htbp]
+ \centering
+ \includegraphics[scale=0.5]{Figures/ResidentialFuelUsage.png}
+ \caption{Historical Residential Fuel Consumption}
+ \label{fig:ResFuel}
+\end{figure}
+% NOTE THE Y-AXIS IS NOT CORRECT - DATA FROM SEAI ENERGY DATA PORTAL 
+
+Historical fuel usage in one part of understanding residential energy, the other main part is understanding the low thermal efficiency of Irelands housing stock. As mentioned in section \ref{Intro:IreRSD}, Irelands new buildings produce 70\% less GHG emissions than building in 2005, but since the 2008 global financial crisis there has been a considerable slowdown in the growth of housing stock. According to Central Statistics Office (CSO) approx. 85\% of residential buildings are 2005 or older, the existing housing stock is too large to ignore in a climate transition which requires GHG emissions to more than half in the next decade. The BER database represents about half of the housing stock, Fig. \ref{fig:BERAge} highlights the amount of houses built pre-2005 and houses built in 2005 or after. Crucially it highlights the indication of energy consumption in $kWh/m^2/year$, which is then categorised into BER labels, with A1 representing the lowest energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest energy consumption ($ >450 kWh/m^2/year$) . Fig.\ref{fig:BERAge} highlights the impact the year of construction has on the expected energy consumption.  
+The poor BERs consequently translates to higher energy bills to maintain comfortable temperature, but in reality it relates to low internal temperatures, which likely results in higher excessive winter mortality \cite{Clinch2000HousingMortality}.The BERs which come from the Energy Performance of Buildings Directive 2002/91/ EC, helps to better understand the housing stock. The BERs are required for new houses, rented houses, sold houses and renovated houses. However, BERs do not take account of actual usage, i.e occupancy behaviour or occupancy density, nor does it take account of the size of the dwelling. The BER labels do therefore leave a gap between actual consumption and expected consumption, I will explain how I approached this problem in the Literature review. 
+
+Fuel Poverty is when a household spends \textit{``10\% or more of income to achieve adequate warmth"}, an element energy reported 28\% of Irish households were in fuel poverty in 2015  \cite{ElementEnergy2015Bottom-upIreland}. While income supports and the \textit{Fuel Allowance and the Household Benefits} provides support to low income households to allievate some the fuel poverty. These payments have been increased over time with a further increase made in Budget 2020, coinciding with the increase in the carbon tax \cite{,EuropeanUnion2020EUObservatory}. As Kerr points out the link between energy and social welfare policy is made explicitly \cite{,EuropeanUnion2020EUObservatory,Kerr2019PoliticsFrance} and O’Meara highlights the health issues associated with Fuel Poverty, which include increased risk of catastrophic cardiovascular or cerebrovascular events \cite{OMeara2016AIreland}. Ironically, this places low income households deeply dependent on fossil fuels for health.
+
+\begin{figure}[!htbp]
+ \centering
+ \includegraphics[scale=0.4]{Figures/BERAge.png}
+ \caption{Building Energy Rating by Age}
+ \label{fig:BERAge}
+\end{figure}
+
+\subsection{Residential Energy Services}
+\label{Intro:EnergyServices}
+
+Space heating accounted for the majority of final energy, Fig. \ref{fig:Ireland2016ServiceDemand} shows a snapshot of the residential energy services demands in 2018. As households become more thermal efficient and use higher efficient heating, space heating energy would be expected to decline. The new A-rated dwellings will use more energy for Pumps \& Fans, as mechanical ventilation is used over natural ventilation. %The energy used on appliances due to increasing information technology in households and the digitization of home appliances 
+
+\begin{figure}[h]
+\centering
+    \begin{tikzpicture}
+    \tikzstyle{every node}=[font={\bf\large}]
+    \pie[   color = { yellow!90!black, green!60!black, blue!60,
+        red!70,
+        gray!80,
+        teal!20
+    }, explode = 0.4, text=legend, radius=4]{61.8/Space Heating, 2.2/Cooking, 18.5/Water Heating, 3.8/Lighting, 12.8/Appliances,0.9/Pumps \& Fans}
+    \end{tikzpicture}
+    \caption{Ireland 2018 Energy Service Demands}
+    \label{fig:Ireland2016ServiceDemands}
+\end{figure}
+
+The other service energy demands which are of importance in understanding the current residential usage, included lighting, pumps & fans, cooling, cooking and electrical appliances. SEAI 2018 residential energy report provides quantification on how each end use energy service demand, while also disaggregating demand based upon disposable income, location, owner/rented, BER label and age . While Ireland currently has a shortage of houses, it is expected that new builds will increase in the coming years, the new A-rated houses behave distinctively different which much less demand on space heating and with pumps and fans energy consumption usage increasing, while appliance end use is increasing across the BER ratings. The number of appliances has increased rapidly and while energy efficient improves are  reducing the energy per appliance, it is overshadowed by the growth in electrical appliances. There retrofitting grant which  requires building to have a HLI indication of 2 or less before a heat pump grant can be installs. Ireland’s aim of retrofitting 0.5 million homes from the existing 1.7 million in the before 2030. The effect of these targets also stretches out across the construction sector. The savings from retrofits will decrease fossil fuel energy usage, while most houses 00\% would need to get heat pumps too, to fulfil 0.4 million existing houses getting heat pumps.  This energy efficiency first approach would allow for future technology choices, when current boiler are not at end of life. 
+
+\subsection{Behavioural and Financial barriers}
+\label{Intro:barriers}
+\par
+In an attempt to influence fossil fuel demand, the Irish government introduced Carbon tax in 2010 XX. The current Carbon tax is €33.50 and this will rise ti €100/tCO2 in 2030. The tax applies to all fossil fuel consumption across different economic sectors and while many European countries have taken this approach, as Sweden lead by example and succefully implanted a Carbon tax in 1993??. Current carbon tax? Swedens GNP?? Or PPP. The difficulty in carbon tax is that it can widen social inequality, whereby the lower income fossil fuelled homes who cannot afford upgrade and may already be in fuel poverty have to pay more on income on fuel and middle or high income homes can avoid the rising costs, by investing in alternative low carbon heating. The slow increase does afford time for lower income houses but with only expensive option currently available, some may have no option but to keep paying and receiving fuel subsidies. While the electricity network stretches to all corners of Ireland, The gas network is only reaches to 680,000 houses in towns and cities, with biomethance and renewable gas targets for 2030, X%. The district heating networks are new and currently only two in Dublin which reach about XX houses, 2030 target X%. large amount of data centres. Other future heating fuel options such as hydrogen, HVO, solar may also play a part. 
+	ESOM can be used to start the conversation on..
+Look at other ESOM, brief explain…
+Other residential sectors..
+
+\subsection{TIMES Ireland Model (TIM)}
+\label{Intro:TIM}
+\par
+TIM was built to help Ireland provide a pathway to achieve 2030 and 2050 targets. The residential sector plays a key part of this and it was built from the SEAI 2018 energy balance, the BER database and CSO data. The data filtration process used in the residential sector, derived a lot of conversation of the BER database, a group know as Ireland Energy Wiki by the National Retrofitting Modelling Group grew from building the residential sector, questions about the filters, default values, assumptions around thermal equations (EC..) and uncertainties were used to improve the data before it was used in TIM . TIM has many internal project deadines, which required extensive meetings about the data, constraints and results as the modelling was progressing. The data and results were presented to 30 external reviewers to provide feedback, this process proved invaluable having different expertise with different presepectives enabled TIM to fill in gaps. TIM will also be open platform to help improve the model and provide transparency. TIM’s residential sector was built in parallel with LEAP’s residential sector, so that residential sector can easily simulate policy. The demand for results from TIM has increased significantly with increased government ambition, TIM will provide input into CAP 2021 and Ireland’s carbon budgets, working with DECC and the CCAC respectively will also provide feedback and improve the robustness of TIM. for these reasons TIM residential sector is a state of the art modelling platform. 
+
+
+\section{Literature Review}
+\label{LitR}
+``How should Ireland set GHG targets in the residential sector?” 
+ % LIT REW INPUT DATA - EU \cite{Simoes2013TheProject} 
 
 %Lorem ipsum dolor sit amet, consectetur adipiscing \citep{Fabioetal2013} elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud \citet{Blondeletal2008} exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit \citep{Blondeletal2008,FabricioLiang2013} anim id est laborum.
 
@@ -157,11 +278,20 @@ Energy systems optimisation model (ESOM) \sep The integrated MARKAL-EFOM system 
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
+\section{Acknowledgements}
+\label{sec:Acknowledgements}
+%CAPACITY is funded under the Climate Action Modelling Group (CAMG) by DECC
+% https://www.marei.ie/project/capacity/
+CHIMERA is supported by a research grant from Science Foundation Ireland (SFI) and the National Natural Science Foundation of China (NSFC) under the SFI-NSFC Partnership Programme, grant no. 17/NSFC/5181 and
+supported by MaREI, the SFI Research Centre for Energy, Climate, and Marine [Grant No: 12/RC/2302\_P2]
+
+
+https://www.marei.ie/project/chimera/
 \appendix
 
 \section{Sample Appendix Section}
 \label{sec:sample:appendix}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor section \ref{sec:sample1} incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor section \ref{sec:Introduction} incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 %% If you have bibdatabase file and want bibtex to generate the
 %% bibitems, please use
