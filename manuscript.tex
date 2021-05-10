@@ -42,6 +42,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{anyfontsize}
+\usepackage{pgfplots}
 
 %% The amsthm package provides extended theorem environments
 %% \usepackage{amsthm}
@@ -210,8 +211,9 @@ Sustainable Energy Authority of Ireland (SEAI) and others have been part of the 
 Ireland’s decarbonisation pathway, is further separated from other EU member states when focusing on the residential sector, this is largely down to Ireland’s high reliance on fossil fuels and settlement patterns of low thermal efficiency of the housing stock. Ireland's lower than average urbanisation which is connected to only 5.8\% of the population of Ireland living in apartments in 2018, the lowest and well below the average EU-27 of 25.3\% \cite{EurostatDistributionSurveyilc_lvho01}, the lower density relates translates to more expensive mitigation. 33\% of the population of the EU were deemed to live in dwellings too large for their needs in 2018, in Ireland the rate was 71.4\% \cite{EurostatShareSurveyilc_lvho50a}.  
 Ireland set out national policy objectives under 10 strategic investment priorities \cite{Ireland2018ProjectFramework}. The first of strategic investment priority is ``Compact Growth" which aims to  achieve \textit{``effective density and consolidation, rather than more sprawl of urban development, is a top priority".}, which will indirectly effect both electricity and transport GHG emission. 
 In the last 30 years, the extraction of indigenous peat has declined and consequently peat consumption has halved in the last 30 years, and in 2018 peat accounted for 12.3\% of residential GHG emissions. Residential coal GHG emissions has also declined to 6.9\% in 2018. However, the decline in peat and coal has been offset by more significant growth in oil boilers in rural dwellings in the same period, where oil accounts for 34.8\% of residential GHG emissions \cite{Howley2005ENERGY-RELATEDIreland}. Urban dwellings prefer gas as a heating fuel, which is cheaper, more secure ( 61\% of gas in 2018 was indigenous ) and less carbon intensive. Gas accounted for 15.5\% of residential GHG emission in 2018, significantly lower than oil due to the lower carbon intensity. 
-Gas Network Ireland (GNI) anticipates that by 2026 or 2027 the supply from Corrib ( Irelands only indigenous gas supply ) will be less than 30\% of 2018 levels \cite{Dineen2020ENERGYReport}
+Gas Network Ireland (GNI) anticipates that by 2026 or 2027 the supply from Corrib ( Irelands only indigenous gas supply ) will be less than 30\% of 2018 levels \cite{OCleirigh2020ENERGYReport}
 In summary, the residential sector is highly reliant on fossil fuels as shown in Fig.\ref{fig:ResFuel}. 
+
 \begin{figure}[!htbp]
  \centering
  \includegraphics[scale=0.5]{Figures/ResidentialFuelUsage.png}
@@ -220,10 +222,8 @@ In summary, the residential sector is highly reliant on fossil fuels as shown in
 \end{figure}
 % NOTE THE Y-AXIS IS NOT CORRECT - DATA FROM SEAI ENERGY DATA PORTAL 
 
-Historical fuel usage in one part of understanding residential energy, the other main part is understanding the low thermal efficiency of Irelands housing stock. As mentioned in section \ref{Intro:IreRSD}, Irelands new buildings produce 70\% less GHG emissions than building in 2005, but since the 2008 global financial crisis there has been a considerable slowdown in the growth of housing stock. According to Central Statistics Office (CSO) approx. 85\% of residential buildings are 2005 or older, the existing housing stock is too large to ignore in a climate transition which requires GHG emissions to more than half in the next decade. The BER database represents about half of the housing stock, Fig. \ref{fig:BERAge} highlights the amount of houses built pre-2005 and houses built in 2005 or after. Crucially it highlights the indication of energy consumption in $kWh/m^2/year$, which is then categorised into BER labels, with A1 representing the lowest energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest energy consumption ($ >450 kWh/m^2/year$) . Fig.\ref{fig:BERAge} highlights the impact the year of construction has on the expected energy consumption.  
-The poor BERs consequently translates to higher energy bills to maintain comfortable temperature, but in reality it relates to low internal temperatures, which likely results in higher excessive winter mortality \cite{Clinch2000HousingMortality}.The BERs which come from the Energy Performance of Buildings Directive 2002/91/ EC, helps to better understand the housing stock. The BERs are required for new houses, rented houses, sold houses and renovated houses. However, BERs do not take account of actual usage, i.e occupancy behaviour or occupancy density, nor does it take account of the size of the dwelling. The BER labels do therefore leave a gap between actual consumption and expected consumption, I will explain how I approached this problem in the Literature review. 
+Historical fuel usage in one part of understanding residential energy, the other main part is understanding the low thermal efficiency of Irelands housing stock. As mentioned in section \ref{Intro:IreRSD}, Irelands new buildings produce 70\% less GHG emissions than building in 2005, but since the 2008 global financial crisis there has been a considerable slowdown in the growth of housing stock. According to Central Statistics Office (CSO) approx. 85\% of residential buildings are 2005 or older. The BER database, which represents half of the dwelling stock highlights the impact the year of construction has on the expected energy consumption, as shown in Fig.\ref{fig:BERAge}.The BERs are categorised into BER labels, with A1 representing the lowest energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest energy consumption ($ >450 kWh/m^2/year$) . 
 
-Fuel Poverty is when a household spends \textit{``10\% or more of income to achieve adequate warmth"}, an element energy reported 28\% of Irish households were in fuel poverty in 2015  \cite{ElementEnergy2015Bottom-upIreland}. While income supports and the \textit{Fuel Allowance and the Household Benefits} provides support to low income households to allievate some the fuel poverty. These payments have been increased over time with a further increase made in Budget 2020, coinciding with the increase in the carbon tax \cite{,EuropeanUnion2020EUObservatory}. As Kerr points out the link between energy and social welfare policy is made explicitly \cite{,EuropeanUnion2020EUObservatory,Kerr2019PoliticsFrance} and O’Meara highlights the health issues associated with Fuel Poverty, which include increased risk of catastrophic cardiovascular or cerebrovascular events \cite{OMeara2016AIreland}. Ironically, this places low income households deeply dependent on fossil fuels for health.
 
 \begin{figure}[!htbp]
  \centering
@@ -232,31 +232,80 @@ Fuel Poverty is when a household spends \textit{``10\% or more of income to achi
  \label{fig:BERAge}
 \end{figure}
 
+The poor BERs consequently translates to higher energy bills to maintain comfortable temperature, but in reality it relates to low internal temperatures, which likely results in higher excessive winter mortality \cite{Clinch2000HousingMortality}.The BERs which come from the Energy Performance of Buildings Directive 2002/91/ EC, helps to better understand the housing stock. The BERs are required for new houses, rented houses, sold houses and renovated houses. However, BERs do not take account of actual usage, i.e occupancy behaviour or occupancy density, nor does it take account of the size of the dwelling. The BER labels do therefore leave a gap between actual consumption and expected consumption, I will explain how I approached this problem in the Literature review. 
+
+Fuel Poverty is when a household spends \textit{``10\% or more of income to achieve adequate warmth"}, an element energy reported 28\% of Irish households were in fuel poverty in 2015  \cite{ElementEnergy2015Bottom-upIreland}. While income supports and the \textit{Fuel Allowance and the Household Benefits} provides support to low income households to allievate some the fuel poverty. These payments have been increased over time with a further increase made in Budget 2020, coinciding with the increase in the carbon tax \cite{,EuropeanUnion2020EUObservatory}. As Kerr points out the link between energy and social welfare policy is made explicitly \cite{,EuropeanUnion2020EUObservatory,Kerr2019PoliticsFrance} and O’Meara highlights the health issues associated with Fuel Poverty, which include increased risk of catastrophic cardiovascular or cerebrovascular events \cite{OMeara2016AIreland}. Ironically, this places low income households deeply dependent on fossil fuels for health.
+
+
+
 \subsection{Residential Energy Services}
 \label{Intro:EnergyServices}
 
-Space heating accounted for the majority of final energy, Fig. \ref{fig:Ireland2016ServiceDemand} shows a snapshot of the residential energy services demands in 2018. As households become more thermal efficient and use higher efficient heating, space heating energy would be expected to decline. The new A-rated dwellings will use more energy for Pumps \& Fans, as mechanical ventilation is used over natural ventilation. %The energy used on appliances due to increasing information technology in households and the digitization of home appliances 
+Space heating accounted for the majority of final energy, Fig. \ref{fig:Ireland2018ServiceDemands} shows a snapshot of the residential energy services demands in 2018. As households become more thermal efficient and use higher efficient heating, space heating energy would be expected to decline. The new A-rated dwellings will use less energy for space heating, but Pumps \& Fans energy will increase as mechanical ventilation is used over natural ventilation. 
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 \centering
     \begin{tikzpicture}
-    \tikzstyle{every node}=[font={\bf\large}]
+    \tikzstyle{every node}=[font={\bf}]
     \pie[   color = { yellow!90!black, green!60!black, blue!60,
         red!70,
         gray!80,
         teal!20
-    }, explode = 0.4, text=legend, radius=4]{61.8/Space Heating, 2.2/Cooking, 18.5/Water Heating, 3.8/Lighting, 12.8/Appliances,0.9/Pumps \& Fans}
+    }, explode = 0.4, text=legend, radius=3]{61.8/Space Heating, 2.2/Cooking, 18.5/Water Heating, 3.8/Lighting, 12.8/Appliances,0.9/Pumps \& Fans}
     \end{tikzpicture}
     \caption{Ireland 2018 Energy Service Demands}
-    \label{fig:Ireland2016ServiceDemands}
+    \label{fig:Ireland2018ServiceDemands}
 \end{figure}
 
-The other service energy demands which are of importance in understanding the current residential usage, included lighting, pumps & fans, cooling, cooking and electrical appliances. SEAI 2018 residential energy report provides quantification on how each end use energy service demand, while also disaggregating demand based upon disposable income, location, owner/rented, BER label and age . While Ireland currently has a shortage of houses, it is expected that new builds will increase in the coming years, the new A-rated houses behave distinctively different which much less demand on space heating and with pumps and fans energy consumption usage increasing, while appliance end use is increasing across the BER ratings. The number of appliances has increased rapidly and while energy efficient improves are  reducing the energy per appliance, it is overshadowed by the growth in electrical appliances. There retrofitting grant which  requires building to have a HLI indication of 2 or less before a heat pump grant can be installs. Ireland’s aim of retrofitting 0.5 million homes from the existing 1.7 million in the before 2030. The effect of these targets also stretches out across the construction sector. The savings from retrofits will decrease fossil fuel energy usage, while most houses 00\% would need to get heat pumps too, to fulfil 0.4 million existing houses getting heat pumps.  This energy efficiency first approach would allow for future technology choices, when current boiler are not at end of life. 
+Space heating is therefore central to residential energy policy, other important service energy demands are shown in Fig.\ref{fig:Ireland2018ServiceDemands}. Notably space cooling is absent for the pie chart, but space cooling is accounted for in appliances. The Policy Oriented Tool for Energy and Climate Change Impact Assessment (POTEnCIA) project disaggregated Ireland's residential space cooling from appliances and have output space cooling energy consumption data, shown in Fig.\ref{fig:Cooling} a significant amount of space cooling energy is expected in the Ireland residential sector. 
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    x tick label style={
+		/pgf/number format/1000 sep=},xlabel={Year},
+	y tick label style={
+	    /pgf/number},
+		ylabel={Energy Consumption($ktoe$)},
+		 scaled y ticks = false,
+    xmin=2000, xmax=2050,
+    ymin=0, ymax=40,
+    xtick={2000,2010,2020,2030,2040,2050},
+    ytick={0,10,20,30,40},
+    ymajorgrids=true,
+]
+\addplot[
+    color=blue,
+    mark=square,
+    ]
+    coordinates {
+    (2000,0.6)(2010,3.1)(2020,8.4)(2030,16.3)(2040,26.1)(2050,37)
+    };
+\end{axis}
+\end{tikzpicture}
+    \caption{Space Cooling Residential Energy Consumption (Source: POTEnCIA) }
+    \label{fig:Cooling}
+\end{figure}
+
+The SEAI residential energy report \cite{SustainableEnergyAuthorityofIreland2018EnergySector} provides high resolution detail on energy demands in the residential sector. Variables such as disposable income, appliance ownership, dwelling location, type of occupier status (owner/rented ), BER label and age of dwelling. 
+
 
 \subsection{Behavioural and Financial barriers}
 \label{Intro:barriers}
 \par
-In an attempt to influence fossil fuel demand, the Irish government introduced Carbon tax in 2010 XX. The current Carbon tax is €33.50 and this will rise ti €100/tCO2 in 2030. The tax applies to all fossil fuel consumption across different economic sectors and while many European countries have taken this approach, as Sweden lead by example and succefully implanted a Carbon tax in 1993??. Current carbon tax? Swedens GNP?? Or PPP. The difficulty in carbon tax is that it can widen social inequality, whereby the lower income fossil fuelled homes who cannot afford upgrade and may already be in fuel poverty have to pay more on income on fuel and middle or high income homes can avoid the rising costs, by investing in alternative low carbon heating. The slow increase does afford time for lower income houses but with only expensive option currently available, some may have no option but to keep paying and receiving fuel subsidies. While the electricity network stretches to all corners of Ireland, The gas network is only reaches to 680,000 houses in towns and cities, with biomethance and renewable gas targets for 2030, X%. The district heating networks are new and currently only two in Dublin which reach about XX houses, 2030 target X%. large amount of data centres. Other future heating fuel options such as hydrogen, HVO, solar may also play a part. 
+In Ireland, the carbon tax was introduced in 2009 on petrol, diesel, oils and gas, and was extended to solid fuels (coal and peat) in 2013 and 2014. The rate per tonne of CO2 emissions was €15 from 2010 to 2011 and was
+increased to €20 per tonne of CO2 emissions in 2012.
+It applies exclusively on emissions in non-ETS sectors.
+As shown in Figure 1, Carbon Tax receipts from 2010 to
+2018 grew every year, reflecting strong economic growth,
+and amounted to €431 million in 2018. Auto Diesel
+accounts for 42% of carbon tax receipts, which is also
+reflective of the current composition of the vehicle fleet
+in Ireland with 60% of vehicles operating on diesel. It is
+interesting to note that unlike carbon tax receipts from
+The Irish government introduced Carbon tax in 2010, to influence fossil fuel demand, XX. The current Carbon tax is €33.50 and this will rise ti €100/tCO2 in 2030. The tax applies to all fossil fuel consumption across different economic sectors and while many European countries have taken this approach, as Sweden lead by example and succefully implanted a Carbon tax in 1993??. Current carbon tax? Swedens GNP?? Or PPP. The difficulty in carbon tax is that it can widen social inequality, whereby the lower income fossil fuelled homes who cannot afford upgrade and may already be in fuel poverty have to pay more on income on fuel and middle or high income homes can avoid the rising costs, by investing in alternative low carbon heating. The slow increase does afford time for lower income houses but with only expensive option currently available, some may have no option but to keep paying and receiving fuel subsidies. While the electricity network stretches to all corners of Ireland, The gas network is only reaches to 680,000 houses in towns and cities, with biomethance and renewable gas targets for 2030, X%. The district heating networks are new and currently only two in Dublin which reach about XX houses, 2030 target X%. large amount of data centres. Other future heating fuel options such as hydrogen, HVO, solar may also play a part. 
 	ESOM can be used to start the conversation on..
 Look at other ESOM, brief explain…
 Other residential sectors..
@@ -271,6 +320,8 @@ TIM was built to help Ireland provide a pathway to achieve 2030 and 2050 targets
 \label{LitR}
 ``How should Ireland set GHG targets in the residential sector?” 
  % LIT REW INPUT DATA - EU \cite{Simoes2013TheProject} 
+
+%the new A-rated houses behave distinctively different which much less demand on space heating and with pumps and fans energy consumption usage increasing, while appliance end use is increasing across the BER ratings. The number of appliances has increased rapidly and while energy efficient improves are  reducing the energy per appliance, it is overshadowed by the growth in electrical appliances. There retrofitting grant which  requires building to have a HLI indication of 2 or less before a heat pump grant can be installs. Ireland’s aim of retrofitting 0.5 million homes from the existing 1.7 million in the before 2030. The effect of these targets also stretches out across the construction sector. The savings from retrofits will decrease fossil fuel energy usage, while most houses 00\% would need to get heat pumps too, to fulfil 0.4 million existing houses getting heat pumps.  This energy efficiency first approach would allow for future technology choices, when current boiler are not at end of life. 
 
 %Lorem ipsum dolor sit amet, consectetur adipiscing \citep{Fabioetal2013} elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud \citet{Blondeletal2008} exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit \citep{Blondeletal2008,FabricioLiang2013} anim id est laborum.
 
