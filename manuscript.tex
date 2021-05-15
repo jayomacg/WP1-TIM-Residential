@@ -55,7 +55,7 @@
 \addbibresource{references.bib} %Imports bibliography file
 
 
-\journal{Journal X}
+\journal{Energy and Buildings}
 
 \begin{document}
 
@@ -109,9 +109,9 @@
 \begin{abstract}
 %% Text of abstract
 
-Ireland and particularly the residential sector has underachieved in previous climate targets. In the EU, Ireland has the lowest renewable heat of 6.3\% \cite{Eurostat2021ShareSourcesnrg_ind_ren}. The settlement patterns, floor area, occupancy behaviour, high reliance on fossil fuels and low thermal efficiency of Irelands housing stock has hindered climate action progress.
-Energy system optimization models (ESOMs) have been used extensively to inform pathways in addressing long-term energy challenges which provides insights to decision makers on issues related to climate and energy policy. 
-The TIMES-Ireland Model (TIM) is an optimisation model of the Irish energy system,which  calculates  the  cost-optimal  fuel  and  technology  mix  to  meet  future energy service demands 
+Write after paper is completed %Ireland's residential sector has particularly underachieved in previous climate targets.  Located on the peripherals of Europe, with a high share of low thermal efficient detached dwellings with carbon intensive heating fuels, provides some distinctive barriers to decarbonising Ireland's residential sector. The disadvantageous starting position has impeded residential decarbonisation progress thus far. \par
+%Energy system optimization models (ESOMs) have been used extensively to inform pathways in addressing long-term energy challenges which provides insights to decision makers on issues related to climate and energy policy. \par
+%The TIMES-Ireland Model (TIM) is a newly developed optimisation model of the Irish energy system, which calculates the  cost-optimal decarbonisation pathway to meet future energy service demands while achieving Ireland's legally binding 2030 and 2050 climate targets.
  
 \end{abstract}
 
@@ -128,7 +128,7 @@ The TIMES-Ireland Model (TIM) is an optimisation model of the Irish energy syste
 
 \begin{keyword}
 %% keywords here, in the form: keyword \sep keyword
-Energy systems optimisation model (ESOM) \sep The integrated MARKAL-EFOM system (TIMES) \sep Residential Building Stock \sep Building Efficiency \sep Model description \sep Residential Energy Transition
+Energy systems optimisation model (ESOM) \sep The integrated MARKAL-EFOM system (TIMES) \sep Building decarbonisation \sep Model description \sep Residential energy transition
 %% PACS codes here, in the form: \PACS code \sep code
 %%\PACS 0000 \sep 1111
 %% MSC codes here, in the form: \MSC code \sep code
@@ -146,19 +146,25 @@ Energy systems optimisation model (ESOM) \sep The integrated MARKAL-EFOM system 
 \subsection{Climate Targets}
 \label{Intro:Climate Targerts}
 \par % Paragraph 1 - Intro
-Under the Climate Action and Low Carbon Development (Amendment) Act 2021, the Irish government have proposed legally binding targets to reduce greenhouse gas (GHG) emissions by 51\% in 2030 compared to 2018, and a long-term target to achieve a climate neutral economy or ``net-zero" by 2050 \cite{2021Climate2021}. Ireland's national target accounts for all GHGs - both Emission Trading System (ETS) and non-ETS emissions and sets out to develop sectoral five year carbon budgets to aid progress of long-term targets. 
-The Irish national targets are at the least consistent with the European Union's (EU's) updated first Nationally Determined Contribution (NDC), which increases EU's GHG reduction target from 40\% to at least 55\% by 2030 compared to 1990 \cite{SUBMISSIONSTATES}. Ireland's non-ETS decarbonisation pathway which is set out in the Climate Action Plan 2019 (CAP2019) compiles with EU's 40\% reduction. In CAP2019, Ireland's target was to reduce Non-ETS GHG by 30\% in 2030 compared to 2005 levels \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. To proportionally reflect the increased EU ambition would mean Ireland would get a new Non-ETS target of approx. 45\%. While ETS emissions reduction would require a shift from a 43\% to approx. 60\% ETS reduction in 2030 compared to 2005. This would still Ireland's national 2030 target is about 15\% more ambitious than the EU's updated first NDC.While this covers the GHG targets, there is also EU 2030 energy targets for transport (RES-T), heat (RES-H) and electricity (RES-E) under renewable directive (EU) 2018/2001, and energy efficiency targets under (EU) 2018/2002. The overview of Ireland's climate targets are shown in Fig.\ref{fig:IrelandClimatetargets}. 
+Under the Climate Action and Low Carbon Development (Amendment) Act 2021, the Irish government has proposed legally binding national targets to reduce Greenhouse Gas (GHG) emissions by 51\% in 2030 compared to 2018. The Act also proposes a long-term target to achieve a climate neutral economy or ``net-zero" by 2050 \cite{2021Climate2021}. These targets accounts for all GHGs - both Emission Trading System (ETS) emissions and non-ETS emissions, and sets out to develop sectoral five year carbon budgets to aid progress of the forementioned long-term targets. 
+The EU's updated first Nationally Determined Contribution (NDC), increases EU's GHG reduction target from 40\% (first NDC) to at least 55\% (updated NDC) by 2030 compared to 1990 levels \cite{SUBMISSIONSTATES}. Ireland's Climate Action Plan 2019 (CAP2019) complies with EU's first NDC, from which Irelands 30\% Non-ETS GHG reduction target in 2030 compared to 2005 levels was derived  \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. Climate Action Plan 2021 will have to be more ambitious than its predecessor, as it must at least reflect EU's updated NDC target. Assuming the share of contribution of ETS and Ireland's Non-ETS remains the same, to met the EU's updated NDC, Ireland's non-ETS GHG emissions target would change from 30\% to 45\% reduction in 2030 compared to 2005. Overall Ireland's national 2030 target would be about 15\% more ambitious than the EU's updated NDC.
+There are also renewable energy targets to consider for transport (RES-T), heat (RES-H) and electricity (RES-E) under renewable directive (EU) 2018/2001, and energy efficiency targets under (EU) 2018/2002. An overview of Ireland's climate targets are shown in Fig.\ref{fig:IrelandClimatetargets}. 
 
-%Preliminary emissions data published by the EPA in January 2021 indicate that emissions from the residential sector increased by 9% in 2020, primarily due to the increase in home working and Covid-related restrictions on movement forcing people to spend more time at home. 
 \begin{figure}[!htbp]
  \centering
- \includegraphics[scale=0.4]{Figures/Non-ETS-Share.png} 
+ \includegraphics[scale=0.35]{Figures/Non-ETS-Share.png} 
  \caption{Overview of Ireland's 2030 Climate Targets}
  \label{fig:IrelandClimatetargets}
 \end{figure}
 
-Ireland is a unique EU member state, located on the peripherals of Europe, with a the second highest GDP per captia at more than twice the average EU27 \cite{EurostatReal}, the highest proportion of agriculture Non-ETS GHG emmsions from agruclure at 34\% in 2018  \cite{EPA2020Irelands1990-2018}, and high dependency on fossil fuel imports with little electricity or gas grid interconnections. Under (EU) 2020/2126 Ireland has been afforded higher flexibility allowances in non-ETS targets, to compensate for some of the barriers. The Climate Change Advisory Council (CCAC) aims to set fair, robust and evidence-based sectoral five year carbon budgets, which comply with all of Ireland's climate targets.
-% Insert Figure about most ambitious 2030 targets -
+Ireland is a unique EU member state, located on the peripherals of Europe, with a the second highest GDP per captia at more than twice the average EU27 \cite{EurostatReal}, the highest proportion of agriculture GHG emissions at 34\% in 2018  \cite{EPA2020Irelands1990-2018}, and high dependency on fossil fuel imports with little electricity or gas grid interconnections. Under (EU) 2020/2126 - CHECK Ireland has been afforded higher flexibility allowances in non-ETS targets, to compensate for some of these barriers. The Climate Change Advisory Council (CCAC) will advise the government on setting sectoral five year carbon budgets, which comply with all of Ireland's climate targets. The most ambitious targets.... overview in Fig \ref{fig:GHG2030A}, shows some of the most ambitious GHG targets globally and the share of GHG emissions from agriculture. Despite a large share of agriculture emissions, Ireland has set one of the most ambitious targets towards 2030. The CCAC will rely of some modelling tools to provide insights specific to Ireland, one of those tools is discussed in the next section. 
+
+\begin{figure}[!htbp]
+ \centering
+ \includegraphics[scale=0.6]{Figures/GHGtargetAGR1.png} 
+ \caption{Most Ambitious 2030 GHG Targets}
+ \label{fig:GHG2030AGR}
+\end{figure}
  
 \subsection{Energy System Optimisation Models}
 \label{Intro:ESOM}
@@ -170,6 +176,8 @@ A Energy System Optimisation Model (ESOM) can be a key tool in developing least 
 \subsection{Ireland: Residential Sector}
 \label{Intro:IreRSD}
 \par
+
+%Preliminary emissions data published by the EPA in January 2021 indicate that emissions from the residential sector increased by 9% in 2020, primarily due to the increase in home working and Covid-related restrictions on movement forcing people to spend more time at homeThese estimates show Residential emissions increased by 9per cent (0.6 Mt CO2eq) in 2020, largely due to the impact of people working from home.  2020 also saw low prices for home heating fuel,
 Under the United Nations Framework Convention on Climate Change (UNFCCC) GHG reporting guidelines, set out in ( decision 24/CP.19 ), states the 2006  Intergovernmental Panel on Climate Change (IPCC) guidelines are to be adhere to for national GHG reporting. Ireland’s residential sector accounted for 14.2\%of all GHGs in 2018 \cite{Howley2005ENERGY-RELATEDIreland}. Fig. \ref{fig:Ireland2018GHG} shows an overview of Irelands GHG emissions, with a focus on the energy related GHG emissions. The residential sector accounts for 47\% of heat emissions 30\% of electricity emissions, therefore the residential sector plays a pivotal role in the energy-related GHG emissions in Ireland. 
 
 \begin{figure}[h]
@@ -206,7 +214,7 @@ Sustainable Energy Authority of Ireland (SEAI) and others have been part of the 
  
 \subsection{Ireland: Residential Sector Background}
 \label{Intro:IreRSDBack}
-
+Among European Union (EU) member states, Ireland has the lowest renewable heat of 6.3\% \cite{Eurostat2021ShareSourcesnrg_ind_ren}.
 \par
 Ireland’s decarbonisation pathway, is further separated from other EU member states when focusing on the residential sector, this is largely down to Ireland’s high reliance on fossil fuels and settlement patterns of low thermal efficiency of the housing stock. Ireland's lower than average urbanisation which is connected to only 5.8\% of the population of Ireland living in apartments in 2018, the lowest and well below the average EU-27 of 25.3\% \cite{EurostatDistributionSurveyilc_lvho01}, the lower density relates translates to more expensive mitigation. 33\% of the population of the EU were deemed to live in dwellings too large for their needs in 2018, in Ireland the rate was 71.4\% \cite{EurostatShareSurveyilc_lvho50a}.  
 Ireland set out national policy objectives under 10 strategic investment priorities \cite{Ireland2018ProjectFramework}. The first of strategic investment priority is ``Compact Growth" which aims to  achieve \textit{``effective density and consolidation, rather than more sprawl of urban development, is a top priority".}, which will indirectly effect both electricity and transport GHG emission. 
