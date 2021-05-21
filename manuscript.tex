@@ -144,7 +144,7 @@ Energy systems optimisation model (ESOM) \sep The integrated MARKAL-EFOM system 
 \section{Introduction}
 \label{sec:Introduction}
 \subsection{Climate Targets}
-\label{Intro:Climate Targerts}
+
 \par % Paragraph 1 - Intro
 Under the Climate Action and Low Carbon Development (Amendment) Act 2021, the Irish government has proposed legally binding national targets to reduce Greenhouse Gas (GHG) emissions by 51\% in 2030 compared to 2018. The Act also proposes a long-term target to achieve a climate neutral economy or ``net-zero" by 2050 \cite{2021Climate2021}. These targets accounts for all GHGs - both Emission Trading System (ETS) emissions and non-ETS emissions, and sets out to develop sectoral five year carbon budgets to aid progress of the forementioned long-term targets. 
 \par The EU's first Nationally Determined Contribution (NDC) which had a 40\% GHG reduction target (first NDC), has increased to at least a 55\% GHG reduction target (updated NDC) by 2030 compared to 1990 levels \cite{SUBMISSIONSTATES}. Ireland's Climate Action Plan 2019 (CAP2019) which complies with EU's first NDC, from which Irelands 30\% Non-ETS GHG reduction target in 2030 compared to 2005 levels was derived  \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. Climate Action Plan 2021 will have to be more ambitious than its predecessor, as it must at least reflect EU's updated NDC target. Assuming the share of contribution of ETS and Ireland's Non-ETS remains the same, Ireland's non-ETS GHG emission 2030 target would change from 30\% to 45\%. Overall Ireland's national 2030 target would be about 15\% more ambitious than the EU's updated NDC.
@@ -173,36 +173,9 @@ A Energy System Optimisation Model (ESOM) can optimise the selection of a large 
 \par In addition to TIMES there are other ESOM frameworks available such as EnergyPLAN \cite{stergaard2015ReviewingSimulations}, MESSAGE \cite{Messner1995WorkingE}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOYS \cite{Howells2011OSeMOSYS:Development.}. However the expertise among energy policy researchers in Ireland combined with the global network of ETSAP modellers, makes TIMES the preferred ESOM to explore Ireland's decarbonisation pathways. \par Previous versions of the Irish TIMES model were extracted from the Pan European TIMES model, and then updated with specific national data and assumptions. The previous Irish TIMES models were used to provide informative reports on Irish climate policy \cite{Gallachoir2012EPAModel,Deane2017Irish2,Gallachoir2020The3,Deane2013TechnicalIreland,IrishGovernment2017National2017}.  
 While TIMES models can cover all the energy-related sectors, it can also be used to explore the residential sector in detail. Some studies focusing on the residential sector in TIMES include, Li who studied the preference for heating technology choice in UK \cite{Li2018IncorporatingModel}, Petrovic examined a new approached to represent residential heat pumps in Denmark \cite{Petrovic2016ResidentialSystem} and Aberg analysed the affect higher thermal efficiency in buildings has on co-production of electricity and district heating in Sweden \cite{Aberg2011OptimisationBuildings}. There has also been some studies residential sector in Ireland, using previous versions of Irish TIMES and now out-dated climate targets. Therefore, there is a need for a new TIMES model to be built specifically to explore Ireland's new 2030 and 2050 climate targets and sectoral five-year carbon budgets, the ``TIMES Ireland Model" (TIM) was built in 2021 to address this need \textbf{(SOURCE)}.
 
-\subsection{Ireland: Residential Sector Background}
-\label{Intro:IreRSDBack}
+\subsection{Ireland: Residential Sector}
+\label{Intro:IreRSD}
 
-\par
-Ireland’s distinctive decarbonisation pathway, is further separated from other EU member states when focusing on the residential sector. This is largely down to Ireland’s high reliance on fossil fuels, low building thermal efficiency, larger dwellings and rural settlement patterns. This is illustrated by the fact only 5.8\% of the population of Ireland were living in apartments in 2018, the lowest in EU-27 and well below the 25.3\% average \cite{EurostatDistributionSurveyilc_lvho01}, furthermore 71.4\% of the Irish population are deemed to be living in dwellings too large, where the EU-27 rate is 33\% \cite{EurostatShareSurveyilc_lvho50a}. The low thermal efficiency of Ireland's dwelling is discussed later in this section and highlighted in Fig.\ref{fig:BERAge}. Furthermore Irelands fossil fuel dependency is underlined by home heating oil accounting for the largest share of fuel usage in the residential sector at 37\% \cite{SustainableEnergyAuthorityofIreland2018EnergySector}, of which all is imported \cite{OCleirigh2020ENERGYReport}.
-
-In the last 30 years, the extraction of indigenous peat has declined and consequently peat consumption has halved, in 2018 peat accounted for 12.3\% of residential GHG emissions. Residential coal GHG emissions has also declined to 6.9\% in 2018 \cite{EnergySEAI}. However, the decline in peat and coal has been offset by more significant growth in oil in the same period, where oil accounted for 34.8\% of residential GHG emissions in 2018 \cite{Howley2005ENERGY-RELATEDIreland}. Gas which is only available in some urban areas, accounted for 15.5\% of residential GHG emission in 2018 \cite{Howley2005ENERGY-RELATEDIreland}.  
-In summary, the residential sector is highly reliant on fossil fuels as shown in Fig.\ref{fig:ResFuel}, consequently Ireland currently has the lowest renewable heat of  among EU member states, at only 6.3\% \cite{Eurostat2021ShareSourcesnrg_ind_ren}. 
-
-\begin{figure}[!htbp]
- \centering
- \includegraphics[scale=0.5]{Figures/ResidentialFuelUsage.png}
- \caption{Historical Residential Fuel Consumption}
- \label{fig:ResFuel}
-\end{figure}
-% NOTE THE Y-AXIS IS NOT CORRECT - DATA FROM SEAI ENERGY DATA PORTAL 
-
-
-The 2021 building regulations in 2021 require a 70\% reduction of CO2 emissions in new dwellings compared to 2005 \cite{DepartmentofHousingGov.ieBuildings}, but since the 2008 global financial crisis there has been a considerable slowdown in the growth of housing stock. According to Central Statistics Office (CSO) approx. 85\% of residential buildings are 2005 or older. The BER database, which represents half of the dwelling stock, highlights the affect of construction year on the expected energy consumption, as shown in Fig.\ref{fig:BERAge}. The BERs labels are categorised based on expected energy consumption, with A1 representing the lowest expected energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest expected energy consumption ($ >450 kWh/m^2/year$). The BERs are developed from the Energy Performance of Buildings Directive 2002/91/ EC, helps to better understand the housing stock. The BERs are required for new houses, rented houses, sold houses and renovated houses. 
-
-\begin{figure}[!htbp]
- \centering
- \includegraphics[scale=0.5]{Figures/BERAge.png}
- \caption{Building Energy Rating by Age}
- \label{fig:BERAge}
-\end{figure}
-
-Theoretically G-rated BERs consume more energy and consequently have higher energy bills to maintain a comfortable internal temperature, but in reality G-rated dwellings have low internal temperatures, which results in higher excessive winter mortality \cite{Clinch2000HousingMortality}. BERs do not take account of actual usage based on occupancy behaviour or occupancy density, nor does it take account of the size of the dwelling. The BER labels do therefore leave a gap between actual consumption and expected consumption, I will explain how I approached this problem in the literature review. 
-
-Fuel Poverty which is a major contributor to the high excessive winter deaths, is defined as when a \textit{``household spends 10\% or more of income to achieve adequate warmth"}. An Element Energy report claimed 28\% of Irish households were in fuel poverty in 2015  \cite{ElementEnergy2015Bottom-upIreland}. Fuel Allowance and the Household Benefits provides support to low income households to alleviate fuel poverty. These payments have been increased over time with a further increase made in Budget 2020, coinciding with the increase in the carbon tax \cite{,EuropeanUnion2020EUObservatory}. As Kerr's study finds an explicit link between fuel poverty and social welfare policy in Ireland \cite{,EuropeanUnion2020EUObservatory,Kerr2019PoliticsFrance} and O’Meara highlights the health issues associated with Fuel Poverty, which include increased risk of catastrophic cardiovascular or cerebrovascular events \cite{OMeara2016AIreland}. Ironically, it can be argued this places low income households deeply dependent on fossil fuels for health.
 
 The United Nations Framework Convention on Climate Change (UNFCCC) GHG reporting rules, as per Decision 24/CP.19, states that 2006  Intergovernmental Panel on Climate Change (IPCC) guidelines are to be adhere to for national GHG reporting. Under these guidelines, Ireland’s residential sector accounted for 14.2\%of GHGs emissions in 2018 \cite{Howley2005ENERGY-RELATEDIreland}. Focusing on energy-related GHG emissions, the residential sector directly accounts for 24\% of GHG emissions. Fig. \ref{fig:Ireland2018GHG} shows the energy related GHG disaggregated between transport, heat and electricity. Where the residential sector is the direct source 47\% of heat and 30\% of electricity GHG emissions, the residential sector is therefore a pivotal sector in Ireland energy decarbonisation. 
 
@@ -216,6 +189,27 @@ The United Nations Framework Convention on Climate Change (UNFCCC) GHG reporting
     \caption{Ireland 2018 GHG Share \cite{Howley2005ENERGY-RELATEDIreland}}
     \label{fig:Ireland2018GHG}
 \end{figure}
+
+\subsubsection{Background}
+\label{Intro:IreRSDBack}
+Ireland’s distinctive decarbonisation pathway, is further separated from other EU member states when focusing on the residential sector. This is largely down to Ireland’s high reliance on fossil fuels, low building thermal efficiency, larger dwellings and rural settlement patterns. This is illustrated by the fact only 5.8\% of the population of Ireland were living in apartments in 2018, the lowest in EU-27 and well below the 25.3\% average \cite{EurostatDistributionSurveyilc_lvho01}, furthermore 71.4\% of the Irish population are deemed to be living in dwellings too large, where the EU-27 rate is 33\% \cite{EurostatShareSurveyilc_lvho50a}. The low thermal efficiency of Ireland's dwelling is discussed later in this section and highlighted in Fig.\ref{fig:BERAge}. Furthermore Irelands fossil fuel dependency is underlined by home heating oil accounting for the largest share of fuel usage in the residential sector at 37\% \cite{SustainableEnergyAuthorityofIreland2018EnergySector}, of which all is imported \cite{OCleirigh2020ENERGYReport}.
+
+In the last 30 years, the extraction of indigenous peat has declined and consequently peat consumption has halved, in 2018 peat accounted for 12.3\% of residential GHG emissions. Residential coal GHG emissions has also declined to 6.9\% in 2018 \cite{EnergySEAI}. However, the decline in peat and coal has been offset by more significant growth in oil in the same period, where oil accounted for 34.8\% of residential GHG emissions in 2018 \cite{Howley2005ENERGY-RELATEDIreland}. Gas which is only available in some urban areas, accounted for 15.5\% of residential GHG emission in 2018 \cite{Howley2005ENERGY-RELATEDIreland}.  
+In summary, the residential sector is highly reliant on fossil fuels, consequently Ireland currently has the lowest renewable heat of  among EU member states, at only 6.3\% \cite{Eurostat2021ShareSourcesnrg_ind_ren}. 
+
+
+The 2021 building regulations require a 70\% reduction of CO2 emissions in new dwellings compared to 2005 \cite{DepartmentofHousingGov.ieBuildings}, but since the 2008 global financial crisis there has been a considerable slowdown in the growth of housing stock. According to Central Statistics Office (CSO) approx. 85\% of residential buildings are 2005 or older. The BER database, which represents half of the dwelling stock, highlights the affect of construction year on the expected energy consumption, as shown in Fig.\ref{fig:BERAge}. The BERs labels are categorised based on expected energy consumption, with A1 representing the lowest expected energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest expected energy consumption ($ >450 kWh/m^2/year$). The BERs are developed from the Energy Performance of Buildings Directive 2002/91/ EC, which helps to better understand the housing stock. BERs are required for new houses, rented houses, sold houses and renovated houses. 
+
+\begin{figure}[!htbp]
+ \centering
+ \includegraphics[scale=0.5]{Figures/BERAge.png}
+ \caption{Building Energy Rating by Age}
+ \label{fig:BERAge}
+\end{figure}
+
+Theoretically G-rated BERs consume more energy and consequently have higher energy bills to maintain a comfortable internal temperature, but in reality G-rated dwellings have low internal temperatures, which results in higher excessive winter mortality \cite{Clinch2000HousingMortality}. BERs do not take account of actual usage based on occupancy behaviour or occupancy density, nor does it take account of the size of the dwelling. The BER labels do therefore leave a gap between actual consumption and expected consumption, the literature review explains how this problem was tackled. 
+
+Fuel Poverty which is a major contributor to the high excessive winter deaths, is defined as when a \textit{``household spends 10\% or more of income to achieve adequate warmth"}. An Element Energy report claimed 28\% of Irish households were in fuel poverty in 2015  \cite{ElementEnergy2015Bottom-upIreland}. Fuel Allowance and the Household Benefits provides support to low income households to alleviate fuel poverty. These payments have been increased over time with a further increase made in Budget 2020, coinciding with the increase in the carbon tax \cite{,EuropeanUnion2020EUObservatory}. As Kerr's study finds an explicit link between fuel poverty and social welfare policy in Ireland \cite{,EuropeanUnion2020EUObservatory,Kerr2019PoliticsFrance} and O’Meara highlights the health issues associated with Fuel Poverty, which include increased risk of catastrophic cardiovascular or cerebrovascular events \cite{OMeara2016AIreland}. Ironically, it can be argued this places low income households deeply dependent on fossil fuels for health.
 
 \subsection{Residential Energy Services}
 \label{Intro:EnergyServices}
@@ -339,8 +333,8 @@ In a bid not to be left behind in a ``net-zero" future, Gas Network Ireland (GNI
 Ireland has one of the lowest shares of District Heating (DH) in Europe at less than 1\%  \cite{Gartland2016AIreland} \cite{Harney2020DeterminingIreland}
 In Ireland,  DH networks are a new, despite being used for decade across central Europe. CAP2019 plans to have approx. 0.4\% of heating provided by DH in 2030, where the  Research in Ireland h
 IrDEA Up to 57\% feasible - same as Denmark DH
-37% of the Irish heat demand to district heatingshows that the district heating option provides a solution that ismore efficient than an individual heating solution for 80% 2050 reduction 
-potential for 37% district heating nationally (Connollyet al., 2013a).
+37\% Connollyet al., 2013a). of the Irish heat demand to district heatingshows that the district heating option provides a solution that ismore efficient than an individual heating solution for 80\% 2050 reduction 
+
 HVO, solar may also play a part. 
 
 \section{Literature Review}
@@ -349,8 +343,8 @@ HVO, solar may also play a part.
 ``How should Ireland set GHG targets in the residential sector?” 
 Choosing the Pathways which Create the Least Burden
 and Offer the Most Opportunity for Ireland
-\subsection{Modelling Approach}
-\label{LitR:Approach}
+\subsection{Modelling Methodology or Approach}
+\label{LitR:Model}
 \subsection{Supply}
 \label{LitR:Supply}
 \subsection{Demand}
