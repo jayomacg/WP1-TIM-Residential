@@ -108,10 +108,10 @@
 
 \begin{abstract}
 %% Text of abstract
-
-Write after paper is completed %Ireland's residential sector has particularly underachieved in previous climate targets.  Located on the peripherals of Europe, with a high share of low thermal efficient detached dwellings with carbon intensive heating fuels, provides some distinctive barriers to decarbonising Ireland's residential sector. The disadvantageous starting position has impeded residential decarbonisation progress thus far. \par
+%Ireland's residential sector has particularly underachieved in previous climate targets. Located on the peripherals of Europe, with a high share of low thermal efficient detached dwellings with carbon intensive heating fuels, provides some distinctive barriers to decarbonising Ireland's residential sector. The disadvantageous starting position has impeded residential decarbonisation progress thus far. \par
 %Energy system optimization models (ESOMs) have been used extensively to inform pathways in addressing long-term energy challenges which provides insights to decision makers on issues related to climate and energy policy. \par
 %The TIMES-Ireland Model (TIM) is a newly developed optimisation model of the Irish energy system, which calculates the  cost-optimal decarbonisation pathway to meet future energy service demands while achieving Ireland's legally binding 2030 and 2050 climate targets.
+Write after paper is completed 
  
 \end{abstract}
 
@@ -143,6 +143,15 @@ Energy systems optimisation model (ESOM) \sep The integrated MARKAL-EFOM system 
 %% main text
 \section{Introduction}
 \label{sec:Introduction}
+
+Understanding residential energy consumption in Ireland is key to exploring future residential decarbonisation pathways, and interpreting the results. This section looks at Ireland's climate targets, energy policy and distinctive residential sector, before examining how researchers have used Energy system optimization models (ESOMs) to analyse the residential sector.
+Section \ref{LitR} describes the methodology used to develop the residential sector of TIMES Ireland Model (TIM). The sector outlines the data used and calculations used ......
+What does new model do that previous didn’t?
+Does new policy context require new modelling approach?
+How does new modelling structure provide insights (give examples) in a way that previous model didn’t?
+% ``How should Ireland set GHG targets in the residential sector?” 
+This is done by examining the current climate targets, EU dirictives and Irish and EU policy, then analysiing future policy and looking at ESOMs 
+
 \subsection{Climate Targets}
 
 \par % Paragraph 1 - Intro
@@ -211,64 +220,11 @@ The 2021 building regulations require a 70\% reduction of CO2 emissions in new d
 
 Theoretically G-rated BERs consume more energy and consequently have higher energy bills to maintain a comfortable internal temperature, but in reality G-rated dwellings have low internal temperatures, which is a reason for Ireland's high excessive winter mortality \cite{Clinch2000HousingMortality}. Fuel Poverty which which is defined as when a \textit{``household spends 10\% or more of income to achieve adequate warmth"} is a major contributor to the high excessive winter deaths. An Element Energy report claimed 28\% of Irish households were in fuel poverty in 2015  \cite{ElementEnergy2015Bottom-upIreland}. Fuel Allowance and the Household Benefits provides support to low income households to alleviate fuel poverty. These payments have been increased over time with a further increase made in Budget 2020, coinciding with the increase in the carbon tax \cite{,EuropeanUnion2020EUObservatory}. Kerr's study finds an explicit link between fuel poverty and social welfare policy in Ireland \cite{,EuropeanUnion2020EUObservatory,Kerr2019PoliticsFrance} and O’Meara highlights the health issues associated with Fuel Poverty \cite{OMeara2016AIreland}. Ironically, it can be argued this places low income households deeply dependent on fossil fuels for health.
 \par BERs do not take account of actual usage based on occupancy behaviour or occupancy density, nor does it take account of the size of the dwelling. The BER labels do therefore leave a gap between actual consumption and expected consumption, the literature review explains how this problem was tackled.
-\subsection{Residential Energy Services}
-\label{Intro:EnergyServices}
-
-Space heating is the largest residential energy service demand, accounted for 61.8\% of final energy usage in 2018. Other residential energy services and their share of final energy is shown in Fig.\ref{fig:Ireland2018ServiceDemands}. As building thermal efficiency and heating technology efficiency improves, both space and water heating energy would be expected to decline. The new A-rated dwellings can be used as a guide to show the share of future energy service demands. From the BER database, it can be seen that A-rated dwellings use less than half space heating energy of the average dwelling and A-rated water heating energy decreases by about 40\% compared to the average A-rated dwelling. However Pumps \& Fans energy increases as mechanical ventilation is used over natural ventilation and Lighting usage in A-rated is more than double the average household. Cooking and Appliances energy usage would be expected to remain stable. 
-
-
-\begin{figure}[!htbp]
-\centering
-    \begin{tikzpicture}
-    \tikzstyle{every node}=[font={\bf}]
-    \pie[   color = { yellow!90!black, green!60!black, blue!60,
-        red!70,
-        gray!80,
-        teal!20
-    }, explode = 0.6, text=legend, radius=2.4]{61.8/Space Heating, 2.2/Cooking, 18.5/Water Heating, 3.8/Lighting, 12.8/Appliances,0.9/Pumps \& Fans}
-    \end{tikzpicture}
-    \caption{Ireland 2018 Energy Service Demands}
-    \label{fig:Ireland2018ServiceDemands}
-\end{figure}
-
-Notably absent from Fig.\ref{fig:Ireland2018ServiceDemands}, is space cooling, which is accounted for in appliances. The Policy Oriented Tool for Energy and Climate Change Impact Assessment (POTEnCIA) project disaggregated Ireland's residential space cooling from appliances and have output expected space cooling energy consumption projections are shown in Fig.\ref{fig:Cooling}. 
-
-
-\begin{figure}[!htbp]
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-    x tick label style={
-		/pgf/number format/1000 sep=},xlabel={Year},
-	y tick label style={
-	    /pgf/number},
-		ylabel={Energy Consumption($ktoe$)},
-		 scaled y ticks = false,
-    xmin=2000, xmax=2050,
-    ymin=0, ymax=40,
-    xtick={2000,2010,2020,2030,2040,2050},
-    ytick={0,10,20,30,40},
-    ymajorgrids=true,
-]
-\addplot[
-    color=blue,
-    mark=square,
-    ]
-    coordinates {
-    (2000,0.6)(2010,3.1)(2020,8.4)(2030,16.3)(2040,26.1)(2050,37)
-    };
-\end{axis}
-\end{tikzpicture}
-    \caption{Space Cooling Residential Energy Consumption (Source: POTEnCIA) }
-    \label{fig:Cooling}
-\end{figure}
-
-The SEAI residential energy report \cite{SustainableEnergyAuthorityofIreland2018EnergySector} provides high resolution detail on energy demands in the residential sector. Variables such as disposable income, appliance ownership, dwelling location, type of occupier status (owner/rented ), BER labels and age of dwelling. 
 
 \subsection{Current Energy Policy}
 \label{Intro:Policy}
 
-The energy-related GHG emissions are expected to be reduced beyond the 51\% national target by 2030 compared to 2018, due to the higher cost-effectiveness of abating GHG emissions when compared with agriculture.  The CAP2019 Marginal Abatement Cost Curve (MACC), which was developed by McKinsey and Company's modelling tools and is based on EPA's GHG emission projection report \cite{EPA2018EPAReport} found electricity \& transport are the most cost effective for decarbonisation \cite{DepartmentofCommunicationsClimateActionandEnvironment2019DecarbonisationIreland}. Therefore a cost effective solution to decarbonising the residential sector, is to receive low carbon electricity and increasing the share of electricity usage.
+The CAP2019 Marginal Abatement Cost Curve (MACC),  \cite{EPA2018EPAReport} found electricity \& transport are the most cost effective for decarbonisation \cite{DepartmentofCommunicationsClimateActionandEnvironment2019DecarbonisationIreland}. Therefore a cost effective solution to decarbonising the residential sector, is to receive low carbon electricity and increasing the share of electricity usage.
 
 Ireland has set out national policy objectives under 10 strategic investment priorities \cite{Ireland2018ProjectFramework}. The first strategic investment priority is ``Compact Growth" which aims to  achieve \textit{``effective density and consolidation, rather than more sprawl of urban development, [as] a top priority"}. The densification of Ireland's main cities, will provide opportunities to improve the efficiency of heating, electricity and transport within and between cities. 
 
@@ -324,22 +280,86 @@ to 57\% of heat can be sourced from DH, if supporting policy and regulation was 
 
 \subsubsection{Hydrotreated Vegetable Oil}
 While it maybe optimal to use Hydrotreated Vegetable Oil (HVO) in transport, it is also considered in the residential sector, as it can provide a cheap alternative for the 700,000 Irish dwellings using home heating oil ( mostly kerosene). HVO which meets the EU sustainability criteria, reduce GHG emissions by 60\% as compared to fossil fuels \cite{Soam2019FactorsSweden}. The capacity of HVO is growing in Europe, but HVO is currently about twice the price of kerosene. HVO can be used to replace kerosene, albeit with cost of up to €400 per oil boiler, however there is no policy for HVO in the residential sector.
+biofuel obligation scheme - Internationally there is a limited supply of HVO available and the
+demand for the fuel is high.HVO has been produced in the past at Ireland’s only refinery at Whitegate and
+potentially could be again with the appropriate investment. Not HVO100, but higher concentration of HVO than current blending capacity
 
 \section{Literature Review}
 \label{LitR}
-%PICKUPHERE
+
 ``How should Ireland set GHG targets in the residential sector?” 
 Choosing the Pathways which Create the Least Burden
 and Offer the Most Opportunity for Ireland
 \subsection{Modelling Methodology or Approach}
 \label{LitR:Model}
 The TIM approach.....
+%a newly formed group with members from different universities, industries and semi-state agencies within Ireland.  Following this, other datasets were then used to develop the full housing stock, based on the correlation of year of construction and building energy ratings.
+\subsection{Residential Energy Services}
+\label{Intro:EnergyServices}
+
+Space heating is the largest residential energy service demand, accounted for 61.8\% of final energy usage in 2018. Other residential energy services and their share of final energy is shown in Fig.\ref{fig:Ireland2018ServiceDemands}. As building thermal efficiency and heating technology efficiency improves, both space and water heating energy would be expected to decline. The new A-rated dwellings can be used as a guide to show the share of future energy service demands. From the BER database, it can be seen that A-rated dwellings use less than half space heating energy of the average dwelling and A-rated water heating energy decreases by about 40\% compared to the average A-rated dwelling. However Pumps \& Fans energy increases as mechanical ventilation is used over natural ventilation and Lighting usage in A-rated is more than double the average household. Cooking and Appliances energy usage would be expected to remain stable. 
+
+
+\begin{figure}[!htbp]
+\centering
+    \begin{tikzpicture}
+    \tikzstyle{every node}=[font={\bf}]
+    \pie[   color = { yellow!90!black, green!60!black, blue!60,
+        red!70,
+        gray!80,
+        teal!20
+    }, explode = 0.6, text=legend, radius=2.4]{61.8/Space Heating, 2.2/Cooking, 18.5/Water Heating, 3.8/Lighting, 12.8/Appliances,0.9/Pumps \& Fans}
+    \end{tikzpicture}
+    \caption{Ireland 2018 Energy Service Demands}
+    \label{fig:Ireland2018ServiceDemands}
+\end{figure}
+
+Notably absent from Fig.\ref{fig:Ireland2018ServiceDemands}, is space cooling, which is accounted for in appliances. The Policy Oriented Tool for Energy and Climate Change Impact Assessment (POTEnCIA) project disaggregated Ireland's residential space cooling from appliances and have output expected space cooling energy consumption projections are shown in Fig.\ref{fig:Cooling}. 
+
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    x tick label style={
+		/pgf/number format/1000 sep=},xlabel={Year},
+	y tick label style={
+	    /pgf/number},
+		ylabel={Energy Consumption($ktoe$)},
+		 scaled y ticks = false,
+    xmin=2000, xmax=2050,
+    ymin=0, ymax=40,
+    xtick={2000,2010,2020,2030,2040,2050},
+    ytick={0,10,20,30,40},
+    ymajorgrids=true,
+]
+\addplot[
+    color=blue,
+    mark=square,
+    ]
+    coordinates {
+    (2000,0.6)(2010,3.1)(2020,8.4)(2030,16.3)(2040,26.1)(2050,37)
+    };
+\end{axis}
+\end{tikzpicture}
+    \caption{Space Cooling Residential Energy Consumption (Source: POTEnCIA) }
+    \label{fig:Cooling}
+\end{figure}
+
+The SEAI residential energy report \cite{SustainableEnergyAuthorityofIreland2018EnergySector} provides high resolution detail on energy demands in the residential sector. Variables such as disposable income, appliance ownership, dwelling location, type of occupier status (owner/rented ), BER labels and age of dwelling. 
+
 \subsection{Supply}
 \label{LitR:Supply}
 \subsection{Demand}
 \label{LitR:Demand}
+%Space Heating demand - BER space heating is only within certain months and assumes 21C heating..
 \subsection{Assumptions}
 \label{LitR:Assumptions}
+Macroeconomic Assumptions 
+Capacity
+Costs
+Efficiency
+Savings
  % LIT REW INPUT DATA - EU \cite{Simoes2013TheProject} 
 - LI,er.alThe nationwide survey identified existing technologies, age,
 income, region, dwelling characteristics, and knowledge of eco- technology as the six most influential factors for determining homeowners' preferences for heating systems. Among
