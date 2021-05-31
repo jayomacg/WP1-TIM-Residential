@@ -91,7 +91,7 @@
 %% \fntext[label3]{}
 
 \title{TIMES Ireland Model: Residential Sector}
-
+% The changing TIMES of Irish Homes
 \author[inst1,inst2]{Jason Mc Guire\footnote{Contact: j.mcguire@ucc.ie}}
 
 \affiliation[inst1]{organization={Energy Policy and Modelling Group, MaREI Centre},%Department and Organization
@@ -148,16 +148,15 @@ Energy systems optimisation model (ESOM) \sep The integrated MARKAL-EFOM system 
 \section{Introduction}
 \label{sec:Introduction}
 
-Understanding residential energy consumption in Ireland is key to exploring future residential decarbonisation pathways, and interpreting the results. This section looks at Ireland's climate targets, energy policy and distinctive residential sector, before examining how researchers have previously used Energy system optimization models (ESOMs) to analyse the residential sector.
-\par Section \ref{LitR} describes the methodology used to develop the residential sector of TIMES Ireland Model (TIM). The sector outlines the data used, along with the applied constraints, technologies, costs and demands. The section outlines the strengths and weakness of the newly developed model and how it differs from other models. 
-\par Section \ref{Results} discusses the results- scenarios
-\par Section \ref{Conclusion} Conclusion 
+Understanding residential energy consumption in Ireland is key to exploring future residential decarbonisation pathways, and interpreting the results. Section \ref{sec:Introduction} looks at Ireland's climate targets, energy policy and distinctive residential sector, before examining how researchers have previously used Energy system optimization models (ESOMs) to analyse the residential sector.
+\par Section \ref{LitR} describes the methodology used to develop the residential sector while also describing the input data, along with the applied constraints, technologies, costs and demands.  
+Section \ref{Results} outlines the results obtained from selected scenarios. Section \ref{Discussion} discusses the strengths and weakness of the newly developed model and how it differs from other models. Lastly, section \ref{Conclusion} draws some conclusions on the model, results and suggestions on future work which would be beneficially for policy makers in Ireland.
 
  
 \subsection{Ireland: Residential Sector}
 \label{Intro:IreRSD}
 
-Ireland’s distinctive energy sectors are further separated from other EU member states when focusing on the residential sector. This is largely down to Ireland’s high reliance on fossil fuels, low building thermal efficiency, larger dwellings and rural settlement patterns. This is illustrated by the fact only 5.8\% of the population of Ireland were living in apartments in 2018, the lowest in EU-27 and well below the 25.3\% average \cite{EurostatDistributionSurveyilc_lvho01}, furthermore 71.4\% of the Irish population are deemed to be living in dwellings too large, where the EU-27 rate is 33\% \cite{EurostatShareSurveyilc_lvho50a}. The low thermal efficiency of Ireland's dwelling stock is highlighted by two facts, firstly the 2021 building regulations require a 70\% reduction of CO2 emissions in new dwellings compared to 2005 \cite{DepartmentofHousingGov.ieBuildings}, and secondly according to Central Statistics Office (CSO) data approx. 85\% of residential buildings are 2005 or older. Furthermore Irelands fossil fuel dependency is underlined by home heating oil accounting for the largest share of fuel usage in the residential sector at 37\% \cite{SustainableEnergyAuthorityofIreland2018EnergySector}, of which all is imported \cite{OCleirigh2020ENERGYReport}.
+Ireland’s distinctive energy sectors are further separated from other EU member states when focusing on the residential sector. This is largely down to Ireland’s high reliance on fossil fuels, low building thermal efficiency, larger dwellings and rural settlement patterns. This is illustrated by the fact only 5.8\% of the population of Ireland were living in apartments in 2018, the lowest in EU-27 and well below the 25.3\% average \cite{EurostatDistributionSurveyilc_lvho01}, furthermore 71.4\% of the Irish population are deemed to be living in dwellings too large, where the EU-27 rate is 33\% \cite{EurostatShareSurveyilc_lvho50a}. The low thermal efficiency of Ireland's dwelling stock is highlighted by two facts, firstly the 2021 building regulations require a 70\% reduction of CO2 emissions in new dwellings compared to 2005 \cite{DepartmentofHousingGov.ieBuildings}, and secondly according to Central Statistics Office (CSO) data approx. 85\% of residential buildings are 2005 or older. Furthermore Irelands fossil fuel dependency is underpinned by home heating oil accounting for the largest share of fuel usage in the residential sector at 37\% \cite{SustainableEnergyAuthorityofIreland2018EnergySector}, of which all is imported \cite{OCleirigh2020ENERGYReport}.
 
 In the last 30 years, the extraction of indigenous peat has declined and consequently peat consumption has halved, in 2018 peat accounted for 12.3\% of residential GHG emissions. Residential coal GHG emissions has also declined to 6.9\% in 2018 \cite{Howley2005ENERGY-RELATEDIreland}. However, the decline in peat and coal has been offset by more significant growth in oil in the same period, where oil accounted for 34.8\% of residential GHG emissions in 2018 \cite{Howley2005ENERGY-RELATEDIreland}. Gas availability is limited to some urban areas, and accounted for 15.5\% of residential GHG emission in 2018 \cite{Howley2005ENERGY-RELATEDIreland}. 
 The residential sector relied on fossil fuels for over 90\% of thermal energy in 2018, consequently Ireland currently has the lowest renewable heat of among EU member states, at only 6.3\% \cite{Eurostat2021ShareSourcesnrg_ind_ren}. Preliminary results from the Environmental Protection Agency (EPA) have indicated a 9\% increase of residential GHG emissions in 2020, mainly due to low home heating oil prices and covid-related restrictions.
@@ -185,17 +184,63 @@ Where the residential sector is the direct source 47\% of heat and 30\% of elect
 \subsection{Climate Targets}
 
 Under the Climate Action and Low Carbon Development (Amendment) Act 2021, the Irish government has proposed legally binding national targets to reduce Greenhouse Gas (GHG) emissions by 51\% in 2030 compared to 2018. The Act also proposes a long-term target to achieve a climate neutral economy or ``net-zero" by 2050 \cite{2021Climate2021}. These targets accounts for all GHGs - both Emission Trading System (ETS) emissions and non-ETS emissions, and sets out make sectoral five year carbon budgets  a legal requirement to aid progress of the forementioned long-term targets. 
-\par The EU's first Nationally Determined Contribution (NDC) which had a 40\% GHG reduction target (first NDC), has increased to at least a 55\% GHG reduction target (updated NDC) by 2030 compared to 1990 levels \cite{SUBMISSIONSTATES}. Ireland's Climate Action Plan 2019 (CAP2019) complies with EU's first NDC, from which Irelands 30\% Non-ETS GHG reduction target in 2030 compared to 2005 levels was derived  \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. Climate Action Plan 2021 will have to be more ambitious than its predecessor, CAP2019 as it must reflect EU's updated NDC target and take account of the national set target.
+\par The EU's first Nationally Determined Contribution (NDC) which had a 40\% GHG reduction target (first NDC), has been succeeded by a new target of at least a 55\% GHG reduction target (updated NDC) by 2030 compared to 1990 levels \cite{SUBMISSIONSTATES}. Ireland's Climate Action Plan 2019 (CAP2019) complies with EU's first NDC, from which Irelands 30\% Non-ETS GHG reduction target in 2030 compared to 2005 levels was derived  \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. Climate Action Plan 2021 will have to be more ambitious than its predecessor, CAP2019 as it must reflect EU's updated NDC target and take account of the national target also.
 There are also renewable energy targets to consider for transport (RES-T), heat (RES-H) and electricity (RES-E) under renewable directive (EU) 2018/2001, and energy efficiency targets under (EU) 2018/2002.
 
-\subsection{Energy System Optimisation Models}
-\label{Intro:ESOM}
-An Energy System Optimisation Model (ESOM), can be used to optimise the selection of a large number of dynamic variables to satisfy demand, while accounting for complex sectoral interconnections within each time period.
-\par Some of the main ESOM include EnergyPLAN \cite{stergaard2015ReviewingSimulations}, MESSAGE \cite{Messner1995WorkingE}, TIMES \cite{Loulou2016EnergyProgramme}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOYS \cite{Howells2011OSeMOSYS:Development.}. The Integrated MARKAL-EFOM System (TIMES) modelling framework was selected to develop an Irish model, a description of the framework is outlined in the following subsection. 
+\subsection{Current Energy Policy}
+\label{Intro:Policy}
+Ireland has set out national policy objectives under 10 strategic investment priorities \cite{Ireland2018ProjectFramework}. The first strategic investment priority is ``Compact Growth" which aims to  achieve \textit{``effective density and consolidation, rather than more sprawl of urban development, [as] a top priority"}. The densification of Ireland's main cities, will provide opportunities to improve the efficiency of heating, electricity and transport within and between cities. 
+\par Specifically focusing on the energy sector, the Marginal Abatement Cost Curve (MACC) produced in CAP2019  \cite{EPA2018EPAReport} found electricity \& transport are most cost effective sectors for energy decarbonisation \cite{DepartmentofCommunicationsClimateActionandEnvironment2019DecarbonisationIreland}. CAP2019 findings show the most cost effective solution to decarbonising the residential sector, is to receive higher amounts of low carbon electricity.
 
-\subsubsection{TIMES}
-\label{Intro:TIMES}
-The objective function may be thought of as the discounted sum of net annual costs (i.e. costs minus revenues),
+
+
+%The CAP2019 MACC, shown in Fig.\ref{fig:CAP2019:MACC} provides $>300$ of the most cost-effective technologies options to reduce Non-ETS GHG by 30\% in 2030 compared to 2005 levels. 
+%The x-axis (width of each bar chart) shows the potential reduction of annual $MtCO2_{eq}$. The y-axis (height of each bar chart ) shows the associated average cost of abating one tonne of $CO2_{eq}$ over the 2021 to 2030 period. The columns are organised from the most economical (left side) to the most expensive technology (right side) in $EUR/tCO2_{eq}$ \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}.
+%The options specific to the residential sector are: 
+
+%\begin{itemize}
+%    \item{Retrofit oil boiler existing dwellings to B2 equivalent}
+ %   \item{Switch from oil boilers to heat pumps in existing dwellings}
+ %   \item{Retrofit gas boiler and solid fuel stove existing dwellings to B2 equivalent}
+ %   \item{Introduce CO2-free heating in new buildings}\cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}
+%\end{itemize} 
+
+%\begin{figure}[!htbp]
+ %\centering
+ %\includegraphics[scale=1]{Figures/CAP2019MACC.png} 
+ %\caption{Climate Action Plan 2019 - Marginal Abatement Cost Curve}
+% \label{fig:CAP2019:MACC} \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}
+%\end{figure}
+%For example, Figure \ref{fig:CAP2019:MACC} shows the retrofitting of oil boilers is expected to reduce the Total Cost of Ownership (TCO) (ie. save money), but only abate a small amount of carbon, whereas switching oil boilers to heat pumps will increase TCO (ie. cost money) but the expected abatement of carbon is far greater. 
+
+In Ireland the decarbonisation of the electricity is underway, with carbon intensity falling annually to 375 $gCO_2/kWh$ in 2018, which is 40\% lower than 2005 levels \cite{Howley2005ENERGY-RELATEDIreland}. 
+A €15/ $tCO_2$ carbon tax was introduced in 2009 to reduce investment in fossil fuels, and the increasing carbon tax rate has resulted in tax receipts growing every year from 2010 to 2018 \cite{Oireachtas2019AnOffice}. Ireland's current carbon tax of €33.50/ $tCO_2$ will rise to €100/ $tCO_2$ in 2030. The Renewable Energy Feed-in Tariff (REFIT) schemes were designed to incentivise renewable electricity investment to achieve legally binding renewable targets under 2009/28/EC. REFIT operates by guaranteeing a minimum price for electricity over a 15 year period. The Renewable Electricity Support Scheme (RESS) replaced REFIT in 2020. RESS supports to renewable electricity projects to help Ireland achieve 2030 climate targets, especially the 70\% renewable electricity target. 
+% Almost 800 MW of solar has been approved in RESS-1 \cite{Eirgrid2020RenewableResults}, this greatly exceeds the current solar capacity of 16 MW, while making significant progress towards the CAP2019 target of 1500 MW solar by 2030.
+\par Sustainable Energy Authority of Ireland (SEAI) have a key role in the rollout of retrofitting and heat pumps in existing homes. In parallel, new dwellings must achieve a minimum of 20\% renewable energy. The ambient heat used in heat pumps is included as a renewable energy, heat pumps are therefore the preferred heating technology despite the high capital costs. As mentioned in Section \ref{Intro:IreRSD}, new buildings in Ireland produce 70\% less GHG emissions than building in 2005, and with CAP2019 plans to upgrade 500,000 existing homes to a Building Energy Rating (BER) ‘B2’ by 2030, highlights the energy efficiency first approach in the residential sector. 
+\par Gas Network Ireland (GNI) have set a 18\% biomethane target for 2030 \cite{Ervia2019VisionIreland}, where CAP2019 only set a 3\% biomethane target for 2030 \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. GNI anticipates that by 2026 or 2027 the supply from Corrib ( Irelands only indigenous gas supply, which provided 61\% of gas in 2018 ) will be less than 30\% of 2018 levels \cite{OCleirigh2020ENERGYReport}. The gas network currently reaches 40\% or 680,000 dwellings in urban areas, but with the ``Compact Growth" policy strategy a higher share of building may have access to the gas network in the future. A major barrier to increasing biomethane from an agricultural source in the gas network is the cost, it was the most expensive option in the Marginal Abatement Cost Curve (MACC) produced in CAP2019.
+\par Ireland has one of the lowest shares of District Heating (DH) in Europe at less than 1\%  \cite{Gartland2016AIreland}. The ``Compact Growth" policy strategy and advancement in DH control will strengthen the case for DH networks to play a part in decarbonisaing the residential sector. CAP2019 plans to have approx. 0.4\% of heating provided by DH in 2030, research using TIMES and EnergyPLAN has shown that 37\% of heating provided by DH is optimal if Ireland is to reduce GHG emissions by 80\% in 2050, compared to 1990 \cite{Thellufsen2019ImplementingIreland}. While Irish District Energy Association (IrDEA) suggest 57\% of heat can be sourced from DH, if supporting policy and regulation was in place. District Heating will likely play a role, however Gartland points out a range of organisational, technical, regulatory and economic barriers to DH growth in Ireland \cite{Gartland2016AIreland}. 
+\par While it maybe optimal to use Hydrotreated Vegetable Oil (HVO) in transport, it is also considered in the residential sector, as it can provide a cheap alternative for the 700,000 Irish dwellings using home heating oil ( mostly kerosene). HVO which meets the EU sustainability criteria, reduces GHG emissions by 60\% as compared to fossil fuels \cite{Soam2019FactorsSweden}. The capacity of HVO is growing in Europe, but HVO is currently about twice the price of kerosene. HVO can be used to replace kerosene, albeit with cost of up to €400 per oil boiler, however there is no policy for HVO in the residential sector. 
+
+\subsection{Residential Modelling}
+\label{Intro:ESOM}
+%Convert the ESOM section in the intro to a “residential modelling section” which I would use to “describe” how residential sector has been model with TIMES and other models (I put describe in “” because I would just mention the approaches and cite specific studies), as well as mention their advantages/disadvantages;- Olex Email
+Energy System Optimisation Models (ESOMs) can be used to optimise the selection of a large number of dynamic variables to satisfy demand, while accounting for complex sectoral interconnections within each time period.
+\par Some of the main ESOM frameworks include EnergyPLAN \cite{stergaard2015ReviewingSimulations}, MESSAGE \cite{Messner1995WorkingE}, TIMES \cite{Loulou2016DocumentationI}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOYS \cite{Howells2011OSeMOSYS:Development.}. 
+
+While ESOM can cover all the energy-related sectors, it can also be used to explore the residential sector in detail. 
+
+Some studies focusing on the residential sector in TIMES include, Li who studied the preference for heating technology choice in UK \cite{Li2018IncorporatingModel}, Petrovic examined a new approached to represent residential heat pumps in Denmark \cite{Petrovic2016ResidentialSystem} and Aberg analysed the affect higher thermal efficiency in buildings has on co-production of electricity and district heating in Sweden \cite{Aberg2011OptimisationBuildings}. There has also been some studies residential sector in Ireland, using previous versions of Irish TIMES and now out-dated climate targets. 
+
+\section{Methodology}
+\label{LitR}
+Goal of TIM
+
+\subsection{TIM Overview}
+\label{Overview}
+NOT DONE 
+The Integrated MARKAL-EFOM System (TIMES) modelling framework was utilised to develop an Irish model, a description and selection process of the framework are outlined in the following subsection. 
+\par TIMES has been developed and maintained by Energy Technology Systems Analysis Program (ETSAP) of the International Energy Agency (IEA). TIMES is a bottom-up optimisation model generator for energy-environment systems analysis at various levels of spatial, temporal and sectoral resolution.
+\par TIMES uses The GAMS source code to optimise a least cost solution with perfect foresight. The objective function may be thought of as the discounted sum of net annual costs (i.e. costs minus revenues),
 \begin{equation} 
 \begin{split}
 NPV = {\sum_{r=1}^{R}  \sum_{y\in YEARS}(1 + d_{r,y})^{REFYR-y}}
@@ -212,7 +257,7 @@ R is the set of regions in the area of study.
 $ANNCOST$ is quite complex and is postponed until section 6.2 of PART II
 Due to the data driven nature of TIMES (see section 2.5), all TIMES constraints are activated and defined by specifying some attributes. Attributes are attached to processes, to commodities, to flows, or to special variables that have been created to define new TIMES features. Indeed, TIMES
 
-TIMES has been developed and maintained by Energy Technology Systems Analysis Program (ETSAP) of the International Energy Agency (IEA). is a bottom-up optimisation model generator for energy-environment sys-tems analysis at various levels of spatial, temporal and sectoral resolution ...which combines high resolution ``bottom-up" technological detail and ``top-down" macroeconomic variables covering all energy sectors.
+
  % It calculates the lowest-cost configuration of energy fuels and technologies whichmeet future energy demands, while respecting technical, environmental, economic, social and policy constraints. Key inputsand  constraints  include  primary  energy  resource  availability  and  costs,  the  technical  and  cost  evolution  of  new  mitigationoptions and maximum feasible uptake rates of new technologies. Alternatively, TIM can be used to assess the implications ofcertain policies, namely regulatory or technology target-setting (for example, biofuels blending obligation or sales/stock share80target for electric vehicles).
 \par  However the expertise among energy policy researchers in Ireland combined with the global network of ETSAP modellers, makes TIMES the preferred ESOM to explore Ireland's decarbonisation pathways. \par Previous versions of the Irish TIMES model were extracted from the Pan European TIMES model, and then updated with specific national data and assumptions. The previous Irish TIMES models were used to provide informative reports on Irish climate policy \cite{Gallachoir2012EPAModel,Deane2017Irish2,Gallachoir2020The3,Deane2013TechnicalIreland,IrishGovernment2017National2017}.  
 Therefore, there is a need for a new TIMES model to be built specifically to explore Ireland's new 2030 and 2050 climate targets and sectoral five-year carbon budgets, the ``TIMES Ireland Model" (TIM) was built in 2021 to address this need \textbf{(SOURCE)}.
@@ -226,79 +271,8 @@ VAR\_CAP(t + 1) \leq (1 + GROWTH^{M(t+1)-M(t)}) \cdot VAR\_CAP(t)+K
 The GROWTH coefficient is defined as a new attribute of the technology, and represents the maximum annual growth allowed for the capacity. The quantity M(t+1)-M(t) is the number of years between the milestones of periods t and t+1. The constant K is useful whenever the technology has no capacity initially, in order to allow capacity to build over time (if K were absent and initial capacity is zero, the technology would never acquire any capacity)
 Note that the sign of the constraint may also be of the "larger than or equal to" type to express a maximum rate of abandonment, in which case the "+" sign is replaced by a "–" sign in the right-hand-side of the constraint. Equality is also allowed, but must be used only exceptionally in order to avoid railroading of the model.
 5.4.11
-\subsection{Residential Sector research using ESOMs}
-\label{Intro:ESOMRes}
-While TIMES models can cover all the energy-related sectors, it can also be used to explore the residential sector in detail. Some studies focusing on the residential sector in TIMES include, Li who studied the preference for heating technology choice in UK \cite{Li2018IncorporatingModel}, Petrovic examined a new approached to represent residential heat pumps in Denmark \cite{Petrovic2016ResidentialSystem} and Aberg analysed the affect higher thermal efficiency in buildings has on co-production of electricity and district heating in Sweden \cite{Aberg2011OptimisationBuildings}. There has also been some studies residential sector in Ireland, using previous versions of Irish TIMES and now out-dated climate targets. 
 
-\subsection{Current Energy Policy}
-\label{Intro:Policy}
-
-The CAP2019 Marginal Abatement Cost Curve (MACC),  \cite{EPA2018EPAReport} found electricity \& transport are the most cost effective for decarbonisation \cite{DepartmentofCommunicationsClimateActionandEnvironment2019DecarbonisationIreland}. Therefore the most cost effective solution to decarbonising the residential sector, is to receive higher amounts of low carbon electricity.
-
-Ireland has set out national policy objectives under 10 strategic investment priorities \cite{Ireland2018ProjectFramework}. The first strategic investment priority is ``Compact Growth" which aims to  achieve \textit{``effective density and consolidation, rather than more sprawl of urban development, [as] a top priority"}. The densification of Ireland's main cities, will provide opportunities to improve the efficiency of heating, electricity and transport within and between cities. 
-
-The CAP2019 MACC, shown in Fig.\ref{fig:CAP2019:MACC} provides $>300$ of the most cost-effective technologies options to reduce Non-ETS GHG by 30\% in 2030 compared to 2005 levels. 
-The x-axis (width of each bar chart) shows the potential reduction of annual $MtCO2_{eq}$. The y-axis (height of each bar chart ) shows the associated average cost of abating one tonne of $CO2_{eq}$ over the 2021 to 2030 period. The columns are organised from the most economical (left side) to the most expensive technology (right side) in $EUR/tCO2_{eq}$ \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. The options specific to the residential sector are: 
-
-\begin{itemize}
-    \item{Retrofit oil boiler existing dwellings to B2 equivalent}
-    \item{Switch from oil boilers to heat pumps in existing dwellings}
-    \item{Retrofit gas boiler and solid fuel stove existing dwellings to B2 equivalent}
-    \item{Introduce CO2-free heating in new buildings}\cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}
-\end{itemize} 
-
-\begin{figure}[!htbp]
- \centering
- \includegraphics[scale=1]{Figures/CAP2019MACC.png} 
- \caption{Climate Action Plan 2019 - Marginal Abatement Cost Curve}
- \label{fig:CAP2019:MACC} \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}
-\end{figure}
-Where, the retrofitting of oil boilers is expected to reduce the Total Cost of Ownership (TCO) (ie. save money), but only abate a small amount of carbon, whereas switching oil boilers to heat pumps will increase TCO (ie. cost money) but the expected abatement of carbon is far greater. 
-
-\subsubsection{Electricity}
-\par
-In Ireland the decarbonisation of the electricity is underway, with carbon intensity falling annually to 375 $gCO_2/kWh$ in 2018, which is 40\% lower than 2005 levels \cite{Howley2005ENERGY-RELATEDIreland}. Under CAP2019 the continued growth and decarbonisation of the electricity will be the fundamental to lowering energy-related GHG in not only electricity, but in heat and transport also \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}.
-Decarbonising electricity is key for Ireland, both the \textit{``stick"} (tax) approach which aims to deter investment in fossil fuel power generation, and the \textit{``carrot"} (subsidies) approach which aims to encourage renewable electricity is applied in Irish policy.
-In Ireland, a €15/ $tCO_2$ carbon tax was introduced in 2009 to reduce fossil fuel demand and investment. The carbon tax receipts grew every year from 2010 to 2018 \cite{Oireachtas2019AnOffice}. Ireland's current carbon tax of €33.50/ $tCO_2$ will rise to €100/ $tCO_2$ in 2030. Many countries have taken this approach, especially in Europe, where Sweden were second to introduce a carbon tax after Finland, the Swedish carbon tax rate is the highest in the world at €108.81/ $tCO_2$.  About 15\% of global GHG emissions have either an associated cost or tax, this figure is increasing incrementally \cite{WorldBankGroup2020State2020}. 
-\par The Renewable Energy Feed-in Tariff (REFIT) schemes were designed to incentivise Ireland to invest in renewable electricity to achieve legally binding renewable targets under 2009/28/EC. REFIT operates by guaranteeing  new renewable generation and biomass a minimum price for electricity over a 15 year period. The last REFIT schemes closed in December 2015. In 2020 REFIT was replaced by the Renewable Electricity Support Scheme (RESS), which supports to renewable electricity projects to help Ireland achieve 2030 climate targets, especially the 70\% renewable electricity target. RESS prioritizes communities to participate in renewable energy projects and increasing technology diversity by broadening the renewable electricity technology mix, where almost 800 MW of solar has been approved in RESS-1 \cite{Eirgrid2020RenewableResults}, this builds alot on the current solar capacity of 16 MW, while making significant progress towards the CAP2019 target of 1500 MW solar by 2030.
-
-\subsubsection{Heat}
-Sustainable Energy Authority of Ireland (SEAI) have played a leading role in the uptake of building fabric upgrades and heat pumps installations in existing homes. SEAI provide numerous grants to homeowners, increase public awareness of the benefits and are working on simplifying the process. In parallel, new dwellings must achieve a minimum of 20\% renewable energy. The ambient heat used in heat pumps is included as a renewable energy, heat pumps are therefore the preferred heating technology despite the high capital costs. As mentioned in Section\ref{Intro:IreRSDBack} new buildings in Ireland produce 70\% less GHG emissions than building in 2005 and with CAP2019 plans to upgrade 500,000 existing homes to a Building Energy Rating (BER) ‘B2’ by 2030, shows Irelands energy efficiency first approach in the residential sector.  in how Ireland aims to decarbonize the residential sector. Domestic supports for renewable heating technologies and energy efficiency include:
-\begin{itemize}
-    \item {Insulation}
-    \subitem {Attic}
-    \subitem {Cavity Wall}
-    \subitem {Internal - Dry Lining}
-    \subitem {External}
-    \item {Heat Pumps}
-    \subitem {Air to Water}
-    \subitem {Ground Source to Water}
-    \subitem {Exhaust Air to Water}
-    \subitem {Water to Water}
-    \subitem {Air to Air}
-    \item {Heating Controls}
-    \item {Solar Water Heating}
-    \item{ Solar Photovoltaics }
-\end{itemize}
-
-\subsubsection{Gas}
-
-In a bid not to be left behind in a ``net-zero" future, Gas Network Ireland (GNI) have set a 18\% biomethane target for 2030 \cite{Ervia2019VisionIreland}, where CAP2019 only set a 3\% biomethane target for 2030 \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. GNI anticipates that by 2026 or 2027 the supply from Corrib ( Irelands only indigenous gas supply, which provided 61\% of gas in 2018 ) will be less than 30\% of 2018 levels \cite{OCleirigh2020ENERGYReport}, with lower indigenous gas expected GNI plans to met ``net-zero" in 2050 by using 50\% Carbon Capture and Storage (CCS), 37\% biomethane and 13\% Hydrogen\cite{Ervia2019VisionIreland}. The gas network currently reaches 40\% or 680,000 dwellings in urban areas, but with the ``Compact Growth" as mentioned in section \ref{Intro:Policy} a higher share of building may have access to the gas network in the future. ALthough increasing biomethane from an agricultural source in the gas network is the most expensive option in CAP2019's MACC shown in Fig.\ref{fig:CAP2019:MACC}. 
-
-\subsubsection{District Heating}
-Ireland has one of the lowest shares of District Heating (DH) in Europe at less than 1\%  \cite{Gartland2016AIreland}. DH networks are a mature technology, being used for almost 100 years across Europe. ``Compact Growth" and advancement in DH control will strengthen the case for DH networks to play a part in decarbonisaing the residential sector. CAP2019 plans to have approx. 0.4\% of heating provided by DH in 2030, research using TIMES and EnergyPLAN has shown that 37\% of heating provided by DH is most efficient if Ireland is to reduce GHG emissions by 80\% in 2050, compared to 1990 \cite{Thellufsen2019ImplementingIreland}. While Irish District Energy Association (IrDEA) estimate 
-to 57\% of heat can be sourced from DH, if supporting policy and regulation was in place. District Heating will likely play a role, but Gartland \cite{Gartland2016AIreland} points out a range of organisational, technical, regulatory and economic barriers to DH growth in Ireland. The most prolific barriers being the lack of guidelines, regulations, policies, frameworks or standards for DH which creates high risk and uncertainty when planning DH systems \cite{Gartland2016AIreland}. Gartland further explains that \textit{choices made regarding energy supply have been, and continue to be, economically evaluated on a very short-term basis}, the use of an long-term ESOM may provide new insights to climate policy. 
-
-\subsubsection{Hydrotreated Vegetable Oil}
-While it maybe optimal to use Hydrotreated Vegetable Oil (HVO) in transport, it is also considered in the residential sector, as it can provide a cheap alternative for the 700,000 Irish dwellings using home heating oil ( mostly kerosene). HVO which meets the EU sustainability criteria, reduce GHG emissions by 60\% as compared to fossil fuels \cite{Soam2019FactorsSweden}. The capacity of HVO is growing in Europe, but HVO is currently about twice the price of kerosene. HVO can be used to replace kerosene, albeit with cost of up to €400 per oil boiler, however there is no policy for HVO in the residential sector.
-biofuel obligation scheme - Internationally there is a limited supply of HVO available and the
-demand for the fuel is high.HVO has been produced in the past at Ireland’s only refinery at Whitegate and
-potentially could be again with the appropriate investment. Not HVO100, but higher concentration of HVO than current blending capacity
-
-\section{Methodology}
-\label{LitR}
-\subsection{Overview}
-\label{Overview}
+%Add description of TIMES and how residential sector is represented to the Methodology section; - Olex Email
 %The TIMES-Ireland Model (TIM) is an optimisation model of the Irish energy system, which calculates the cost-5optimal fuel and technology mix to meet future energy service demands in the transport, buildings, industry and agriculturesectors, while respecting constraints in greenhouse-gas emissions, primary energy resources and feasible deployment rates.
 
 %What does new model do that previous didn’t?
@@ -320,10 +294,12 @@ and Offer the Most Opportunity for Ireland
 
 The TIM approach.....data and calibration
 %a newly formed group with members from different universities, industries and semi-state agencies within Ireland.  Following this, other datasets were then used to develop the full housing stock, based on the correlation of year of construction and building energy ratings.
-
+\label{Results}
+\subsubsection{Scenarios}
+Behavioral Constraints here 
 \subsection{Residential}
 \label{LitR:RES}
-
+ENERGY CONSUMPTION CHARACTERISTICS of Houses - 
  The BER database, which represents half of the dwelling stock, highlights the affect year of construction has on expected energy consumption, as shown in Fig.\ref{fig:BERAge}. The BERs labels are categorised based on expected energy consumption, with A1 representing the lowest expected energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest expected energy consumption ($ >450 kWh/m^2/year$). The BERs are developed from the Energy Performance of Buildings Directive 2002/91/ EC, which helps to better understand the housing stock. BERs are required for new houses, rented houses, sold houses and renovated houses. 
 
 \begin{figure}[!htbp]
@@ -345,6 +321,7 @@ Capacity, Efficiency, Constraints, Uptake, adapation
 \subsubsection{Demands}
 \label{LitR:Demands}
 Macroeconomic 
+% textit{To accommodate an expanding population, the number of dwellings has also increased to currently stand at 1.7 million households, although this fgure remains signifcantly short of projected housing need, withannual average demand estimated to be up to 36,000 units for the next 30 years (IBEC 2018). Yet despite the number of new homes built to ever increasing energy performance standards, the Irish housing stock is among the poorest in Europe in terms of energy effciency (Goggins et al. 2016). Current trends also show that households are getting bigger, with an average 15\% increase in foor area across all homes between 2000 and 2016 (SEAI 2018) \cite{FahyEnergyPractice}}
 Check main TIM paper 
 Historical population estimates and future projections are obtained from the Central Statistics Office (CSO), Ireland \citep{CentralStatisticsOffice2020}. We use the M2F1 scenario since it represents medium growth in population and is in line with population projections used in other national sources \citep{Yakut2020}. 
 
@@ -468,10 +445,12 @@ income, region, dwelling characteristics, and knowledge of eco- technology as th
 %the new A-rated houses behave distinctively different which much less demand on space heating and with pumps and fans energy consumption usage increasing, while appliance end use is increasing across the BER ratings. The number of appliances has increased rapidly and while energy efficient improves are  reducing the energy per appliance, it is overshadowed by the growth in electrical appliances. There retrofitting grant which  requires building to have a HLI indication of 2 or less before a heat pump grant can be installs. Ireland’s aim of retrofitting 0.5 million homes from the existing 1.7 million in the before 2030. The effect of these targets also stretches out across the construction sector. The savings from retrofits will decrease fossil fuel energy usage, while most houses 00\% would need to get heat pumps too, to fulfil 0.4 million existing houses getting heat pumps.  This energy efficiency first approach would allow for future technology choices, when current boiler are not at end of life. 
 
 TIM was built to help Ireland provide a pathway to achieve 2030 and 2050 targets. The residential sector plays a key part of this and it was built from the SEAI 2018 energy balance, the BER database and CSO data. The data filtration process used in the residential sector, derived a lot of conversation of the BER database, a group know as Ireland Energy Wiki by the National Retrofitting Modelling Group grew from building the residential sector, questions about the filters, default values, assumptions around thermal equations (EC..) and uncertainties were used to improve the data before it was used in TIM . TIM has many internal project deadines, which required extensive meetings about the data, constraints and results as the modelling was progressing. The data and results were presented to 30 external reviewers to provide feedback, this process proved invaluable having different expertise with different presepectives enabled TIM to fill in gaps. TIM will also be open platform to help improve the model and provide transparency. TIM’s residential sector was built in parallel with LEAP’s residential sector, so that residential sector can easily simulate policy. The demand for results from TIM has increased significantly with increased government ambition, TIM will provide input into CAP 2021 and Ireland’s carbon budgets, working with DECC and the CCAC respectively will also provide feedback and improve the robustness of TIM. for these reasons TIM residential sector is a state of the art modelling platform. 
+
+
 \section{Results}
+
 \label{Results}
-\subsection{Scenarios}
-\label{LitR:Sce}
+Electricity Supply, Technology and Fuel Mix, Retrofitting, Cost
 \subsection{Trajectories}
 \label{LitR:Traj}
 %% The Appendices part is started with the command \appendix;
@@ -483,9 +462,17 @@ Soft-linking to LEAP and PLEXOS
 \label{Dis:Strengths}
 \subsection{Limitations}
 \label{Dis:Limit}
-
-\section{Conclusion}
+Consumers’ final investment decision can be
+represented by “willingness-to-pay” curves – for
+instance, around 10\% of owner-occupiers are willing
+to invest in energy efficiency measures for a payback
+time of 4 years, falling to 0\% for a payback time of
+6 years for some consumer cohorts
+\section{Conclusions}
 \label{Conclusion}
+This paper reports results on ambitious mitigation target in the period to 2050 for the Irish energy system. The analysis have been performed using the Irish TIMES model
+\textit{We stress the importance of differentiating between technical con-
+straints and behavioural constraints in optimisation models. Including both conflates what is considered desirable under the economic welfare paradigm (i.e. cost-minimising decisions) with “realistic decisions”, complicating the interpretation of the results. Optimisation models are by design well suited to study cost-optimal behaviour, and running scenarios just with technical constraints facilitates the identification of areas where market barriers are more entrenched, and interventions to accelerate the uptake of low-carbon practices may be needed.} \cite{Astudillo2017CanModelb}
 \section{Acknowledgements}
 \label{sec:Acknowledgements}
 %CAPACITY is funded under the Climate Action Modelling Group (CAMG) by DECC
