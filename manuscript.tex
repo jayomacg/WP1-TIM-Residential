@@ -92,6 +92,7 @@
 
 \title{TIMES Ireland Model: Residential Sector}
 % The changing TIMES of Irish Homes
+
 \author[inst1,inst2]{Jason Mc Guire\footnote{Contact: j.mcguire@ucc.ie}}
 
 \affiliation[inst1]{organization={Energy Policy and Modelling Group, MaREI Centre},%Department and Organization
@@ -214,7 +215,7 @@ Ireland has set out national policy objectives under 10 strategic investment pri
 %For example, Figure \ref{fig:CAP2019:MACC} shows the retrofitting of oil boilers is expected to reduce the Total Cost of Ownership (TCO) (ie. save money), but only abate a small amount of carbon, whereas switching oil boilers to heat pumps will increase TCO (ie. cost money) but the expected abatement of carbon is far greater. 
 
 In Ireland the decarbonisation of the electricity is underway, with carbon intensity falling annually to 375 $gCO_2/kWh$ in 2018, which is 40\% lower than 2005 levels \cite{Howley2005ENERGY-RELATEDIreland}. 
-A €15/ $tCO_2$ carbon tax was introduced in 2009 to reduce investment in fossil fuels, and the increasing carbon tax rate has resulted in tax receipts growing every year from 2010 to 2018 \cite{Oireachtas2019AnOffice}. Ireland's current carbon tax of €33.50/ $tCO_2$ will rise to €100/ $tCO_2$ in 2030. The Renewable Energy Feed-in Tariff (REFIT) schemes were designed to incentivise renewable electricity investment to achieve legally binding renewable targets under 2009/28/EC. REFIT operates by guaranteeing a minimum price for electricity over a 15 year period. The Renewable Electricity Support Scheme (RESS) replaced REFIT in 2020. RESS supports to renewable electricity projects to help Ireland achieve 2030 climate targets, especially the 70\% renewable electricity target. 
+Ireland uses both the \textit{carrot} (subsidy) and \textit{stick} (tax) approach to direct private invesvestment towards low carbon or renewable energy. A €15/ $tCO_2$ carbon tax was introduced in 2009 to reduce investment in fossil fuels, and the increasing carbon tax rate has resulted in tax receipts growing every year from 2010 to 2018 \cite{Oireachtas2019AnOffice}. Ireland's current carbon tax of €33.50/ $tCO_2$ will rise to €100/ $tCO_2$ in 2030. The Renewable Energy Feed-in Tariff (REFIT) schemes were designed to incentivise renewable electricity investment to achieve legally binding renewable targets under 2009/28/EC. REFIT operates by guaranteeing a minimum price for electricity over a 15 year period. The Renewable Electricity Support Scheme (RESS) replaced REFIT in 2020. RESS supports to renewable electricity projects to help Ireland achieve 2030 climate targets, especially the 70\% renewable electricity target. 
 % Almost 800 MW of solar has been approved in RESS-1 \cite{Eirgrid2020RenewableResults}, this greatly exceeds the current solar capacity of 16 MW, while making significant progress towards the CAP2019 target of 1500 MW solar by 2030.
 \par Sustainable Energy Authority of Ireland (SEAI) have a key role in the rollout of retrofitting and heat pumps in existing homes. In parallel, new dwellings must achieve a minimum of 20\% renewable energy. The ambient heat used in heat pumps is included as a renewable energy, heat pumps are therefore the preferred heating technology despite the high capital costs. As mentioned in Section \ref{Intro:IreRSD}, new buildings in Ireland produce 70\% less GHG emissions than building in 2005, and with CAP2019 plans to upgrade 500,000 existing homes to a Building Energy Rating (BER) ‘B2’ by 2030, highlights the energy efficiency first approach in the residential sector. 
 \par Gas Network Ireland (GNI) have set a 18\% biomethane target for 2030 \cite{Ervia2019VisionIreland}, where CAP2019 only set a 3\% biomethane target for 2030 \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. GNI anticipates that by 2026 or 2027 the supply from Corrib ( Irelands only indigenous gas supply, which provided 61\% of gas in 2018 ) will be less than 30\% of 2018 levels \cite{OCleirigh2020ENERGYReport}. The gas network currently reaches 40\% or 680,000 dwellings in urban areas, but with the ``Compact Growth" policy strategy a higher share of building may have access to the gas network in the future. A major barrier to increasing biomethane from an agricultural source in the gas network is the cost, it was the most expensive option in the Marginal Abatement Cost Curve (MACC) produced in CAP2019.
@@ -223,24 +224,33 @@ A €15/ $tCO_2$ carbon tax was introduced in 2009 to reduce investment in fossi
 
 \subsection{Residential Modelling}
 \label{Intro:ESOM}
-%Convert the ESOM section in the intro to a “residential modelling section” which I would use to “describe” how residential sector has been model with TIMES and other models (I put describe in “” because I would just mention the approaches and cite specific studies), as well as mention their advantages/disadvantages;- Olex Email
-Energy System Optimisation Models (ESOMs) can be used to optimise the selection of a large number of dynamic variables to satisfy demand, while accounting for complex sectoral interconnections within each time period.
-\par Some of the main ESOM frameworks include EnergyPLAN \cite{stergaard2015ReviewingSimulations}, MESSAGE \cite{Messner1995WorkingE}, TIMES \cite{Loulou2016DocumentationI}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOYS \cite{Howells2011OSeMOSYS:Development.}. 
 
-While ESOM can cover all the energy-related sectors, it can also be used to explore the residential sector in detail. 
+Energy System Optimisation Models (ESOMs) can be used to explore least cost pathways, as they consider a large amount of variables to satisfy demand, while accounting for complex sectoral interconnections within each time period. Some of the main ESOM frameworks include EnergyPLAN \cite{stergaard2015ReviewingSimulations}, MESSAGE \cite{Messner1995WorkingE}, TIMES \cite{Loulou2016DocumentationI}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOSYS \cite{Howells2011OSeMOSYS:Development.}. 
 
-Some studies focusing on the residential sector in TIMES include, Li who studied the preference for heating technology choice in UK \cite{Li2018IncorporatingModel}, Petrovic examined a new approached to represent residential heat pumps in Denmark \cite{Petrovic2016ResidentialSystem} and Aberg analysed the affect higher thermal efficiency in buildings has on co-production of electricity and district heating in Sweden \cite{Aberg2011OptimisationBuildings}. There has also been some studies residential sector in Ireland, using previous versions of Irish TIMES and now out-dated climate targets. 
+While ESOM cover all the energy-related sectors, they can also be used to specifically explore the residential sector in detail. For example, Li et al. \cite{Li2018IncorporatingModel} investigated the heating technology preference in UK, using UK TIMES Model (UKTM). As TIMES assumes perfect foresight and \textit{``in reality, the behaviours of consumers is not always economically rational"} \cite{Li2018IncorporatingModel}. Li set out to incorporate a Discrete Choice Model (DCM) into TIMES to better reflect how homeowners choose heating technologies. The DCM was developed from a nationwide survey with 442 homeowners completing the survey. The nationwide survey identified the most influential factors for determining homeowners' preferences for heating systems. The DCM then estimated the probability of a heating technology selection and cost was found not to have a statistically significant impact on homeowners' choices. While Li's researcher has provided some initial insights, future work can improve the robustness and comprehensiveness of the insights, through more surveys and analysis.
+
+Leibowicz et al. developed an expanded version of the Open Source Energy Modeling System (OSeMOSYS) that integrates electricity generation and storage, residential building energy service demands, and end-use technologies for providing those services \cite{Leibowicz2018OptimalServices}.
+Endogenous constraints on the market penetration rate of each technology and hourly service demand profiles are established and applied to the residential sector of Austin, Texas. Austin was chosen because of the high granularity data availability \cite{EnergyInc.}. Leibowicz et al. find, net present costs in the \textit{``Policy scenarios"} ( emissions must decline linearly toward 10\% of their current level by 2050) are higher than \textit{``No Policy scenarios"} (No $CO_2$ regulations will be imposed over the model timeframe), but the percentage increase in net present cost due to the policy diminishes with a more thermally efficient building stock. Leibowicz et al. also finds electrification to be the dominant strategy for cost-effectively decarbonizing urban residential dwellings. 
+These insights show the strength of an ESOM, but the not all costs are taken into account in Leibowicz study, the capital cost associated with more thermally efficient buildings are not included.
+
+Hedegard and Münster used....
+
+Patankar et al. TEMOA south sudan
+
+Petrovic xamined a new approached to represent residential heat pumps in Denmark \cite{Petrovic2016ResidentialSystem} and Aberg analysed the affect higher thermal efficiency in buildings has on co-production of electricity and district heating in Sweden \cite{Aberg2011OptimisationBuildings}. There has also been some studies residential sector in Ireland, using previous versions of Irish TIMES and now out-dated climate targets. 
 
 \section{Methodology}
 \label{LitR}
 Goal of TIM
 
-\subsection{TIM Overview}
+\subsection{TIMES Energy System Optimisation Model}
 \label{Overview}
 NOT DONE 
 The Integrated MARKAL-EFOM System (TIMES) modelling framework was utilised to develop an Irish model, a description and selection process of the framework are outlined in the following subsection. 
 \par TIMES has been developed and maintained by Energy Technology Systems Analysis Program (ETSAP) of the International Energy Agency (IEA). TIMES is a bottom-up optimisation model generator for energy-environment systems analysis at various levels of spatial, temporal and sectoral resolution.
 \par TIMES uses The GAMS source code to optimise a least cost solution with perfect foresight. The objective function may be thought of as the discounted sum of net annual costs (i.e. costs minus revenues),
+% The market impacts of grid tariffs are analysed using the energy
+system model Balmorel (Wiese et al. (2018)) [25]. Balmorel is an open source, bottom-up, linear partial equilibrium model. It opti- mizes social economic surplus of production, transmission, con- sumption, and investments in electricity and DH under the assumption ofperfect competition, with perfect foresight, and with respect to exogenous technical, physical, and regulatory constraints per geographically defined area. Generation technologies have specified fuel types, efficiencies, fixed costs, variable costs, and environmental characteristics. CHP
 \begin{equation} 
 \begin{split}
 NPV = {\sum_{r=1}^{R}  \sum_{y\in YEARS}(1 + d_{r,y})^{REFYR-y}}
@@ -299,6 +309,7 @@ The TIM approach.....data and calibration
 Behavioral Constraints here 
 \subsection{Residential}
 \label{LitR:RES}
+RES FIGURE
 ENERGY CONSUMPTION CHARACTERISTICS of Houses - 
  The BER database, which represents half of the dwelling stock, highlights the affect year of construction has on expected energy consumption, as shown in Fig.\ref{fig:BERAge}. The BERs labels are categorised based on expected energy consumption, with A1 representing the lowest expected energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest expected energy consumption ($ >450 kWh/m^2/year$). The BERs are developed from the Energy Performance of Buildings Directive 2002/91/ EC, which helps to better understand the housing stock. BERs are required for new houses, rented houses, sold houses and renovated houses. 
 
@@ -311,16 +322,18 @@ ENERGY CONSUMPTION CHARACTERISTICS of Houses -
 
 Theoretically G-rated BERs consume more energy and consequently have higher energy bills to maintain a comfortable internal temperature, but in reality G-rated dwellings have low internal temperatures, which is a reason for Ireland's high excessive winter mortality \cite{Clinch2000HousingMortality}. Fuel Poverty which which is defined as when a \textit{``household spends 10\% or more of income to achieve adequate warmth"} is a major contributor to the high excessive winter deaths. An Element Energy report claimed 28\% of Irish households were in fuel poverty in 2015  \cite{ElementEnergy2015Bottom-upIreland}. Fuel Allowance and the Household Benefits provides support to low income households to alleviate fuel poverty. These payments have been increased over time with a further increase made in Budget 2020, coinciding with the increase in the carbon tax \cite{,EuropeanUnion2020EUObservatory}. Kerr's study finds an explicit link between fuel poverty and social welfare policy in Ireland \cite{,EuropeanUnion2020EUObservatory,Kerr2019PoliticsFrance} and O’Meara highlights the health issues associated with Fuel Poverty \cite{OMeara2016AIreland}. Ironically, it can be argued this places low income households deeply dependent on fossil fuels for health.
 \par BERs do not take account of actual usage based on occupancy behaviour or occupancy density, nor does it take account of the size of the dwelling. The BER labels do therefore leave a gap between actual consumption and expected consumption, the literature review explains how this problem was tackled.
-\subsubsection{Technology}
-Capacity, Efficiency, Constraints, Uptake, adapation
+\subsubsection{House Stock Data}
+BER Database, CSO and Calculations and Filtration 
+
 
 \subsubsection{Costs}
 \label{LitR:Costs}
 \subsubsection{Savings}
 \label{LitR:Savings}
-\subsubsection{Demands}
+\subsubsection{Energy Service Demands Projections}
 \label{LitR:Demands}
 Macroeconomic 
+Time slices - 40 etc. 
 % textit{To accommodate an expanding population, the number of dwellings has also increased to currently stand at 1.7 million households, although this fgure remains signifcantly short of projected housing need, withannual average demand estimated to be up to 36,000 units for the next 30 years (IBEC 2018). Yet despite the number of new homes built to ever increasing energy performance standards, the Irish housing stock is among the poorest in Europe in terms of energy effciency (Goggins et al. 2016). Current trends also show that households are getting bigger, with an average 15\% increase in foor area across all homes between 2000 and 2016 (SEAI 2018) \cite{FahyEnergyPractice}}
 Check main TIM paper 
 Historical population estimates and future projections are obtained from the Central Statistics Office (CSO), Ireland \citep{CentralStatisticsOffice2020}. We use the M2F1 scenario since it represents medium growth in population and is in line with population projections used in other national sources \citep{Yakut2020}. 
@@ -435,7 +448,11 @@ The SEAI residential energy report \cite{SustainableEnergyAuthorityofIreland2018
 
 
 %Space Heating demand - BER space heating is only within certain months and assumes 21C heating..
-\subsubsection{Constraints}
+\subsubsection{Space and Water Heating}
+Capacity, Efficiency, Constraints, Uptake, adapation
+\subsubsection{Lighting, Appliances and Other}
+Capacity, Efficiency, Constraints, Uptake, adapation
+\subsubsection{User Constraints}
 \label{LitR:Constraints}
 
 
@@ -451,13 +468,17 @@ TIM was built to help Ireland provide a pathway to achieve 2030 and 2050 targets
 
 \label{Results}
 Electricity Supply, Technology and Fuel Mix, Retrofitting, Cost
-\subsection{Trajectories}
-\label{LitR:Traj}
+
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
 \section{Discussion}
 \label{Discussion}
 Soft-linking to LEAP and PLEXOS
+%o	Discuss and interpret the results
+%o	Focus on what added value the model brings
+%o	Also include future development priorities here
+%o	What can’t the model do? Where is it more suitable to use another model - Hannah Email
+
 \subsection{Strengths}
 \label{Dis:Strengths}
 \subsection{Limitations}
