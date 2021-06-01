@@ -227,30 +227,41 @@ Ireland uses both the \textit{carrot} (subsidy) and \textit{stick} (tax) approac
 
 Energy System Optimisation Models (ESOMs) can be used to explore least cost pathways, as they consider a large amount of variables to satisfy demand, while accounting for complex sectoral interconnections within each time period. Some of the main ESOM frameworks include EnergyPLAN \cite{stergaard2015ReviewingSimulations}, MESSAGE \cite{Messner1995WorkingE}, TIMES \cite{Loulou2016DocumentationI}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOSYS \cite{Howells2011OSeMOSYS:Development.}. 
 
-While ESOM cover all the energy-related sectors, they can also be used to specifically explore the residential sector in detail. For example, Li et al. \cite{Li2018IncorporatingModel} investigated the heating technology preference in UK, using UK TIMES Model (UKTM). As TIMES assumes perfect foresight and \textit{``in reality, the behaviours of consumers is not always economically rational"} \cite{Li2018IncorporatingModel}. Li set out to incorporate a Discrete Choice Model (DCM) into TIMES to better reflect how homeowners choose heating technologies. The DCM was developed from a nationwide survey with 442 homeowners completing the survey. The nationwide survey identified the most influential factors for determining homeowners' preferences for heating systems. The DCM then estimated the probability of a heating technology selection and cost was found not to have a statistically significant impact on homeowners' choices. While Li's researcher has provided some initial insights, future work can improve the robustness and comprehensiveness of the insights, through more surveys and analysis.
+While ESOM cover all the energy-related sectors, they can also be used to specifically explore the residential sector in detail. For example, Li et al. \cite{Li2018IncorporatingModel} investigated the heating technology preference in UK, using UK TIMES Model (UKTM). As TIMES \cite{Loulou2016DocumentationI} assumes perfect foresight and \textit{``in reality, the behaviours of consumers is not always economically rational"} \cite{Li2018IncorporatingModel}. Li set out to incorporate a Discrete Choice Model (DCM) into TIMES to better reflect how homeowners choose heating technologies. The DCM was developed from a nationwide survey with 442 homeowners completing the survey. The nationwide survey identified the most influential factors for determining homeowners' preferences for heating systems. The DCM then estimated the probability of a heating technology selection and cost was found not to have a statistically significant impact on homeowners' choices. While Li's researcher has provided some initial insights, future work can improve the robustness and comprehensiveness of the insights, through more surveys and analysis.
 
-Leibowicz et al. developed an expanded version of the Open Source Energy Modeling System (OSeMOSYS) that integrates electricity generation and storage, residential building energy service demands, and end-use technologies for providing those services \cite{Leibowicz2018OptimalServices}.
+Leibowicz et al. developed an expanded version of the Open Source Energy Modeling System (OSeMOSYS) \cite{Howells2011OSeMOSYS:Development.} that integrates electricity generation and storage, residential building energy service demands, and end-use technologies for providing those services \cite{Leibowicz2018OptimalServices}.
 Endogenous constraints on the market penetration rate of each technology and hourly service demand profiles are established and applied to the residential sector of Austin, Texas. Austin was chosen because of the high granularity data availability \cite{EnergyInc.}. Leibowicz et al. find, net present costs in the \textit{``Policy scenarios"} ( emissions must decline linearly toward 10\% of their current level by 2050) are higher than \textit{``No Policy scenarios"} (No $CO_2$ regulations will be imposed over the model timeframe), but the percentage increase in net present cost due to the policy diminishes with a more thermally efficient building stock. Leibowicz et al. also finds electrification to be the dominant strategy for cost-effectively decarbonizing urban residential dwellings. 
 These insights show the strength of an ESOM, but the not all costs are taken into account in Leibowicz study, the capital cost associated with more thermally efficient buildings are not included.
 
-Hedegard and Münster \cite{Hedegaard2013InfluenceOperation} utilised Balmorel model to analyse how heat pumps with  complementing heat storages affect wind power investments in Denmark. A westeren and eastern region is used and the model covers norway,sweden, finland and germay in order to cover import/export 
-Thermal building model add-on: Theoptimisation is done subject to a number of constraints includingsatisfaction of demands for electricity and heat in each time period,renewable energy potentials, and technical restrictions on units
-almorel is used for handling theintegrated power and district heating system.
+Hedegard and Münster \cite{Hedegaard2013InfluenceOperation} utilised the ability of Balmorel \cite{Wiese2018BalmorelModel} model to handle the integrated power and district heating system to analyse how heat pumps with  complementing heat storages affect wind power investments in Denmark. The model was disaggreated between a western and eastern Denmark region and the model covers Norway, Sweden, Finland and Germany, in order to cover import/export. Exogenous user constraints applied to the model, based on current Danish policy includes: Wind power must in Denmark by 2020 correspond to at least 50\% of the national electricity consumption, coal is phased out in heat and power plants by 2030, Individual oil boilers are phased out by 2030 and 1.2 Mtonnes straw and 0.2 Mtonnes wood chips must be incinerated at Danish heat and power plants annually. The results by Hedegard and Münster find when investments in individual heat pumps are allowed, air–water heat pumps are installed in non-district heating areas. 
+This represents a significant electricity demand in identifying individual heat pumps as highly competitive and can contribute significantly to facilitating larger wind power investments and reducing system costs, fuel consumption, and $CO_2$ emissions.
+Hedegard and Münster found the system benefits of adding individual heat storage to the heat pumps are moderate, the main benefit is a reduced need for peak/reserve capacity investments of about 300–600 MW, corresponding to the size of a large power plant. While Balmoral model has provided insights, it does not cover all aspects of the power and heat system, such as start-up costs, minimum load requirements, or part load efficiencies. Nevertheless, the insights are valuable and the results can be soft-linked to other models for deeper analysis. 
 
-nd reduce the need for peak and reservecapacity
-Results show thatthe heat pumps, even without flexible operation, can contribute significantly to facilitating larger windpower investments and reducing system costs, fuel consumption, and CO2emissions
-NOTE- The model is deterministic assuming perfect foresightand the linear version applied does not include start-up costs, min-imum load requirements, or part load efficiencies
-Modelled indivaully heated - RESULT When invest-ments in individual heat pumps are allowed (iHP and iHP-Flex sce-nario), air–water heat pumps are installed in all individuallyheated areas. This represents a significant electricity demand
-inidentifying individual heat pumps as highly socio-economicallycompetitive in non-district heating areas. Our results indicate thatin terms of making wind power investments more attractive andreducing system costs, fuel consumption, and CO2emissions, theinstallation of the heat pumps is the most important step, whilethe system benefits of adding flexibility to the heat pumps aremoderate. When investing in individual heat storages, the heat pumpscontribute in peak load shaving, and their operation is prioritisedfor hours with low electricity prices. However, the flexible opera-tion provides only moderate system benefits. Hereof, the mainbenefit is a reduced need for peak/reserve capacity investmentsof about 300–600 MW for the case analysed, corresponding tothe size of a large power plant. 
+Marczinkowski and Østergaard \cite{Marczinkowski2018ResidentialSystems} use EnergyPLAN model \cite{stergaard2015ReviewingSimulations} to explore the feasibility of photovoltaic (PV) systems installed at household level in combination with batteries in Samsø, which is known for being Denmark’s renewable energy island. 
+The two approaches are observed for the location of the batteries in the PV system; communal battery system or an individual residential battery approach. The PV/battery combination is but one out of many potential energy technology combinations, but it insights to the optimisation of the energy system in Samsø. 
+Marczinkowski and Østergaard found communal batteries slightly more favourable from a technical energy systems perspective, one reason for this is the wind power could also be stored in communal batteries. From the households’ perspective, the first leads to higher, one results showed with identical battery capacity 64\% of electricity demand is satisfied by a residential battery and 36\% by a one communal battery, but the advantage of a energy system model is the integration of other economic sectors in the energy system. While the battery location was explored, the PV system location was not, further investigation into the optimal PV system location could provide further insights. The household occupancy behaviour with and without household batteries on the PV system could alter the optimal pathway.
 
+% NOT INCLUDE HAVE ENOUGH Petrovic and Karlsson \cite{Petrovic2016ResidentialSystem}  examined a new approached to represent residential heat pumps in Denmark 
 
-Patankar et al. TEMOA south sudan
-
-Petrovic xamined a new approached to represent residential heat pumps in Denmark \cite{Petrovic2016ResidentialSystem} and Aberg analysed the affect higher thermal efficiency in buildings has on co-production of electricity and district heating in Sweden \cite{Aberg2011OptimisationBuildings}. There has also been some studies residential sector in Ireland, using previous versions of Irish TIMES and now out-dated climate targets. 
+PREVIOUS RESIDENTIAL ESOM FOR IRELAND 
+\cite{Uidhir2020ResidentialIreland} \cite{Uidhir2020ImprovingDecisions}
+\cite{Dineen2011ModellingHeating}
+\cite{Dineen2015ImprovedSource}
+\cite{Rogan2014LEAPsSystem}
+\cite{Chiodi2013ModellingSystem} - more general
+\cite{Connolly2021AalborgEnergy-System}- EnergyPLAN more general
+\cite{Thellufsen2019ImplementingIreland}-EnergyPLAN DH
+\cite{Goodbody2013RegionalCommunities} - HOMER (Hybrid Optimization of Multiple Energy Resources)
+---- There has also been some studies residential sector in Ireland, using previous versions of Irish TIMES and now out-dated climate targets. 
 
 \section{Methodology}
 \label{LitR}
-Goal of TIM
+understand, collect and filter robust data along with feasible deployment rates into TIMES framework to provide results, which are analysed internally and externally to give insights on optimally achieving 2030 and 2050 targets and five-year carbon budgets. 
+FIGURE?
+
+``How should Ireland set GHG targets in the residential sector?” 
+Choosing the Pathways which Create the Least Burden
+and Offer the Most Opportunity for Ireland
 
 \subsection{TIMES Energy System Optimisation Model}
 \label{Overview}
@@ -305,11 +316,7 @@ Note that the sign of the constraint may also be of the "larger than or equal to
 %Demands - 
 %Improved more detailed Energy Service Demands
 
-% ``How should Ireland set GHG targets in the residential sector?”
-% ``How should Ireland set GHG targets in the residential sector?”
-``How should Ireland set GHG targets in the residential sector?” feasible deployment rates
-Choosing the Pathways which Create the Least Burden
-and Offer the Most Opportunity for Ireland
+
 
 The TIM approach.....data and calibration
 %a newly formed group with members from different universities, industries and semi-state agencies within Ireland.  Following this, other datasets were then used to develop the full housing stock, based on the correlation of year of construction and building energy ratings.
@@ -458,6 +465,7 @@ The SEAI residential energy report \cite{SustainableEnergyAuthorityofIreland2018
 
 %Space Heating demand - BER space heating is only within certain months and assumes 21C heating..
 \subsubsection{Space and Water Heating}
+ISO EN 13790 (Energy Performance of Buildings Directive).
 Capacity, Efficiency, Constraints, Uptake, adapation
 heat output (Qt) and electricity input in a given time per-iod (Pt) is expressed asQt= COPPt, where COP is the average an-nual coefficient of performance for the heat pump
 \subsubsection{Lighting, Appliances and Other}
@@ -506,7 +514,7 @@ This paper reports results on ambitious mitigation target in the period to 2050 
 straints and behavioural constraints in optimisation models. Including both conflates what is considered desirable under the economic welfare paradigm (i.e. cost-minimising decisions) with “realistic decisions”, complicating the interpretation of the results. Optimisation models are by design well suited to study cost-optimal behaviour, and running scenarios just with technical constraints facilitates the identification of areas where market barriers are more entrenched, and interventions to accelerate the uptake of low-carbon practices may be needed.} \cite{Astudillo2017CanModelb}
 \section{Acknowledgements}
 \label{sec:Acknowledgements}
-%CAPACITY is funded under the Climate Action Modelling Group (CAMG) by DECC
+Tomas %CAPACITY is funded under the Climate Action Modelling Group (CAMG) by DECC
 % https://www.marei.ie/project/capacity/
 CHIMERA is supported by a research grant from Science Foundation Ireland (SFI) and the National Natural Science Foundation of China (NSFC) under the SFI-NSFC Partnership Programme, grant no. 17/NSFC/5181 and
 supported by MaREI, the SFI Research Centre for Energy, Climate, and Marine [Grant No: 12/RC/2302\_P2]
