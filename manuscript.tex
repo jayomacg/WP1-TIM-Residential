@@ -90,8 +90,10 @@
 %%            country={}}
 %% \fntext[label3]{}
 
-\title{TIMES Ireland Model: Residential Sector}
+\title{Developing sustainable Irish homes in changing TIMES}
+%TIMES Ireland Model: Residential Sector
 % The changing TIMES of Irish Homes
+% Developing sustainable homes in changing TIMES
 
 \author[inst1,inst2]{Jason Mc Guire\footnote{Contact: j.mcguire@ucc.ie}}
 
@@ -225,9 +227,8 @@ Ireland uses both the \textit{carrot} (subsidy) and \textit{stick} (tax) approac
 \subsection{Residential Modelling}
 \label{Intro:ESOM}
 
-Energy System Optimisation Models (ESOMs) can be used to explore least cost pathways, as they consider a large amount of variables to satisfy demand, while accounting for complex sectoral interconnections within each time period. Some of the main ESOM frameworks include EnergyPLAN \cite{stergaard2015ReviewingSimulations}, MESSAGE \cite{Messner1995WorkingE}, TIMES \cite{Loulou2016DocumentationI}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOSYS \cite{Howells2011OSeMOSYS:Development.}. 
-
-While ESOM cover all the energy-related sectors, they can also be used to specifically explore the residential sector in detail. For example, Li et al. \cite{Li2018IncorporatingModel} investigated the heating technology preference in UK, using UK TIMES Model (UKTM). As TIMES \cite{Loulou2016DocumentationI} assumes perfect foresight and \textit{``in reality, the behaviours of consumers is not always economically rational"} \cite{Li2018IncorporatingModel}. Li set out to incorporate a Discrete Choice Model (DCM) into TIMES to better reflect how homeowners choose heating technologies. The DCM was developed from a nationwide survey with 442 homeowners completing the survey. The nationwide survey identified the most influential factors for determining homeowners' preferences for heating systems. The DCM then estimated the probability of a heating technology selection and cost was found not to have a statistically significant impact on homeowners' choices. While Li's researcher has provided some initial insights, future work can improve the robustness and comprehensiveness of the insights, through more surveys and analysis.
+Energy System Optimisation Models (ESOMs) can be used to explore least cost pathways, as they consider a large amount of variables to satisfy demand, while accounting for complex sectoral interconnections within each time period. Some of the main ESOM frameworks include EnergyPLAN \cite{stergaard2015ReviewingSimulations}, MESSAGE \cite{Messner1995WorkingE}, TIMES \cite{Loulou2016DocumentationI}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOSYS \cite{Howells2011OSeMOSYS:Development.}.While ESOM cover all the energy-related sectors, they can also be used to specifically explore the residential sector in higher detail, some examples are outlined in this section. 
+\par For example, Li et al. \cite{Li2018IncorporatingModel} investigated the heating technology preference in UK, using UK TIMES Model (UKTM). As TIMES \cite{Loulou2016DocumentationI} assumes perfect foresight and \textit{``in reality, the behaviours of consumers is not always economically rational"} \cite{Li2018IncorporatingModel}. Li set out to incorporate a Discrete Choice Model (DCM) into TIMES to better reflect how homeowners choose heating technologies. The DCM was developed from a nationwide survey with 442 homeowners completing the survey. The nationwide survey identified the most influential factors for determining homeowners' preferences for heating systems. The DCM then estimated the probability of a heating technology selection and cost was found not to have a statistically significant impact on homeowners' choices. While Li's researcher has provided some initial insights, future work can improve the robustness and comprehensiveness of the insights, through more surveys and analysis.
 
 Leibowicz et al. developed an expanded version of the Open Source Energy Modeling System (OSeMOSYS) \cite{Howells2011OSeMOSYS:Development.} that integrates electricity generation and storage, residential building energy service demands, and end-use technologies for providing those services \cite{Leibowicz2018OptimalServices}.
 Endogenous constraints on the market penetration rate of each technology and hourly service demand profiles are established and applied to the residential sector of Austin, Texas. Austin was chosen because of the high granularity data availability \cite{EnergyInc.}. Leibowicz et al. find, net present costs in the \textit{``Policy scenarios"} ( emissions must decline linearly toward 10\% of their current level by 2050) are higher than \textit{``No Policy scenarios"} (No $CO_2$ regulations will be imposed over the model timeframe), but the percentage increase in net present cost due to the policy diminishes with a more thermally efficient building stock. Leibowicz et al. also finds electrification to be the dominant strategy for cost-effectively decarbonizing urban residential dwellings. 
@@ -243,34 +244,22 @@ Marczinkowski and Østergaard found communal batteries slightly more favourable 
 
 % NOT INCLUDE HAVE ENOUGH Petrovic and Karlsson \cite{Petrovic2016ResidentialSystem}  examined a new approached to represent residential heat pumps in Denmark 
 
-PREVIOUS RESIDENTIAL ESOM FOR IRELAND 
-\cite{Uidhir2020ResidentialIreland} \cite{Uidhir2020ImprovingDecisions}
-\cite{Dineen2011ModellingHeating}
-\cite{Dineen2015ImprovedSource}
-\cite{Rogan2014LEAPsSystem}
-\cite{Chiodi2013ModellingSystem} - more general
-\cite{Connolly2021AalborgEnergy-System}- EnergyPLAN more general
-\cite{Thellufsen2019ImplementingIreland}-EnergyPLAN DH
-\cite{Goodbody2013RegionalCommunities} - HOMER (Hybrid Optimization of Multiple Energy Resources)
----- There has also been some studies residential sector in Ireland, using previous versions of Irish TIMES and now out-dated climate targets. 
+Many bottom-up models have been used previously to specifically explore Ireland's residential sector \cite{Dineen2011ModellingHeating}\cite{Ahern2013StateStock}\cite{Ahern2015EnergySystems}\cite{Dineen2015ImprovedSource}\cite{Uidhir2020ResidentialIreland}\cite{Uidhir2020ImprovingDecisions} and some models have been used to optimise Ireland's entire energy system \cite{Chiodi2013ModellingSystem}\cite{Connolly2021AalborgEnergy-System}, but very few models have used energy system optimisation model to explore the Irish residential sector. In 2014, Rogan et al used OSeMOYOS to explore energy service demands \cite{Rogan2014LEAPsSystem}, and Thellufsen examining DH with EnergyPLAN and TIMES in 2019 \cite{Thellufsen2019ImplementingIreland}. 
 
 \section{Methodology}
 \label{LitR}
-understand, collect and filter robust data along with feasible deployment rates into TIMES framework to provide results, which are analysed internally and externally to give insights on optimally achieving 2030 and 2050 targets and five-year carbon budgets. 
-FIGURE?
+% The technical bottom-up development approach of the residential sector is combined with other economic sectors to meet macroeconomic defined demands, to provide GHG targets insights both the energy system and residential sector.
 
-``How should Ireland set GHG targets in the residential sector?” 
-Choosing the Pathways which Create the Least Burden
-and Offer the Most Opportunity for Ireland
+%``How should Ireland set GHG targets in the residential sector?” 
+%Choosing the Pathways which Create the Least Burden and Offer the Most Opportunity for Ireland
 
 \subsection{TIMES Energy System Optimisation Model}
 \label{Overview}
-NOT DONE 
-The Integrated MARKAL-EFOM System (TIMES) modelling framework was utilised to develop an Irish model, a description and selection process of the framework are outlined in the following subsection. 
-\par TIMES has been developed and maintained by Energy Technology Systems Analysis Program (ETSAP) of the International Energy Agency (IEA). TIMES is a bottom-up optimisation model generator for energy-environment systems analysis at various levels of spatial, temporal and sectoral resolution.
-\par TIMES uses The GAMS source code to optimise a least cost solution with perfect foresight. The objective function may be thought of as the discounted sum of net annual costs (i.e. costs minus revenues),
-% The market impacts of grid tariffs are analysed using the energy
-system model Balmorel (Wiese et al. (2018)) [25]. Balmorel is an open source, bottom-up, linear partial equilibrium model. It opti- mizes social economic surplus of production, transmission, con- sumption, and investments in electricity and DH under the assumption ofperfect competition, with perfect foresight, and with respect to exogenous technical, physical, and regulatory constraints per geographically defined area. Generation technologies have specified fuel types, efficiencies, fixed costs, variable costs, and environmental characteristics. CHP
+\par  The expertise among energy policy researchers in Ireland combined with the global network of Energy Technology Systems Analysis Program (ETSAP) modellers, makes TIMES the preferred ESOM to explore Ireland's decarbonisation pathways. Previous versions of the Irish TIMES model were extracted from the Pan European TIMES model, and then updated with specific national data and assumptions. The previous Irish TIMES models were used to provide informative reports on Irish climate policy \cite{Gallachoir2012EPAModel,Deane2017Irish2,Gallachoir2020The3,Deane2013TechnicalIreland,IrishGovernment2017National2017}.  
+There is a need for a new ESOM to be built specifically to explore Ireland's new 2030 and 2050 climate targets and sectoral five-year carbon budgets, the new``TIMES Ireland Model" (TIM) was built in 2021 to address this need \textbf{(SOURCE)}.
+\par The Integrated MARKAL-EFOM System (TIMES) modelling framework was utilised to develop the Irish model outlined in this paper. TIMES has been developed and maintained by ETSAP of the International Energy Agency (IEA). TIMES is a bottom-up optimisation energy-environment model with perfect foresight which is used to analyse various levels of spatial, temporal and sectoral resolution. Numerous exogenous technical, physical, and regulatory constraints can be are applied to each region and generation technologies have specified fuel types, efficiencies, fixed costs, variable costs, lifetime, capacities, availability factors and environmental characteristics. TIMES uses a linear programming optimizer matrix in General Algebraic Modeling System (GAMS), to compute all calculations. 
+
+\par The function of partial equilibrium operates whereby prices and quantities in each time period are such that the suppliers produce exactly the quantities demanded by the consumers and therefore the total economic surplus  (sum of the suppliers’ and consumers’ surpluses) is maximized \cite{Loulou2016DocumentationI}. The partial equilibrium creates a stable market situation, from which the maximized surplus is first transformed into an equivalent cost minimization objective by taking the negative of the surplus, and calling this value the total system cost. The TIMES objective is therefore to minimize the total `cost' of the system, the TIMES objective function is:
 \begin{equation} 
 \begin{split}
 NPV = {\sum_{r=1}^{R}  \sum_{y\in YEARS}(1 + d_{r,y})^{REFYR-y}}
@@ -279,36 +268,15 @@ NPV = {\sum_{r=1}^{R}  \sum_{y\in YEARS}(1 + d_{r,y})^{REFYR-y}}
 %\[ \sum_{n=1}^{\infty} 2^{-n} = 1 \]
 \label{Eq:ObjectiveFunction}
 \end{equation}
-where: $NPV$ is the net present value of the total cost for all regions (the TIMES objective function);
-$ANNCOST(r,y)$ is the total annual cost in region r and year y; $d_{r,y}$ is the general discount rate;
-$REFYR$ is the reference year for discounting;
-YEARS is the set of years for which there are costs, including all years in the horizon, plus past years (before the initial period) if costs have been defined for past investments, plus a number of years after end of the horizon EOH where some investment and dismantling costs are still being incurred, as well as the Salvage Value; and
-R is the set of regions in the area of study.
-$ANNCOST$ is quite complex and is postponed until section 6.2 of PART II
-Due to the data driven nature of TIMES (see section 2.5), all TIMES constraints are activated and defined by specifying some attributes. Attributes are attached to processes, to commodities, to flows, or to special variables that have been created to define new TIMES features. Indeed, TIMES
+Where: $NPV$ is the net present value of the total cost for all regions ; $ANNCOST(r,y)$ is the total annual cost in region r and year y; $d_{r,y}$ is the general discount rate; $REFYR$ is the reference year for discounting; YEARS is the set of years for which there are costs; and $R$ is the set of regions in the area of study.
 
-
- % It calculates the lowest-cost configuration of energy fuels and technologies whichmeet future energy demands, while respecting technical, environmental, economic, social and policy constraints. Key inputsand  constraints  include  primary  energy  resource  availability  and  costs,  the  technical  and  cost  evolution  of  new  mitigationoptions and maximum feasible uptake rates of new technologies. Alternatively, TIM can be used to assess the implications ofcertain policies, namely regulatory or technology target-setting (for example, biofuels blending obligation or sales/stock share80target for electric vehicles).
-\par  However the expertise among energy policy researchers in Ireland combined with the global network of ETSAP modellers, makes TIMES the preferred ESOM to explore Ireland's decarbonisation pathways. \par Previous versions of the Irish TIMES model were extracted from the Pan European TIMES model, and then updated with specific national data and assumptions. The previous Irish TIMES models were used to provide informative reports on Irish climate policy \cite{Gallachoir2012EPAModel,Deane2017Irish2,Gallachoir2020The3,Deane2013TechnicalIreland,IrishGovernment2017National2017}.  
-Therefore, there is a need for a new TIMES model to be built specifically to explore Ireland's new 2030 and 2050 climate targets and sectoral five-year carbon budgets, the ``TIMES Ireland Model" (TIM) was built in 2021 to address this need \textbf{(SOURCE)}.
-GROWTH CONSTRAINT -A specific type of constraint may be defined to limit the share of process (p) in the total production of commodity (c). The constraint indicates that the flow of commodity (c) from/to process (p) - CommodiTypically, a growth constraint is of the following generic form (ignoring several indices for clarity: \cite{Loulou2016EnergyProgramme}
-\begin{equation} 
-\begin{split}
-VAR\_CAP(t + 1) \leq (1 + GROWTH^{M(t+1)-M(t)}) \cdot VAR\_CAP(t)+K
-\end{split}
-\label{Eq:GrowthConstraint}
-\end{equation}
-The GROWTH coefficient is defined as a new attribute of the technology, and represents the maximum annual growth allowed for the capacity. The quantity M(t+1)-M(t) is the number of years between the milestones of periods t and t+1. The constant K is useful whenever the technology has no capacity initially, in order to allow capacity to build over time (if K were absent and initial capacity is zero, the technology would never acquire any capacity)
-Note that the sign of the constraint may also be of the "larger than or equal to" type to express a maximum rate of abandonment, in which case the "+" sign is replaced by a "–" sign in the right-hand-side of the constraint. Equality is also allowed, but must be used only exceptionally in order to avoid railroading of the model.
-5.4.11
+With update technological and macroeconomic data, structured specifically to analyse for sectoral five-year carbon budgets towards 2030 and 2050, it is hoped TIM will provide further and more robust insights than previous Irish TIMES model. While also accounting for more fuels and technological options, the residential sector in TIM is structured with around retrofitting, not vice-versa as previous versions, so that it is more aligned to ongoing climate mitigation investments. Also, the residential sector in TIM has also been structured concurrently and similarly to a new Irish LEAP model, to allow more accessible soft-linking. 
 
 %Add description of TIMES and how residential sector is represented to the Methodology section; - Olex Email
-%The TIMES-Ireland Model (TIM) is an optimisation model of the Irish energy system, which calculates the cost-5optimal fuel and technology mix to meet future energy service demands in the transport, buildings, industry and agriculturesectors, while respecting constraints in greenhouse-gas emissions, primary energy resources and feasible deployment rates.
+%The TIMES-Ireland Model (TIM) is an optimisation model of the Irish energy system, which calculates the cost-5optimal fuel and technology mix to meet future energy service demands in the transport, buildings, industry and agriculture sectors, while respecting constraints in greenhouse-gas emissions, primary energy resources and feasible deployment rates.
 
 %What does new model do that previous didn’t?
-%old one - Ireland’s only fully integrated long-term energy systems optimisation model. It is unique in its ability to provide least-cost, cross-sectoral evidenced-based analysis for climate and energy policy.\cite{Gallachoir2020The3} 
-%TIM residential improvements - DH, HVO, Solar ( in progress ), better graps the cost and savings of retrofits and heat pumps, which can infrom MACC. 
-%Build with 2018 baseyear, not 2010 as previous versions had - this suits the 2030 target
+%TIM residential improvements - DH, HVO, Solar ( in progress ), better graps the cost and savings of retrofits and heat pumps, which can infrom MACC.Build with 2018 baseyear, not 2010 as previous versions had - this suits the 2030 target
 %THe implications of net-zero
 %Does new policy context require new modelling approach?
 %Yes, do account for ongoing investments in climate mitigation opitions, the approach should provide higher granularity for likely pathways
@@ -317,17 +285,20 @@ Note that the sign of the constraint may also be of the "larger than or equal to
 %Improved more detailed Energy Service Demands
 
 
-
-The TIM approach.....data and calibration
-%a newly formed group with members from different universities, industries and semi-state agencies within Ireland.  Following this, other datasets were then used to develop the full housing stock, based on the correlation of year of construction and building energy ratings.
-\label{Results}
-\subsubsection{Scenarios}
-Behavioral Constraints here 
 \subsection{Residential}
 \label{LitR:RES}
-RES FIGURE
+
+%PICKUPHERE
+\begin{figure}[!htbp]
+ \centering
+ \includegraphics[scale=1]{Figures/TIM_Residential_RES (1).jpg}
+ \caption{Residential Sector - Reference Energy System}
+ \label{fig:RES}
+\end{figure}
+Behavioral Constraints here 
+RES FIGURE 
 ENERGY CONSUMPTION CHARACTERISTICS of Houses - 
- The BER database, which represents half of the dwelling stock, highlights the affect year of construction has on expected energy consumption, as shown in Fig.\ref{fig:BERAge}. The BERs labels are categorised based on expected energy consumption, with A1 representing the lowest expected energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest expected energy consumption ($ >450 kWh/m^2/year$). The BERs are developed from the Energy Performance of Buildings Directive 2002/91/ EC, which helps to better understand the housing stock. BERs are required for new houses, rented houses, sold houses and renovated houses. 
+ %The BER database, which represents half of the dwelling stock, highlights the affect year of construction has on expected energy consumption, as shown in Fig.\ref{fig:BERAge}. The BERs labels are categorised based on expected energy consumption, with A1 representing the lowest expected energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest expected energy consumption ($ >450 kWh/m^2/year$). The BERs are developed from the Energy Performance of Buildings Directive 2002/91/ EC, which helps to better understand the housing stock. BERs are required for new houses, rented houses, sold houses and renovated houses. 
 
 \begin{figure}[!htbp]
  \centering
@@ -340,10 +311,13 @@ Theoretically G-rated BERs consume more energy and consequently have higher ener
 \par BERs do not take account of actual usage based on occupancy behaviour or occupancy density, nor does it take account of the size of the dwelling. The BER labels do therefore leave a gap between actual consumption and expected consumption, the literature review explains how this problem was tackled.
 \subsubsection{House Stock Data}
 BER Database, CSO and Calculations and Filtration 
-
+FIGURE - Expected and Actual Consumption per m2
+Than Actual 
 
 \subsubsection{Costs}
 \label{LitR:Costs}
+Elephant in the room - Fuel Poverty
+%JF -The tax / subsidy inclusive prices are important in driving behaviour, and taxes and subsidies will be a vital policy instrument. Thus, uptake of technologies such as retrofitting will be driven, inter alia, by the net price for consumers.
 \subsubsection{Savings}
 \label{LitR:Savings}
 \subsubsection{Energy Service Demands Projections}
@@ -464,6 +438,7 @@ The SEAI residential energy report \cite{SustainableEnergyAuthorityofIreland2018
 
 
 %Space Heating demand - BER space heating is only within certain months and assumes 21C heating..
+Thermostats are not widely used for temperature regulation in private dwellings in Ireland; instead the domestic heating schedule was assumed to be 07.00–09.00 h and 17.00–23.00 h for a heating season of October to May inclusive, based on guidelines issued by the Sustainable Energy Authority of Ireland (SEAI) [32]. The thermal load consists of both space heating and a baseline demand for sustaining water heating. For non-domestic premises the thermal load is defined by office hours, in line with the electrical demand. The domestic thermal loads considered in this study are listed in Table 2; the thermal load for the non-domestic
 \subsubsection{Space and Water Heating}
 ISO EN 13790 (Energy Performance of Buildings Directive).
 Capacity, Efficiency, Constraints, Uptake, adapation
@@ -472,7 +447,17 @@ heat output (Qt) and electricity input in a given time per-iod (Pt) is expressed
 Capacity, Efficiency, Constraints, Uptake, adapation
 \subsubsection{User Constraints}
 \label{LitR:Constraints}
-
+LIST OF SCENARIOS?
+GROWTH CONSTRAINT -A specific type of constraint may be defined to limit the share of process (p) in the total production of commodity (c). The constraint indicates that the flow of commodity (c) from/to process (p) - CommodiTypically, a growth constraint is of the following generic form (ignoring several indices for clarity: \cite{Loulou2016EnergyProgramme}
+\begin{equation} 
+\begin{split}
+VAR\_CAP(t + 1) \leq (1 + GROWTH^{M(t+1)-M(t)}) \cdot VAR\_CAP(t)+K
+\end{split}
+\label{Eq:GrowthConstraint}
+\end{equation}
+The GROWTH coefficient is defined as a new attribute of the technology, and represents the maximum annual growth allowed for the capacity. The quantity M(t+1)-M(t) is the number of years between the milestones of periods t and t+1. The constant K is useful whenever the technology has no capacity initially, in order to allow capacity to build over time (if K were absent and initial capacity is zero, the technology would never acquire any capacity)
+Note that the sign of the constraint may also be of the "larger than or equal to" type to express a maximum rate of abandonment, in which case the "+" sign is replaced by a "–" sign in the right-hand-side of the constraint. Equality is also allowed, but must be used only exceptionally in order to avoid railroading of the model.
+5.4.11
 
  % LIT REW INPUT DATA - EU \cite{Simoes2013TheProject} 
 - LI,er.alThe nationwide survey identified existing technologies, age,
