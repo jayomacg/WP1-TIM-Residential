@@ -178,19 +178,25 @@ The two approaches are observed for the location of the batteries in the PV syst
 \subsubsection{Ireland: Residential Modelling}
 \label{Intro:ESOMIreland}
 
-In Ireland, previous modelling on the residential sector has often involved bottom-up residential models, rather than energy system models specifically examining the residential sector. Nevertheless, the residential models have provided insights on input data and methodology approach used in Ireland. In 2011 Dineen and Ó Gallachóir \cite{Dineen2011ModellingHeating} developed a residential bottom-up model to assess the impacts of measures in Ireland's National Energy Efficiency Action Plan (NEEAP). The model focused on energy efficiency of space and water heating by examining technology and building fabric efficiency. The building fabric efficiency of newly occupied dwellings developed takes into account the theoretical increase in energy efficiency due to improved 2008 and 2010 building regulations. Space heating demand accounted for 70\% of household energy consumption in newly built dwellings in 1997, down to just under 60\% in 2006 and the model is predicts a reduction to 27\% by 2015.The paper acknowledges retrofitting of existing stock will play a large role in meeting energy efficiency targets, however it is not examined. Nor is the affect of internal temperatures on energy efficiency improvements.  
-\par In 2013 Ahern et al.\cite{Ahern2013StateStock} investigated thermal retrofit measures to the existing detached, oil centrally heated, rural housing stock. A base geometry according to age bands and thermal characteristics was created in the study. The heat load for a statistical occupancy and year was established. The default values used in some of the BER database variables where highlighted. For example,  there are assumed U-values when the roof insulation thickness is unknown, this is based on age, but there are no U-values for uninsulated roofs and a 2001 survey found 18\% of detached housing in Ireland had no roof insulation. The internal temperature assumed for all dwelling was 20$^{\circ}$C. Ahern et al. found that newer dwellings, consume the greatest amount of energy in kWh/annum than all the older dwellings, due to the fact that their large floor area. Concluding the majority of energy efficiency progress for thermal use in Irish dwellings is being offset. 
+In Ireland, previous modelling on the residential sector has often involved bottom-up residential models, rather than energy system models specifically examining the residential sector. Nevertheless, the residential models have provided insights on input data and methodology approach used in Ireland. 
+Early work by Healy and CLinch ---
+2009 Hull
 
+In 2011 Dineen and Ó Gallachóir \cite{Dineen2011ModellingHeating} developed a residential bottom-up model to assess the impacts of measures in Ireland's National Energy Efficiency Action Plan (NEEAP). The model focused on energy efficiency of space and water heating by examining technology and building fabric efficiency. The building fabric efficiency of newly occupied dwellings developed takes into account the theoretical increase in energy efficiency due to improved 2008 and 2010 building regulations. Space heating demand accounted for 70\% of household energy consumption in newly built dwellings in 1997, down to just under 60\% in 2006 and the model is predicts a reduction to 27\% by 2015.The paper acknowledges retrofitting of existing stock will play a large role in meeting energy efficiency targets, however it is not examined. Nor is the affect of internal temperatures on energy efficiency improvements.  
+\par In 2013 Ahern et al.\cite{Ahern2013StateStock} investigated thermal retrofit measures to the existing detached, oil centrally heated, rural housing stock. A base geometry according to age bands and thermal characteristics was created in the study. The heat load for a statistical occupancy and year was established. The default values used in some of the BER database variables where highlighted. For example,  there are assumed U-values when the roof insulation thickness is unknown, this is based on age, but there are no U-values for uninsulated roofs despite a 2001 survey found 18\% of detached housing in Ireland had no roof insulation. Ahern et al. found dwellings built post-2000 consume the greatest amount of energy (kWh/annum), due to their large floor area. Concluding that the majority of energy efficiency progress for thermal use in Irish dwellings is being offset. The model thermal improvement measures resulted a reduction of running costs and CO2 emissions by an average of 65\% for houses constructed prior to 1979, this resulted in an average 12-year payback. Houses built in 1979 or after resulted in an average 26\% reduction in running costs and $CO_2$ emissions from retrofit measures.
 
-The reduction in heating costs and CO2 emissions for houses constructed prior to 1979 (coinciding with the introduction of building regulations) and around 26% for newer homes, thus offering a significant contribution (44%) to Ireland’s residential carbon abatement projections and hence in meeting the EU’s directives on energy and carbon.
+\par In 2015 Dineen et al.\cite{Dineen2015ImprovedSource} built on previous work in examing new dwelling, to examining energy savings potential of energy efficiency improvement measures of the existing dwelling stock. The model relied on the BER database, which accounted for 18\% of all Irish dwellings, currently the database has more than doubled and accounts for over 50\%. The model used 175 archetype dwellings ( 5 building types, 7 energy bands and 5 wall construction types ) and 6 different retrofit measures were applied. BER database filters were used in this model, the BER filters from this study, were updated and applied in TIM. A sensitivity analysis is performed on the effects of internal temperature and rebound. It was found that there was approximately a 7.5\% change in energy consumption for every 1$^{\circ}$C internal temperature shift. Concluding, BER standard assumptions overestimate dwelling energy consumption and that the average internal temperature across the Irish dwelling stock may be closer to 18$^{\circ}$C than 21$^{\circ}$C.
 
-through energy efficiency measures has been offset by the so called size effect. The
-The model predicts a reduction of 65% in running costs and
-CO2 emissions for house types A–E and a reduction of 26% in running costs and CO2 emissions for house types F–J from retrofit measures, and forecasts a total saving of 276 million euro and a CO2 abatement of 1.21 MtCO2. By
-the
-potential exists to reduce running costs and CO2 emissions by an average of 63% for housing constructed prior to the 1979 building regulations (house types A–E) and by 26% for newer housing. The ratio of amounts of CO2 which can be potentially saved to
-the amount of money saved was calculated as 4.35 kgCO2/h. Nationally an annual saving of h183 million euro is theoretically achievable with a resultant saving of 0.80 MtCO2 arising from insulation retrofits, the replacement of single glazed windows and increasing air tightness. The
-\cite{Ahern2015EnergySystems}\cite{Dineen2015ImprovedSource}\cite{Uidhir2020ResidentialIreland}\cite{Uidhir2020ImprovingDecisions} and some models have been used to optimise Ireland's entire energy system \cite{Chiodi2013ModellingSystem}\cite{Connolly2021AalborgEnergy-System}, but very few models have used energy system optimisation model to explore the Irish residential sector. In 2014, Rogan et al used OSeMOYOS to explore energy service demands \cite{Rogan2014LEAPsSystem}, and Thellufsen examining DH with EnergyPLAN and TIMES in 2019 \cite{Thellufsen2019ImplementingIreland}. 
+Mac Uidhir et al.\cite{Uidhir2020ImprovingDecisions}  created Archetype Dwelling Energy Model - Structured Query Language (ArDEM-SQL), to simulate the potential for improved energy efficiency gains within the existing retrofit programs, specifically the Better Energy Homes (BEH) scheme.
+BER database had grown to in ex- cess of 735,0 0 0 records
+We introduce a new methodology that provides insights into sub-optimal retrofit choices.
+The five most common retrofit combinations are simulated for each of the nine archetypes. The 3 energy rating types and 3 archetypes
+The results show that the alternative retrofit combination differs by archetype and that additional energy effi- ciency gains of up to 86% can be achieved due to alternative retrofit choices
+while maintaining the total number of retrofits completed, we estimate an energy savings potential of 1389 GWh, realising an additional 643 GWh or an 86% additional energy savings potential relative to those in the baseline data, see Fig. 7
+The simulation of alternative archetype retrofit measures
+yielded additional energy savings of 86% when compared with the observed energy savings as they appear in the baseline sce- nario. The additional energy savings are not evenly distributed across all building archetypes with detached CD/EFG and terraced CD/EFG account for 98% of the potential additional energy sav- ings when using the alternative retrofits identified, suggesting that greater energy savings are possible when retrofit measures are ap- plied to less energy efficient dwellings. It
+\citep{Ahern2020ADatabases}
+and some models have been used to optimise Ireland's entire energy system \cite{Chiodi2013ModellingSystem}\cite{Connolly2021AalborgEnergy-System}, but very few models have used energy system optimisation model to explore the Irish residential sector. In 2014, Rogan et al used OSeMOYOS to explore energy service demands \cite{Rogan2014LEAPsSystem}, and Thellufsen examining DH with EnergyPLAN and TIMES in 2019 \cite{Thellufsen2019ImplementingIreland}. 
 
 \subsection{Ireland: Residential Sector}
 \label{Intro:IreRSD}
@@ -335,7 +341,7 @@ The SEAI BER Public database, which is Ireland's national Energy Performance Cer
   \label{Table:InternalTemps}
 \end{table}
 
-The Archetype Dwelling Energy Model SQL (ArDEM-SQL) is a simulation model built on IS EN 13790, it converts the BER public database into Microsoft SQL language and then calculates annual energy consumption for space heating, water heating, pumps \& fans and lighting. ArDEM-SQL is used to clean the input data in TIM, by changing internal temperatures. The internal temperature is highly dependent on occupancy behaviour, a thermal comfort  thermal discomfort are higher among the over-65s than for other household \cite{Healy2002FuelIreland} - living room temperatues between 12 and 26...s  and therefore there is are large variations per BER rating.
+The ArDEM-SQL is a simulation model built on IS EN 13790, it converts the BER public database into Microsoft SQL language and then calculates annual energy consumption for space heating, water heating, pumps \& fans and lighting. ArDEM-SQL is used to clean the input data in TIM, by changing internal temperatures. The internal temperature is highly dependent on occupancy behaviour, a thermal comfort  thermal discomfort are higher among the over-65s than for other household \cite{Healy2002FuelIreland} - living room temperatues between 12 and 26...s  and therefore there is are large variations per BER rating.
 The International Standard ISO 7730 [6] uses these PMV and PPD indices to predict the thermal sensation of people exposed to moderate thermal environments, as well as to specify acceptable thermal environmental conditions for comfort...
 Despite this, it is
 worth noting that the most inefficient dwellings i.e. band F, managed to achieve an
@@ -390,6 +396,27 @@ household. The schedule is as follows.
 • Weekdays: 07.00 to 09.00 and 17.00 to 23.00
 • Weekends: 07.00 to 09.00 and 17.00 to 23.00
 This standardised schedule represents a total heating period of 56 hours per week.
+
+Scaling BER to CSO
+\begin{equation} 
+\begin{split}
+S_y =  \frac{C_y} {B_y}
+\end{split}
+%\[ \sum_{n=1}^{\infty} 2^{-n} = 1 \]
+\label{Eq:BERtoCSO}
+\end{equation}
+The number of dwellings by year of construction within the
+BER database (B y ) is then scaled to align with the total number of dwellings as they appear in the CSO dataset (C y ) –for each archetype. Eq. (8) describes the scaling factor (S y ), used for each year of construction bracket
+
+\begin{equation} 
+\begin{split}
+A_y =  {S_y} \cdot {B_{yarc}}
+\end{split}
+\label{Eq:BERtoCSO2}
+\end{equation}
+Number of archetypes dwellings by year of construction , where A k = Frequency of each archetype, S y = Scaling Factor, B yarc = Number Dwellings by BER category, A k = Frequency of each archetype.
+
+Model calibration: archetype demand The
 \subsubsection{Costs}
 \label{LitR:Costs}
 Elephant in the room - Fuel Poverty
@@ -397,7 +424,33 @@ Elephant in the room - Fuel Poverty
 \subsubsection{Savings}
 \label{LitR:Savings}
 \subsubsection{Energy Service Demands Projections}
+\begin{equation} 
+\begin{split}
+E_y = {\sum_{A,M}} N_{A,y} \cdot S_{A,M}
+\end{split}
+%\[ \sum_{n=1}^{\infty} 2^{-n} = 1 \]
+\label{Eq:RetrofitSaving}
+\end{equation}
+$E_y$ = Energy Savings in Year y
+$N_{A,y}$ = Number of dwellings of archetype A retrofitted in year y
+$S_{A,M}$ = ¼ Energy Savings per annum for retrofit measureM carried
+out on archetype dwelling A
+A = For each archetype
+M = For each retrofit measure carried out
+
+Next - 
+\begin{equation} 
+\begin{split}
+D_M = {\sum_{A,M}^n} (A_kI_{ki} - A_kI_{kT} )
+\end{split}
+%\[ \sum_{n=1}^{\infty} 2^{-n} = 1 \]
+\label{Eq:EnergyandRetrofitSaving}
+\end{equation}
+Total Energy Demand , where D T = Total Energy Demand, n = total number of archetypes, A k = Frequency of each archetype, I k = Energy Intensity of each archetype - D M = Energy Savings by retrofit measure (M), n = total number of archetypes, A k = Frequency of each archetype dwellings eligible for retrofit measure, I ki = Pre-retrofit archetype energy intensity, I kr - post-retrofit archetype intensity - Tomas Paper
+
+Heterogeneous Occupancy Behaviour > House Stock 
 \label{LitR:Demands}
+Residential Energy was >50\%higher before internal temperature adjustments
 Macroeconomic 
 no elasticity - fuel prices and weather compensation?
 Time slices - 40 etc. 
@@ -588,6 +641,10 @@ BER aggeragateed
 housing stock u-values
 behaviour and occupancy
 Area
+expected energy consumption weakness of BER database as 
+Actual energy consumption for dwellings of
+similar or near identical construction may vary by up to 600%
+depending on usage \cite{Sunikka-Blank2012BuildingConsumption}
 \section{Conclusions}
 \label{Conclusion}
 This paper reports results on ambitious mitigation target in the period to 2050 for the Irish energy system. The analysis have been performed using the Irish TIMES model
