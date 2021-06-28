@@ -180,31 +180,17 @@ The two approaches are observed for the location of the batteries in the PV syst
 
 %and some models have been used to optimise Ireland's entire energy system \cite{Chiodi2013ModellingSystem}\cite{Connolly2021AalborgEnergy-System}, but very 
 
-In 2014, Rogan et al. \cite{Rogan2014LEAPsSystem} used OSeMOYOS to explore residential energy service demands in Ireland
- LEAP writes an input file for OSeMOSYS, runs it and imports its results back into LEAP. Currently, the LEAP input file only contains the aggregated electricity demand as the main driver for the optimization within OSeMOSYS.
- the model examines the
- 3 main sceanrios - exploring transtport, residential, services and industy. The reference sceanrio - 
-REF - TFC increase by 6.7\% in 2020, base year is 2008. space and water heating TFC have decreased in share of total residential TFC from 82 to 77 \%, whereas lighting, cooking and appliances have increased in TFC from 18 to 23 \%. assume that 1.4 \% of existing dwellings per annum will undergo a shallow retrofit in the reference
-case, corresponding to just below 300,000 dwellings
+In 2014, Rogan et al. \cite{Rogan2014LEAPsSystem} linked OSeMOYOS, an ESOM to the Long Range Energy Alternatives Planning System (LEAP) simulation model, to explore specific energy efficiency policies not only in the residential sector, but also in transport, industry and services sector in Ireland. The bottom up development of the residential sector in LEAP was combined with the cost optimisation capabilities of OSeMOYOS. Three scenarios are explored, namely, the reference scenario, energy efficiency scenario and energy efficiency+ scenario. The reference assume that 300,000 existing dwellings will undergo a shallow retrofit from 2009 to 2020. In the reference scenario the residential total energy consumption rose 6.7 \% in 2020, compared to 2008. The share of space and water heating decreased from 82 \% to 77 \% in that period. In the energy efficiency scenario 800,000 residential dwellings are retrofitted between 2009 and 2020, combined with the effect of other policies such as building regulations and lighting, resulted in a reduction in of energy consumption of 9.9 \% in 2020, compared to the reference scenario. The energy efficiency+ scenario also allows for 800,000 residential dwellings to be retrofitting, but accounts for deeper retrofits. The results in a reduction in of energy consumption of 16.5 \% in 2020, compared to the reference scenario.Rogan et al. discussed the barriers, obstacles to investment, split incentives and information gaps which restrict energy efficiency improvements in the residential sector. The importance for policy to not only look at number of retrofit, but also the depth of retrofit works, is shown by the difference in scenarios. The model also found considerable scope for energy savings to be made through improved building regulations. 
 
-In the energy efficiency scenario, we assume that 800,000 residential dwellings will be retrofitted between 2009 and 2020, in line with government targets for the BEH scheme,  Other policies in the residential sector are building regulations 2011 and building regulations 2013 and CFL lighting,  The combined impact of these policies is a reduction in TFC of 9.9 \% compared to the reference scenario. 
-
-The energy efficiency+scenario explores the impact of an ambitious retrofitting scenario beyond its current rate of implementation: retrofitbest is realised by retrofitting the same overall number of dwellings but undertaking a deeper, more comprehensive package of
-energy efficiency measures on each, resulting in 7.2 \% savings compared to the energy efficiency scenario and 16.5 \% savings compared to the reference scenario.
-  Insights - A challenging issue for energy modelling of policy is the
-barriers and obstacles to investment, particularly in
-residential energy efficiency measures such as split
-incentives and information gaps, which lead to suboptimal
-uptake of economically beneficial energy
-efficiency improvements.
+In 2018, Thellufsen et al. \cite{Thellufsen2019ImplementingIreland} investigated the potential for the implementation of district heating in both the commercial and residential sectors of Ireland. The paper analyses the $CO_2-80$ scenario ( 80 \% $CO_2$ reduction in 2050, compared to 1990 ) with and without district heating using the previous Irish TIMES model and EnergyPLAN. The previous version of Irish TIMES did not account for district heating, so EnergyPLAN is used to investigate the operation and  feasibility of district heating in Ireland. A sensitivity analysis was preformed on investment costs, heat grid losses and discount rates, however in all cases the inclusion of district heating is optimal. The final results find district heating reduces fuel consumption by 3.5 \% and the conversion of 37 \% of the Irish heat demand to district heating is found to be optimal. Both the TIMES model and climate target are superseded and the study did not include the future heat savings expected from retrofitting, nevertheless this study has provided insights on the potential of district heating. 
 
 
-Thellufsen examining DH with EnergyPLAN and TIMES in 2019 \cite{Thellufsen2019ImplementingIreland}. 
+\par In Ireland few models have used energy system optimisation model to explore the residential sector. The majority of previous modelling on the residential sector in Ireland has involved bottom-up residential sector only models, rather than energy system models specifically examining the residential sector. Nevertheless, the residential models have provided insights on input data and methodology approach used in Ireland, some of which are outlined below.
 
-In Ireland few models have used energy system optimisation model to explore the residential sector. The majority of previous modelling on the residential sector in Ireland has involved bottom-up residential sector only models, rather than energy system models specifically examining the residential sector. Nevertheless, the residential models have provided insights on input data and methodology approach used in Ireland, some of which are outlined below.
-
-Early work by Healy and CLinch ---\cite{Clinch2000HousingMortality,Healy2002FuelIreland,Clinch2003ValuingModel,Clinch2000DomesticFailure,Clinch2001Cost-benefitEfficiency}
-
+Clinch and Healy analysed different aspects of thermal comfort in the Irish residential sector. This was the first comprehensive analysis of the residential sector, their studies examined fuel poverty \cite{Healy2002FuelIreland}, excess winter mortality \cite{Clinch2000HousingMortality}, market failures \cite{Clinch2000DomesticFailure} and energy efficiency  \cite{Clinch2003ValuingModel,Clinch2000DomesticFailure,Clinch2001Cost-benefitEfficiency,Clinch2001ModellingEfficiency}. In 2000 Clinch and Healy developed and published a domestic energy efficiency model to analyse the cost-benefit of energy efficiency \cite{Clinch2001Cost-benefitEfficiency}.The Energy-Assessment Model (EAM) is a bottom-up model developed in Mircsoft Excel which incorporates 1,824 representative dwellings ( 8 building archetypes, 12 levels of insulation and 19 heating systems ), this was not linked to other sectors of the economy and only looked at space and water heating. A cost-benefit model (CBM) was fitted to the EAM to facilitate the conversion of the physical estimates into monetary amounts. Under the predicted scenario, energy savings easily outweighing programme costs, representing a benefit-cost ratio of 1.7.The benefits of reduced sickness, hospitalisation and drugs and mortality, were quantified, this moved the  benefit-cost ratio up to 3.0.
+The same model was used by Clinch, Healy and King \cite{Clinch2001ModellingEfficiency} in addition three models of householder spending on energy are developed here to to evaluate the human behavioural component
+into the computer model. the modelling process involved developing a computer model of the energy performance of the existing dwelling stock. It was noted, energy consumption predicted by the model is considerably higher than given in the national energy balance, due to intertal temperature assumptions. 
+The model showed the energy-efficiency programme ( all houses retrofitted to 1997 thermal building standards in 10 years ) represents a saving of 24 \% when compared to the reference scenarios. 
 
 In 2011 Dineen and Ó Gallachóir \cite{Dineen2011ModellingHeating} developed a residential bottom-up model to assess the impacts of measures in Ireland's National Energy Efficiency Action Plan (NEEAP). The model focused on energy efficiency of space and water heating by examining technology and building fabric efficiency. The building fabric efficiency of newly occupied dwellings developed takes into account the theoretical increase in energy efficiency due to improved 2008 and 2010 building regulations. Space heating demand accounted for 70\% of household energy consumption in newly built dwellings in 1997, down to just under 60\% in 2006 and the model is predicts a reduction to 27\% by 2015.The paper acknowledges retrofitting of existing stock will play a large role in meeting energy efficiency targets, however it is not examined. Nor is the affect of internal temperatures on energy efficiency improvements.  
 \par In 2013 Ahern et al.\cite{Ahern2013StateStock} investigated thermal retrofit measures to the existing detached, oil centrally heated, rural housing stock. A base geometry according to age bands and thermal characteristics was created in the study. The heat load for a statistical occupancy and year was established. The default values used in some of the BER database variables where highlighted. For example,  there are assumed U-values when the roof insulation thickness is unknown, this is based on age, but there are no U-values for uninsulated roofs despite a 2001 survey found 18\% of detached housing in Ireland had no roof insulation. Ahern et al. found dwellings built post-2000 consume the greatest amount of energy (kWh/annum), due to their large floor area. Concluding that the majority of energy efficiency progress for thermal use in Irish dwellings is being offset. The model thermal improvement measures resulted a reduction of running costs and CO2 emissions by an average of 65\% for houses constructed prior to 1979, this resulted in an average 12-year payback. Houses built in 1979 or after resulted in an average 26\% reduction in running costs and $CO_2$ emissions from retrofit measures.
@@ -214,18 +200,19 @@ In 2011 Dineen and Ó Gallachóir \cite{Dineen2011ModellingHeating} developed a 
 The Archetype Dwelling Energy Model (ArDEM-SQL) was developed by Mac Uidhir et al.\cite{Uidhir2020ImprovingDecisions}. ArDEM-SQL converts the Irish BER public database into Microsoft SQL language and then calculates annual energy consumption to simulate the potential for improved energy efficiency gains within the existing retrofit programs. Mac Uidhir et al. specifically examined the Better Energy Homes (BEH) scheme. The five most common retrofit combinations are simulated for each of 9 archetypes ( 3 energy rating types and 3 building types ). The results show that the alternative retrofit scenarios can achieve additional energy efficiency gains of up to 86\% can be achieved when compared the baseline scenario. This shows the the type of retrofit and type of house can have a huge affect on the energy saved. 
 Greater energy savings are possible when retrofit measures are applied to less energy efficient dwellings (E, F and G-ratings ), albeit the ``rebound effect" was not accounted for due to insufficient data on the scale of the rebound effect and the relative difference between the two scenarios examined is considered negligible.   
 
-SEAI’s National Energy Modelling Framework (NEMF) is a suite of modelling tools used for modelling the Irish
-energy system, both supply and demand side, to inform Irish Government energy policy and project Ireland’s
-energy use based on these policie - https://www.seai.ie/publications/National-Energy-Projections-to-2030.pdf
-The macro-economic model currently in use is called COSMO (Core Structural Model of the Irish Economy),
-which creates a baseline forecast of energy consumption by sector (ESRI, 2017c). A range of sectoral models
-are used to analyse both supply and demand side energy. Electricity supply is modelled using a commercial
-power system software called PLEXOS47. A BioHeat model is used for techno-economic modelling of
-bioenergy supply chains in Ireland for the electricity generation, transport and heat sectors48. There is also a
-separate transport energy simulation model, which considers biofuels blending and the growth of low
-emissions vehicles in the vehicle stock, including electric vehicles. In addition, separate modelling by an
-energy-efficiency policy analysis tool (Unlocking model) informed the energy efficiency estimates included in
-the NEMF49. 
+
+Finnaly, it is worth mentioning SEAI’s National Energy Modelling Framework (NEMF), which is a suite of modelling tools used for modelling the Irish energy system. Some of the main models used in the NEMF include:
+\begin{itemize}
+\item {Core Structural Model of the Irish Economy (COSMO)  is a macro-economic model used by the Economic and Social Research Institute (ESRI) to create a baseline forecast of energy consumption by sector} \cite{Bergin2017COSMO:Ireland}
+\item{PLEXOS is a power systems modeling tool used for electricity modeling and planning}\cite{PLEXOSExemplar}
+\item{Energy-efficiency policy analysis tool informs the energy efficiency estimates} \cite{Scheer2015UnlockingTob}
+\begin{itemize}
+\item{Consumer Choice Model determines the attractiveness of energy efficiency finance options}\cite{SustainableEnergyAuthorityofIreland2017BehaviouralSector}
+\end{itemize}
+\item{BioHEAT is a techno-economic simulation model of bioenergy and heat, used by SEAI to support policy decision in Ireland.}\cite{Durusut2018BioHEAT:Sectors}
+\end{itemize}
+
+The listed NEMF models and more are used by SEAI to model the impact of incentives and opportunities created by specific policy instruments. The models are a combination of top down, .......... 
 
 \subsection{Ireland: Residential Sector}
 \label{Intro:IreRSD}
@@ -661,6 +648,7 @@ Robust filtered input data about housing stock
 
 \subsection{Limitations}
 \label{Dis:Limit}
+%Discrepancies were investigated, and assumptions reviewed intuitively in order to achieve a good match.=
 Consumers’ final investment decision can be
 represented by “willingness-to-pay” curves – for
 instance, around 10\% of owner-occupiers are willing
