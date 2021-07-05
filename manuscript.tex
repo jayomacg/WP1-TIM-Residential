@@ -49,8 +49,12 @@
 \usepackage{amsmath}
 \usepackage{comment}
 \usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{siunitx}
+\usepackage{eurosym}
 %\usepackage{multirow}
 
+\DeclareSIUnit{\EUR}{\text{\euro}}
 
 %\usepackage[table]{xcolor}
 %\usepackage{cite}
@@ -317,9 +321,7 @@ NPV = {\sum_{r=1}^{R}  \sum_{y\in YEARS}(1 + d_{r,y})^{REFYR-y}}
 \end{equation}
 Where, $NPV$ is the net present value of the total cost for all regions ; $ANNCOST(r,y)$ is the total annual cost in region r and year y; $d_{r,y}$ is the general discount rate; $REFYR$ is the reference year for discounting; YEARS is the set of years for which there are costs; and $R$ is the set of regions in the area of study.
 
-
-%Add description of TIMES and how residential sector is represented to the Methodology section; - Olex Email
-%The TIMES-Ireland Model (TIM) is an optimisation model of the Irish energy system, which calculates the cost-5optimal fuel and technology mix to meet future energy service demands in the transport, buildings, industry and agriculture sectors, while respecting constraints in greenhouse-gas emissions, primary energy resources and feasible deployment rates.
+TIM is an optimisation model of the Irish energy system, which calculates the cost-optimal fuel and technology mix to meet future energy service demands. The residential, power generation and transport sectors are rebuild with high granularity from the bottom-up, while industry, agriculture and services sectors have been updated. The model operates within the limits of GHG constraints, resources constraints, and feasible deployment rates.
 
 \subsection{Residential}
 \label{LitR:RES}
@@ -332,7 +334,7 @@ The new structure and updated technological and macroeconomic data will provide 
  \label{fig:RES}
 \end{figure}
 
-The BER database provides the base year bottom-up energy consumption data, this is extrapolated to represent the entire stock and cross-checked with the top-down energy consumption from the 2018 SEAI Energy Balance. To compare from the two databases, fuels were were combined and condensed down to 13 fuels in TIM. Table \ref{Table:Fuels} shows an overview of the fuels combined from the different data sources. 
+The BER database provides the base year bottom-up energy consumption data, this is scaled up to represent the entire stock and cross-checked with the top-down energy consumption from the 2018 SEAI Energy Balance. To compare from the two databases, fuels were were combined and condensed down to 13 fuels in TIM. Table \ref{Table:Fuels} shows an overview of the fuels combined from the different data sources. 
 
 \begin{table}[htbp]
   \centering
@@ -371,42 +373,16 @@ Biodiesel      & Biodiesel  & Biodiesel             \\ \hline
 \label{Table:Fuels}
 \end{table}
 
-In TIM fuels such as coal, represent a combination of coal fuels from the two different databases. Kerosene accounts for over 70 \% of oil usage, while Gasoil accounts for most of the remaining share, the fuels have similar properties and there was no evidence to support keeping separate fuels would provide insights to residential decarbonisation. The exception is ambient heat, which could potentially provide insights to residential decarbonisation by seperating it into ambient heat for space heating and ambient heat for water heating. The solid multi-fuel from the BER database represents an open fire or stove which is heated by either coal, peat or wood. Through analysis of the SEAI Energy Balance and BER database, the fuel share assigned for coal, peat and wood is 19.4 \%, 74.4 \% and 6.2 \% respectively. 
-There are two types of energy services represented in Table \ref{fig:RES} - Non-Archetype and Archetype. Non-archetype energy services fill in the lack of data on archetype energy services. The six non-archetype energy services, are not dependant on the type of dwelling in the model and the base year quantity is the total national consumption of that energy service, this bottom-up data was retrieved from SEAI Residential Energy Report \cite{SustainableEnergyAuthorityofIreland2018EnergySector} and cross-checked with the POTEnCIA (Policy Oriented Tool for Energy and Climate Change Impact Assessment) database and the SEAI Energy Balance, more details on non-archeype services are found in Section \ref{LitR:Lighting,Appliances}. The four archetype energy services are dependent on  building archetype and data is sourced from the BER database, which is discussed in Section \ref{LitR:StockData}. The internal temperature adjustment for space heating is detailed in Section \ref{LitR:StockData}. The demand for archetype and non-archetype energy services is based on the growth of residential dwellings, which is detailed in section \ref{LitR:Demands}.
+In TIM, fuels such as coal, represent a combination of coal fuels from the SEAI Energy Balance and BER database. Kerosene accounts for over 70 \% of home heating oil usage in 2018, while Gasoil accounts for most of the remaining share, the fuels have similar properties and there was no evidence to support keeping separate fuels would provide further insights to residential decarbonisation. The exception is ambient heat, which could potentially provide insights to residential decarbonisation by separating it into ambient heat for space heating and ambient heat for water heating. The solid multi-fuel from the BER database represents an open fire or stove which is heated by either coal, peat or wood. Through analysis of the SEAI Energy Balance and BER database, the fuel share assigned for coal, peat and wood is 19.4 \%, 74.4 \% and 6.2 \% respectively. 
+There are two types of energy services represented in Table \ref{fig:RES} - Non-Archetype and Archetype. Non-archetype energy services fill in the lack of data on archetype energy services. The six non-archetype energy services, are not dependant on the type of dwelling in the model and the base year quantity is the total national consumption of that energy service, this bottom-up data was retrieved from SEAI Residential Energy Report \cite{SustainableEnergyAuthorityofIreland2018EnergySector} and cross-checked with the POTEnCIA (Policy Oriented Tool for Energy and Climate Change Impact Assessment) database and the top-down data from the SEAI Energy Balance, more details on non-archetype services are found in Section \ref{LitR:Lighting,Appliances}. The four archetype energy services are dependent on  building archetype and data is sourced from the BER database, which is discussed in Section \ref{LitR:StockData}. The internal temperature adjustment for space heating is detailed in Section \ref{LitR:StockData}. The demand for archetype and non-archetype energy services is based on the growth of residential dwellings, which is detailed in section \ref{LitR:Demands}.
 
-First iteration - of model will need further development DH, BEhavour, higher granularity and spatial will be easily done with dataset. 
-%What does new model do that previous didn’t?
-%TIM residential improvements - DH, HVO, Solar ( in progress ), better graps the cost and savings of retrofits and heat pumps, which can infrom MACC.Build with 2018 baseyear, not 2010 as previous versions had - this suits the 2030 target
-%THe implications of net-zero
-%Does new policy context require new modelling approach?
-%Yes, do account for ongoing investments in climate mitigation opitions, the approach should provide higher granularity for likely pathways
-%How does new modelling structure provide insights (give examples) in a way that previous model didn’t?
-%Demands - 
-%Improved more detailed Energy Service Demands
 
-\subsubsection{House Stock Data}
+\subsubsection{Dwelling Stock Data}
 \label{LitR:StockData}
 
-
-The BER database, which represents half of the dwelling stock, highlights the affect year of construction has on expected energy consumption, as shown in Fig.\ref{fig:BERAge}. The BERs labels are categorised based on expected energy consumption, with A1 representing the lowest expected energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest expected energy consumption ($ >450 kWh/m^2/year$). The BERs are developed from the Energy Performance of Buildings Directive 2002/91/ EC, which helps to better understand the housing stock. BERs are required for new houses, rented houses, sold houses and renovated houses. 
-
-\begin{figure}[!htbp]
- \centering
- \includegraphics[scale=0.5]{Figures/BERAge.png}
- \caption{Building Energy Rating by Age}
- \label{fig:BERAge}
-\end{figure}
-
-ENERGY CONSUMPTION CHARACTERISTICS of Houses - Table?
-
-Theoretically G-rated BERs consume more energy and consequently have higher energy bills to maintain a comfortable internal temperature, but in reality G-rated dwellings have low internal temperatures, which is a reason for Ireland's high excessive winter mortality \cite{Clinch2000HousingMortality}. Fuel Poverty which which is defined as when a \textit{``household spends 10\% or more of income to achieve adequate warmth"} is a major contributor to the high excessive winter deaths. An Element Energy report claimed 28\% of Irish households were in fuel poverty in 2015  \cite{ElementEnergy2015Bottom-upIreland}. Fuel Allowance and the Household Benefits provides support to low income households to alleviate fuel poverty. These payments have been increased over time with a further increase made in Budget 2020, coinciding with the increase in the carbon tax \cite{,EuropeanUnion2020EUObservatory}. Kerr's study finds an explicit link between fuel poverty and social welfare policy in Ireland \cite{,EuropeanUnion2020EUObservatory,Kerr2019PoliticsFrance} and O’Meara highlights the health issues associated with Fuel Poverty \cite{OMeara2016AIreland}. Ironically, it can be argued this places low income households deeply dependent on fossil fuels for health.
-\par BERs do not take account of actual usage based on occupancy behaviour or occupancy density, nor does it take account of the size of the dwelling. The BER labels do therefore leave a gap between actual consumption and expected consumption, the literature review explains how this problem was tackled.
-
-
-
-
-
-The SEAI BER Public database, which is Ireland's national Energy Performance Certificate (EPC) register, which complies with the Energy Performance of Buildings Directive 2018/844/EU (EPBD). The four energy service type are derived from the database - space heating, water heating, pumps \& fans and lighting. The space heating calculation (IS EN 13790) used to estimate the expected energy consumption per dwelling, makes some assumptions. The internal temperature assumption has a large error, therefore TIM has made adjustments so that the total consumption of energy services is calibrated to the base year data. IS EN 13790 assumes all living areas ( living room, sitting room and possibly kitchen) in dwellings are heated to 21$^{\circ}$C and non-living areas ( bedroom, bathroom, hallways ) are heated to 18$^{\circ}$C. We know this is not the case, Table \ref{Table:InternalTemps} outlines the residential internal temperature assumptions in TIM.
+The dwelling stock data is obtained mainly from the SEAI BER Public database, which is firstly filtered, then scaled up using Central Statistics Office (CSO) data. 
+The BER database is Ireland's national Energy Performance Certificate (EPC) register, which complies with the Energy Performance of Buildings Directive 2018/844/EU (EPBD). The BERs are categorised based on expected energy consumption, with A1 representing the lowest expected energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest expected energy consumption ($ >450 kWh/m^2/year$). Over half of Irish dwellings are captured in the BER database, every BER displays over 200 energy related variables. The DEAP model, which was outlined by Dineen et al.\cite{Dineen2015ImprovedSource} in Section \ref{Intro:ESOM} provides the results for the energy rating in the BER database. 
+However, the space heating calculation used to estimate the expected energy consumption per dwelling, which makes some assumptions. DEAP assumes that each dwelling is single zoned, the heating season is frin October to May inclusive, and the heating times are 7am to 9am and 5pm to 11pm ( 56 hours / week ) during the heating season. One assumption, the internal temperature assumption results in a large error, where space and water heating are overestimated in DEAP. Space heating consumption reduced by 26 \% after internal temperature adjustment were applied in TIM, this brought the final energy consumption in line with the top-down SEAI Energy Balance. DEAP assumes all living areas ( living room, sitting room, and possibly kitchen) in dwellings are heated to 21$^{\circ}$C and non-living areas ( bedroom, bathroom, hallways ) are heated to 18$^{\circ}$C. Through analysis of previous residential modelling in Ireland this is not the case, as the internal temperatures are often much lower, Table \ref{Table:InternalTemps} outlines the residential internal temperature assumptions applied in TIM.
 
 \begin{table}[htbp]
   \centering
@@ -426,65 +402,111 @@ The SEAI BER Public database, which is Ireland's national Energy Performance Cer
   \label{Table:InternalTemps}
 \end{table}
 
-The ArDEM-SQL, which was described in Section \ref{Intro:ESOMIreland} is a simulation model built on IS EN 13790. ArDEM-SQL alters primary energy consumption from the BER database, by changing internal temperatures which are used in TIM. 
-%Healy & Clinch reported that fuel-poor households were more likely to be experiencing colder temperatures than other households. In total almost 30% of fuelpoor households had living room temperatures below 18°C and more than two thirds had living room temperatures below 20°C. Overall nearly half of all non-fuel-poor homes had living room temperatures below 20°C. In households with persons aged over 65 years, 16% had living room temperatures below 18°C and over 50% had temperatures below 20°C. On the other end of the scale over 5% of households occupied by persons over 65 years experienced living room temperatures of ≥24°C.https://arrow.tudublin.ie/cgi/viewcontent.cgi?article=1089&context=scienmas
-%The BER for the sample dwellings ranged from C1 to F. Over two thirds of the
+The ArDEM-SQL, which was described in Section \ref{Intro:ESOMIreland} is a simulation model built on IS EN 13790. ArDEM-SQL alters primary energy consumption from the BER database by changing the internal temperatures. 
 
-EPC register EU - Ireland
-%The quality of Swedish EPC data was initially studied by Göransson [41], subsequently by Claesson [42], Mangold et al. [21] and Hårsman et al. [43], and most recently by Pasichnyi et al. [6]. These studies have found a couple of important deficiencies in Swedish EPC data. First, the energy expert, and the firm he or she belongs to, has been shown to generate variations in Swedish EPC data [43], [44]. More specifically, Hårsman et al. [43] found that the energy expert along with the characteristics of the firm caused a variation of ±20% in the assessment of energy consumption.
-%Second, through interviews with energy experts, Claesson [42] found that most EPCs contain uncertain estimates of energy use as well as arbitrarily distributed values—thus challenging the notion that Swedish EPC data quality, while allegedly measured, should be superior to the quality of calculated values in other member states.
-CIARAs Paper
-Every BER displays over 200 energy related variables per dwelling, and over half of all residential dwellings are accounted. This large and detailed BER database does
-BER Database, CSO and Calculations and Filtration 
-FIGURE - Expected and Actual Consumption per m2
-Than Actual 
-DEAP - The space heat use is defined in IS EN 13790 as the heat delivered to the heated space by an ideal heating
-system to maintain the set-point temperature during a given period of time. The DEAP calculation of space
-heat use is done on a monthly basis based on the procedure described in IS EN 13790. A single-zone
-calculation is used, using a single average value of mean internal temperature as described in Section 7.In DEAP, the heating season is defined as running from October to May inclusive. The annual space heat use
-is the sum of monthly values for these eight months.
-The heating hours and required internal temperatures in DEAP are based on the requirements of a typical
-household. The schedule is as follows.
-• Weekdays: 07.00 to 09.00 and 17.00 to 23.00
-• Weekends: 07.00 to 09.00 and 17.00 to 23.00
-This standardised schedule represents a total heating period of 56 hours per week.
+Other concerns for uncertainties in the database, which are not related to DEAP calculation are statistically anomalous spikes in the data, caused by applying default values \cite{Ahern2020ADatabases} and different companies generating variations of ±20\% in the assessment of energy consumption \cite{Harsman2016OnCertificates}.While the BER databases provides high granularity data, it must be filtered to improve the representation of the dwelling stock data. The filters applied to the raw BER database are outlined in \ref{sec:appendixA}. 
 
-Scaling BER to CSO
+The Census 2016 data \cite{CensusOffice} from the CSO is also used in calculating the dwelling stock. Dataset E1005 provides a split of seven archetypes per county, which are aggregated to form three archetypes. The total number of building archetypes per county in 2016 is used to scale up the BER database. The gap of total dwelling between the Cenus year in 2016 and the model base year in 2018 was initially ignored due to lack of data. However, later it was found that data on new dwelling electrical connections per archetype and per county are available from CSO dataset NDQ06 this would have filled the gap, the first iteration of the dwelling stock has a 2 \% error. 
+
+Once both database were finalised, the next step in this process, was to scale up the BER database.
+
+This was done by first finding the ratio of the building archetype per county between the BER database and CSO data, as shown in Equation \ref{Eq:BERtoCSO1}.
+
 \begin{equation} 
 \begin{split}
-S_y =  \frac{C_y} {B_y}
+R_{a,c} = {\frac{CSO_{a-nsa,c}} {BER_{a,c}} + \frac{CSO_{nsa,c}} {CSO_{a,c}}}
 \end{split}
-%\[ \sum_{n=1}^{\infty} 2^{-n} = 1 \]
-\label{Eq:BERtoCSO}
+\label{Eq:BERtoCSO1}
 \end{equation}
-The number of dwellings by year of construction within the
-BER database (B y ) is then scaled to align with the total number of dwellings as they appear in the CSO dataset (C y ) –for each archetype. Eq. (8) describes the scaling factor (S y ), used for each year of construction bracket
 
+$R_{a,c}$ is the ratio per archetype (a) and per county (c), there are 26 counties and 3 archetypes. $CSO_{a-nsa,c}$ represents the number of dwelling archetypes minus the non-stated archetypes (nsa) per county in the CSO database. $BER_{a,c}$ is the number of archetypes per county  in the BER database. The next step is to multiply the number of BERs per archetype and per county by the relevant ratio.
 \begin{equation} 
 \begin{split}
-A_y =  {S_y} \cdot {B_{yarc}}
+BER_{a,c} * R_{a,c} = TIM_{a,c}
 \end{split}
 \label{Eq:BERtoCSO2}
 \end{equation}
-Number of archetypes dwellings by year of construction , where A k = Frequency of each archetype, S y = Scaling Factor, B yarc = Number Dwellings by BER category, A k = Frequency of each archetype.
 
-Model calibration: archetype demand The
-The fuel is calibrated to the before calibration the fuel was 50\% too high
+$TIM_{a,c}$ represents the final dwelling stock data per archetype and per county, the first iteration of TIM does not disaggregate the dwellings per county, instead a national total per archetype is input to TIM ( $TIM_a$ ).
 
-DEMAND Space cooling was disaggregated from electricity in POTEnCIA, this space cooling this was used in TIM.   POTEnCIA provides high resolution energy service demands in 2018, along with energy service projections to 2050.   
-Behavioral Constraints here 
+
+Once the final dwelling stock is complete, the next step was to assign a BER rating to all dwellings. This was done by comparing 9 different dwelling age ranges for each of the 3 archetypes between the BER and CSO datasets. 
+
+
+\begin{equation} 
+\begin{split}
+TIM_{r,y,a} = CSO_{y,a} * \frac{BER_{r,y,a}} {BER_{y,a}} * \frac{TIM_{a}} {BER_{a}}
+\end{split}
+\label{Eq:AgeBER}
+\end{equation}
+
+Where $TIM_{r,y,a}$ is the total dwellings in TIM by BER rating (r), year of construction (y) and archerype (a). $CSO_{y,a}$ is the number of dwellings by year of construction and archetype in the CSO dataset, the CSO dataset does not contain BER rating types. $BER_{r,y,a}$ is the number of BER ratings by year of construction and archetype from the BER database and dividing this value by $BER_{y,a}$ results in a probability of a certain age type falling within a BER rating, and the final part of the equation $\frac{TIM_{a}} {BER_{a}}$ compensates for the non-stated archetypes in the CSO data, $TIM_a$ was already calculated in equation \ref{Eq:BERtoCSO2}. The results of each of the correlations are in  \ref{sec:appendixA2}. Table \ref{Table:FinalDwellingStock} outlines the final dwelling stock used in TIM.
+
+
+\begin{table}[htbp]
+  \centering
+  \footnotesize
+  \caption{Final Dwelling Stock}
+\begin{tabular}{l|lll}
+BER Rating & Apartment & Attached & Detached \\ \hline
+A          & 9,419     & 15,472   & 20,379   \\
+B1         & 7,459     & 9,538    & 9,434    \\
+B2         & 14,042    & 17,545   & 20,091   \\
+B3         & 19,924    & 49,769   & 53,466   \\
+C          & 58,905    & 282,152  & 251,319  \\
+D          & 43,739    & 187,627  & 166,668  \\
+E          & 25,768    & 101,419  & 81,397   \\
+F          & 12,331    & 50,124   & 43,241   \\
+G          & 15,211    & 52,707   & 78,436   \\ \hline
+Total      & 206,799   & 766,352  & 724,430 
+\end{tabular}
+\label{Table:FinalDwellingStock}
+\end{table}
 
 
 \subsubsection{Costs}
 \label{LitR:Costs}
-Elephant in the room - Fuel Poverty
-%JF -The tax / subsidy inclusive prices are important in driving behaviour, and taxes and subsidies will be a vital policy instrument. Thus, uptake of technologies such as retrofitting will be driven, inter alia, by the net price for consumers.
+
+This section only covers the costs applied in the residential sector, which includes space and water heating technologies, retrofitting, cooking, lighting, pumps, fans, space cooling, and other electrical appliances. 
+The fuel costs are not applied in residential sector, there are applied in the supply sector, and the data is sourced from World Energy Outlook reports from 2019 and 2020. 
+The majority of the space and water heating cost data is obtained from the
+\textit{``Techno-economic projections until 2050 for smaller heating and cooling technologies in the residential and tertiary sectors in the EU”} report \cite{JointResearchCentre2017Techno-economicEU}. The cost data used in TIM was based on the north EU region (Denmark) and where data was missing, the central EU region (Germany) cost data was used. The high granularity of data, allows for cost of a technology to be disaggregated between apartment and non-apartment, costs and efficiencies are projected every five years from 2020 to 2050. The lifetime and emissions/pollutants are also included, while the cost data is further disaggregated between capital expenditure ( equipment, installation \& additional capital costs ) and Operational \& Maintenance (O\&M) costs.  
+\par The model has two types of retrofitting - shallow ( BER is improved by $ \leq 35 \%$ and deep ( BER is improved by $>35 \%$ ). The cost data was sourced from Ali et. al \cite{Ali2020ABuildings} who derived costs from SEAI's Better Energy Homes (BEH) and Better Energy Warmer Homes (BEWH) datasets, which are Ireland's largest retrofitting dataset ( over 285,000 retrofits ). To provide more robust costs, costs data is also used from the Typology Approach for Building Stock Energy Assessment (TABULA) report \cite{IrishTABULANationalAdvisoryGroup2014BuildingIreland} which has more detailed cost data on 2 stages of retrofit for a small sample of 31 dwellings. The formula used to find the average cost of retrofit per type of retrofit and archetype, are shown in Equations \ref{Eq:RetrofitCost1} and \ref{Eq:RetrofitCost2}.
+
+\begin{equation} 
+\begin{split}
+ \text{\euro}_{r,a,t} = Average ( (Ali_{r,t} * AF),TABULA_{r,a,t} )
+\end{split}
+\label{Eq:RetrofitCost1}
+\end{equation}
+
+Where $ {\text{\euro}}{}_{r,a,t}$ is the TIM cost for retrofit by rating (r), archetype (a) and type of retrofit (t). $Ali_{r,t}$ is the cost data from Ali et al. \cite{Ali2020ABuildings}, it contains all ratings and types but does not include an archetype, so an archetype factor (AF) is introduced, 0.9 for apartments and 1.1 for detached dwellings. The $TABULA_{r,a,t}$ is the average cost of retrofit from TABULA \cite{IrishTABULANationalAdvisoryGroup2014BuildingIreland} per rating, archetype and type of retrofit, however with only 62 samples in total not all retrofits are included. In this case TABULA is ignored and Ali et al. is the only source of retrofit costs.  
+
+\begin{equation} 
+\begin{split}
+\text{\euro}_{a,t} = \text{\euro}_{r,a,t} * \frac{TIM_{r,a}} {TIM_{a}}
+\end{split}
+\label{Eq:RetrofitCost2}
+\end{equation}
+
+The model uses the weighted average cost of retrofit per archetype
+
+
+in the residential and tertiary sector in the EU 
+Topten - 
+
+
+
+
 \subsubsection{Savings}
 \label{LitR:Savings}
+Retrofit Savings - SEAI dataset not published..papers Usman,etc.
 While also accounting for more fuels and technological options, the residential sector in TIM is structured with around retrofitting, not vice-versa as previous versions, so that it is more aligned to ongoing climate mitigation investments.
 
 \subsubsection{Energy Service Demands Projections}
 \label{LitR:Demands}
+%JF -The tax / subsidy inclusive prices are important in driving behaviour, and taxes and subsidies will be a vital policy instrument. Thus, uptake of technologies such as retrofitting will be driven, inter alia, by the net price for consumers.
+ENERGY CONSUMPTION CHARACTERISTICS of Houses - Table?
 % The technical bottom-up development approach of the residential sector is combined with other economic sectors to meet macroeconomic defined demands, to provide GHG targets insights both the energy system and residential sector.
 \begin{equation} 
 \begin{split}
@@ -640,6 +662,26 @@ The SEAI residential energy report \cite{SustainableEnergyAuthorityofIreland2018
 %Space Heating demand - BER space heating is only within certain months and assumes 21C heating..
 Thermostats are not widely used for temperature regulation in private dwellings in Ireland; instead the domestic heating schedule was assumed to be 07.00–09.00 h and 17.00–23.00 h for a heating season of October to May inclusive, based on guidelines issued by the Sustainable Energy Authority of Ireland (SEAI) [32]. The thermal load consists of both space heating and a baseline demand for sustaining water heating. For non-domestic premises the thermal load is defined by office hours, in line with the electrical demand. The domestic thermal loads considered in this study are listed in Table 2; the thermal load for the non-domestic
 \subsubsection{Space and Water Heating}
+\label{LitR:Heating}
+
+Theoretically G-rated BERs consume more energy and consequently have higher energy bills to maintain a comfortable internal temperature, but in reality G-rated dwellings have low internal temperatures, which is a reason for Ireland's high excessive winter mortality \cite{Clinch2000HousingMortality}. Fuel Poverty which which is defined as when a \textit{``household spends 10\% or more of income to achieve adequate warmth"} is a major contributor to the high excessive winter deaths. An Element Energy report claimed 28\% of Irish households were in fuel poverty in 2015  \cite{ElementEnergy2015Bottom-upIreland}. Fuel Allowance and the Household Benefits provides support to low income households to alleviate fuel poverty. These payments have been increased over time with a further increase made in Budget 2020, coinciding with the increase in the carbon tax \cite{,EuropeanUnion2020EUObservatory}. Kerr's study finds an explicit link between fuel poverty and social welfare policy in Ireland \cite{,EuropeanUnion2020EUObservatory,Kerr2019PoliticsFrance} and O’Meara highlights the health issues associated with Fuel Poverty \cite{OMeara2016AIreland}. Ironically, it can be argued this places low income households deeply dependent on fossil fuels for health.
+\par BERs do not take account of actual usage based on occupancy behaviour or occupancy density, nor does it take account of the size of the dwelling. The BER labels do therefore leave a gap between actual consumption and expected consumption, the literature review explains how this problem was tackled.
+
+ Build national fuel
+The CSO data, is mainly data from the 2016 Cenus. 
+Fuel Calibration
+ E1055 - Year, Archetype ( Detached, Semi-detached, terraced, Flat or apartment, converted to flat or apartment, bed-sit and not stated )
+E1008 Fuel by Archetype 
+ EXXX - Age, Archetype and Fuel 
+ dataset provides the central heating type or main fuel and
+ 
+Model calibration: archetype demand The
+The fuel is calibrated to the before calibration the fuel was 50\% too high
+
+DEMAND Space cooling was disaggregated from electricity in POTEnCIA, this space cooling this was used in TIM.   POTEnCIA provides high resolution energy service demands in 2018, along with energy service projections to 2050.   
+Behavioral Constraints here 
+
+FIGURE - Expected and Actual Consumption per m2
 ISO EN 13790 (Energy Performance of Buildings Directive).
 Capacity, Efficiency, Constraints, Uptake, adapation
 heat output (Qt) and electricity input in a given time per-iod (Pt) is expressed asQt= COPPt, where COP is the average an-nual coefficient of performance for the heat pump
@@ -686,6 +728,15 @@ Soft-linking to LEAP and PLEXOS
 \subsection{Strengths}
 \label{Dis:Strengths}
 
+First iteration - of model will need further development DH, BEhavour, higher granularity and spatial will be easily done with dataset. 
+%What does new model do that previous didn’t?
+%TIM residential improvements - DH, HVO, Solar ( in progress ), better graps the cost and savings of retrofits and heat pumps, which can infrom MACC.Build with 2018 baseyear, not 2010 as previous versions had - this suits the 2030 target
+%THe implications of net-zero
+%Does new policy context require new modelling approach?
+%Yes, do account for ongoing investments in climate mitigation opitions, the approach should provide higher granularity for likely pathways
+%How does new modelling structure provide insights (give examples) in a way that previous model didn’t?
+%Demands - 
+%Improved more detailed Energy Service Demands
 Detailed bottom up model - using 2018 base year ( in line with policy )
 Updated technology
 Combines energy system effects
@@ -725,14 +776,96 @@ supported by MaREI, the SFI Research Centre for Energy, Climate, and Marine [Gra
 https://www.marei.ie/project/chimera/
 \appendix
 
-\section{Sample Appendix Section}
-\label{sec:sample:appendix}
-XXXXXXXX
+\section{}
+\label{sec:appendix}
+
+\subsection{}
+\label{sec:appendixA}
+BER Database Filters
+\begin{table}[htbp]
+ \centering
+ \footnotesize
+ \caption{BER Filters}
+ \begin{tabular}{ccc}
+ \hline
+ Filter Name & Data Removed & Reason \\
+ \hline
+ Ground Floor Area &  $<30m^2$ \& $>1000m^2$ & Considered erroneous \\
+ Provisional Records & All & Higher Inaccuracies  \\
+ Thermal Bridging Factor & $\leq0.15 W/m^2K$ & Outlier \\
+ Declared Loss Factor & $>20kWh/day$ & Considered erroneous \\
+ Living Area Percent & $<5\%$ \& $>90\%$ & Outlier \\
+ Heat System Supply Heat Fraction & $>21\%$ & Outlier  \\
+ Heat System Efficiency Adjustment Factor & $<0.7$ & Considered erroneous \\
+ Main Space System Efficiency & $\leq19\%$ & Considered erroneous \\
+Water System Efficiency Adjustment Factor & $<0.7$ & Considered erroneous\\
+Main Water System Efficiency & $\leq19\%$ \& $>320\%$ & Considered erroneous \\
+ \hline
+ \end{tabular}%
+ \label{BERFilters}%
+\end{table}%
+
+\subsection{}
+\label{sec:appendixA2}
+Age to BER Rating Correlation Index
+\begin{sidewaystable}
+
+\centering
+ \footnotesize
+ \caption{Apartment Age to BER Rating Correlation}
+\begin{tabular}{l|lllllllll}
+Year   & A      & B1     & B2     & B3     & C      & D      & E      & F      & G      \\ \hline
+Before\_1919 & 0.0005 & 0.0021 & 0.0066 & 0.0139 & 0.0865 & 0.1618 & 0.1889 & 0.1447 & 0.3950 \\
+1919-1945    & 0.0007 & 0.0075 & 0.0457 & 0.0689 & 0.1646 & 0.1775 & 0.1614 & 0.1100 & 0.2636 \\
+1946-1960    & 0.0069 & 0.0146 & 0.0434 & 0.0553 & 0.1610 & 0.2085 & 0.1843 & 0.1139 & 0.2122 \\
+1961-1970    & 0.0097 & 0.0173 & 0.0692 & 0.0736 & 0.2060 & 0.2208 & 0.1484 & 0.0957 & 0.1593 \\
+1971-1980    & 0.0005 & 0.0014 & 0.0215 & 0.0305 & 0.2556 & 0.2809 & 0.2032 & 0.1009 & 0.1055 \\
+1981-1990    & 0.0002 & 0.0003 & 0.0035 & 0.0249 & 0.2278 & 0.3223 & 0.2589 & 0.1036 & 0.0585 \\
+1991-2000    & 0.0003 & 0.0016 & 0.0095 & 0.0293 & 0.3052 & 0.3728 & 0.2069 & 0.0546 & 0.0199 \\
+2001-2010    & 0.0049 & 0.0310 & 0.0938 & 0.1504 & 0.4272 & 0.2033 & 0.0711 & 0.0140 & 0.0042 \\
+Later\_2010  & 0.7996 & 0.0837 & 0.0713 & 0.0246 & 0.0140 & 0.0039 & 0.0019 & 0.0004 & 0.0005
+\end{tabular}
+
+
+\centering
+ \footnotesize
+ \caption{Attached Age to BER Rating Correlation}
+\begin{tabular}{l|lllllllll}
+Year         & A      & B1     & B2     & B3     & C      & D      & E      & F      & G      \\ \hline
+Before\_1919 & 0.0021 & 0.0027 & 0.0091 & 0.0245 & 0.1239 & 0.1974 & 0.2109 & 0.1458 & 0.2837 \\
+1919-1945    & 0.0019 & 0.0028 & 0.0102 & 0.0310 & 0.1835 & 0.2348 & 0.2046 & 0.1340 & 0.1973 \\
+1946-1960    & 0.0023 & 0.0050 & 0.0130 & 0.0305 & 0.1991 & 0.2585 & 0.2309 & 0.1312 & 0.1295 \\
+1961-1970    & 0.0032 & 0.0023 & 0.0100 & 0.0363 & 0.2757 & 0.3134 & 0.2021 & 0.0915 & 0.0654 \\
+1971-1980    & 0.0022 & 0.0024 & 0.0069 & 0.0382 & 0.3452 & 0.3329 & 0.1738 & 0.0619 & 0.0365 \\
+1981-1990    & 0.0010 & 0.0010 & 0.0069 & 0.0447 & 0.4263 & 0.3486 & 0.1198 & 0.0326 & 0.0190 \\
+1991-2000    & 0.0011 & 0.0043 & 0.0084 & 0.0469 & 0.4833 & 0.3389 & 0.0835 & 0.0250 & 0.0087 \\
+2001-2010    & 0.0045 & 0.0144 & 0.0438 & 0.1439 & 0.6330 & 0.1208 & 0.0303 & 0.0077 & 0.0016 \\
+Later\_2010  & 0.9359 & 0.0391 & 0.0147 & 0.0064 & 0.0032 & 0.0006 & 0.0000 & 0.0000 & 0.0000
+\end{tabular}
+
+
+\centering
+ \footnotesize
+ \caption{Detached Age to BER Rating Correlation}
+\begin{tabular}{l|lllllllll}
+Detached     & A      & B1     & B2     & B3     & C      & D      & E      & F      & G      \\ \hline
+Before\_1919 & 0.0035 & 0.0036 & 0.0078 & 0.0159 & 0.0912 & 0.1570 & 0.1791 & 0.1422 & 0.3996 \\
+1919-1945    & 0.0044 & 0.0035 & 0.0083 & 0.0200 & 0.1059 & 0.1728 & 0.1762 & 0.1354 & 0.3734 \\
+1946-1960    & 0.0055 & 0.0053 & 0.0127 & 0.0215 & 0.1298 & 0.2189 & 0.1928 & 0.1353 & 0.2782 \\
+1961-1970    & 0.0061 & 0.0046 & 0.0118 & 0.0229 & 0.1770 & 0.2910 & 0.2240 & 0.1132 & 0.1494 \\
+1971-1980    & 0.0034 & 0.0027 & 0.0090 & 0.0270 & 0.2663 & 0.3586 & 0.1942 & 0.0729 & 0.0660 \\
+1981-1990    & 0.0027 & 0.0028 & 0.0091 & 0.0422 & 0.3641 & 0.3920 & 0.1285 & 0.0349 & 0.0237 \\
+1991-2000    & 0.0019 & 0.0027 & 0.0152 & 0.0754 & 0.5372 & 0.2911 & 0.0519 & 0.0163 & 0.0082 \\
+2001-2010    & 0.0081 & 0.0216 & 0.0643 & 0.1785 & 0.5903 & 0.1112 & 0.0172 & 0.0059 & 0.0029 \\
+Later\_2010  & 0.8131 & 0.0868 & 0.0509 & 0.0295 & 0.0165 & 0.0029 & 0.0002 & 0.0002 & 0.0001
+\end{tabular}
+\end{sidewaystable}
+
 
 %% If you have bibdatabase file and want bibtex to generate the
 %% bibitems, please use
 %%
-
+\newpage
 \printbibliography
 
 
