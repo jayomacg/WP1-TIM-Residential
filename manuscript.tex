@@ -41,12 +41,12 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{pgf-pie}
+\usepackage{pgfplots}
 \usepackage{calc}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{anyfontsize}
 \usepackage{pgfplots}
-\usepackage{amsmath}
 \usepackage{comment}
 \usepackage{booktabs}
 \usepackage{rotating}
@@ -58,11 +58,11 @@
 
 
 \DeclareSIUnit{\EUR}{\text{\euro}}
-
+ \pgfplotsset{compat=1.17}
 %\usepackage[table]{xcolor}
 %\usepackage{cite}
-
-\usepackage{biblatex}
+%\usepackage{harvard}
+%\usepackage{biblatex}
 \addbibresource{references.bib} %Imports bibliography file
 
 %% The amsthm package provides extended theorem environments
@@ -409,7 +409,7 @@ The ArDEM-SQL, which was described in Section \ref{Intro:ESOMIreland} is a simul
 
 Other concerns for uncertainties in the database, which are not related to DEAP calculation are statistically anomalous spikes in the data, caused by applying default values \cite{Ahern2020ADatabases} and different companies generating variations of ±20\% in the assessment of energy consumption \cite{Harsman2016OnCertificates}.While the BER database provides high granularity data, it must be filteorange to improve the representation of the dwelling stock data. The filters applied to the raw BER database are outlined in \ref{sec:appendixA}. 
 
-The Census 2016 data \cite{CensusOffice} from the CSO is also used in calculating the dwelling stock. Dataset E1005 provides a split of seven archetypes per county, which are aggregated to form three archetypes. The total number of building archetypes per county in 2016 is used to scale up the BER database. The gap in total dwellings between the census year in 2016 and the model base year in 2018 was initially ignoorange due to lack of data. However, later it was found that data on new dwelling electrical connections per archetype and per county are available from CSO dataset NDQ06, this would have filled the gap, the first iteration of the dwelling stock has a 2 \% error. 
+The Census 2016 data \cite{2016CensusIreland} from the CSO is also used in calculating the dwelling stock. Dataset E1005 provides a split of seven archetypes per county, which are aggregated to form three archetypes. The total number of building archetypes per county in 2016 is used to scale up the BER database. The gap in total dwellings between the census year in 2016 and the model base year in 2018 was initially ignoorange due to lack of data. However, later it was found that data on new dwelling electrical connections per archetype and per county are available from CSO dataset NDQ06, this would have filled the gap, the first iteration of the dwelling stock has a 2 \% error. 
 
 Once both databases were finalised, the next step in this process was to scale up the BER database.
 
@@ -562,54 +562,35 @@ Retrofit & Attached & \multicolumn{1}{l}{Detached} & \multicolumn{1}{l}{Apartmen
 Shallow  & 20\%     & 20\%                         & 22\%                          \\
 Deep     & 44\%     & 42\%                         & 37\%               
 
-The higher thermal building efficiency in new dwellings, is also expected to reduce energy running costs. 
-
 \end{tabular}
 \label{Table:RetrofitSavings}
 \end{table}
 
-The
 
 \subsubsection{Energy Service Demand Projections}
 \label{LitR:Demands}
 %JF -The tax / subsidy inclusive prices are important in driving behaviour, and taxes and subsidies will be a vital policy instrument. Thus, uptake of technologies such as retrofitting will be driven, inter alia, by the net price for consumers.
-ENERGY CONSUMPTION CHARACTERISTICS of House - Table?
-% The technical bottom-up development approach of the residential sector is combined with other economic sectors to meet macroeconomic defined demands, to provide GHG targets insights both the energy system and residential sector.
-\begin{equation} 
-\begin{split}
-E_y = {\sum_{A,M}} N_{A,y} \cdot S_{A,M}
-\end{split}
-%\[ \sum_{n=1}^{\infty} 2^{-n} = 1 \]
-\label{Eq:RetrofitSaving}
-\end{equation}
-$E_y$ = Energy Savings in Year y
-$N_{A,y}$ = Number of dwellings of archetype A retrofitted in year y
-$S_{A,M}$ = ¼ Energy Savings per annum for retrofit measureM carried
-out on archetype dwelling A
-A = For each archetype
-M = For each retrofit measure carried out
+The residential energy service demand projections are a critical component of TIM. The future population projections are obtained from CSO's \textit{``M2F1"} scenario  %\cite{}. 
+ . 
 
-Next - 
-\begin{equation} 
-\begin{split}
-D_M = {\sum_{A,M}^n} (A_kI_{ki} - A_kI_{kT} )
-\end{split}
-%\[ \sum_{n=1}^{\infty} 2^{-n} = 1 \]
-\label{Eq:EnergyandRetrofitSaving}
-\end{equation}
-Total Energy Demand , where D T = Total Energy Demand, n = total number of archetypes, A k = Frequency of each archetype, I k = Energy Intensity of each archetype - D M = Energy Savings by retrofit measure (M), n = total number of archetypes, A k = Frequency of each archetype dwellings eligible for retrofit measure, I ki = Pre-retrofit archetype energy intensity, I kr - post-retrofit archetype intensity - Tomas Paper
+HDD and warmer weather to offset each other???
+
+ENERGY CONSUMPTION CHARACTERISTICS of House - Table?
+The higher thermal building efficiency in new dwellings is also expected to reduce energy running costs. The average existing space and water heating and water h
+% The technical bottom-up development approach of the residential sector is combined with other economic sectors to meet macroeconomic defined demands, to provide GHG targets insights both the energy system and residential sector.
+
 
 Heterogeneous Occupancy Behaviour > House Stock 
-\label{LitR:Demands}
+
 Residential Energy was >50\%higher before internal temperature adjustments
 Macroeconomic 
 no elasticity - fuel prices, and weather compensation?
 Time slices - 40 etc. 
-% textit{To accommodate an expanding population, the number of dwellings has also increased to currently stand at 1.7 million households, although this fgure remains signifcantly short of projected housing need, withannual average demand estimated to be up to 36,000 units for the next 30 years (IBEC 2018). Yet despite the number of new homes built to ever increasing energy performance standards, the Irish housing stock is among the poorest in Europe in terms of energy effciency (Goggins et al. 2016). Current trends also show that households are getting bigger, with an average 15\% increase in foor area across all homes between 2000 and 2016 (SEAI 2018) \cite{FahyEnergyPractice}}
+% textit{To accommodate an expanding population, the number of dwellings has also increased to currently stand at 1.7 million households, although this fgure remains signifcantly short of projected housing need, with annual average demand estimated to be up to 36,000 units for the next 30 years (IBEC 2018). Yet despite the number of new homes built to ever increasing energy performance standards, the Irish housing stock is among the poorest in Europe in terms of energy effciency (Goggins et al. 2016). Current trends also show that households are getting bigger, with an average 15\% increase in foor area across all homes between 2000 and 2016 (SEAI 2018) \cite{FahyEnergyPractice}}
 %
 % The growth rate of the housing stock in the period to 2030 is obtained from the ESRI's macroeconomic estimates \citep{Yakut2020}. 
 % A multiple linear regression is calculated to project future housing stock based on population size and occupancy rate beyond 2030. The total housing stock is expected to increase by 79\% in 2050 relative to 2018 to accommodate the growing population and declining occupancy rates. The share of apartments changes from 12\% in 2018 to 24\% in 2050, while the shares of attached and detached dwellings decline by 4\% and 8\% respectively.
-Historical population estimates and future projections are obtained from the Central Statistics Office (CSO), Ireland \citep{CentralStatisticsOffice2020}. We use the M2F1 scenario since it represents medium growth in population and is in line with population projections used in other national sources \citep{Yakut2020}. 
+
 
 % Energy service demands in the residential sector are driven by the size of the housing stock by type (apartment, attached or detached), which in turn is driven by population growth and the occupancy rate, the average number of people per dwelling. The occupancy rate is expected to fall to 2.12 in 2051 \citep{PropertyIndustryIreland2019}, from 2.75 in 2016 (CSO). Intermediate values are estimated using Equation \ref{eq:OR}.
 % \begin{equation}
@@ -655,7 +636,7 @@ Historical population estimates and future projections are obtained from the Cen
 \end{table}%
 
 
-The residential stock projections up to 2040 are taken from ESRI's housing demand estimates \citep{Bergin2020}. The stock is expected to increase by 40\% from 2018 level with a CAGR of 2\%. This results in an average of 27,600 new houses per annum between between 2021-2040. Beyond 2040, the population is used as a driver to project housing stock. The total housing stock obtained in 2050 is 2.57 million, which implies 8\% increase from 2040. 
+The residential stock projections up to 2040 are taken from ESRI's housing demand estimates \cite{Bergin2020}. The stock is expected to increase by 40\% from 2018 level with a CAGR of 2\%. This results in an average of 27,600 new houses per annum between between 2021-2040. Beyond 2040, the population is used as a driver to project housing stock. The total housing stock obtained in 2050 is 2.57 million, which implies 8\% increase from 2040. 
 % Table generated by Excel2LaTeX from sheet 'Sheet1'
 \begin{table}[htbp]
   \centering
@@ -692,35 +673,41 @@ Space heating is the largest residential energy service demand, accounted for 61
 Notably absent from Fig.\ref{fig:Ireland2018ServiceDemands}, is space cooling, which is accounted for in appliances. The Policy Oriented Tool for Energy and Climate Change Impact Assessment (POTEnCIA) project disaggregated Ireland's residential space cooling from appliances and have output expected space cooling energy consumption projections are shown in Fig.\ref{fig:Cooling}. 
 
 
-\begin{figure}[!htbp]
-\centering
+%\begin{figure}[!htbp]
+%\centering
+%\begin{tikzpicture}
+%\begin{axis}[
+%    x tick label style={
+%		/pgf/number format/1000 sep=}, xlabel={Year},
+%	y tick label style={
+%	    /pgf/number},
+%		ylabel={Energy Consumption($ktoe$)},
+%		 scaled y ticks = false,
+%    xmin=2000, xmax=2050,
+%    ymin=0, ymax=40,
+%    xtick={2000,2010,2020,2030,2040,2050},
+ %   ytick={0,10,20,30,40},
+ %   ymajorgrids=true,
+%]
+%\addplot[
+%    color=blue,
+%    mark=square,
+%    ]
+%    coordinates {
+%    (2000,0.6)(2010,3.1)(2020,8.4)(2030,16.3)(2040,26.1)(2050,37)
+ %   };
+%    
+%\end{axis}
+%\end{tikzpicture}
+%    \caption{Space Cooling Residential Energy Consumption (Source: POTEnCIA) }
+ %   \label{fig:Cooling}
+%\end{figure}
+
 \begin{tikzpicture}
-\begin{axis}[
-    x tick label style={
-		/pgf/number format/1000 sep=}, xlabel={Year},
-	y tick label style={
-	    /pgf/number},
-		ylabel={Energy Consumption($ktoe$)},
-		 scaled y ticks = false,
-    xmin=2000, xmax=2050,
-    ymin=0, ymax=40,
-    xtick={2000,2010,2020,2030,2040,2050},
-    ytick={0,10,20,30,40},
-    ymajorgrids=true,
-]
-\addplot[
-    color=blue,
-    mark=square,
-    ]
-    coordinates {
-    (2000,0.6)(2010,3.1)(2020,8.4)(2030,16.3)(2040,26.1)(2050,37)
-    };
-    
+\begin{axis}
+\addplot[color=red]{exp(x)};
 \end{axis}
 \end{tikzpicture}
-    \caption{Space Cooling Residential Energy Consumption (Source: POTEnCIA) }
-    \label{fig:Cooling}
-\end{figure}
 
 The SEAI Residential Energy report \cite{SustainableEnergyAuthorityofIreland2018EnergySector} provides high resolution details on energy demands in the residential sector. Variables such as disposable income, appliance ownership, dwelling location, type of occupier status (owner/rented ), BER labels, and age of dwelling. 
 
@@ -751,13 +738,13 @@ Behavioral Constraints here
 FIGURE - Expected and Actual Consumption per m2
 ISO EN 13790 (Energy Performance of Buildings Directive).
 Capacity, Efficiency, Constraints, Uptake, adapation
-heat output (Qt) and electricity input in a given time period (Pt) is expressed asQt= COPPt, where COP is the average annual coefficient of performance for the heat pump
+%heat output (Qt) and electricity input in a given time period (Pt) is expressed asQt= COPPt, where COP is the average annual coefficient of performance for the heat pump
 \subsubsection{Lighting, Appliances and Other}
 \label{LitR:Lighting,Appliances}
 Capacity, Efficiency, Constraints, Uptake, adapation
 \subsubsection{User Constraints}
 \label{LitR:Constraints}
-LIST OF SCENARIOS?
+In Power Sector too! 
 GROWTH CONSTRAINT -A specific type of constraint may be defined to limit the share of process (p) in the total production of commodity (c). The constraint indicates that the flow of commodity (c) from/to process (p) - CommodiTypically, a growth constraint is of the following generic form (ignoring several indices for clarity: \cite{Loulou2016EnergyProgramme}
 \begin{equation} 
 \begin{split}
@@ -778,7 +765,6 @@ TIM was built to help Ireland provide a pathway to achieve 2030 and 2050 targets
 
 
 \section{Results}
-
 \label{Results}
 Electricity Supply, Technology and Fuel Mix, Retrofitting, Cost
 
