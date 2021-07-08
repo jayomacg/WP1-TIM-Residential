@@ -52,7 +52,10 @@
 \usepackage{rotating}
 \usepackage{siunitx}
 \usepackage{eurosym}
-%\usepackage{multirow}
+\usepackage{multirow}
+\usepackage{xcolor} 
+\usepackage{colortbl}
+
 
 \DeclareSIUnit{\EUR}{\text{\euro}}
 
@@ -169,17 +172,17 @@ Section \ref{Results} outlines the results obtained from the selected scenarios.
 \subsection{Residential Modelling}
 \label{Intro:ESOM}
 
-Energy System Optimisation Models (ESOMs) can be used to explore the least cost pathways, as they consider a large number of variables to satisfy demand, while accounting for complex sectoral interconnections within each time period. Some of the main ESOM frameworks include EnergyPLAN \cite{stergaard2015ReviewingSimulations}, MESSAGE \cite{Messner1995WorkingE}, TIMES \cite{Loulou2016DocumentationI}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOSYS \cite{Howells2011OSeMOSYS:Development.}.While ESOM covers all energy-related sectors, they can also be used to specifically explore the residential sector in higher granularity, some international examples are outlined in this section. 
+Energy System Optimisation Models (ESOMs) can be used to explore the least cost pathways, as they consider a large number of variables to satisfy demand, while accounting for complex sectoral interconnections within each time period. Some of the main ESOM frameworks include EnergyPLAN \cite{stergaard2015ReviewingSimulations}, MESSAGE \cite{Messner1995WorkingE}, TIMES \cite{Loulou2016DocumentationI}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOSYS \cite{Howells2011OSeMOSYS:Development.}.While ESOM cover all energy-related sectors, they can also be used to specifically explore the residential sector in higher granularity, some international examples are outlined in this section. 
 
-\par For example, Li et al. \cite{Li2018IncorporatingModel} investigated the heating technology preference in UK using UK TIMES Model (UKTM). As TIMES \cite{Loulou2016DocumentationI} assumes perfect foresight and \textit{``in reality, the behaviours of consumers is not always economically rational"} \cite{Li2018IncorporatingModel}. Li set out to incorporate a Discrete Choice Model (DCM) for TIMES to better reflect how homeowners choose heating technologies. The DCM was developed from a nationwide survey with 442 homeowners completing the survey. The nationwide survey identified the most influential factors for determining homeowners' preferences for heating systems. The DCM then estimated the probability of heating technology selection and cost was found not to have a statistically significant impact on homeowners' choices. While Li's researcher has provided some initial insights, future work can improve the robustness and comprehensiveness of the insights through more surveys and analysis.
+\par For example, Li et al. \cite{Li2018IncorporatingModel} investigated the heating technology preference in UK using UK TIMES Model (UKTM). As TIMES \cite{Loulou2016DocumentationI} assumes perfect foresight and \textit{``in reality, the behaviours of consumers is not always economically rational"} \cite{Li2018IncorporatingModel}. Li set out to incorporate a Discrete Choice Model (DCM) for TIMES to better reflect how homeowners choose heating technologies. The DCM was developed from a nationwide survey with 442 homeowners completing the survey. The nationwide survey identified the most influential factors for determining homeowners' preferences for heating systems. The DCM then estimated the probability of heating technology selection and cost was found not to have a statistically significant impact on homeowners' choices. While Li's research has provided some initial insights, future work can improve the robustness and comprehensiveness of the insights through more surveys and analysis.
 
 Leibowicz et al. developed an expanded a version of the Open Source Energy Modeling System (OSeMOSYS) \cite{Howells2011OSeMOSYS:Development.} that integrates electricity generation and storage, residential building energy service demands, and end-use technologies \cite{Leibowicz2018OptimalServices}.Endogenous constraints on the market penetration rate of each technology and hourly service demand profiles are established and applied to the residential sector of Austin, Texas. Austin was chosen because of the high granularity data availability \cite{EnergyInc.}. Leibowicz et al. results find net present costs in the \textit{``Policy scenarios"} ( emissions declining linearly toward 10\% of their current level by 2050) are higher than \textit{``No Policy scenarios"} (No $CO_2$ regulations imposed ). However, the percentage increase in net present cost due to the policy diminishes with a more thermally efficient building stock. Leibowicz et al. also found electrification to be the dominant strategy for cost-effectively decarbonizing urban residential dwellings. These insights show the strength of an ESOM, but not all costs are taken into account in Leibowicz study, the capital costs associated with more thermally efficient buildings are not included.
 
-Hedegard and Münster \cite{Hedegaard2013InfluenceOperation} utilised  Balmorel model \cite{Wiese2018BalmorelModel} to handle the integrated power and district heating system to analyse how heat pumps with complementing heat storage affect wind power investments in Denmark. The model was disaggreated between a western and eastern Denmark region and the model covers Norway, Sweden, Finland, and Germany to cover import/export. Exogenous user constraints applied to the model, based on the current Danish policy includes: Wind power must provide at least 50\% of the national electricity consumption by 2020, coal is phased out in heat and power plants by 2030, and individual oil boilers are phased out by 2030. The results find that when investments in individual heat pumps are allowed, air-to-water heat pumps are installed in non-district heating areas. This represents a significant electricity demand in identifying individual heat pumps as highly competitive and can contribute significantly to facilitating larger wind power investments and reducing system costs, fuel consumption, and $CO_2$ emissions.
-Hedegard and Münster found the system benefits of adding individual heat storage to the heat pumps are moderate, the main benefit is a reduced need for peak/reserve capacity investments. The Balmorel model has provided insights, but it does not cover all aspects of the power and heat system, such as start-up costs, minimum load requirements, or part load efficiencies. Nevertheless, the insights are valuable and the results can be soft-linked to other models for deeper analysis. 
+Hedegard and Münster \cite{Hedegaard2013InfluenceOperation} utilised  Balmorel model \cite{Wiese2018BalmorelModel} to handle the integrated power and district heating system to analyse how heat pumps with complementing heat storage affect wind power investments in Denmark. The model was disaggreated between a western and eastern Denmark region and the model covers Norway, Sweden, Finland, and Germany to cover import/export. Exogenous user constraints applied to the model, based on the current Danish policy includes: Wind power must provide at least 50\% of the national electricity consumption by 2020, coal is phased out in heat and power plants by 2030, and individual oil boilers are phased out by 2030. The results find that when investments in individual heat pumps are allowed, air-to-water heat pumps are installed in non-district heating areas. This represents a significant electricity demand in identifying individual heat pumps as highly competitive and can contribute significantly to facilitating larger wind power investments and orangeucing system costs, fuel consumption, and $CO_2$ emissions.
+Hedegard and Münster found the system benefits of adding individual heat storage to the heat pumps are moderate, the main benefit is a orangeuced need for peak/reserve capacity investments. The Balmorel model has provided insights, but it does not cover all aspects of the power and heat system, such as start-up costs, minimum load requirements, or part load efficiencies. Nevertheless, the insights are valuable and the results can be soft-linked to other models for deeper analysis. 
 
 Marczinkowski and Østergaard \cite{Marczinkowski2018ResidentialSystems} use EnergyPLAN model \cite{stergaard2015ReviewingSimulations} to explore the feasibility of photovoltaic (PV) systems installed at the household level in combination with batteries in Samsø, which is known for being Denmark’s renewable energy island. 
-Two approaches are observed for the location of the batteries in the PV system; communal battery system or an individual residential battery approach. Marczinkowski and Østergaard found communal batteries slightly more favourable from a technical energy system perspective, one reason for this is the wind power could also be stored in communal batteries. When identical communal and individual battery capacities where compared, it was fond  64\% of residential electricity demand is satisfied by an individual battery and only 36\% by a communal battery. While the battery location was explored, the PV system location was not, further investigation into the optimal PV system location could provide further insights. The household occupancy behaviour with and without household batteries on the PV system could alter the optimal pathway.
+Two approaches are observed for the location of the batteries in the PV system; communal battery system or an individual residential battery approach. Marczinkowski and Østergaard found communal batteries slightly more favourable from a technical energy system perspective, one reason for this is the wind power could also be stoorange in communal batteries. When identical communal and individual battery capacities where compaorange, it was fond  64\% of residential electricity demand is satisfied by an individual battery and only 36\% by a communal battery. While the battery location was exploorange, the PV system location was not, further investigation into the optimal PV system location could provide further insights. The household occupancy behaviour with and without household batteries on the PV system could alter the optimal pathway.
 
 %The Cambridge Housing Model (BEIS) ses English Housing Survey data, coupled to a SAP ( UK's BER equivalent ) energy calculator, to estimate energy use and CO2 emissions for all homes in England, broken down by final use. The CHM reads in the EHS dwelling for each case and performs building physics calculations to determine energy consumption and associated CO2 emissions, by use and by fuel type. Multiplying the energy use and CO2 emissions by the associated weighting and summing across all cases gives total values for England. Housing Data is cleaned, Climate data for region is 8 energy services - space heating ( main \& secondary ), water heating, space cooling, lighting, electrical appliances, cooking and pumps \& fan. 6 fuels - gas, oil, solid, biomass, electriicty and renewable
 
@@ -189,27 +192,27 @@ Two approaches are observed for the location of the batteries in the PV system; 
 \subsubsection{Ireland: Residential Modelling}
 \label{Intro:ESOMIreland}
 
-ESOM models have been used to optimise Ireland's entire energy system \cite{Chiodi2013ModellingSystem}\cite{Connolly2021AalborgEnergy-System}, however few Irish studies use ESOM models to explore the residential sector, two examples of Irish ESOM focusing on the residential sector are detailed here.
+ESOM models have been used to optimise Ireland's entire energy system \cite{Chiodi2013ModellingSystem,Connolly2021AalborgEnergy-System}, however few Irish studies use ESOM models to explore the residential sector, two examples of Irish ESOM focusing on the residential sector are detailed here.
 
-In 2014, Rogan et al. \cite{Rogan2014LEAPsSystem} linked OSeMOYOS, an ESOM, to the Long Range Energy Alternatives Planning System (LEAP) simulation model, to explore specific energy efficiency policies not only in the residential sector, but also in the transport, industry and services sectors in Ireland. The bottom-up development of the residential sector in LEAP was combined with the cost optimisation capabilities of OSeMOYOS. Three scenarios are explored, namely, the reference scenario, energy efficiency scenario, and energy efficiency+ scenario. The reference scenario assumes that 300,000 existing dwellings will undergo a shallow retrofit from 2009 to 2020. In the reference scenario, the residential total energy consumption rose 6.7 \% in 2020, compared to 2008. The share of space and water heating decreased from 82 \% to 77 \% in that period. In the energy efficiency scenario, 800,000 residential dwellings are retrofitted between 2009 and 2020, combined with the effect of other policies such as building regulations and lighting, resulting in a 9.9 \% reduction of energy consumption in 2020, compared to the reference scenario. The energy efficiency+ scenario also allows for 800,000 residential dwellings to be retrofitting, but accounts for deeper retrofits. The results in a reduction in of energy consumption of 16.5 \% in 2020, compared to the reference scenario.Rogan et al. discussed the barriers, obstacles to investment, split incentives, and information gaps which restrict energy efficiency improvements in the residential sector. The importance for the policy to not only look at the number of retrofits, but also the depth of retrofit work, is shown by the difference in scenarios. The model also found considerable scope for energy savings to be made through improved building regulations. 
+In 2014, Rogan et al. \cite{Rogan2014LEAPsSystem} linked OSeMOYOS, an ESOM, to the Long Range Energy Alternatives Planning System (LEAP) simulation model, to explore specific energy efficiency policies not only in the residential sector, but also in the transport, industry and services sectors in Ireland. The bottom-up development of the residential sector in LEAP was combined with the cost optimisation capabilities of OSeMOYOS. Three scenarios are exploorange, namely, the reference scenario, energy efficiency scenario, and energy efficiency+ scenario. The reference scenario assumes that 300,000 existing dwellings will undergo a shallow retrofit from 2009 to 2020. In the reference scenario, the residential total energy consumption rose 6.7 \% in 2020, compaorange to 2008. The share of space and water heating decreased from 82 \% to 77 \% in that period. In the energy efficiency scenario, 800,000 residential dwellings are retrofitted between 2009 and 2020, combined with the effect of other policies such as building regulations and lighting, resulting in a 9.9 \% orangeuction of energy consumption in 2020, compaorange to the reference scenario. The energy efficiency+ scenario also allows for 800,000 residential dwellings to be retrofitting, but accounts for deeper retrofits. The results in a orangeuction in of energy consumption of 16.5 \% in 2020, compaorange to the reference scenario.Rogan et al. discussed the barriers, obstacles to investment, split incentives, and information gaps which restrict energy efficiency improvements in the residential sector. The importance for the policy to not only look at the number of retrofits, but also the depth of retrofit work, is shown by the difference in scenarios. The model also found considerable scope for energy savings to be made through improved building regulations. 
 
-In 2018, Thellufsen et al. \cite{Thellufsen2019ImplementingIreland} investigated the potential for the implementation of district heating in both the commercial and residential sectors of Ireland. The paper analyses the $CO_2-80$ scenario ( 80 \% $CO_2$ reduction in 2050, compared to 1990 ) with and without district heating using the previous Irish TIMES model and EnergyPLAN. The previous version of Irish TIMES did not account for district heating, so EnergyPLAN is used to investigate the operation and  feasibility of district heating in Ireland. A sensitivity analysis was performed on investment costs, heat grid losses, and discount rates, however in all cases the inclusion of district heating is optimal. The final results find that district heating reduces fuel consumption by 3.5 \% and the conversion of 37 \% of the Irish heat demand to district heating is found to be optimal. Both the TIMES model and climate target are superseded and the study did not include the future heat savings expected from retrofitting, nevertheless this study has provided insights on the potential of district heating. 
+In 2018, Thellufsen et al. \cite{Thellufsen2019ImplementingIreland} investigated the potential for the implementation of district heating in both the commercial and residential sectors of Ireland. The paper analyses the $CO_2-80$ scenario ( 80 \% $CO_2$ orangeuction in 2050, compaorange to 1990 ) with and without district heating using the previous Irish TIMES model and EnergyPLAN. The previous version of Irish TIMES did not account for district heating, so EnergyPLAN is used to investigate the operation and  feasibility of district heating in Ireland. A sensitivity analysis was performed on investment costs, heat grid losses, and discount rates, however in all cases the inclusion of district heating is optimal. The final results find that district heating orangeuces fuel consumption by 3.5 \% and the conversion of 37 \% of the Irish heat demand to district heating is found to be optimal. Both the TIMES model and climate target are superseded and the study did not include the future heat savings expected from retrofitting, nevertheless this study has provided insights on the potential of district heating. 
 
 
 \par  The majority of previous modelling on the residential sector in Ireland has involved bottom-up residential sector models, rather than energy system models specifically examining the residential sector. Nevertheless, the residential models have provided insights on the input data and methodology approach used in Ireland, some of which are outlined below.
 
-Clinch and Healy analysed different aspects of thermal comfort in the Irish residential sector. This was the first comprehensive analysis of the residential sector, and their studies examined fuel poverty \cite{Healy2002FuelIreland}, excess winter mortality \cite{Clinch2000HousingMortality}, market failures \cite{Clinch2000DomesticFailure} and energy efficiency  \cite{Clinch2003ValuingModel,Clinch2000DomesticFailure,Clinch2001Cost-benefitEfficiency,Clinch2001ModellingEfficiency}. In 2000, Clinch and Healy developed and published a domestic energy efficiency model to analyse the cost-benefit of energy efficiency \cite{Clinch2001Cost-benefitEfficiency}.The Energy-Assessment Model (EAM) is a bottom-up model developed in Microsoft Excel which incorporates 1,824 representative dwellings ( 8 building archetypes, 12 levels of insulation and 19 heating systems ), this was not linked to other sectors of the economy and only looked at space and water heating. A cost-benefit model (CBM) was fitted to the EAM to facilitate the conversion of the physical estimates into monetary amounts. Under the predicted scenario, energy savings easily outweighed programme costs, representing a benefit-cost ratio of 1.7.The benefits of reduced sickness, hospitalisation, drugs, and mortality were quantified and this moved the  benefit-cost ratio up to 3.0.
+Clinch and Healy analysed different aspects of thermal comfort in the Irish residential sector. This was the first comprehensive analysis of the residential sector, and their studies examined fuel poverty \cite{Healy2002FuelIreland}, excess winter mortality \cite{Clinch2000HousingMortality}, market failures \cite{Clinch2000DomesticFailure} and energy efficiency  \cite{Clinch2003ValuingModel,Clinch2000DomesticFailure,Clinch2001Cost-benefitEfficiency,Clinch2001ModellingEfficiency}. In 2000, Clinch and Healy developed and published a domestic energy efficiency model to analyse the cost-benefit of energy efficiency \cite{Clinch2001Cost-benefitEfficiency}.The Energy-Assessment Model (EAM) is a bottom-up model developed in Microsoft Excel which incorporates 1,824 representative dwellings ( 8 building archetypes, 12 levels of insulation and 19 heating systems ), this was not linked to other sectors of the economy and only looked at space and water heating. A cost-benefit model (CBM) was fitted to the EAM to facilitate the conversion of the physical estimates into monetary amounts. Under the porangeicted scenario, energy savings easily outweighed programme costs, representing a benefit-cost ratio of 1.7.The benefits of orangeuced sickness, hospitalisation, drugs, and mortality were quantified and this moved the  benefit-cost ratio up to 3.0.
 The same model was used by Clinch, Healy, and King \cite{Clinch2001ModellingEfficiency} in addition three models of householder spending on energy are developed here to to evaluate the human behavioural component
-into the computer model. The modelling process involved developing a computer model of the energy performance of the existing dwelling stock. It was noted that the energy consumption predicted by the model is considerably higher than given in the national energy balance, due to internal temperature assumptions. 
-The model showed that the energy efficiency programme ( all houses retrofitted to 1997 thermal building standards in 10 years ) represents a saving of 24 \% when compared to the reference scenarios. 
+into the computer model. The modelling process involved developing a computer model of the energy performance of the existing dwelling stock. It was noted that the energy consumption porangeicted by the model is considerably higher than given in the national energy balance, due to internal temperature assumptions. 
+The model showed that the energy efficiency programme ( all houses retrofitted to 1997 thermal building standards in 10 years ) represents a saving of 24 \% when compaorange to the reference scenarios. 
 
-In 2011, Dineen and Ó Gallachóir \cite{Dineen2011ModellingHeating} developed a residential bottom-up model to assess the impacts of measures in Ireland's National Energy Efficiency Action Plan (NEEAP). The model focused on the energy efficiency of space and water heating by examining technology and building fabric efficiency. The building fabric efficiency of newly occupied dwellings developed takes into account the theoretical increase in energy efficiency due to improved 2008 and 2010 building regulations. Space heating demand accounted for 70\% of household energy consumption in newly built dwellings in 1997, down to just under 60\% in 2006 and the model predicts a reduction to 27\% by 2015.The paper acknowledges retrofitting of existing stock will play a large role in meeting energy efficiency targets, however it is not examined, nor is the internal temperatures affect on energy efficiency improvements.  
-\par In 2013, Ahern et al.\cite{Ahern2013StateStock} investigated thermal retrofit measures to the existing detached, oil centrally heated, rural housing stock. A base geometry according to age bands and thermal characteristics was created in the study. The heat load for a statistical occupancy and year was established. The default values used in some of the BER database variables where highlighted. For example,  there are assumed U-values when the roof insulation thickness is unknown, this is based on age, but there are no U-values for uninsulated roofs despite a 2001 survey found 18\% of detached housing in Ireland had no roof insulation. Ahern et al. found dwellings built post-2000 consume the greatest amount of energy (kWh/annum), due to their large floor area. Concluding that the majority of energy efficiency progress for thermal use in Irish dwellings is being offset. The model thermal improvement measures resulted in a reduction of running costs and CO2 emissions by an average of 65\% for houses constructed prior to 1979, and this resulted in an average 12-year payback. Houses built in 1979 or after resulted in an average 26\% reduction in running costs and $CO_2$ emissions from retrofit measures.
+In 2011, Dineen and Ó Gallachóir \cite{Dineen2011ModellingHeating} developed a residential bottom-up model to assess the impacts of measures in Ireland's National Energy Efficiency Action Plan (NEEAP). The model focused on the energy efficiency of space and water heating by examining technology and building fabric efficiency. The building fabric efficiency of newly occupied dwellings developed takes into account the theoretical increase in energy efficiency due to improved 2008 and 2010 building regulations. Space heating demand accounted for 70\% of household energy consumption in newly built dwellings in 1997, down to just under 60\% in 2006 and the model porangeicts a orangeuction to 27\% by 2015.The paper acknowledges retrofitting of existing stock will play a large role in meeting energy efficiency targets, however it is not examined, nor is the internal temperatures affect on energy efficiency improvements.  
+\par In 2013, Ahern et al.\cite{Ahern2013StateStock} investigated thermal retrofit measures to the existing detached, oil centrally heated, rural housing stock. A base geometry according to age bands and thermal characteristics was created in the study. The heat load for a statistical occupancy and year was established. The default values used in some of the BER database variables where highlighted. For example,  there are assumed U-values when the roof insulation thickness is unknown, this is based on age, but there are no U-values for uninsulated roofs despite a 2001 survey found 18\% of detached housing in Ireland had no roof insulation. Ahern et al. found dwellings built post-2000 consume the greatest amount of energy (kWh/annum), due to their large floor area. Concluding that the majority of energy efficiency progress for thermal use in Irish dwellings is being offset. The model thermal improvement measures resulted in a orangeuction of running costs and CO2 emissions by an average of 65\% for houses constructed prior to 1979, and this resulted in an average 12-year payback. Houses built in 1979 or after resulted in an average 26\% orangeuction in running costs and $CO_2$ emissions from retrofit measures.
 
 \par In 2015, Dineen et al.\cite{Dineen2015ImprovedSource} built on previous work in examining new dwellings, by examining the energy savings potential of energy efficiency improvement measures of the existing dwelling stock. The Dwelling Energy Assessment Procedure (DEAP) model was used, this is the national tool for BER calculation and checking building regulation compliance. The DEAP model used 175 archetype dwellings ( 5 building types, 7 energy bands, and 5 wall construction types ) and 6 different retrofit measures were applied. BER database filters were used in this model, the BER filters from this study were updated and applied in TIM. A sensitivity analysis is performed and it was found that there was approximately a 7.5\% change in energy consumption for every 1$^{\circ}$C internal temperature shift. Concluding, BER standard assumptions overestimate dwelling energy consumption and that the average internal temperature across the Irish dwelling stock may be closer to 18$^{\circ}$C than 21$^{\circ}$C.
 
 The Archetype Dwelling Energy Model (ArDEM-SQL) was developed by Mac Uidhir et al.\cite{Uidhir2020ImprovingDecisions}. ArDEM-SQL converts the Irish BER public database into Microsoft SQL language and then calculates the annual energy consumption to simulate the potential for improved energy efficiency gains within the existing retrofit programs. Mac Uidhir et al. specifically examined the Better Energy Homes (BEH) scheme. The five most common retrofit combinations are simulated for each of the 9 archetypes ( 3 energy rating types and 3 building types ). The results show that the alternative retrofit scenarios can achieve additional energy efficiency gains of up to 86\% can be achieved when comparing the baseline scenario. This shows the the type of retrofit and type of house can have a large affect on the energy saved. 
-Greater energy savings are possible when retrofit measures are applied to less energy efficient dwellings (E, F, and G-ratings ), albeit the ``rebound effect" was not accounted for due to insufficient data on the scale of the rebound effect and the relative difference between the two scenarios examined is considered negligible.   
+Greater energy savings are possible when retrofit measures are applied to less energy efficient dwellings (E, F, and G-ratings ), albeit the ``rebound effect" was not accounted for due to insufficient data on the scale of the rebound effect and the relative difference between the two scenarios examined is consideorange negligible.   
 
 
 Finally, it is worth mentioning SEAI’s National Energy Modelling Framework (NEMF), which is a suite of modelling tools used for modelling the Irish energy system. Some of the main models used in the NEMF include:
@@ -228,12 +231,12 @@ The listed models are some of the models used within SEAI's NEMF to model the im
 
 The models described in this section include a range of national ESOMs and bottom-up residential models. The models have varied objectives such as exploring consumer choices, PV battery system location, evaluating the health effects of retrofitting, and integration of bioenergy and heat. The thermal efficiency of dwellings is a common objective in Irish models, due to the poor thermal efficiency of the dwelling stock and the growing BER database is providing high data granularity input to these models. The internal temperature is also analysed in some of the studies, a recurring theme is the wide range of internal temperatures. 
 The bottom-up residential models are typically simulation models looking at a specific policy. The complexity of models has increased significantly in the last 20 years, in Ireland, the models started out in Microsoft Excel and switching to Microsoft SQL. 
-There has been few studies on the Irish residential sector using ESOMs, as residential bottom-up models are preferred when focusing on that sector. The studies on Irish ESOM typically do not focus on the residential sector, instead they focus on the overall energy system, electricity generation, or transport. The use of ESOM to explore DH in Ireland allows for insights which bottom-up simulation models cannot provide. The connection between waste heat in electricity and industry can show the optimal solution for district heating in commercial and residential sectors.  
+There has been few studies on the Irish residential sector using ESOMs, as residential bottom-up models are preferorange when focusing on that sector. The studies on Irish ESOM typically do not focus on the residential sector, instead they focus on the overall energy system, electricity generation, or transport. The use of ESOM to explore DH in Ireland allows for insights which bottom-up simulation models cannot provide. The connection between waste heat in electricity and industry can show the optimal solution for district heating in commercial and residential sectors.  
 
 \subsection{Ireland: Residential Sector}
 \label{Intro:IreRSD}
 
-Ireland’s distinctive energy sectors are further separated from other EU member states when focusing on the residential sector. This is largely down to Ireland’s higher reliance on fossil fuels, lower building thermal efficiency, larger dwellings, and rural settlement patterns. This is illustrated by the fact only 5.8\% of the population of Ireland were living in apartments in 2018, the lowest in EU-27 and well below the 25.3\% average \cite{EurostatDistributionSurveyilc_lvho01}, furthermore 71.4\% of the Irish population are deemed to be living in dwellings too large, where the EU-27 rate is 33\% \cite{EurostatShareSurveyilc_lvho50a}. The low thermal efficiency of Ireland's dwelling stock is highlighted by two facts; (i) 2021 building regulations require a 70\% reduction of CO\textsubscript{2} emissions in new dwellings compared to dwellings built in 2005 \cite{DepartmentofHousingGov.ieBuildings}, and (ii) Central Statistics Office (CSO) data states approx. 85\% of residential buildings are 2005 or older. Furthermore, Ireland's fossil fuel dependency is underpinned by home heating oil, accounting for the largest share of fuel usage in the residential sector at 37\% \cite{SustainableEnergyAuthorityofIreland2018EnergySector}, of which all is imported \cite{OCleirigh2020ENERGYReport}.
+Ireland’s distinctive energy sectors are further separated from other EU member states when focusing on the residential sector. This is largely down to Ireland’s higher reliance on fossil fuels, lower building thermal efficiency, larger dwellings, and rural settlement patterns. This is illustrated by the fact only 5.8\% of the population of Ireland were living in apartments in 2018, the lowest in EU-27 and well below the 25.3\% average \cite{EurostatDistributionSurveyilc_lvho01}, furthermore 71.4\% of the Irish population are deemed to be living in dwellings too large, where the EU-27 rate is 33\% \cite{EurostatShareSurveyilc_lvho50a}. The low thermal efficiency of Ireland's dwelling stock is highlighted by two facts; (i) 2021 building regulations require a 70\% orangeuction of CO\textsubscript{2} emissions in new dwellings compaorange to dwellings built in 2005 \cite{DepartmentofHousingGov.ieBuildings}, and (ii) Central Statistics Office (CSO) data states approx. 85\% of residential buildings are 2005 or older. Furthermore, Ireland's fossil fuel dependency is underpinned by home heating oil, accounting for the largest share of fuel usage in the residential sector at 37\% \cite{SustainableEnergyAuthorityofIreland2018EnergySector}, of which all is imported \cite{OCleirigh2020ENERGYReport}.
 
 In the last 30 years, the extraction of indigenous peat has declined and consequently peat consumption has halved, in 2018 peat accounted for 12.3\% of residential Greenhouse Gas (GHG) emissions. GHG emissions from coal in the residential sector also declined to 6.9\% in 2018 \cite{Howley2005ENERGY-RELATEDIreland}. However, the decline in peat and coal has been offset by a more significant growth in oil in the same period, where oil accounted for 34.8\% of residential GHG emissions in 2018 \cite{Howley2005ENERGY-RELATEDIreland}. While, gas availability is limited to some urban areas and accounted for 15.5\% of residential GHG emission in 2018 \cite{Howley2005ENERGY-RELATEDIreland}. 
 The residential sector relied on fossil fuels for over 90\% of thermal energy in 2018, consequently Ireland currently has the lowest renewable heat among EU member states, at only 6.3\% \cite{Eurostat2021ShareSourcesnrg_ind_ren}. Preliminary results from the Environmental Protection Agency (EPA) have indicated a 9\% increase of residential GHG emissions in 2020, mainly due to low home heating oil prices and covid-related restrictions.
@@ -248,7 +251,7 @@ Under 2006 Intergovernmental Panel on Climate Change (IPCC) guidelines, Ireland�
     \pie[cloud,text=inside,radius = 2.4]{34/Agriculture,7/Other,59/Energy-related}
     \draw [->, line width=4pt] (5.4,-0.3) -- (6.5,-.3);
     \hspace{8.5cm}
-    \pie[rotate =30,text=inside,radius=1.95,color={black!30,red!70,yellow!40}]{40/Transport,33/Heat,27/Electricity}
+    \pie[rotate =30,text=inside,radius=1.95,color={black!30,orange!70,yellow!40}]{40/Transport,33/Heat,27/Electricity}
     \end{tikzpicture}
     \caption{Ireland 2018 GHG Share \cite{Howley2005ENERGY-RELATEDIreland}}
     \label{fig:Ireland2018GHG}
@@ -260,8 +263,8 @@ Where the residential sector is the direct source 47\% of heat and 30\% of elect
 
 \subsubsection{Climate Targets}
 
-Under the Climate Action and Low Carbon Development (Amendment) Act 2021, the Irish government has proposed legally binding national targets to reduce Greenhouse Gas (GHG) emissions by 51\% in 2030 compared to 2018. The Act also proposes a long-term target to achieve a climate neutral economy or ``net-zero" by 2050 \cite{2021Climate2021}. These targets account for all GHGs - both Emission Trading System (ETS) emissions and non-ETS emissions, and sets out to make sectoral five-year carbon budgets a legal requirement to aid progress of the forementioned long-term targets. 
-\par The EU's first Nationally Determined Contribution (NDC), which had a 40\% GHG reduction target (first NDC), has been succeeded by a new target of at least a 55\% GHG reduction target (updated NDC) by 2030 compared to 1990 levels \cite{SUBMISSIONSTATES}. Ireland's Climate Action Plan 2019 (CAP2019) complies with EU's first NDC, from which Irelands 30\% Non-ETS GHG reduction target in 2030 compared to 2005 levels was derived  \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. Climate Action Plan 2021 will have to be more ambitious than its predecessor, CAP2019 as it must reflect EU's updated NDC target and take account of the national target also.
+Under the Climate Action and Low Carbon Development (Amendment) Act 2021, the Irish government has proposed legally binding national targets to orangeuce Greenhouse Gas (GHG) emissions by 51\% in 2030 compaorange to 2018. The Act also proposes a long-term target to achieve a climate neutral economy or ``net-zero" by 2050 \cite{2021Climate2021}. These targets account for all GHGs - both Emission Trading System (ETS) emissions and non-ETS emissions, and sets out to make sectoral five-year carbon budgets a legal requirement to aid progress of the forementioned long-term targets. 
+\par The EU's first Nationally Determined Contribution (NDC), which had a 40\% GHG orangeuction target (first NDC), has been succeeded by a new target of at least a 55\% GHG orangeuction target (updated NDC) by 2030 compaorange to 1990 levels \cite{SUBMISSIONSTATES}. Ireland's Climate Action Plan 2019 (CAP2019) complies with EU's first NDC, from which Irelands 30\% Non-ETS GHG orangeuction target in 2030 compaorange to 2005 levels was derived  \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. Climate Action Plan 2021 will have to be more ambitious than its porangeecessor, CAP2019 as it must reflect EU's updated NDC target and take account of the national target also.
 There are also renewable energy targets to consider for transport (RES-T), heat (RES-H), and electricity (RES-E) under the renewable directive (EU) 2018/2001, and the energy efficiency targets under (EU) 2018/2002.
 
 \subsubsection{Current Energy Policy}
@@ -271,8 +274,8 @@ Ireland has set out national policy objectives under 10 strategic investment pri
 
 
 
-%The CAP2019 MACC, shown in Fig.\ref{fig:CAP2019:MACC} provides $>300$ of the most cost-effective technologies options to reduce Non-ETS GHG by 30\% in 2030 compared to 2005 levels. 
-%The x-axis (width of each bar chart) shows the potential reduction of annual $MtCO2_{eq}$. The y-axis (height of each bar chart ) shows the associated average cost of abating one tonne of $CO2_{eq}$ over the 2021 to 2030 period. The columns are organised from the most economical (left side) to the most expensive technology (right side) in $EUR/tCO2_{eq}$ \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}.
+%The CAP2019 MACC, shown in Fig.\ref{fig:CAP2019:MACC} provides $>300$ of the most cost-effective technologies options to orangeuce Non-ETS GHG by 30\% in 2030 compaorange to 2005 levels. 
+%The x-axis (width of each bar chart) shows the potential orangeuction of annual $MtCO2_{eq}$. The y-axis (height of each bar chart ) shows the associated average cost of abating one tonne of $CO2_{eq}$ over the 2021 to 2030 period. The columns are organised from the most economical (left side) to the most expensive technology (right side) in $EUR/tCO2_{eq}$ \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}.
 %The options specific to the residential sector are: 
 
 %\begin{itemize}
@@ -288,15 +291,15 @@ Ireland has set out national policy objectives under 10 strategic investment pri
  %\caption{Climate Action Plan 2019 - Marginal Abatement Cost Curve}
 % \label{fig:CAP2019:MACC} \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}
 %\end{figure}
-%For example, Figure \ref{fig:CAP2019:MACC} shows the retrofitting of oil boilers is expected to reduce the Total Cost of Ownership (TCO) (ie. save money), but only abate a small amount of carbon, whereas switching oil boilers to heat pumps will increase TCO (ie. cost money) but the expected abatement of carbon is far greater. 
+%For example, Figure \ref{fig:CAP2019:MACC} shows the retrofitting of oil boilers is expected to orangeuce the Total Cost of Ownership (TCO) (ie. save money), but only abate a small amount of carbon, whereas switching oil boilers to heat pumps will increase TCO (ie. cost money) but the expected abatement of carbon is far greater. 
 
 In Ireland, the decarbonisation of electricity is underway, with carbon intensity falling annually to 375 $gCO_2/kWh$ in 2018, which is 40\% lower than 2005 levels \cite{Howley2005ENERGY-RELATEDIreland}. 
-Ireland uses both the \textit{carrot} (subsidy) and \textit{stick} (tax) approach to direct private investment towards low carbon or renewable energy. A €15/ $tCO_2$ carbon tax was introduced in 2009 to reduce investment in fossil fuels, and the increasing carbon tax rate has resulted in tax receipts growing every year from 2010 to 2018 \cite{Oireachtas2019AnOffice}. Ireland's current carbon tax of €33.50/ $tCO_2$ will rise to €100/ $tCO_2$ in 2030. The Renewable Energy Feed-in Tariff (REFIT) schemes were designed to incentivise renewable electricity investment to achieve legally binding renewable targets under 2009/28/EC. REFIT operates by guaranteeing a minimum price for electricity over a 15 year period. The Renewable Electricity Support Scheme (RESS) replaced REFIT in 2020. RESS supports renewable electricity projects to help Ireland achieve 2030 climate targets, especially the 70\% renewable electricity target. 
+Ireland uses both the \textit{carrot} (subsidy) and \textit{stick} (tax) approach to direct private investment towards low carbon or renewable energy. A €15/ $tCO_2$ carbon tax was introduced in 2009 to orangeuce investment in fossil fuels, and the increasing carbon tax rate has resulted in tax receipts growing every year from 2010 to 2018 \cite{Oireachtas2019AnOffice}. Ireland's current carbon tax of €33.50/ $tCO_2$ will rise to €100/ $tCO_2$ in 2030. The Renewable Energy Feed-in Tariff (REFIT) schemes were designed to incentivise renewable electricity investment to achieve legally binding renewable targets under 2009/28/EC. REFIT operates by guaranteeing a minimum price for electricity over a 15 year period. The Renewable Electricity Support Scheme (RESS) replaced REFIT in 2020. RESS supports renewable electricity projects to help Ireland achieve 2030 climate targets, especially the 70\% renewable electricity target. 
 % Almost 800 MW of solar has been approved in RESS-1 \cite{Eirgrid2020RenewableResults}, this greatly exceeds the current solar capacity of 16 MW, while making significant progress towards the CAP2019 target of 1500 MW solar by 2030.
-\par Sustainable Energy Authority of Ireland (SEAI) has a key role in the rollout of retrofitting and heat pumps in existing homes. In parallel, new dwellings must achieve a minimum share of 20\% renewable energy. The ambient heat used in heat pumps is included as a renewable energy, heat pumps are therefore the preferred heating technology despite the high capital costs. As mentioned in Section \ref{Intro:IreRSD}, new buildings in Ireland produce 70\% less GHG emissions than buildings in 2005, along with CAP2019 plans to retrofit 500,000 existing homes to at least a  ‘B2’ energy rating by 2030, which highlights the energy efficiency first approach in the residential sector. 
+\par Sustainable Energy Authority of Ireland (SEAI) has a key role in the rollout of retrofitting and heat pumps in existing homes. In parallel, new dwellings must achieve a minimum share of 20\% renewable energy. The ambient heat used in heat pumps is included as a renewable energy, heat pumps are therefore the preferorange heating technology despite the high capital costs. As mentioned in Section \ref{Intro:IreRSD}, new buildings in Ireland produce 70\% less GHG emissions than buildings in 2005, along with CAP2019 plans to retrofit 500,000 existing homes to at least a  ‘B2’ energy rating by 2030, which highlights the energy efficiency first approach in the residential sector. 
 \par Gas Network Ireland (GNI) have set a 18\% biomethane target for 2030 \cite{Ervia2019VisionIreland}, where CAP2019 only set a 3\% biomethane target for 2030 \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. GNI anticipates that by 2026 or 2027 the supply from Corrib ( Irelands only indigenous gas supply, which provided 61\% of gas in 2018 ) will be less than 30\% of 2018 levels \cite{OCleirigh2020ENERGYReport}. The gas network currently reaches 40\% or 680,000 dwellings in urban areas, but with the ``Compact Growth" policy strategy a higher share of building may have access to the gas network in the future. A major barrier to increasing biomethane from an agricultural source in the gas network is the cost, it was the most expensive option in the Marginal Abatement Cost Curve (MACC) produced in CAP2019.
-\par Ireland has one of the lowest shares of District Heating (DH) in Europe at less than 1\%  \cite{Gartland2016AIreland}. The ``Compact Growth" policy strategy and advancement in DH control will strengthen the case for DH networks to play a part in decarbonisaing the residential sector. CAP2019 plans to have approx. 0.4\% of heating provided by DH in 2030, research using TIMES and EnergyPLAN has shown that 37\% of heating provided by DH is optimal if Ireland is to reduce GHG emissions by 80\% in 2050, compared to 1990 \cite{Thellufsen2019ImplementingIreland}. While Irish District Energy Association (IrDEA) suggest 57\% of heat can be sourced from DH, if supporting policy and regulation was in place. District Heating will likely play a role, however Gartland points out a range of organisational, technical, regulatory, and economic barriers to DH growth in Ireland \cite{Gartland2016AIreland}. 
-\par While it maybe optimal to use Hydrotreated Vegetable Oil (HVO) in transport, it is also considered in the residential sector, as it can provide a cheap alternative for the 700,000 Irish dwellings using home heating oil ( mostly kerosene). HVO which meets the EU sustainability criteria, reduces GHG emissions by 60\% as compared to fossil fuels \cite{Soam2019FactorsSweden}. The capacity of HVO is growing in Europe, but HVO is currently about twice the price of kerosene. HVO can be used to replace kerosene, albeit at a cost of up to €400 per oil boiler, however there is no policy for HVO in the residential sector. 
+\par Ireland has one of the lowest shares of District Heating (DH) in Europe at less than 1\%  \cite{Gartland2016AIreland}. The ``Compact Growth" policy strategy and advancement in DH control will strengthen the case for DH networks to play a part in decarbonisaing the residential sector. CAP2019 plans to have approx. 0.4\% of heating provided by DH in 2030, research using TIMES and EnergyPLAN has shown that 37\% of heating provided by DH is optimal if Ireland is to orangeuce GHG emissions by 80\% in 2050, compaorange to 1990 \cite{Thellufsen2019ImplementingIreland}. While Irish District Energy Association (IrDEA) suggest 57\% of heat can be sourced from DH, if supporting policy and regulation was in place. District Heating will likely play a role, however Gartland points out a range of organisational, technical, regulatory, and economic barriers to DH growth in Ireland \cite{Gartland2016AIreland}. 
+\par While it maybe optimal to use Hydrotreated Vegetable Oil (HVO) in transport, it is also consideorange in the residential sector, as it can provide a cheap alternative for the 700,000 Irish dwellings using home heating oil ( mostly kerosene). HVO which meets the EU sustainability criteria, orangeuces GHG emissions by 60\% as compaorange to fossil fuels \cite{Soam2019FactorsSweden}. The capacity of HVO is growing in Europe, but HVO is currently about twice the price of kerosene. HVO can be used to replace kerosene, albeit at a cost of up to €400 per oil boiler, however there is no policy for HVO in the residential sector. 
 
 
 \section{Methodology}
@@ -306,7 +309,7 @@ Ireland uses both the \textit{carrot} (subsidy) and \textit{stick} (tax) approac
 
 \subsection{TIMES Energy System Optimisation Model}
 \label{Overview}
-\par  The expertise among energy policy researchers in Ireland combined with the global network of Energy Technology Systems Analysis Program (ETSAP) modellers, makes TIMES the preferred ESOM to explore Ireland's decarbonisation pathways. Previous versions of the Irish TIMES model were extracted from the Pan European TIMES model and then updated with specific national data and assumptions. The previous Irish TIMES models were used to provide informative reports on Irish climate policy \cite{Gallachoir2012EPAModel,Deane2017Irish2,Gallachoir2020The3,Deane2013TechnicalIreland,IrishGovernment2017National2017}.  
+\par  The expertise among energy policy researchers in Ireland combined with the global network of Energy Technology Systems Analysis Program (ETSAP) modellers, makes TIMES the preferorange ESOM to explore Ireland's decarbonisation pathways. Previous versions of the Irish TIMES model were extracted from the Pan European TIMES model and then updated with specific national data and assumptions. The previous Irish TIMES models were used to provide informative reports on Irish climate policy \cite{Gallachoir2012EPAModel,Deane2017Irish2,Gallachoir2020The3,Deane2013TechnicalIreland,IrishGovernment2017National2017}.  
 There is a need for a new ESOM to be built specifically to explore Ireland's new 2030 and 2050 climate targets and sectoral five-year carbon budgets, the new ``TIMES Ireland Model" (TIM) was built in 2021 to address this need \textbf{(SOURCE)}.
 \par TIMES is a bottom-up optimisation energy-environment model with perfect foresight which is used to analyse various levels of spatial, temporal and sectoral resolution. Exogenous technical, physical, and regulatory constraints can be applied and technologies have specified fuel types, efficiencies, lifetimes, availability, environmental characteristics, and fixed, variable and operation costs. TIMES uses a linear programming optimizer matrix in General Algebraic Modeling System (GAMS), to compute all calculations. 
 
@@ -344,8 +347,8 @@ The BER database provides the base year bottom-up energy consumption data, this 
 \hline
 \textbf{SEAI Energy Balance}  & \textbf{BER Database}  & \textbf{TIM}                  \\ \hline \hline
 Bituminous Coal & House   Coal & Coal                  \\
-Anthracite + Manufactured & Anthracite &         \\
-Lignite \textbackslash Brown Coal  & Manufactured Smokeless    &                       \\ \hline
+Anthracite + Manufactuorange & Anthracite &         \\
+Lignite \textbackslash Brown Coal  & Manufactuorange Smokeless    &                       \\ \hline
 Sod Peat & Sod Peat & Peat                                 \\
 Briquettes  & Peat   Briquettes   &                       \\ \hline
 Kerosene & Heating   Oil   & Kerosene              \\
@@ -380,9 +383,9 @@ There are two types of energy services represented in Table \ref{fig:RES} - Non-
 \subsubsection{Dwelling Stock Data}
 \label{LitR:StockData}
 
-The dwelling stock data is obtained mainly from the SEAI BER Public database, which is firstly filtered, then scaled up using Central Statistics Office (CSO) data. 
-The BER database is Ireland's national Energy Performance Certificate (EPC) register, which complies with the Energy Performance of Buildings Directive 2018/844/EU (EPBD). The BERs are categorised based on expected energy consumption, with A1 representing the lowest expected energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest expected energy consumption ($ >450 kWh/m^2/year$). Over half of Irish dwellings are captured in the BER database, every BER displays over 200 energy related variables. The DEAP model, which was outlined by Dineen et al.\cite{Dineen2015ImprovedSource} in Section \ref{Intro:ESOM} provides the results for the energy rating in the BER database. 
-However, the space heating calculation is used to estimate the expected energy consumption per dwelling, which makes some assumptions. DEAP assumes that each dwelling is single zoned, the heating season is frin October to May inclusive, and the heating times are 7am to 9am and 5pm to 11pm ( 56 hours / week ) during the heating season. One assumption, the internal temperature assumption results in a large error, where space and water heating are overestimated in DEAP. Space heating consumption reduced by 26 \% after internal temperature adjustments were applied in TIM, this brought the final energy consumption in line with the top-down SEAI Energy Balance. DEAP assumes all living areas ( living room, sitting room, and possibly kitchen) in dwellings are heated to 21$^{\circ}$C and non-living areas ( bedroom, bathroom, hallways ) are heated to 18$^{\circ}$C. Through the analysis of previous residential modelling in Ireland this is not the case, as the internal temperatures are often much lower, Table \ref{Table:InternalTemps} outlines the residential internal temperature assumptions applied in TIM.
+The dwelling stock data is obtained mainly from the SEAI BER Public database, which is firstly filteorange, then scaled up using Central Statistics Office (CSO) data. 
+The BER database is Ireland's national Energy Performance Certificate (EPC) register, which complies with the Energy Performance of Buildings Directive 2018/844/EU (EPBD). The BERs are categorised based on expected energy consumption, with A1 representing the lowest expected energy consumption ($\leq 74 kWh/m^2/year$) and G representing the highest expected energy consumption ($ >450 kWh/m^2/year$). Over half of Irish dwellings are captuorange in the BER database, every BER displays over 200 energy related variables. The DEAP model, which was outlined by Dineen et al.\cite{Dineen2015ImprovedSource} in Section \ref{Intro:ESOM} provides the results for the energy rating in the BER database. 
+However, the space heating calculation is used to estimate the expected energy consumption per dwelling, which makes some assumptions. DEAP assumes that each dwelling is single zoned, the heating season is frin October to May inclusive, and the heating times are 7am to 9am and 5pm to 11pm ( 56 hours / week ) during the heating season. One assumption, the internal temperature assumption results in a large error, where space and water heating are overestimated in DEAP. Space heating consumption orangeuced by 26 \% after internal temperature adjustments were applied in TIM, this brought the final energy consumption in line with the top-down SEAI Energy Balance. DEAP assumes all living areas ( living room, sitting room, and possibly kitchen) in dwellings are heated to 21$^{\circ}$C and non-living areas ( bedroom, bathroom, hallways ) are heated to 18$^{\circ}$C. Through the analysis of previous residential modelling in Ireland this is not the case, as the internal temperatures are often much lower, Table \ref{Table:InternalTemps} outlines the residential internal temperature assumptions applied in TIM.
 
 \begin{table}[htbp]
   \centering
@@ -404,9 +407,9 @@ However, the space heating calculation is used to estimate the expected energy c
 
 The ArDEM-SQL, which was described in Section \ref{Intro:ESOMIreland} is a simulation model built on EN 13790. ArDEM-SQL alters the primary energy consumption of the BER database by changing the internal temperatures. 
 
-Other concerns for uncertainties in the database, which are not related to DEAP calculation are statistically anomalous spikes in the data, caused by applying default values \cite{Ahern2020ADatabases} and different companies generating variations of ±20\% in the assessment of energy consumption \cite{Harsman2016OnCertificates}.While the BER database provides high granularity data, it must be filtered to improve the representation of the dwelling stock data. The filters applied to the raw BER database are outlined in \ref{sec:appendixA}. 
+Other concerns for uncertainties in the database, which are not related to DEAP calculation are statistically anomalous spikes in the data, caused by applying default values \cite{Ahern2020ADatabases} and different companies generating variations of ±20\% in the assessment of energy consumption \cite{Harsman2016OnCertificates}.While the BER database provides high granularity data, it must be filteorange to improve the representation of the dwelling stock data. The filters applied to the raw BER database are outlined in \ref{sec:appendixA}. 
 
-The Census 2016 data \cite{CensusOffice} from the CSO is also used in calculating the dwelling stock. Dataset E1005 provides a split of seven archetypes per county, which are aggregated to form three archetypes. The total number of building archetypes per county in 2016 is used to scale up the BER database. The gap in total dwellings between the census year in 2016 and the model base year in 2018 was initially ignored due to lack of data. However, later it was found that data on new dwelling electrical connections per archetype and per county are available from CSO dataset NDQ06, this would have filled the gap, the first iteration of the dwelling stock has a 2 \% error. 
+The Census 2016 data \cite{CensusOffice} from the CSO is also used in calculating the dwelling stock. Dataset E1005 provides a split of seven archetypes per county, which are aggregated to form three archetypes. The total number of building archetypes per county in 2016 is used to scale up the BER database. The gap in total dwellings between the census year in 2016 and the model base year in 2018 was initially ignoorange due to lack of data. However, later it was found that data on new dwelling electrical connections per archetype and per county are available from CSO dataset NDQ06, this would have filled the gap, the first iteration of the dwelling stock has a 2 \% error. 
 
 Once both databases were finalised, the next step in this process was to scale up the BER database.
 
@@ -471,37 +474,101 @@ This section only covers the costs applied in the residential sector, which incl
 The fuel costs are not applied in the residential sector, there are applied in the supply sector, and the data is sourced from World Energy Outlook reports from 2019 and 2020. 
 The majority of the space and water heating cost data is obtained from the
 \textit{``Techno-economic projections until 2050 for smaller heating and cooling technologies in the residential and tertiary sectors in the EU”} report \cite{JointResearchCentre2017Techno-economicEU}. The cost data used in TIM was based on the north EU region (Denmark) and where data was missing, the central EU region (Germany) cost data was used. The high granularity of data allows for the cost of a technology to be disaggregated between apartments and non-apartments, costs and efficiencies are projected every five years from 2020 to 2050. The lifetime and emissions/pollutants are also included, while the cost data is further disaggregated between capital expenditure ( equipment, installation \& additional capital costs ) and Operational \& Maintenance (O\&M) costs.  
-\par The model has two types of retrofitting - shallow ( BER is improved by $ \leq 35 \%$ and deep ( BER is improved by $>35 \%$ ). The cost data was sourced from Ali et. al \cite{Ali2020ABuildings} who derived costs from SEAI's Better Energy Homes (BEH) and Better Energy Warmer Homes (BEWH) datasets, which are Ireland's largest retrofitting dataset ( over 285,000 retrofits ). To provide more robust retrofit costs, data is also used from the Typology Approach for Building Stock Energy Assessment (TABULA) report \cite{IrishTABULANationalAdvisoryGroup2014BuildingIreland} which has more detailed cost data on 2 stages of retrofit for a small sample of 31 dwellings. The formulas used to find the average cost of a retrofit per type of retrofit and archetype are shown in Equations \ref{Eq:RetrofitCost1} and \ref{Eq:RetrofitCost2}.
+\par The model has two types of retrofitting options per archetype,  a shallow retrofit is when the primary energy ($kWh/m^2/yr$) is reduced by $ \leq 35 \%$, and deep retrofit is where the primary energy is reduced by $>35 \%$, a reduction of $ \> 75 \%$ is considered infeasible. The different between the pre-retrofit and post-retrofit primary energy determines the type of retrofit, as shown in \ref{sec:appendixA3}.
+
+The retrofit cost data was sourced from Ali et. al \cite{Ali2020ABuildings} who derived costs from SEAI's Better Energy Homes (BEH) and Better Energy Warmer Homes (BEWH) datasets, combined this is Ireland's largest retrofitting dataset ( over 285,000 retrofits ). To provide more robust retrofit costs, data is also used from the Typology Approach for Building Stock Energy Assessment (TABULA) report \cite{IrishTABULANationalAdvisoryGroup2014BuildingIreland} which has more detailed cost data with two stages of retrofit (standard and advanced) for a sample of 31 dwellings. The formulas used to find the average cost of a retrofit per type of retrofit and archetype are shown in Equations \ref{Eq:RetrofitCost1} and \ref{Eq:RetrofitCost2}.
 
 \begin{equation} 
 \begin{split}
- \text{\euro}_{r,a,t} = Average ( (Ali_{r,t} * AF),TABULA_{r,a,t} )
+ \text{\euro}_{rf-rt,a} = Average ( (Ali_{rf-rt} * AF),TABULA_{rf-rt,a} )
 \end{split}
 \label{Eq:RetrofitCost1}
 \end{equation}
 
-Where $ {\text{\euro}}{}_{r,a,t}$ is the TIM cost for retrofit by rating (r), archetype (a) and type of retrofit (t). $Ali_{r,t}$ is the cost data from Ali et al. \cite{Ali2020ABuildings}, it contains all ratings and types but does not include an archetype, so an archetype factor (AF) is introduced, 0.9 for apartments and 1.1 for detached dwellings. The $TABULA_{r,a,t}$ is the average cost of a retrofit from TABULA \cite{IrishTABULANationalAdvisoryGroup2014BuildingIreland} per rating, archetype and type of retrofit, however, with only 62 samples in total, not all retrofits are included. In this case, TABULA is ignored and Ali et al. is the only source of retrofit costs.  
+Where $ {\text{\euro}}{}_{rf-rt,a}$ is the retrofit cost from pre-retrofit BER rating (rf) to post-retrofit rating (rt) and archetype (a). $Ali_{r,t}$ is the cost data from Ali et al. \cite{Ali2020ABuildings}, it contains all ratings and types but does not include an archetype, so an archetype factor (AF) is introduced, 0.9 for apartments, 1 for attached, and 1.1 for detached dwellings.  $TABULA_{rf-rt,a}$ is the average retrofit cost from pre-retrofit BER rating to post-retrofit BER rating and archetype sourced from TABULA \cite{IrishTABULANationalAdvisoryGroup2014BuildingIreland}.  However with only 62 samples in total not all retrofits are included. In this case, TABULA is ignored and Ali et al. is the only source of retrofit costs. The retrofit costs are cross-checked with the residential cost-optimal report \cite{AECOM2020ReportBuildings}. 
 \par To simplify the model, the cost of retrofit per BER rating is not used in TIM. Instead, an average weighted cost per archetype and per retrofit is calculated. 
 
 \begin{equation} 
 \begin{split}
-\text{\euro}_{a,t} = \text{\euro}_{r,a,t} * \frac{TIM_{r,a}} {TIM_{a}}
+\text{\euro}_{a,t} = Average(\text{\euro}_{rf,a}) * \frac{TIM_{r,a}} {TIM_{a}}
 \end{split}
 \label{Eq:RetrofitCost2}
 \end{equation}
 
 ${TIM_{r,a}}$ is the number of dwellings by rating and archetype and ${TIM_{a}}$ is the total number of dwellings of that archetype, however A-rated dwellings are excluded from the total, as it is assumed they cannot be retrofitted further. 
 
-THe cost data of appliances 
-Topten - 
-
-
-
+\par The cost data for different electrical appliances was sourced from Topten EU database. Topten has a large database covering electrical appliances available in the European market, the data collected includes cost and efficiency. While some Topten reports have looked at sales and market shares \cite{Michel2016EnergyREPORT}.  
 
 \subsubsection{Savings}
 \label{LitR:Savings}
-Retrofit Savings - SEAI dataset not published..papers Usman,etc.
-While also accounting for more fuels and technological options, the residential sector in TIM is structured around retrofitting, not vice versa as previous versions, so that it is more aligned with ongoing climate mitigation investments.
+
+The previous section outlined the cost of retrofitting, and this section looks at the expected savings of retrofitting existing dwellings and building new dwellings.  
+The annual heating costs per archetype and per BER rating are sourced from SEAI's indicative energy running costs and the internal temperature assumptions in Table \ref{Table:InternalTemps} are included to calculate the costs, which are outlined in Table \ref{Table:FuelCost}
+
+\begin{table}[htbp]
+  \centering
+  \footnotesize
+  \caption{Heating fuel cost per BER rating and archetype }
+    \begin{tabular}{l|lcc}
+    \hline
+    BER Rating & Attached & \multicolumn{1}{l}{Detached} & \multicolumn{1}{l}{Apartment} \\ \hline
+A1         & $\text{\euro}$323      & $\text{\euro}$539                          & $\text{\euro}$200               \\
+A2         & $\text{\euro}$646      & $\text{\euro}$1078                         &$\text{\euro}$400                \\
+A3         & $\text{\euro}$804      & $\text{\euro}$1213                         & $\text{\euro}$500                 \\
+B1         & $\text{\euro}$745      & $\text{\euro}$1200                         & $\text{\euro}$440              \\
+B2         & $\text{\euro}$950      & $\text{\euro}$1500                         & $\text{\euro}$570                \\
+B3         & $\text{\euro}$1150     & $\text{\euro}$1900                         & $\text{\euro}$700                \\
+C1         & $\text{\euro}$862      & $\text{\euro}$1432                         & $\text{\euro}$499              \\
+C2         & $\text{\euro}$1022     & $\text{\euro}$1693                         & $\text{\euro}$624           \\
+C3         & $\text{\euro}$1181     & $\text{\euro}$1888                         & $\text{\euro}$686                \\
+D1         & $\text{\euro}$1434     & $\text{\euro}$2364                         & $\text{\euro}$836                \\
+D2         & $\text{\euro}$1701     & $\text{\euro}$2769                         & $\text{\euro}$964               \\
+E1         & $\text{\euro}$1979     & $\text{\euro}$3233                         & $\text{\euro}$1187               \\
+E2         & $\text{\euro}$2252     & $\text{\euro}$3646                         & $\text{\euro}$1319                \\
+F          & $\text{\euro}$2740     & $\text{\euro}$4403                         & $\text{\euro}$1626              \\
+G          & $\text{\euro}$2702     & $\text{\euro}$4398                         & $\text{\euro}$1687        \\                  \hline
+    \end{tabular}
+  \label{Table:FuelCost}
+\end{table}
+
+As TIM only inputs the savings per type of retrofit and archetype, some calculations must be performed on Table \ref{Table:FuelCost}. The first calculation is to find the savings from pre-retrofit running cost to post-retrofit running cost, as shown in Equation \ref{Eq:RetrofitSaving1}
+
+\begin{equation} 
+\begin{split}
+ Saving(\%)_{a,rf-rt} = 1 - ( \frac {Average(\text{\euro}_{rt,a}/year) } {Average(\text{\euro}_{rf,a}/year) } )
+\end{split}
+\label{Eq:RetrofitSaving1}
+\end{equation}
+
+Where $Saving(\%)_{a,rf-rt}$ are the savings ( or reduced running cost) per archetype (a), where the pre-retrofit BER rating is defined as the rating from (rf), and the post-retrofit BER rating is defined as the rating to (rt). 
+
+Allocating each retrofit change to either shallow or deep is the next step, this is shown in \ref{sec:appendixA3}. The next calculation is to find the weighted average of each retrofit depth per archetype, this is then a TIM input. 
+
+\begin{equation} 
+\begin{split}
+Saving(\%)_{a,d} = Average(Saving(\%)_{a,rf}) * \frac{TIM_{r,a}} {TIM_{a}}
+\end{split}
+\label{Eq:RetrofitSaving2}
+\end{equation}
+
+Where, t is the type of retrofit. ${TIM_{r,a}}$ is the number of dwellings by rating and archetype and ${TIM_{a}}$ is the total number of dwellings of that archetype.The expected savings from each type of retrofit and for each archetype is outlined in Table \ref{Table:RetrofitSavings}.
+
+\begin{table}[htbp]
+  \centering
+  \footnotesize
+  \caption{Retrofit Savings}
+\begin{tabular}{l|lcc}
+Retrofit & Attached & \multicolumn{1}{l}{Detached} & \multicolumn{1}{l}{Apartment} \\ \hline
+Shallow  & 20\%     & 20\%                         & 22\%                          \\
+Deep     & 44\%     & 42\%                         & 37\%               
+
+The higher thermal building efficiency in new dwellings, is also expected to reduce energy running costs. 
+
+\end{tabular}
+\label{Table:RetrofitSavings}
+\end{table}
+
+The
 
 \subsubsection{Energy Service Demand Projections}
 \label{LitR:Demands}
@@ -555,15 +622,15 @@ Historical population estimates and future projections are obtained from the Cen
  \centering
  \caption{Energy service demands in TIM}
  
- \begin{tabular}{p{18em}lccc}
- \hline
-    \multirow{Energy Service Demand} & \multirow{Driver} & \multicolumn{2}{c}{Value} & \multirow{Unit} \\
-          &       & \multicolumn{1}{c}{2018} & \multicolumn{1}{c}{2050} &  \\ \hline
-    Residential Apartment Demand & Population & 206.80 & 628.93 & 000' \\
-    Residential Attached Demand & Population & 766.35 & 1056.50 & 000' \\
-    Residential Detached Demand & Population & 724.43 & 889.76 & 000' \\
-    \hline
-    \end{tabular}%
+% \begin{tabular}{p{18em}lccc}
+% \hline
+%    \multirow{Energy Service Demand} & \multirow{Driver} & %\multicolumn{2}{c}{Value} & \multirow{Unit} \\
+%          &       & \multicolumn{1}{c}{2018} & \multicolumn{1}{c}{2050} &  \\ \hline
+%    Residential Apartment Demand & Population & 206.80 & 628.93 & 000' \\
+ %   Residential Attached Demand & Population & 766.35 & 1056.50 & 000' \\
+ %   Residential Detached Demand & Population & 724.43 & 889.76 & 000' \\
+%    \hline
+%    \end{tabular}%
 
   \label{tab:ESD_list}%
 \end{table}%
@@ -605,7 +672,7 @@ The residential stock projections up to 2040 are taken from ESRI's housing deman
   \label{tab:addlabel}%
 \end{table}%
 
-Space heating is the largest residential energy service demand, accounted for 61.8\% of final energy usage in 2018. Other residential energy services and their share of final energy are shown in Fig.\ref{fig:Ireland2018ServiceDemands}. As building thermal efficiency and heating technology efficiency improves, both space and water heating energy would be expected to decline. The new A-rated dwellings can be used as a guide to show the share of future energy service demands. From the BER database, it can be seen that A-rated dwellings use less than half the space heating energy of the average dwelling and A-rated water heating energy decreases by about 40\% compared to the average A-rated dwelling. However Pumps \& Fans energy increases as mechanical ventilation is used over natural ventilation and lighting usage in A-rated is more than double the average household. Cooking and appliance energy usage would be expected to remain stable. 
+Space heating is the largest residential energy service demand, accounted for 61.8\% of final energy usage in 2018. Other residential energy services and their share of final energy are shown in Fig.\ref{fig:Ireland2018ServiceDemands}. As building thermal efficiency and heating technology efficiency improves, both space and water heating energy would be expected to decline. The new A-rated dwellings can be used as a guide to show the share of future energy service demands. From the BER database, it can be seen that A-rated dwellings use less than half the space heating energy of the average dwelling and A-rated water heating energy decreases by about 40\% compaorange to the average A-rated dwelling. However Pumps \& Fans energy increases as mechanical ventilation is used over natural ventilation and lighting usage in A-rated is more than double the average household. Cooking and appliance energy usage would be expected to remain stable. 
 
 
 \begin{figure}[!htbp]
@@ -613,7 +680,7 @@ Space heating is the largest residential energy service demand, accounted for 61
     \begin{tikzpicture}
     \tikzstyle{every node}=[font={\bf}]
     \pie[   color = { yellow!90!black, green!60!black, blue!60,
-        red!70,
+        orange!70,
         gray!80,
         teal!20
     }, explode = 0.6, text=legend, radius=2.4]{61.8/Space Heating, 2.2/Cooking, 18.5/Water Heating, 3.8/Lighting, 12.8/Appliances,0.9/Pumps \& Fans}
@@ -660,7 +727,7 @@ The SEAI Residential Energy report \cite{SustainableEnergyAuthorityofIreland2018
 
 
 %Space Heating demand - BER space heating is only within certain months and assumes 21C heating..
-Thermostats are not widely used for temperature regulation in private dwellings in Ireland; instead, the domestic heating schedule was assumed to be 07.00–09.00 h and 17.00–23.00 h for the heating season of October to May inclusive, based on the guidelines issued by the Sustainable Energy Authority of Ireland (SEAI) [32]. The thermal load consists of both space heating and a baseline demand for sustaining water heating. For non-domestic premises, the thermal load is defined by office hours in line with the electrical demand. The domestic thermal loads considered in this study are listed in Table 2; the thermal load for the non-domestic
+Thermostats are not widely used for temperature regulation in private dwellings in Ireland; instead, the domestic heating schedule was assumed to be 07.00–09.00 h and 17.00–23.00 h for the heating season of October to May inclusive, based on the guidelines issued by the Sustainable Energy Authority of Ireland (SEAI) [32]. The thermal load consists of both space heating and a baseline demand for sustaining water heating. For non-domestic premises, the thermal load is defined by office hours in line with the electrical demand. The domestic thermal loads consideorange in this study are listed in Table 2; the thermal load for the non-domestic
 \subsubsection{Space and Water Heating}
 \label{LitR:Heating}
 
@@ -705,9 +772,9 @@ Note that the sign of the constraint may also be of the "larger than or equal to
  % LIT REW INPUT DATA - EU \cite{Simoes2013TheProject} 
 - LI,er.alThe nationwide survey identified existing technologies, age,
 income, region, dwelling characteristics, and knowledge of eco- technology as the six most influential factors for determining homeowners' preferences for heating systems. Among
-%the new A-rated houses behave distinctively different which much less demand on space heating and with pumps and fans energy consumption usage increasing, while appliance end use is increasing across the BER ratings. The number of appliances has increased rapidly and while energy efficient improves are  reducing the energy per appliance, it is overshadowed by the growth in electrical appliances. There retrofitting grant which  requires building to have a HLI indication of 2 or less before a heat pump grant can be installs. Ireland’s aim of retrofitting 0.5 million homes from the existing 1.7 million in the before 2030. The effect of these targets also stretches out across the construction sector. The savings from retrofits will decrease fossil fuel energy usage, while most houses 00\% would need to get heat pumps too, to fulfil 0.4 million existing houses getting heat pumps.  This energy efficiency first approach would allow for future technology choices, when current boiler are not at end of life. 
+%the new A-rated houses behave distinctively different which much less demand on space heating and with pumps and fans energy consumption usage increasing, while appliance end use is increasing across the BER ratings. The number of appliances has increased rapidly and while energy efficient improves are  orangeucing the energy per appliance, it is overshadowed by the growth in electrical appliances. There retrofitting grant which  requires building to have a HLI indication of 2 or less before a heat pump grant can be installs. Ireland’s aim of retrofitting 0.5 million homes from the existing 1.7 million in the before 2030. The effect of these targets also stretches out across the construction sector. The savings from retrofits will decrease fossil fuel energy usage, while most houses 00\% would need to get heat pumps too, to fulfil 0.4 million existing houses getting heat pumps.  This energy efficiency first approach would allow for future technology choices, when current boiler are not at end of life. 
 
-TIM was built to help Ireland provide a pathway to achieve 2030 and 2050 targets. The residential sector plays a key part of this and it was built from the SEAI 2018 energy balance, the BER database, and CSO data. The data filtration process used in the residential sector derived a lot of conversation from the BER database, a group known as Ireland Energy Wiki by the National Retrofitting Modelling Group grew from building the residential sector, questions about the filters, default values, assumptions around thermal equations (EC..) and uncertainties were used to improve the data before it was used in TIM . TIM has many internal project deadines, which required extensive meetings about the data, constraints and results as the modelling was progressing. The data and results were presented to 30 external reviewers to provide feedback, this process proved invaluable having different expertise with different perspectives enabling TIM to fill in gaps. TIM will also be an open platform to help improve the model and provide transparency. TIM’s residential sector was built in parallel with LEAP’s residential sector, so that the residential sector can easily simulate policy. The demand for results from TIM has increased significantly with increasing government ambitions, TIM will provide input into CAP 2021 and Ireland’s carbon budgets, working with DECC and the CCAC, respectively, will also provide feedback and improve the robustness of TIM. For these reasons, the TIM residential sector is at the cutting edge of modelling platforms. 
+TIM was built to help Ireland provide a pathway to achieve 2030 and 2050 targets. The residential sector plays a key part of this and it was built from the SEAI 2018 energy balance, the BER database, and CSO data. The data filtration process used in the residential sector derived a lot of conversation from the BER database, a group known as Ireland Energy Wiki by the National Retrofitting Modelling Group grew from building the residential sector, questions about the filters, default values, assumptions around thermal equations (EC..) and uncertainties were used to improve the data before it was used in TIM . TIM has many internal project deadines, which requiorange extensive meetings about the data, constraints and results as the modelling was progressing. The data and results were presented to 30 external reviewers to provide feedback, this process proved invaluable having different expertise with different perspectives enabling TIM to fill in gaps. TIM will also be an open platform to help improve the model and provide transparency. TIM’s residential sector was built in parallel with LEAP’s residential sector, so that the residential sector can easily simulate policy. The demand for results from TIM has increased significantly with increasing government ambitions, TIM will provide input into CAP 2021 and Ireland’s carbon budgets, working with DECC and the CCAC, respectively, will also provide feedback and improve the robustness of TIM. For these reasons, the TIM residential sector is at the cutting edge of modelling platforms. 
 
 
 \section{Results}
@@ -719,12 +786,13 @@ Electricity Supply, Technology and Fuel Mix, Retrofitting, Cost
 %% appendix sections are then done as normal sections
 \section{Discussion}
 \label{Discussion}
+5\% increase of residential energy in 2030 when internal temperatures are adjusted. 
 Soft-linking with LEAP and PLEXOS
 %o	Discuss and interpret the results
 %o	Focus on what added value the model brings
 %o	Also include future development priorities here
 %o	What can’t the model do? Where is it more suitable to use another model - Hannah Email
-
+Retrofitting ``rebound" saving orangeuces energy other is more difficult to measure like improved physical and mental health. 
 \subsection{Strengths}
 \label{Dis:Strengths}
 
@@ -740,10 +808,11 @@ First iteration - of the model will need further development, DH, BEhavour, high
 Detailed bottom-up model - using the 2018 base year ( in line with policy )
 Updated technology
 Combines energy system effects
-Robust filtered input data about housing stock
+Robust filteorange input data about housing stock
 
 \subsection{Limitations}
 \label{Dis:Limit}
+BER Database - No PV Solar capacity, No Heat Pump ready, Large defaults, wall types check?)
 %Discrepancies were investigated, and assumptions reviewed intuitively in order to achieve a good match.=
 Consumers’ final investment decision can be
 represented by “willingness-to-pay” curves – for
@@ -751,7 +820,7 @@ instance, around 10\% of owner-occupiers are willing
 to invest in energy efficiency measures for a payback
 time of 4 years, falling to 0\% for a payback time of
 6 years for some consumer cohorts
-Type of Tenure is ignored
+Type of Tenure is ignoorange
 BER aggeragateed
 housing stock u-values
 behaviour and occupancy
@@ -764,7 +833,7 @@ depending on usage \cite{Sunikka-Blank2012BuildingConsumption}
 \label{Conclusion}
 This paper reports results on an ambitious mitigation target in the period to 2050 for the Irish energy system. The analysis has been performed using the Irish TIMES model
 \textit{We stress the importance of differentiating between technical con-
-straints and behavioural constraints in optimisation models. Including both conflates what is considered desirable under the economic welfare paradigm (i.e. cost-minimising decisions) with “realistic decisions”, complicating the interpretation of the results. Optimisation models are by design well suited to study cost-optimal behaviour, and running scenarios just with technical constraints facilitates the identification of areas where market barriers are more entrenched, and interventions to accelerate the uptake of low-carbon practices may be needed.} \cite{Astudillo2017CanModelb}
+straints and behavioural constraints in optimisation models. Including both conflates what is consideorange desirable under the economic welfare paradigm (i.e. cost-minimising decisions) with “realistic decisions”, complicating the interpretation of the results. Optimisation models are by design well suited to study cost-optimal behaviour, and running scenarios just with technical constraints facilitates the identification of areas where market barriers are more entrenched, and interventions to accelerate the uptake of low-carbon practices may be needed.} \cite{Astudillo2017CanModelb}
 \section{Acknowledgements}
 \label{sec:Acknowledgements}
 Tomas %CAPACITY is funded under the Climate Action Modelling Group (CAMG) by DECC
@@ -790,16 +859,16 @@ BER Database Filters
  \hline
  Filter Name & Data Removed & Reason \\
  \hline
- Ground Floor Area &  $<30m^2$ \& $>1000m^2$ & Considered erroneous \\
+ Ground Floor Area &  $<30m^2$ \& $>1000m^2$ & Consideorange erroneous \\
  Provisional Records & All & Higher Inaccuracies  \\
  Thermal Bridging Factor & $\leq0.15 W/m^2K$ & Outlier \\
- Declared Loss Factor & $>20kWh/day$ & Considered erroneous \\
+ Declaorange Loss Factor & $>20kWh/day$ & Consideorange erroneous \\
  Living Area Percent & $<5\%$ \& $>90\%$ & Outlier \\
  Heat System Supply Heat Fraction & $>21\%$ & Outlier  \\
- Heat System Efficiency Adjustment Factor & $<0.7$ & Considered erroneous \\
- Main Space System Efficiency & $\leq19\%$ & Considered erroneous \\
-Water System Efficiency Adjustment Factor & $<0.7$ & Considered erroneous\\
-Main Water System Efficiency & $\leq19\%$ \& $>320\%$ & Considered erroneous \\
+ Heat System Efficiency Adjustment Factor & $<0.7$ & Consideorange erroneous \\
+ Main Space System Efficiency & $\leq19\%$ & Consideorange erroneous \\
+Water System Efficiency Adjustment Factor & $<0.7$ & Consideorange erroneous\\
+Main Water System Efficiency & $\leq19\%$ \& $>320\%$ & Consideorange erroneous \\
  \hline
  \end{tabular}%
  \label{BERFilters}%
@@ -866,6 +935,34 @@ Later\_2010  & 0.8131 & 0.0868 & 0.0509 & 0.0295 & 0.0165 & 0.0029 & 0.0002 & 0.
 %% bibitems, please use
 %%
 \newpage
+
+\subsection{}
+\label{sec:appendixA3}
+Depth of Retrofit defined by expected energy savings. The red cells are unfeasible, orange cells show deep retrofits and yellow represent shallow retrofits. 
+%The model has two types of retrofitting options per archetype,  a shallow retrofit is when the primary energy ($kWh/m^2/yr$) is reduced by $ \leq 35 \%$, and deep retrofit is where the primary energy is reduced by $>35 \%$, a reduction of $ \> 75 \%$ is considered infeasible. The different between the pre-retrofit and post-retrofit primary energy determines the type of retrofit, as shown i
+
+\begin{table}[htbp]
+ \centering
+ \footnotesize
+ \caption{Energy Savings per BER rating}
+ \begin{tabular}{|cl|llllllll}
+\hline   
+&  \multicolumn{8}{c}{Pre-Retrofit Rating}     \\ 
+ & & G  & F & E & D  & C & B3  & B2  & B1 \\ \hline 
+\multirow{8}{*}{\rotatebox[origin=c]{90}{Post-Retrofit Rating}} & A       & \cellcolor{red}83\% & \cellcolor{orange}73\% & \cellcolor{orange}67\% & \cellcolor{orange}57\% & \cellcolor{orange}38\%  & \cellcolor{orange}46\% & \cellcolor{yellow}35\% & \cellcolor{yellow}17\% \\
+ & B1 & \cellcolor{red}79\% & \cellcolor{orange}68\%  & \cellcolor{orange}61\% & \cellcolor{orange}48\% & \cellcolor{yellow}25\%  & \cellcolor{yellow}35\% & \cellcolor{yellow}22\% &      \\
+  & B2      & \cellcolor{orange}73\% & \cellcolor{orange}59\% & \cellcolor{orange}49\% & \cellcolor{yellow}33\% & \cellcolor{yellow}4\%   & \cellcolor{yellow}17\% &      &      \\
+  & B3      & \cellcolor{orange}68\% & \cellcolor{orange}50\% & \cellcolor{orange}39\% & \cellcolor{yellow}19\% & \cellcolor{yellow}0\% &      &      &      \\
+  & C       & \cellcolor{orange}72\% & \cellcolor{orange}57\% & \cellcolor{orange}47\% & \cellcolor{yellow}30\% &       &      &      &      \\
+ & D       & \cellcolor{orange}60\% & \cellcolor{orange}\cellcolor{orange}38\% & \cellcolor{yellow}25\% &      &       &      &      &      \\
+ & E       & \cellcolor{orange}47\% & \cellcolor{yellow}18\% &      &      &       &      &      &      \\
+  & F       & \cellcolor{yellow}35\% &      &      &      &       &      &      &     
+
+ \end{tabular}%
+ \label{DepthofRetrofit}%
+\end{table}
+
+
 \printbibliography
 
 
