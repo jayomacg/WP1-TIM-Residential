@@ -559,19 +559,19 @@ Where, t is the type of retrofit. ${TIM_{r,a}}$ is the number of dwellings by ra
   \caption{Retrofit Savings}
 \begin{tabular}{l|lcc}
 Retrofit & Attached & \multicolumn{1}{l}{Detached} & \multicolumn{1}{l}{Apartment} \\ \hline
-Shallow  & 20\%     & 20\%                         & 22\%                          \\
-Deep     & 44\%     & 42\%                         & 37\%               
-
+Shallow  & 20\%   & 20\%     & 22\%     \\
+Deep     & 44\%   & 42\%     & 37\%               
 \end{tabular}
 \label{Table:RetrofitSavings}
 \end{table}
 
-
 \subsubsection{Energy Service Demand Projections}
 \label{LitR:Demands}
 
+Demand TIMESLICE 
+
 Energy service demands in the residential sector are driven by the total dwelling stock for non-archetype energy services or apartment, attached or detached dwelling stock for archetype energy services, which in turn is driven by population growth and the occupancy rate (the average number of people per dwelling). The residential stock projections up to 2040 are taken from Economic and Social Research Institute's (ESRI's) housing demand estimates \cite{BerginREGIONALLEVEL}.
-Archetype energy service demands are dependant on both the type of dwelling and whether it is existing or new. The average archetype energy service in new and existing per archetpe is shown in Table X.
+Archetype energy service demands are dependant on both the type of dwelling and whether it is existing or new. The average archetype energy service in new and existing is shown in Table \ref{Archetype Energy Service Demands}
 \begin{table}[htbp]
   \centering
   \footnotesize
@@ -579,21 +579,33 @@ Archetype energy service demands are dependant on both the type of dwelling and 
  \begin{tabular}{c|cc|cc|cc}
  \hline
  \multicolumn{1}{c|}{Energy Service}  & \multicolumn{2}{c|}{Apartments} & \multicolumn{2}{c|}{Attached} & \multicolumn{2}{c}{Detached}  \\
- 
+  \multicolumn{1}{c|}{}  & \multicolumn{2}{c|}{($kWh/house/yr$)} & \multicolumn{2}{c|}{($kWh/house/yr$)} & \multicolumn{2}{c}{($kWh/house/yr$)}  \\
   & Existing & New & Existing & New & Existing & New \\
  \hline
- Space Heating & 2.79 & 81\% & 2.79 & 81\% & 2.79 & 81\% \% \\
- Water Heating & 3.63 & 81\% & 3.63 & 81\% & 3.63 & 81\% \% \\
- Lighting & 7.5 & 307\% & 6.83 & 338\% & 6.21 & 379\%  \\
- Pumps \& Fans  & 3.25 & 82\% & 3.25 & 82\% & 3.25 & 82\%  \\
- Space Cooling  & 4.23 & 82\% & 4.23 & 82\% & 4.23 & 82\%  \\
+ Space Heating & 3,853 & 1,228 & 7,852 & 2,845 & 14,405 & 6,745 \\
+ Water Heating & 3,409 & 2,197 & 3,011 & 2,351 & 3,806 & 2,493 \\
+ Lighting & 179 & 156 & 254 & 229 & 419 & 392  \\
+ Pumps \& Fans  & 55  & 60 & 106 & 104 & 131 & 110  \\
+ Space Cooling  & 0 & 60 & 0 & 104 & 0 & 110  \\
  \hline
  \end{tabular}
- 
  \label{Archetype Energy Service Demands}
 \end{table}
+
+Space and water heating, and lighting energy service demands for existing dwellings are average values of the base year dwelling stock and as all new dwellings are required to be A-rated, the new is the average for the existing A-rated dwellings. The Pumps \& Fans are similar, except in the new dwellings the value is halved and the remaining half is added to space cooling which is not seperately defined in the base year dwelling stock. This is an assumption which was cross-checked with POTEnCIA space cooling projections per household. 
+
+While the energy service demand changes, so to does the number of dwellings by archetype and age. The existing dwellings decrease, oblsense rate of 0.35\%
+1.7 million in 2018, to 2.1 million 2030 to almost 2.6 million in 2050
+Share of new to old 23\ of buildings in 2030 will be new and 41\% in 2050.
+Apartment share moves dramitically from 12\% to 24\%. Detached 43\% to 35\% and Attached 45\% to 41\% 
 %%PICK UP HERE
-TABLE Y - Apartment Growth - 
+\begin{figure}[!htbp]
+ \centering
+ \caption{Number of dwellings by type and age ('000)}
+ \includegraphics[scale=0.42]{Figures/TIM_DwellingStock.png}
+ \label{fig:DwellingStoc}
+\end{figure}
+
 %% Ask Ankita for more info about Demand Calculations!!
 %Compound Annual Growth Rate (CAGR)
 %The occupancy rate is expected to fall to 2.12 in 2051 \citep{PropertyIndustryIreland2019}, from 2.75 in 2016 (CSO).
@@ -745,15 +757,32 @@ Notably absent from Fig.\ref{fig:Ireland2018ServiceDemands}, is space cooling, w
 
 The SEAI Residential Energy report \cite{SustainableEnergyAuthorityofIreland2018EnergySector} provides high resolution details on energy demands in the residential sector. Variables such as disposable income, appliance ownership, dwelling location, type of occupier status (owner/rented ), BER labels, and age of dwelling. 
 
-
-
-%Space Heating demand - BER space heating is only within certain months and assumes 21C heating..
-Thermostats are not widely used for temperature regulation in private dwellings in Ireland; instead, the domestic heating schedule was assumed to be 07.00–09.00 h and 17.00–23.00 h for the heating season of October to May inclusive, based on the guidelines issued by the Sustainable Energy Authority of Ireland (SEAI) [32]. The thermal load consists of both space heating and a baseline demand for sustaining water heating. For non-domestic premises, the thermal load is defined by office hours in line with the electrical demand. The domestic thermal loads consideorange in this study are listed in Table 2; the thermal load for the non-domestic
 \subsubsection{Space and Water Heating}
 \label{LitR:Heating}
 
-Theoretically G-rated BERs consume more energy and consequently have higher energy bills to maintain a comfortable internal temperature, but in reality G-rated dwellings have low internal temperatures, which is a reason for Ireland's high excessive winter mortality \cite{Clinch2000HousingMortality}. Fuel Poverty which is defined as when a \textit{``household spends 10\% or more of income to achieve adequate warmth"} is a major contributor to the high excessive winter deaths. An Element Energy report claimed 28\% of Irish households were in fuel poverty in 2015  \cite{ElementEnergy2015Bottom-upIreland}. Fuel Allowance and Household Benefits provide support to low-income households to alleviate fuel poverty. These payments have been increased over time with a further increase made in Budget 2020, coinciding with the increase in the carbon tax \cite{,EuropeanUnion2020EUObservatory}. Kerr's study finds an explicit link between fuel poverty and social welfare policy in Ireland \cite{,EuropeanUnion2020EUObservatory,Kerr2019PoliticsFrance} and O’Meara highlights the health issues associated with Fuel Poverty \cite{OMeara2016AIreland}. Ironically, it can be argued that this places low-income households deeply dependent on fossil fuels for health.
-\par BERs do not take account of actual usage based on occupancy behaviour or occupancy density, nor does it take account of the size of the dwelling. The BER labels do therefore leave a gap between actual consumption and expected consumption, the literature review explains how this problem was tackled.
+The demand for space and water heating is outlined in the previous section, and this section explains how water and space heating are achieved through technology and retrofits. While the demands are exogenous, the choice of technologies to at least satisfy the demand are endogenous and is captured in Equation \ref{Eq:Technology}
+
+\begin{equation} 
+\begin{split}
+Min \text{\euro} \sum_k VAR\_ACT_{k,i}(y)  \geq DM_i(y) 
+\end{split}
+\label{Eq:Technology}
+\end{equation}
+
+Where VAR\_ACT are the activity levels of end-use technology (k) for demand category (i) in year (y). DM is the exogenous demand for that energy service for year, y. The choice of technology is minimised while also satisfying all constraints. 
+
+All technologies and retrofits are archetype specific and some technologies deliver both water and space heating, while other technologies can only deliver one type of heating. In addition, some technologies use more than one fuel to meet demand. 
+The list of space and water heating technologies in TIM, is summarised in 
+Scope of technologies
+\cite{JointResearchCentre2017Techno-economicEU}
+Danish Energy Agency - Technology Catalogue
+Granularity
+Calculation is minised and obeies contrstaints
+
+
+
+%Space Heating demand - BER space heating is only within certain months and assumes 21C heating..
+%Thermostats are not widely used for temperature regulation in private dwellings in Ireland; instead, the domestic heating schedule was assumed to be 07.00–09.00 h and 17.00–23.00 h for the heating season of October to May inclusive, based on the guidelines issued by the Sustainable Energy Authority of Ireland (SEAI) [32]. The thermal load consists of both space heating and a baseline demand for sustaining water heating. For non-domestic premises, the thermal load is defined by office hours in line with the electrical demand. The domestic thermal loads consideorange in this study are listed in Table 2; the thermal load for the non-domestic
 
  Build national fuel
 The CSO data, which is mainly data from the 2016 Census. 
@@ -773,11 +802,15 @@ FIGURE - Expected and Actual Consumption per m2
 ISO EN 13790 (Energy Performance of Buildings Directive).
 Capacity, Efficiency, Constraints, Uptake, adapation
 %heat output (Qt) and electricity input in a given time period (Pt) is expressed asQt= COPPt, where COP is the average annual coefficient of performance for the heat pump
+
 \subsubsection{Lighting, Appliances and Other}
 \label{LitR:Lighting,Appliances}
+
 Capacity, Efficiency, Constraints, Uptake, adapation
+
 \subsubsection{User Constraints}
 \label{LitR:Constraints}
+
 In Power Sector too! 
 GROWTH CONSTRAINT -A specific type of constraint may be defined to limit the share of process (p) in the total production of commodity (c). The constraint indicates that the flow of commodity (c) from/to process (p) - CommodiTypically, a growth constraint is of the following generic form (ignoring several indices for clarity: \cite{Loulou2016EnergyProgramme}
 \begin{equation} 
@@ -980,6 +1013,23 @@ Depth of Retrofit defined by expected energy savings. The red cells are unfeasib
 
  \end{tabular}%
  \label{DepthofRetrofit}%
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Space and Water Heating Technologies}
+  \resizebox{\textwidth}{!}{
+ \begin{tabular}{cc|cc|cc|cc}
+ \hline
+  \multicolumn{2}{c|}{Technology} & \multicolumn{2}{c|}{Apartments} & \multicolumn{2}{c|}{Attached} & \multicolumn{2}{c}{Detached}  \\
+ Name & Description & Space  & Water  & Space  & Water   & Space  & Water \\
+ \hline
+ R-SH\_?\_KER\_N1 & Kerosene Boiler & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
+R-SW\_?\_KER\_N1 & Kerosene Boiler & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+ \hline
+ \end{tabular}
+}
+ \label{Heating Technology}
 \end{table}
 
 
