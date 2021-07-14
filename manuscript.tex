@@ -409,7 +409,7 @@ The ArDEM-SQL, which was described in Section \ref{Intro:ESOMIreland} is a simul
 
 Other concerns for uncertainties in the database, which are not related to DEAP calculation are statistically anomalous spikes in the data, caused by applying default values \cite{Ahern2020ADatabases} and different companies generating variations of ±20\% in the assessment of energy consumption \cite{Harsman2016OnCertificates}.While the BER database provides high granularity data, it must be filteorange to improve the representation of the dwelling stock data. The filters applied to the raw BER database are outlined in \ref{sec:appendixA}. 
 
-The Census 2016 data \cite{2016CensusIreland} from the CSO is also used in calculating the dwelling stock. Dataset E1005 provides a split of seven archetypes per county, which are aggregated to form three archetypes. The total number of building archetypes per county in 2016 is used to scale up the BER database. The gap in total dwellings between the census year in 2016 and the model base year in 2018 was initially ignoorange due to lack of data. However, later it was found that data on new dwelling electrical connections per archetype and per county are available from CSO dataset NDQ06, this would have filled the gap, the first iteration of the dwelling stock has a 2 \% error. 
+The Census 2016 data \cite{2016CensusIreland} from the CSO is also used in calculating the dwelling stock. Dataset E1005 provides a split of seven archetypes per county, which are aggregated to form three archetypes. The total number of building archetypes per county in 2016 is used to scale up the BER database. The gap in total dwellings between the census year in 2016 and the model base year in 2018 was initially ignoored  due to lack of data. However, later it was found that data on new dwelling electrical connections per archetype and per county are available from CSO dataset NDQ06, this would have filled the gap, the first iteration of the dwelling stock has a 2 \% error. 
 
 Once both databases were finalised, the next step in this process was to scale up the BER database.
 
@@ -606,6 +606,8 @@ Apartment share moves dramitically from 12\% to 24\%. Detached 43\% to 35\% and 
  \label{fig:DwellingStoc}
 \end{figure}
 
+Also non- archetype energy servies demands - 
+
 %% Ask Ankita for more info about Demand Calculations!!
 %Compound Annual Growth Rate (CAGR)
 %The occupancy rate is expected to fall to 2.12 in 2051 \citep{PropertyIndustryIreland2019}, from 2.75 in 2016 (CSO).
@@ -718,7 +720,6 @@ Space heating is the largest residential energy service demand, accounted for 61
 
 Notably absent from Fig.\ref{fig:Ireland2018ServiceDemands}, is space cooling, which is accounted for in appliances. The Policy Oriented Tool for Energy and Climate Change Impact Assessment (POTEnCIA) project disaggregated Ireland's residential space cooling from appliances and have output expected space cooling energy consumption projections are shown in Fig.\ref{fig:Cooling}. 
 
-
 %\begin{figure}[!htbp]
 %\centering
 %\begin{tikzpicture}
@@ -749,18 +750,13 @@ Notably absent from Fig.\ref{fig:Ireland2018ServiceDemands}, is space cooling, w
  %   \label{fig:Cooling}
 %\end{figure}
 
-\begin{tikzpicture}
-\begin{axis}
-\addplot[color=red]{exp(x)};
-\end{axis}
-\end{tikzpicture}
 
-The SEAI Residential Energy report \cite{SustainableEnergyAuthorityofIreland2018EnergySector} provides high resolution details on energy demands in the residential sector. Variables such as disposable income, appliance ownership, dwelling location, type of occupier status (owner/rented ), BER labels, and age of dwelling. 
+
 
 \subsubsection{Space and Water Heating}
 \label{LitR:Heating}
 
-The demand for space and water heating is outlined in the previous section, and this section explains how water and space heating are achieved through technology and retrofits. While the demands are exogenous, the choice of technologies to at least satisfy the demand are endogenous and is captured in Equation \ref{Eq:Technology}
+The demand for space and water heating is outlined in the previous section, and this section explains how water and space heating are achieved through technology and retrofits. While the demands are exogenous, the choice of technologies to at least satisfy the demand are endogenous and is captured in Equation \ref{Eq:Technology}.
 
 \begin{equation} 
 \begin{split}
@@ -769,74 +765,73 @@ Min \text{\euro} \sum_k VAR\_ACT_{k,i}(y)  \geq DM_i(y)
 \label{Eq:Technology}
 \end{equation}
 
-Where VAR\_ACT are the activity levels of end-use technology (k) for demand category (i) in year (y). DM is the exogenous demand for that energy service for year, y. The choice of technology is minimised while also satisfying all constraints. 
+Where VAR\_ACT are the activity levels of end-use technology (k) for demand category (i) in year (y). DM is the exogenous demand per energy service per year. The cost of the technology used is minimised while also satisfying all constraints. 
 
-All technologies and retrofits are archetype specific and some technologies deliver both water and space heating, while other technologies can only deliver one type of heating. In addition, some technologies use more than one fuel to meet demand. 
-The list of space and water heating technologies in TIM, is summarised in 
-Scope of technologies
-\cite{JointResearchCentre2017Techno-economicEU}
-Danish Energy Agency - Technology Catalogue
-Granularity
-Calculation is minised and obeies contrstaints
+All technologies are archetype specific and some technologies deliver both water and space heating, while other technologies can only deliver one type of heating, the list of available technologies is outlined in \ref{sec:appendixA4}. Retrofits are included as they satisfy the residential space heating demand, without consuming fuel. 
+The Danish Energy Agency's Technology Data for Individual Heat Production dataset was input to TIM, this dataset is also used in the EU TIMES model, the dataset has high granularity and is continuously updated.
+
+The number of main heating systems equals the number of dwellings, this assumption ignores any impact of secondary system heating. One expection in the rule is , which are only secondary heating systems. 
 
 
-
-%Space Heating demand - BER space heating is only within certain months and assumes 21C heating..
-%Thermostats are not widely used for temperature regulation in private dwellings in Ireland; instead, the domestic heating schedule was assumed to be 07.00–09.00 h and 17.00–23.00 h for the heating season of October to May inclusive, based on the guidelines issued by the Sustainable Energy Authority of Ireland (SEAI) [32]. The thermal load consists of both space heating and a baseline demand for sustaining water heating. For non-domestic premises, the thermal load is defined by office hours in line with the electrical demand. The domestic thermal loads consideorange in this study are listed in Table 2; the thermal load for the non-domestic
-
- Build national fuel
-The CSO data, which is mainly data from the 2016 Census. 
-Fuel Calibration
- E1055 - Year, Archetype ( Detached, Semi-detached, terraced, Flat or apartment, converted to flat or apartment, bed-sit and not stated )
-E1008 Fuel by Archetype 
- EXXX - Age, Archetype and Fuel 
- dataset provides the central heating type or main fuel and
- 
-Model calibration: archetypes demand The
-
-
-DEMAND Space cooling was disaggregated from electricity in POTEnCIA, this space cooling this was used in TIM.   POTEnCIA provides high resolution energy service demands in 2018, along with energy service projections to 2050.   
-Behavioral Constraints here 
-
-FIGURE - Expected and Actual Consumption per m2
-ISO EN 13790 (Energy Performance of Buildings Directive).
-Capacity, Efficiency, Constraints, Uptake, adapation
-%heat output (Qt) and electricity input in a given time period (Pt) is expressed asQt= COPPt, where COP is the average annual coefficient of performance for the heat pump
+The base year heating energy consumption uses census data \cite{2016CensusIreland} from the CSO, dataset E1008 is used to obtain the fuel used in heating systems per archetype. The fuel usage is calibrated using the SEAI Energy Balance 2018. 
 
 \subsubsection{Lighting, Appliances and Other}
 \label{LitR:Lighting,Appliances}
 
-Capacity, Efficiency, Constraints, Uptake, adapation
+Lighting, appliances, and pumps \& fans are all fueled by electricity, whereas cooking can be fueled by electricity, gas or LPG. As shown in Figure \ref{fig:Ireland2018ServiceDemands}, these energy services accounted for 20\% of energy consumption in 2018, however this share of consumption is expected to increase. 
+Refrigeration, cloth washing, cloth drying, dish washing are under the appliances category and data is sourced from Topten \cite{Michel2016EnergyREPORT} and SEAI \cite{SustainableEnergyAuthorityofIreland2018EnergySector}. Cooking is also sourced from Eurostat's ``Energy consumption in households by type and end-used" excel datasheet and cross-checked with SEAI \cite{SustainableEnergyAuthorityofIreland2018EnergySector}  Appliances not included in this list are simply under the ``Other Appliances" category in TIM and these final values are cross-checked with POTEnCIA. Other Appliances include television, multimedia, and computer technology. Lighting and pumps \& fans are archetype specific energy services as the data is sourced from the BER database.  
+Equation \ref{Eq:Technology} is also used, but unlike the heating energy service demands there is little or no choice in different technologies (k) for some of the demand categories (i), therefore, the model has no choice but to invest in a technology, however  cost and efficiency of each technology does determine the overall investment.
 
 \subsubsection{User Constraints}
 \label{LitR:Constraints}
+The TIM model operates on the basis of perfect foresight, but
+\textit{``in reality, the behaviours of consumers is not always economically rational"} \cite{Li2018IncorporatingModel} for this reason ``User Constraints" are applied in the residential sector to better reflect reality. The User Constraints applied to the residential sector include:
+\begin{itemize}
+ \item One Space and Water Heating System per household ( stoves excluded ) 
+ \item Maximum 60\% of existing buildings to be retrofitted by 2030, and 95 \% by 2070. Maximum \% interpolated between 2030 and 2070. 
+ \item The natural gas grid is currently connected to 39\% of apartments, 52\% of attached dwellings and 12\% of detached dwellings. The total share of dwellings connected to the gas grid is an upper constraint to grow by 50\% for each archetype. 
+\item Maximum fuel share in cooking for Gas and LPG is 40\% and 10\% respectively. Base year fuel share for Gas is 32\% and LPG is 1.5 \%.
+\item Maximum 10\% solar input to dual fuel heating technology
+\item Maximum 30\% gas input into gas hybrid heating pumps
+\end{itemize}
 
-In Power Sector too! 
-GROWTH CONSTRAINT -A specific type of constraint may be defined to limit the share of process (p) in the total production of commodity (c). The constraint indicates that the flow of commodity (c) from/to process (p) - CommodiTypically, a growth constraint is of the following generic form (ignoring several indices for clarity: \cite{Loulou2016EnergyProgramme}
+While other constraints are applied in different sectors, which affect the residetinal sector and vice-versa, they are not listed in this paper. The growth constraints listed above are calculated using the following \cite{Loulou2016DocumentationI} : 
 \begin{equation} 
 \begin{split}
-VAR\_CAP(t + 1) \leq (1 + GROWTH^{M(t+1)-M(t)}) \cdot VAR\_CAP(t)+K
+VAR\_CAP(t + 1) \leq (1 + G^{M(t+1)-M(t)}) \cdot VAR\_CAP(t)+K
 \end{split}
 \label{Eq:GrowthConstraint}
 \end{equation}
-The GROWTH coefficient is defined as a new attribute of the technology and represents the maximum annual growth allowed for the capacity. The quantity M(t+1)-M(t) is the number of years between the milestones of periods t and t+1. The constant K is useful whenever the technology has no capacity initially, to allow the capacity to build over time (if K were absent and the initial capacity is zero, the technology would never acquire any capacity)
-Note that the sign of the constraint may also be of the "larger than or equal to" type to express a maximum rate of abandonment, in which case the "+" sign is replaced by a "–" sign in the right-hand-side of the constraint. Equality is also allowed, but must be used only exceptionally in order to avoid railroading of the model.
-5.4.11
 
- % LIT REW INPUT DATA - EU \cite{Simoes2013TheProject} 
-- LI,er.alThe nationwide survey identified existing technologies, age,
-income, region, dwelling characteristics, and knowledge of eco- technology as the six most influential factors for determining homeowners' preferences for heating systems. Among
-%the new A-rated houses behave distinctively different which much less demand on space heating and with pumps and fans energy consumption usage increasing, while appliance end use is increasing across the BER ratings. The number of appliances has increased rapidly and while energy efficient improves are  orangeucing the energy per appliance, it is overshadowed by the growth in electrical appliances. There retrofitting grant which  requires building to have a HLI indication of 2 or less before a heat pump grant can be installs. Ireland’s aim of retrofitting 0.5 million homes from the existing 1.7 million in the before 2030. The effect of these targets also stretches out across the construction sector. The savings from retrofits will decrease fossil fuel energy usage, while most houses 00\% would need to get heat pumps too, to fulfil 0.4 million existing houses getting heat pumps.  This energy efficiency first approach would allow for future technology choices, when current boiler are not at end of life. 
-
-TIM was built to help Ireland provide a pathway to achieve 2030 and 2050 targets. The residential sector plays a key part of this and it was built from the SEAI 2018 energy balance, the BER database, and CSO data. The data filtration process used in the residential sector derived a lot of conversation from the BER database, a group known as Ireland Energy Wiki by the National Retrofitting Modelling Group grew from building the residential sector, questions about the filters, default values, assumptions around thermal equations (EC..) and uncertainties were used to improve the data before it was used in TIM . TIM has many internal project deadines, which requiorange extensive meetings about the data, constraints and results as the modelling was progressing. The data and results were presented to 30 external reviewers to provide feedback, this process proved invaluable having different expertise with different perspectives enabling TIM to fill in gaps. TIM will also be an open platform to help improve the model and provide transparency. TIM’s residential sector was built in parallel with LEAP’s residential sector, so that the residential sector can easily simulate policy. The demand for results from TIM has increased significantly with increasing government ambitions, TIM will provide input into CAP 2021 and Ireland’s carbon budgets, working with DECC and the CCAC, respectively, will also provide feedback and improve the robustness of TIM. For these reasons, the TIM residential sector is at the cutting edge of modelling platforms. 
+Where $VAR\_CAP$ is the technology capacity in time period (t), G is the growth coefficient, defined as a new attribute of the technology and represents the maximum annual growth allowed for the capacity. The quantity $M(t+1)-M(t)$ is the number of years between the milestones of time periods t and t+1. The constant K is useful whenever the technology has no capacity initially, to allow the capacity to build over time. 
 
 
 \section{Results}
 \label{Results}
 Electricity Supply, Technology and Fuel Mix, Retrofitting, Cost
 
-%% The Appendices part is started with the command \appendix;
-%% appendix sections are then done as normal sections
+The final version of the newly developed TIM provides some valuable insights on each sector and the sectoral interconnections. The results outlined in this paper are based upon six scenarios. TIM can only analysis the energy system, the other large source of GHG emissions is from agriculture, therefore some scenarios are labelled based on agriculture GHG reduction (AXX) and Energy System GHG reduction (EXX), the six scenarios are:
+\begin{itemize}
+    \item \textbf{No Mitigation} Least cost solution, where no emissions constraints are imposed
+    \item \textbf{With Additional Measures (WAM)} includes the implementation of Ireland’s CAP 2019.
+    \item \textbf{A25E65} Agriculture GHG emissions reduce by 25\%, Energy system GHG emissions reduces by 65\% by 2030 compared to 2018.
+    \item \textbf{A33E61} Agriculture GHGs reduces by 33\% and Energy system GHGs by 61\%
+    \item \textbf{A40E57} Agriculture GHGs reduces by 33\% and Energy system GHGs by 61\%
+    \item \textbf{A51E51} Equal GHG reduction share in of 51 \% in Agriculture and Energy Systems. 
+\end{itemize}
+
+While the first two scenarios do not comply with the overall 51 \% GHG reduction in 2030 compared to 2018 or net-zero by 2050, however they do provide insights on the incremental steps required. The last four scenarios comply with the overall 51 \% target and net-zero by 2050 and offer insights about different trajectories to achieve those targets.  
+Under CAP 2019 agriculture, GHG emission reduction is 10-15\% on the projected levels in 2030 relative to 2017. The higher agriculture ambition explored GHG reductions of 25-51\%. 
+
+XXX % PICK UP HERE
+
+\begin{figure}[!htbp]
+ \centering
+ \includegraphics[width=\textwidth]{Figures/CO2Waterfall.png}
+ \caption{$CO_2$ Waterfall}
+ \label{fig:$CO_2$ Waterfall}
+\end{figure}
+
 \section{Discussion}
 \label{Discussion}
 5\% increase of residential energy in 2030 when internal temperatures are adjusted. 
@@ -900,7 +895,8 @@ https://www.marei.ie/project/chimera/
 
 \section{}
 \label{sec:appendix}
-
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
 \subsection{}
 \label{sec:appendixA}
 BER Database Filters
@@ -1015,6 +1011,12 @@ Depth of Retrofit defined by expected energy savings. The red cells are unfeasib
  \label{DepthofRetrofit}%
 \end{table}
 
+\newpage
+
+\subsection{}
+\label{sec:appendixA4}
+
+List of water and space heating technologies available per archetype. The ``???" denotes either APT for Apartments, ATT for Attached, or DET for detached dwellings. 
 \begin{table}[htbp]
   \centering
   \caption{Space and Water Heating Technologies}
@@ -1022,16 +1024,67 @@ Depth of Retrofit defined by expected energy savings. The red cells are unfeasib
  \begin{tabular}{cc|cc|cc|cc}
  \hline
   \multicolumn{2}{c|}{Technology} & \multicolumn{2}{c|}{Apartments} & \multicolumn{2}{c|}{Attached} & \multicolumn{2}{c}{Detached}  \\
- Name & Description & Space  & Water  & Space  & Water   & Space  & Water \\
+ Name & Fuel/Description & Space  & Water  & Space  & Water   & Space  & Water \\
  \hline
- R-SH\_?\_KER\_N1 & Kerosene Boiler & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
-R-SW\_?\_KER\_N1 & Kerosene Boiler & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+  \multicolumn{8}{c}{Boiler or Stove}  \\
  \hline
- \end{tabular}
-}
- \label{Heating Technology}
+ R-SH\_???\_KER\_N1 & Oil & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
+R-SW\_???\_KER\_N1 & Oil  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+R-SW\_???\_KER\_N2 & Oil/Solar & \ding{55} & \ding{55} & \checkmark & \checkmark & \checkmark & \checkmark \\
+R-SW\_???\_KER\_N3 & Oil/Biomass & \ding{55} & \ding{55} & \checkmark & \checkmark & \checkmark & \checkmark \\
+ R-SH\_???\_GAS\_N1 & Gas  & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
+R-SW\_???\_GAS\_N1 & Gas  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+R-SW\_???\_GAS\_N2 & Gas/Solar  & \ding{55} & \ding{55} & \checkmark & \checkmark & \checkmark & \checkmark \\
+R-SW\_???\_GAS\_N3 & Gas/Biomass  & \ding{55} & \ding{55} & \checkmark & \checkmark & \checkmark & \checkmark \\
+ R-SH\_???\_LPG\_N1 & LPG  & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
+R-SW\_???\_LPG\_N1 & LPG  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+ R-SH\_???\_WOO\_N1 & Biomass  & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
+R-SW\_???\_WOO\_N1 & Biomass  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+R-SH\_???\_FPL\_N1 & Stove & \ding{55} & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
+R-SW\_???\_FPL\_N1 & Stove & \ding{55} & \ding{55} & \checkmark & \checkmark & \checkmark & \checkmark\\
+R-SH\_???\_HVO\_N1 & HVO  & \ding{55} & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
+R-SW\_???\_HVO\_N1 & HVO  & \ding{55} & \ding{55} & \checkmark & \checkmark & \checkmark & \checkmark \\
+ \hline
+  \multicolumn{8}{c}{Electrical}  \\
+ \hline
+R-SH\_???\_ELC\_N1 & Resistance Heater & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
+ \hline
+  \multicolumn{8}{c}{Electrical Heat Pumps}  \\
+ \hline
+R-SH\_???\_ELC\_HPN1 & A-to-A  & \ding{55} & \ding{55} & \ding{55} & \ding{55} & \ding{55} & \ding{55} \\
+R-HC\_???\_ELC\_HPN1 & A-to-A  & \ding{55} & \ding{55} & \ding{55} & \ding{55} & \ding{55} & \ding{55} \\
+R-SH\_???\_ELC\_HPN2 & A-to-W & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
+R-SW\_???\_ELC\_HPN1 & A-to-W & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+R-SW\_???\_ELC\_HPN2 & A-to-W  w/Solar & \ding{55} & \ding{55} & \checkmark & \checkmark & \checkmark & \checkmark \\
+R-SH\_???\_ELC\_HPN3 & G-to-W  & \ding{55} & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55}\\
+R-HC\_???\_ELC\_HPN2 & G-to-W & \checkmark& \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55}\\
+ \hline
+  \multicolumn{8}{c}{Gas and Hybrid Heat Pumps}  \\
+ \hline
+ R-SW\_???\_GAS\_HPN1 & Gas Absorption & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+ R-SW\_???\_GAS\_HPN2 & Gas Engine & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+ R-SW\_???\_GAS\_HHPN1 & Gas Hybrid & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+  \hline
+  \multicolumn{8}{c}{District Heating}  \\
+ \hline
+R-SW\_???\_HET\_N1 & Centralized & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+R-SW\_???\_HET\_N2 & Decentralized & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+  \hline
+  \multicolumn{8}{c}{Water Heat Only}  \\
+ \hline
+ R-WH\_???\_ELC\_N1 & Resistance Heater  & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark \\
+ R-WH\_???\_ELC\_N2 & Solar Thermal  & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark \\
+   \hline
+  \multicolumn{8}{c}{Retrofits}  \\
+ \hline
+ R-FTFT-???\_Shallow & Shallow Retrofit & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
+ R-FTFT-???\_Deep & Deep Retrofit & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
+ \end{tabular}%
+ }
+ \label{HeatingTech}%
 \end{table}
 
+\newpage
 
 \printbibliography
 
