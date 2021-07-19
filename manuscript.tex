@@ -55,6 +55,7 @@
 \usepackage{multirow}
 \usepackage{xcolor} 
 \usepackage{colortbl}
+\usepackage{subcaption}
 
 
 \DeclareSIUnit{\EUR}{\text{\euro}}
@@ -816,11 +817,23 @@ As mentioned in Table \ref{tab:HeatPumpConstraint}, the rollout of retrofits con
 Where SW is space and water heating, HC is space heating and space cooling and A-to-W represents air-to-water type heat pumps. The optimal number of heat pumps in each scenario ranges from 492,000 in A51E51 to 938,000 in A25E65, which equates to 23 - 45 \% of dwellings having a heat pump in 2030. Close to 45,000 air to water heat pumps are installed in apartments across all scenarios, as there are no retrofits in apartments, these heat pumps are installed in the existing B2 rating or above apartments or new apartments. The detached air-to-water heat pumps are the most prevalent across scenarios and maybe considered the low hanging fruit. 
  
 
-The advantage of energy sytem model is to oberve the intersectoral impacts for further insights...
+The advantage of an energy system model is to observe the intersectoral connections. Figure \ref{fig:SectorFuel} presents a boxplot of the 2030 fuel consumption in four different sectors, under the four scenarios which comply with the 51 \% reduction.....
+\begin{figure}[!htbp]
+ \centering
+ \includegraphics[width=\textwidth]{Figures/SectorFuel.png}
+ \caption{Sector Fuel per scenario}
+ \label{fig:SectorFuel}
+\end{figure}
+
+
+
+for further insights...
+
+
 \begin{figure}[!htbp]
  \centering
  \includegraphics[width=\textwidth]{Figures/SectorCost.png}
- \caption{Heat Pump by type per scenario}
+ \caption{Sector Cost per scenario}
  \label{fig:SectorCost}
 \end{figure}
 
