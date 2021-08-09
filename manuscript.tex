@@ -150,10 +150,8 @@
 %%            country={}}
 %% \fntext[label3]{}
 
-\title{Sustainable Pathways for Irish homes in changing TIMES}
-%TIMES Ireland Model: Residential Sector
-% The changing TIMES of Irish Homes
-% Developing sustainable homes in changing TIMES
+\title{Developing Decarbonisation Pathways for Irish homes in changing TIMES}
+
 
 
 \author[inst1,inst2]{Jason Mc Guire \corref{j.mcguire@ucc.ie}}
@@ -175,15 +173,18 @@
 
 \author[inst1,inst2]{Fionn Rogan}
 \author[inst1,inst2]{Olexandr Balyk}
-\author[inst1,inst2]{Hannah Daly}
-\author[inst1,inst2]{ \& Brian Ó Gallachóir}
+\author[inst1,inst2]{Tomás Mac Uidhir}
+\author[inst1,inst2]{Ankita Gaur}
+\author[inst1,inst2]{Brian Ó Gallachóir}
+\author[inst1,inst2]{\& Hannah Daly}
 
 \begin{abstract}
 %% Text of abstract
-\par Ireland's residential sector has particularly underachieved in previous climate targets. Located on the peripherals of Europe, with a high share of low thermal efficient detached dwellings with carbon intensive heating fuels, provides some distinctive barriers to decarbonising Ireland's residential sector. The disadvantageous starting position has impeded residential decarbonisation progress thus far. \par
+
+Ireland has committed to one of the most ambitious decarbonisation targets in the world to 2030. The residential sector, responsible for 14.2 \% of total greenhouse gas (GHG) emissions \cite{Howley2005Energy-RelatedIreland.} , is among the most carbon intensive per dwelling in the EU, emitting 60 \% more $CO_2$ than the national EU average \cite{SustainableEnergyAuthorityofIreland2018EnergySector}, because of a high share of low thermal efficient detached dwellings coupled with a high dependency on carbon-intensive heating fuels. This disadvantageous starting position has provided some distinctive barriers to Irish residential decarbonisation progress thus far. \par
 Energy system optimization models (ESOMs) have been used extensively to inform pathways in addressing long-term energy challenges, which provides insights to decision makers on issues related to climate and energy policy. \par
-The TIMES-Ireland Model (TIM) is a newly developed optimisation model for the Irish energy system. This paper describes the methodology applied to the development of the residential sector in TIM. Some results are analysed to provide input to discuss insights from the residential sector in TIM.
-%\par The Irish residential sector has proved hard to decarbonise, yet recently Ireland has set one of the most ambitious climate targets into law, a 51 \% greenhouse gas reduction in 2030, compared to 2018. There is a need for a new up to date and state of the art model to provide insights on the optimal decarbonisation pathway for the Irish energy system. This paper describes the methodology applied to the development of the residential sector in the new TIMES Ireland Model (TIM). Results are analysed to provide input to discuss insights from the residential sector in TIM.
+The TIMES-Ireland Model (TIM) is a newly developed optimisation model for the Irish energy system. This paper describes the methodology applied to the development of the residential sector in TIM and explores the results, which provides insights on optimal residential decarbonisation pathways.
+
  
 \end{abstract}
 
@@ -202,15 +203,7 @@ Energy Systems Optimisation Model \sep TIMES \sep Residential decarbonisation \s
 \section{Introduction}
 \label{sec:Introduction}
 
-The layout of this paper is as follows: 
-\begin{itemize}
-    \item Section \ref{sec:Introduction} of this paper looks at Ireland's climate targets, energy policy, and distinctive residential sector. While also examining how researchers have previously used bottom-up residential models and Energy System Optimization Models (ESOMs) to analyse the residential sector.
-    \item Section \ref{LitR} is the core section of this paper and explains the methodology used to develop the residential sector. The treatment of input data in the model is described, the calculations are explained, and assumptions and constraints are highlighted. 
-    \item Section \ref{Results} outlines the scenarios used and displays results from the residential sector.
-    \item Section \ref{Discussion} discusses the results, strengths, and weakness of the newly developed model and how it differs from other models.
-    \item Section \ref{Conclusion} draws some conclusions and discusses possible future work.
-\end{itemize}
-
+The Introduction section of this paper reviews both bottom-up residential models and ESOMs, and analyses Ireland's distinctive residential sector, climate targets, and current energy policy. 
   
 \subsection{Residential Modelling}
 \label{Intro:ESOM}
@@ -326,6 +319,16 @@ Ireland uses both the \textit{carrot} (subsidy) and \textit{stick} (tax) approac
 \par Gas Network Ireland (GNI) have set a 18\% biomethane target for 2030 \cite{Ervia2019VisionIreland}, where CAP2019 only set a 3\% biomethane target for 2030 \cite{DepartmentofCommunicationsClimateActionandEnvironment2019Climate2019}. GNI anticipates that by 2026 or 2027 the supply from Corrib ( Irelands only indigenous gas supply, which provided 61\% of gas in 2018 ) will be less than 30\% of 2018 levels \cite{OCleirigh2020EnergySEAI}. A major barrier to increasing biomethane from an agricultural source in the gas network is the cost, it was the most expensive option in the Marginal Abatement Cost Curve (MACC) produced in CAP2019.
 \par Ireland has one of the lowest shares of District Heating (DH) in Europe at less than 1\%  \cite{Gartland2016AIreland}. Advancement in DH control and awareness of the technology will strengthen the case for DH networks to play a part in decarbonisaing the residential sector. CAP2019 plans to have approx. 0.4\% of heating provided by DH in 2030, research using TIMES and EnergyPLAN has shown that 37\% of heating provided by DH is optimal if Ireland is to reduce GHG emissions by 80\% in 2050, compared to 1990 \cite{Thellufsen2019ImplementingIreland}. While Irish District Energy Association (IrDEA) suggest 57\% of heat can be sourced from DH, if supporting policy and regulation was in place. District Heating will likely play a role, however, Gartland points out a range of organisational, technical, regulatory, and economic barriers to DH growth in Ireland \cite{Gartland2016AIreland}. 
 
+
+
+   
+The layout of this paper is as follows: 
+\begin{itemize}
+    \item Section \ref{LitR} is the core section of this paper and explains the methodology used to develop the residential sector. The treatment of input data in the model is described, the calculations are explained, and assumptions and constraints are highlighted. 
+    \item Section \ref{Results} outlines the scenarios used and displays results from the residential sector.
+    \item Section \ref{Discussion} discusses the results, strengths, and weakness of the newly developed model and how it differs from other models.
+    \item Section \ref{Conclusion} draws some conclusions and discusses possible future work.
+\end{itemize}
 \section{Methodology}
 \label{LitR}
 
@@ -781,8 +784,9 @@ The discussion section outlines the improvements which will be made to the resid
 
 \section{Acknowledgements}
 \label{sec:Acknowledgements}
-Tomás Mac Uidhir worked in parallel with the TIM residential sector development on the LEAP residential model development, and he also started a new Ireland-wide group, which I joined with the aim of filtering the BER database. Ankita Singh Gaur worked on the residential demands and provided some time to assist with the demand calculations. 
+The authors wish to acknowledge the contributions of Tomás Mac Uidhir, who supported filtering of the BER database, and Ankita Singh Gaur who developed the residential demands. 
 CAPACITY is funded under the Climate Action Modelling Group (CAMG) by DECC.
+Alessandro and Maurizio provided technical assistants on the development of the residential sector in TIMES. 
 % https://www.marei.ie/project/capacity/
 %CHIMERA is supported by a research grant from Science Foundation Ireland (SFI) and the National Natural Science Foundation of China (NSFC) under the SFI-NSFC Partnership Programme, grant no. 17/NSFC/5181 and
 %supported by MaREI, the SFI Research Centre for Energy, Climate, and Marine [Grant No: 12/RC/2302\_P2]
