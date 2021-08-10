@@ -181,9 +181,9 @@
 \begin{abstract}
 %% Text of abstract
 
-Ireland has committed to one of the most ambitious decarbonisation targets in the world to 2030. The residential sector, responsible for 14.2 \% of total greenhouse gas (GHG) emissions \cite{Howley2005Energy-RelatedIreland.} , is among the most carbon intensive per dwelling in the EU, emitting 60 \% more $CO_2$ than the national EU average \cite{SustainableEnergyAuthorityofIreland2018EnergySector}, because of a high share of low thermal efficient detached dwellings coupled with a high dependency on carbon-intensive heating fuels. This disadvantageous starting position has provided some distinctive barriers to Irish residential decarbonisation progress thus far. \par
-Energy system optimization models (ESOMs) have been used extensively to inform pathways in addressing long-term energy challenges, which provides insights to decision makers on issues related to climate and energy policy. \par
-The TIMES-Ireland Model (TIM) is a newly developed optimisation model for the Irish energy system. This paper describes the methodology applied to the development of the residential sector in TIM and explores the results, which provides insights on optimal residential decarbonisation pathways.
+Ireland has committed to one of the most ambitious decarbonisation targets in the world to 2030. The residential sector, responsible for 14.2 \% of total greenhouse gas (GHG) emissions \cite{Howley2020Energy-RelatedIreland.} , is among the most carbon intensive per dwelling in the EU, emitting 60 \% more $CO_2$ than the national EU average \cite{SustainableEnergyAuthorityofIreland2018EnergySector}, because of a high share of low thermal efficient detached dwellings coupled with a high dependency on carbon-intensive heating fuels. These factors have served as barriers to the decarbonisation of the residential sector in Ireland to date.  \par
+Energy system optimization models (ESOMs) have been used extensively to inform pathways in addressing long-term energy challenges, which provides insights to decision-makers on issues related to climate and energy policy. \par
+The TIMES-Ireland Model (TIM) is a newly developed optimisation model for the Irish energy system. This paper describes the methodology applied to the development of the residential sector in TIM and explores the results, which provides new insights on optimal residential decarbonisation pathways.
 
  
 \end{abstract}
@@ -205,17 +205,26 @@ Energy Systems Optimisation Model \sep TIMES \sep Residential decarbonisation \s
 
 The Introduction section of this paper reviews both bottom-up residential models and ESOMs, and analyses Ireland's distinctive residential sector, climate targets, and current energy policy. 
   
-\subsection{Residential Modelling}
+\subsection{Energy Systems Modelling and the Residential Sector}
 \label{Intro:ESOM}
 
- ESOMs have been used to explore the least cost pathways, as they consider a large number of variables to satisfy demand, while accounting for complex sectoral interconnections within each time period. Some of the main ESOMs currently used include MESSAGE \cite{Messner1995Model-basedPlanning}, TIMES \cite{Loulou2016DocumentationI}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOSYS \cite{Howells2011OSeMOSYS:Development.}.While ESOMs cover all energy-related sectors, they can also be used to specifically explore certain economic sectors in higher granularity. This section gives some examples of residential sector studies using ESOMs.  
+Technological advancements in residential heating appliances are being assisted by the exponentially increasing computational capacity over time, and with new low-carbon fuel alternatives and new heating technologies becoming available, the residential decarbonisation pathways are dynamic. ESOMs have been used to explore economically optimal or least cost decarbonisation pathways, ESOMs have a rich representation of existing and future technological variables such as efficiency, cost, and fuel. ESOMs provide enough final energy to at least satisfy energy service demands, while also accounting for complex sectoral interconnections. \par Some of the main ESOMs currently used include MESSAGE \cite{Messner1995Model-basedPlanning}, TIMES \cite{Loulou2016DocumentationI}, Balmorel \cite{Wiese2018BalmorelModel}, TEMOA \cite{Hunter2013ModelingTemoa} and OSeMOSYS \cite{Howells2011OSeMOSYS:Development.}. While ESOMs cover all energy-related sectors, they can also be used to explore certain economic sectors in higher granularity. 
 
-TIMES has been extensively used in both the UK and Ireland, and there are several examples of using TIMES to focus on the residential sector. TIMES assumes perfect foresight to enable a least-cost solution to be calculated, but \textit{``in reality, the behaviours of consumers is not always economically rational"} \cite{Li2018IncorporatingModel}. With this in mind, Li et al. \cite{Li2018IncorporatingModel} investigated the heating technology preference in the UK using UK TIMES Model (UKTM) by incorporating a Discrete Choice Model (DCM) to better reflect how homeowners choose heating technologies. A nationwide survey identified the most influential factors for determining homeowners' preferences for heating systems. The DCM then estimated the probability of heating technology selection and cost was found not to have a statistically significant impact on homeowners' choices. Despite the perfect foresight assumption being essential to finding a solution, it has the potential to be a weakness by widening the gap between the model and reality. 
-\par A common theme across many ESOMs shows different sectors are increasingly reliant on electricity generation as lower carbon intensity electricity is considered a cornerstone in optimal decarbonisation. Using the Open Source Energy Modeling System (OSeMOSYS), Leibowicz et al. \cite{Leibowicz2018OptimalServices} explores the optimal decarbonisation of the residential sector by examining electricity generation and storage strategies. The results find net present costs in the \textit{``Policy scenarios"} ( $CO_2$ declines linearly by 90\% in 2050) are higher than \textit{``No Policy scenarios"} (No $CO_2$ regulations imposed ). However, the percentage increase in net present cost diminishes with a more thermally efficient building stock, highlighting the importance of energy building regulation as thermally efficient building stock can reduce residential decarbonisation costs. 
-\par District Heating is a proven low carbon heating technology, however it is rarely researched in Ireland and has not been included in previous ESOM in Ireland. However, Denmark's district heating system has been comprehensively examined. One study by Hedegard and Münster \cite{Hedegaard2013InfluenceOperation} used the Balmorel model to analyse how heat pumps with complementing heat storage affect wind power investments in Denmark. The results find that air-to-water heat pumps are installed in non-district heating areas, while the system benefits of adding individual heat storage to the heat pumps are only moderate, the main benefit is a reduced need for peak/reserve capacity investments. This identifies individual heat pumps as highly competitive and can contribute significantly to facilitating larger wind power investments in areas where district heating is not available.
-\par While Ireland's building regulations have encouraged the uptake of photovoltaics (PVs), the market share of PV solar panel systems remains low. The low amount of direct sunlight means Ireland's climate is not ideal for PVs, but as the cost of PVs continues to fall, the potential role of PVs in  residential decarbonisation rises. 
-In one study, Marczinkowski and Østergaard \cite{Marczinkowski2018ResidentialSystems} used EnergyPLAN model to explore the feasibility of PV systems installed at the household level in combination with batteries in Samsø.
-Two approaches are explored for the location of the batteries in the PV system; communal battery system or an individual residential battery approach. Marczinkowski and Østergaard found communal batteries slightly more favourable from a technical energy system perspective, one reason for this is the wind power could also be storage in communal batteries. When identical communal and individual battery capacities where compared, it was found  64\% of residential electricity demand is satisfied by an individual battery and only 36\% by a communal battery. While the battery location was explored, the PV system location was not. This is a great example of the strength of an ESOM, whereby the residential PV systems affect wind energy investment. However, a weakness in the model is the ability to comprehend household occupancy behaviour with and without household batteries on the PV system.
+Different levels of disaggregation are applied to the residential sector in models and research by Natarajana et al. \cite{Natarajana2011ModellingApproach} highlighted a common approach used by defining an average performance for a number of dwelling categories, and this approach was adopted here. The heterogeneous mix of dwelling types means each dwelling is categorised based on dwelling type to better reflect the housing stock. While some models also disaggregate the year of construction \cite{Ahern2013StateStock}, wall type \cite{Dineen2015ImprovedSource} , level of insulation \cite{Clinch2001Cost-benefitEfficiency}, to keep the model as keep as simple as possible but as complex as necessary, these levels of disaggregation were not applied here, however the energy rating of archetypes will be used in future iterations. Currently, a weighted average value combines values for each of the three dwelling archetypes used - detached ( stand-alone ), attached ( connected to another dwelling, eg. semi-detached, terrace ) and apartment. 
+Space and water heating are the main energy services, accounting for over 80 \% of the energy used in dwellings and typically have a lifetime of at least 15 years, consequently leading to a slow turnover of technology in the residential sector. The remaining energy services are space cooling, cooking, lighting \& appliances, Other (mainly outdoor appliances), the annual trends of these energy services are shown in Figure \ref{fig:IrelandServiceDemands}.
+
+% Average dwellings -	Would it be worth having a paragraph early in this section that describes some relevant characteristics of the residential sector, e.g. very heterogeneous mix of dwelling types (hence the archetype approach), a slow turnover of building stock (hence challenge of very ambitious near term targets), a broad distinction between new and existing dwellings (former very efficient, latter often not efficient), different types of energy use (space heating, water heating, appliances), drivers of energy demand (weather, affluence, demographics), non-economic rationality of dwelling occupants (hence caution required with techno-economic modelling approaches)? This might help frame your review. - Fionn
+
+%This section gives some examples of how the residential sector has been explored in previous studies using ESOMs.  
+
+The Integrated MARKAL-EFOM System (TIMES) has been extensively used in both the UK and Ireland, and there are several examples of using TIMES to focus on the residential sector. TIMES assumes perfect foresight to enable a least-cost solution to be calculated, but \textit{``in reality, the behaviours of consumers is not always economically rational"} \cite{Li2018IncorporatingModel}. With this in mind, Li et al. \cite{Li2018IncorporatingModel} investigated the heating technology preference in the UK using UK TIMES Model (UKTM) by incorporating a Discrete Choice Model (DCM) to better reflect how homeowners choose heating technologies. A nationwide survey identified the most influential factors for determining homeowners' preferences for heating systems. The DCM then estimated the probability of heating technology selection and cost was found not to have a statistically significant impact on homeowners' choices. Despite the perfect foresight assumption being essential to finding a solution, it has the potential to be a weakness by widening the gap between the model and reality. 
+A growing trend across ESOMs is the focus on retrofitting to thermally improve the residential stock, Leibowicz et al. \cite{Leibowicz2018OptimalServices} highlights the importance of energy building regulation as thermally efficient dwellings can reduce residential decarbonisation costs. The other main trend observed shows sectors increasingly reliant on low carbon intensity electricity  \cite{Hedegaard2013InfluenceOperation} this is especially true in Ireland as the electrical grid has already begun rapid decarbonisation, while a focus on PhotoVoltaic (PV) systems can be examined in parallel \cite{Marczinkowski2018ResidentialSystems}
+
+%\par A common theme across many ESOMs shows different sectors are increasingly reliant on electricity generation as lower carbon intensity electricity is considered a cornerstone in optimal decarbonisation. Using the Open Source Energy Modeling System (OSeMOSYS), Leibowicz et al. \cite{Leibowicz2018OptimalServices} explores the optimal decarbonisation of the residential sector by examining electricity generation and storage strategies. The results find net present costs in the \textit{``Policy scenarios"} ( $CO_2$ declines linearly by 90\% in 2050) are higher than \textit{``No Policy scenarios"} (No $CO_2$ regulations imposed ). However, the percentage increase in net present cost diminishes with a more thermally efficient building stock, highlighting the importance of energy building regulation as thermally efficient building stock can reduce residential decarbonisation costs. 
+%\par District Heating is a proven low carbon heating technology, however it is rarely researched in Ireland and has not been included in previous ESOM in Ireland. However, Denmark's district heating system has been comprehensively examined. One study by Hedegard and Münster \cite{Hedegaard2013InfluenceOperation} used the Balmorel model to analyse how heat pumps with complementing heat storage affect wind power investments in Denmark. The results find that air-to-water heat pumps are installed in non-district heating areas, while the system benefits of adding individual heat storage to the heat pumps are only moderate, the main benefit is a reduced need for peak/reserve capacity investments. This identifies individual heat pumps as highly competitive and can contribute significantly to facilitating larger wind power investments in areas where district heating is not available.
+%\par While Ireland's building regulations have encouraged the uptake of photovoltaics (PVs), the market share of PV solar panel systems remains low. The low amount of direct sunlight means Ireland's climate is not ideal for PVs, but as the cost of PVs continues to fall, the potential role of PVs in  residential decarbonisation rises. 
+%In one study, Marczinkowski and Østergaard \cite{Marczinkowski2018ResidentialSystems} used EnergyPLAN model to explore the feasibility of PV systems installed at the household level in combination with batteries in Samsø.
+%Two approaches are explored for the location of the batteries in the PV system; communal battery system or an individual residential battery approach. Marczinkowski and Østergaard found communal batteries slightly more favourable from a technical energy system perspective, one reason for this is the wind power could also be storage in communal batteries. When identical communal and individual battery capacities where compared, it was found  64\% of residential electricity demand is satisfied by an individual battery and only 36\% by a communal battery. While the battery location was explored, the PV system location was not. This is a great example of the strength of an ESOM, whereby the residential PV systems affect wind energy investment. However, a weakness in the model is the ability to comprehend household occupancy behaviour with and without household batteries on the PV system.
 
 
 \subsubsection{Ireland: Residential Modelling}
@@ -238,9 +247,9 @@ In 2011, Dineen and Ó Gallachóir \cite{Dineen2011ModellingHeating} developed a
 
 \par In 2015, Dineen et al.\cite{Dineen2015ImprovedSource} built on previous work in examining new dwellings, by examining the energy savings potential of energy efficiency improvement measures of the existing dwelling stock. The Dwelling Energy Assessment Procedure (DEAP) model was used, this is the national tool for BER calculation and checking building regulation compliance. The DEAP model used 175 archetype dwellings ( 5 building types, 7 energy bands, and 5 wall construction types ) and 6 different retrofit measures were applied. The BER filters from this study were updated and applied in TIM. A sensitivity analysis performed found that there was a 7.5\% change in energy consumption for every 1$^{\circ}$C internal temperature shift. Concluding, BER standard assumptions overestimate dwelling energy consumption and that the average internal temperature across the Irish dwelling stock may be closer to 18$^{\circ}$C than 21$^{\circ}$C.
 
-\par The Archetype Dwelling Energy Model (ArDEM-SQL) was developed by Mac Uidhir et al.\cite{Uidhir2020ImprovingDecisions}. ArDEM-SQL converts the Irish BER public database into Microsoft SQL language and then calculates the annual energy consumption using EN 13790 to simulate the potential for improved energy efficiency gains within the existing retrofit programs. Mac Uidhir et al. specifically examined the Better Energy Homes (BEH) scheme. The five most common retrofit combinations are simulated for each of the 9 archetypes ( 3 energy rating types and 3 building types ). The results show that the alternative retrofit scenarios can achieve additional energy efficiency gains of up to 86\% can be achieved when comparing the baseline scenario. This shows the the type of retrofit and type of house can have a large affect on the energy saved.   
+\par The Archetype Dwelling Energy Model - SQL (ArDEM-SQL) was developed by Mac Uidhir et al.\cite{Uidhir2020ImprovingDecisions}. ArDEM-SQL converts the Irish BER public database into Microsoft SQL language and calculates the annual energy consumption for space/ water heating, and lighting using EN 13790 to simulate the potential for improved energy efficiency gains within an existing retrofit program. Mac Uidhir et al. examined the Better Energy Homes (BEH) retrofit grant scheme. The five most common retrofit combinations were simulated for 9 distinct archetypes (3 BER energy rating groups, and 3 building types) and compared these to alternative retrofit combinations which delivered additional efficiency improvements. The results show that the alternative retrofit scenarios can achieve additional energy efficiency gains of up to 86\%, relative to the set of retrofit combinations actually delivered from the program. This shows the the type of retrofit(s) and archetype can have a large affect on the energy saved.   
 
-\par Finally, it is worth mentioning Sustainable Energy Authority of Ireland's (SEAI’s) National Energy Modelling Framework (NEMF), which is a suite of modelling tools used for modelling the Irish energy system. The SEAI is Ireland's national energy authority and they play a key role in assisting consumers to reduce energy. Some of the main models used in the NEMF include:
+\par Finally, the Sustainable Energy Authority of Ireland's (SEAI’s) National Energy Modelling Framework (NEMF) is a suite of modelling tools used for modelling the Irish energy system. The SEAI is Ireland's national energy authority and they play a key role in assisting consumers to reduce energy. Some of the main models used in the NEMF include:
 \begin{itemize}
 \item {Core Structural Model of the Irish Economy (COSMO)  is a macro-economic model used by the Economic and Social Research Institute (ESRI) to create a baseline forecast of energy consumption by sector} \cite{Bergin2017COSMO:Ireland}
 \item{PLEXOS is a power systems modeling tool used for electricity modeling and planning} \cite{2021PLEXOSExemplar}
@@ -268,38 +277,74 @@ The residential sector relied on fossil fuels for over 90\% of thermal energy in
 
 Space heating is the largest residential energy service, which accounted for 61.8\% of final energy usage in 2018. Other residential energy services and their share of final energy are shown in Fig.\ref{fig:Ireland2018ServiceDemands}. As building thermal efficiency and heating technology efficiency improves, both space and water heating energy would be expected to decline. 
 
-\begin{figure}[!htbp]
+%, Commission Regulation (EU) No 431/2014 amends the Energy Statistics Regulation(ESR) to require all Member States to supply data on energy consumption in households split by the following end-uses: space heating; space cooling; water heating; cooking; lighting and appliances; other uses.
+%The following data concerning the final energy consumption in households by type of end-use are reported according to Regulation (EC) 1099/2008 on energy statistics and its subsequent amendments.
+%Implementation of Commission Regulation (EU) No 431/2014 of 24 April 2014 amending Regulation (EC) No 1099/2008 of the European Parliament and of the Council on energy statistics
+
+\begin{figure}[!ht]
 \centering
-    \begin{tikzpicture}
-    \tikzstyle{every node}=[font={\bf}]
-    \pie[   color = { yellow!90!black, green!60!black, blue!60,
-        orange!70,
-        gray!80,
-        teal!20
-    }, explode = 0.6, text=legend, radius=2.4]{61.8/Space Heating, 2.2/Cooking, 18.5/Water Heating, 3.8/Lighting, 12.8/Appliances,0.9/Pumps \& Fans}
-    \end{tikzpicture}
-    \caption{Ireland 2018 Energy Service Demands}
-    \label{fig:Ireland2018ServiceDemands}
-\end{figure}
+\begin{tikzpicture}
+\begin{axis}[
+    scale=1,
+    x tick label style={/pgf/number format/1000 sep=,rotate=45},
+    legend style={at={(0.5,-0.25)},anchor=north,legend columns=2},
+    xlabel={Year},
+    ylabel={Petajoules [PJ]},
+    xmin=2015, xmax=2019,
+    ymin=0, ymax=80,
+    xtick={2015,2016,2017,2018,2019},
+    ytick={0,20,40,60,80},
+    ymajorgrids=true,
+    grid style=dashed,
+]
+
+\addplot[
+    color=red,
+    ]
+    coordinates {
+    (2015,72.5)(2016,72.9)(2017,70.76)(2018,78.59)(2019,73)
+    };
+
+\addplot[
+    color=blue,
+    ]
+    coordinates {
+    (2015,21.54)(2016,22)(2017,23.25)(2018,24.12)(2019,23.84)
+    };
+    
+\addplot[
+    color=green!60!black,
+    ]
+    coordinates {
+    (2015,2.55)(2016,2.57)(2017,2.64)(2018,2.7)(2019,2.7)
+    };
+\addplot[
+    color=blue!60,orange!70,
+    ]
+    coordinates {
+    (2015,19.23)(2016,19.211)(2017,19.59)(2018,19.98)(2019,19.95)
+    };
+\addplot[
+    color=black,
+    ]
+    coordinates {
+    (2015,1.046)(2016,1.045)(2017,1.065)(2018,1.086)(2019,1.084)
+    };
+    \legend{Space Heating,Water Heating,Cooking,Lighting \& Appliances, Other}
+    
+\end{axis}
+\end{tikzpicture}
+\caption{Ireland Residential Energy Service Demands}
+    \label{fig:IrelandServiceDemands}\cite{Eurostat2021Disaggregatednrg_d_hhq}
+  \end{figure}  
+
+% Other is  mainly covering uses of energy by households outside the dwellings themselves - this is included in Appliances in TIM..
 
 
 \subsubsection{Current Greenhouse Gas Emissions}
 \label{Intro:GHG}
 
-Under 2006 Intergovernmental Panel on Climate Change (IPCC) guidelines, Ireland’s residential sector accounted for 14.2\% of GHGs emissions in 2018 \cite{Howley2005Energy-RelatedIreland.}. Focusing only on energy-related GHG emissions, the residential sector directly accounts for 24\% of GHG emissions. Fig. \ref{fig:Ireland2018GHG} shows the energy-related GHG disaggregated between transport, heat and electricity. 
-
-\begin{figure}[!htbp]
-    \begin{tikzpicture}[every node/.style={align=center}, pin distance=17mm]
-    \pie[cloud,text=inside,radius = 2.4]{34/Agriculture,7/Other,59/Energy-related}
-    \draw [->, line width=4pt] (5.4,-0.3) -- (6.5,-.3);
-    \hspace{8.5cm}
-    \pie[rotate =30,text=inside,radius=1.95,color={black!30,orange!70,yellow!40}]{40/Transport,33/Heat,27/Electricity}
-    \end{tikzpicture}
-    \caption{Ireland 2018 GHG Share \cite{Howley2005Energy-RelatedIreland.}}
-    \label{fig:Ireland2018GHG}
-\end{figure}
-
-Where the residential sector is directly responsible for 47\% of heat and 30\% of electricity GHG emissions. The residential sector would also be indirectly responsible for a share of transport GHG emissions, the residential sector is therefore a pivotal sector in decarbonising energy in Ireland. 
+Under 2006 Intergovernmental Panel on Climate Change (IPCC) guidelines, Ireland’s residential sector accounted for 14.2\% of GHGs emissions in 2018 \cite{Howley2005Energy-RelatedIreland.}. Focusing only on energy-related GHG emissions, the residential sector directly accounts for 24\% of GHG emissions. The residential sector is directly responsible for 47\% of heat and 30\% of electricity GHG emissions. The residential sector would also be indirectly responsible for a share of the remaining energy-related GHGs in the transport sector, the residential sector is therefore a pivotal sector in decarbonising energy in Ireland. 
 
 \subsubsection{Climate Targets}
 
@@ -336,6 +381,7 @@ The layout of this paper is as follows:
 
 \subsection{TIMES Energy System Optimisation Model}
 \label{Overview}
+
 \par  The expertise among energy policy researchers in Ireland combined with the global network of Energy Technology Systems Analysis Program (ETSAP) modellers, makes TIMES the preferred ESOM to explore Ireland's decarbonisation pathways. Previous versions of the Irish TIMES model were extracted from the Pan European TIMES model and then updated with specific national data and assumptions. The previous Irish TIMES models were used to provide informative reports on Irish climate policy \cite{Gallachoir2012EPAModel,Deane2017Irish2,Gallachoir2020The3,Deane2013TechnicalIreland,IrishGovernment2017National2017}.  
 The introduction of new climate policies and targets combined with technological advancements, means there is a need for a new ESOM to be built to explore Ireland's new climate targets and sectoral five-year carbon budgets, the new ``TIMES Ireland Model" (TIM) was built in 2021 to address this need \textbf{(SOURCE)}.
 \par TIMES is a bottom-up optimisation energy-environment model with perfect foresight which is used to analyse various levels of spatial, temporal and sectoral resolution. Exogenous technical, physical, and regulatory constraints can be applied and technologies have specified fuel types, efficiency, lifetime, availability, environmental characteristics, and fixed, variable and operation costs. TIMES uses a linear programming optimizer matrix in General Algebraic Modeling System (GAMS), to compute all calculations. 
@@ -395,7 +441,7 @@ The dwelling stock data is obtained from the SEAI BER Public database, which is 
   \label{Table:InternalTemps}
 \end{table}
 
-The ArDEM-SQL, which was described in Section \ref{Intro:ESOMIreland} is a simulation model built on space heating calculation EN 13790. ArDEM-SQL alters the primary energy consumption of the BER database by changing the internal temperatures. 
+The ArDEM-SQL, which was described in Section \ref{Intro:ESOMIreland} is a simulation model built on space heating calculation EN 13790. ArDEM-SQL alters the primary energy consumption of the BER database by changing the internal temperatures assumed by DEAP (ref to table). 
 
 Other concerns for uncertainties in the database, which are not related to DEAP calculation are statistically anomalous spikes in the data, caused by applying default values \cite{Ahern2020ADatabases} and different companies generating variations of ±20\% in the assessment of energy consumption \cite{Harsman2016OnCertificates}. While the BER database provides high granularity data, it must be filtered to improve the representation of the dwelling stock data. The filters applied to the raw BER database are outlined in \ref{sec:appendixA1}. 
 
@@ -687,7 +733,7 @@ While the first two scenarios do not comply with the Climate Action and Low Carb
 \label{Results:Residential }
 The residential sector reduces $CO_2$ emissions by between 63\% - 71\% in 2030 for the four scenarios which comply with the Climate Bill. Compare this to the ``No Mitigation" scenario, which shows an increase of 4 \% $CO_2$ in 2030 and the  ``WAM" scenario which shows a 8 \% reduction in $CO_2$ by 2030. These results assist in representing the scale of decarbonisation required in the residential sector. 
 
-Zooming in on the residential fuel-mix gives further insights on the optimal pathways to achieve 2030 targets. Figure \ref{fig:ResFuel} shows this, with the base year being represented on the top row, the four Climate Bill compliant scenarios on rows 2-5, and the last two rows are not compliant with the Climate Bill. 
+Focusing on the residential fuel-mix gives further insights on the optimal pathways to achieve 2030 targets. Figure \ref{fig:ResFuel} shows this, with the base year being represented on the top row, the four Climate Bill compliant scenarios on rows 2-5, and the last two rows are not compliant with the Climate Bill. 
 
 \begin{figure}[!htbp]
  \centering
@@ -751,10 +797,10 @@ The ``No Mitigation" scenario is expected to cost $\text{\euro} 8.1 $ billion in
 \section{Discussion}
 \label{Discussion}
 
-The methodology applied to the residential sector in TIM is transparent, up-to-date, and robust. The previous version of TIM, namely, the Ireland TIMES model, which was used for almost 10 years in Ireland, and was continuously tweaked to react to the ever changing climate policy, climate targets, and technological advancements. 
-\par TIM is developed to provide insights on sectoral carbon budgets and 2030 and 2050 climate targets. As the first iteration of TIM, the core model is expected to be improved, while specific research will tweak the core model to specifically analysis certain sectors. 
-The large increase in electricity may require some soft-linking with PLEXOS to investigate power generation operating constraints and reliability of supply. While LEAP is another powerful tool within the Energy Policy and Modelling Group of MaREI, which can specifically examine climate policy.
-\par The model will require some future developments in the residential sector, district heating, and renewable gas will require improvements. The large growth of data centres expected in Ireland can provide waste heat to DH networks. While the capacity of biometheane in Ireland can effect the potential decarbonisation of natural gas, adding biomethane to the natural gas grid has not been accounted for in the model.
+The methodology applied to the residential sector in TIM is transparent, up-to-date, and robust. The previous version of TIM, namely, the Ireland TIMES model, which was used for almost 10 years, and was continuously tweaked to react to the ever changing climate policy, climate targets, and technological advancements. 
+\par TIM is developed to provide insights on sectoral carbon budgets and 2030 and 2050 climate targets. As the first iteration of TIM, the core model is expected to be improved, while on-going research will continue to  analyse certain sectors in greater detail. 
+The large increase in electricity ?demand? may require some soft-linking with PLEXOS to investigate power generation operating constraints and reliability of supply. While LEAP is another powerful tool within the Energy Policy and Modelling Group of MaREI, which can be used to analyse individual climate policies.
+\par The model will require some future developments in the residential sector, district heating, and renewable gas. The large growth of data centres expected in Ireland can provide waste heat to DH networks. While the capacity of biomethane in Ireland can effect the potential decarbonisation of natural gas, adding biomethane to the natural gas grid has not been accounted for in the model.
 \par The dissagreation of archetypes by BER ratings will add to the model complexity, but help provide insights into optimal BER ratings to target in retrofitting and heat pump installation. While the dissageration of the model into 26 regions will provide spatial insights. The data in TIM is setup to allow for this, but due to the complexity the model was simplified for the initial release.    
 
 \subsection{Strengths}
