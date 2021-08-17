@@ -1,85 +1,8 @@
-%% 
-%% Copyright 2007-2020 Elsevier Ltd
-%% 
-%% This file is part of the 'Elsarticle Bundle'.
-%% ---------------------------------------------
-%% 
-%% It may be distributed under the conditions of the LaTeX Project Public
-%% License, either version 1.2 of this license or (at your option) any
-%% later version.  The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.2 or later is part of all distributions of LaTeX
-%% version 1999/12/01 or later.
-%% 
-%% The list of all files belonging to the 'Elsarticle Bundle' is
-%% given in the file `manifest.txt'.
-%% 
-%% Template article for Elsevier's document class `elsarticle'
-%% with harvard style bibliographic references
-%\usepackage{cite}
-%\usepackage{harvard}
-%\usepackage{biblatex}
-%\usepackage[backend=biber]{biblatex}
-% \addbibresource{references.bib} %Imports bibliography file
-
-%%%%%%%%%%%%%%%%%%%%%%%
-%% Elsevier bibliography styles
-%%%%%%%%%%%%%%%%%%%%%%%
-%% To change the style, put a % in front of the second line of the current style and
-%% remove the % from the second line of the style you would like to use.
-%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Numbered
-%\bibliographystyle{model1-num-names}
-
-%% Numbered without titles
-%\bibliographystyle{model1a-num-names}
-
-%% Harvard
-%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
-
-%% Vancouver numbered
-%\usepackage{numcompress}\bibliographystyle{model3-num-names}
-
-%% Vancouver name/year
-%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
-
-%% APA style
-%\bibliographystyle{model5-names}\biboptions{authoryear}
-
-%% AMA style
-%\usepackage{numcompress}\bibliographystyle{model6-num-names}
-
-%% `Elsevier LaTeX' style
-%\bibliographystyle{elsarticle-num}
-%%%%%%%%%%%%%%%%%%%%%%%
-
-\documentclass[preprint]{elsarticle}
-
-\usepackage{lineno,hyperref}
-\modulolinenumbers[5]
-
-%% `Elsevier LaTeX' style
-%\bibliographystyle{elsarticle-num}
-%\documentclass[10pt,final,journal,compsoc,a4paper]{IEEEtran}
-%% Use the option review to obtain double line spacing
-%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
-
-%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
-%% for a journal layout:
-%%\documentclass[final,1p,times,authoryear]{elsarticle}
-%% \documentclass[final,1p,times,twocolumn,authoryear]{elsarticle}
-%%\documentclass[final,3p,times,authoryear]{elsarticle}
-%%\documentclass[final,3p,times,twocolumn,authoryear]{elsarticle}
-%% \documentclass[final,5p,times,authoryear]{elsarticle}
-%% \documentclass[final,5p,times,twocolumn,authoryear]{elsarticle}
-
-%% For including figures, graphicx.sty has been loaded in
-%% elsarticle.cls. If you prefer to use the old commands
-%% please give \usepackage{epsfig}
+\documentclass[final,3p,sort&compress,12pt]{elsarticle}
 
 %% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
+\usepackage{setspace}
 \usepackage{pifont}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -101,25 +24,13 @@
 \usepackage{subcaption}
 \usepackage{blindtext}
 
+\bibliographystyle{elsarticle-num-names} 
+
 \DeclareSIUnit{\EUR}{\text{\euro}}
  \pgfplotsset{compat=1.17}
-%\usepackage[table]{xcolor}
-%\usepackage[backend=bibtex]{biblatex}
 
-%% The amsthm package provides extended theorem environments
-%% \usepackage{amsthm}
-%\bibliographystyle{elsarticle-num}
-%\usepackage{cleveref}
-%\usepackage{hyperref}
-%\usepackage[style=numeric, sorting=none]{biblatex}  %backend=biber is 'better'
-%
-\addbibresource{TIM_V11.bib}
-%% The lineno packages adds line numbers. Start line numbering with
-%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
-%% for the whole article with \linenumbers.
 
 \journal{Energy and Buildings}
-%\bibliographystyle{elsarticle-num}
 
 \begin{document}
 
@@ -127,49 +38,21 @@
 
 %% Title, authors and addresses
 
-%% use the tnoteref command within \title for footnotes;
-%% use the tnotetext command for theassociated footnote;
-%% use the fnref command within \author or \affiliation for footnotes;
-%% use the fntext command for theassociated footnote;
-%% use the corref command within \author for corresponding author footnotes;
-%% use the cortext command for theassociated footnote;
-%% use the ead command for the email address,
-%% and the form \ead[url] for the home page:
-%% \title{Title\tnoteref{label1}}
-%% \tnotetext[label1]{}
-%% \author{Name\corref{cor1}\fnref{label2}}
-%% \ead{email address}
-%% \ead[url]{home page}
-%% \fntext[label2]{}
-%% \cortext[cor1]{}
-%% \affiliation{organization={},
-%%            addressline={}, 
-%%            city={},
-%%            postcode={}, 
-%%            state={},
-%%            country={}}
-%% \fntext[label3]{}
-
 \title{Developing Decarbonisation Pathways for Irish homes in changing TIMES}
-
 
 
 \author[inst1,inst2]{Jason Mc Guire \corref{j.mcguire@ucc.ie}}
 \cortext[j.mcguire@ucc.ie]{j.mcguire@ucc.ie}
-%footnote{E-mail: \url{j.mcguire@ucc.ie}}}
 
-%\footnote{Contact: j.mcguire@ucc.ie}}
-%\thanks{Email: \url{j.mcguire@ucc.ie}}}
-\affiliation[inst1]{organization={Energy Policy and Modelling Group, MaREI Centre},%Department and Organization
+\affiliation[inst1]{organization={Energy Policy and Modelling Group, MaREI Centre},
             addressline={Environmental Research Institute}, 
             city={Cork},
             country={Ireland}}
             
-\affiliation[inst2]{organization={School of Engineering},%Department and Organization
+\affiliation[inst2]{organization={School of Engineering},
             addressline={University College Cork}, 
             city={Cork},
             country={Ireland}}
-
 
 \author[inst1,inst2]{Fionn Rogan}
 \author[inst1,inst2]{Olexandr Balyk}
@@ -178,6 +61,7 @@
 \author[inst1,inst2]{Brian Ó Gallachóir}
 \author[inst1,inst2]{\& Hannah Daly}
 
+ \onehalfspacing
 \begin{abstract}
 %% Text of abstract
 
@@ -185,9 +69,10 @@ Ireland has committed to one of the most ambitious decarbonisation targets in th
 Energy system optimization models (ESOMs) have been used extensively to inform pathways in addressing long-term energy challenges, which provides insights to decision-makers on issues related to climate and energy policy. \par
 The TIMES-Ireland Model (TIM) is a newly developed optimisation model for the Irish energy system. This paper describes the methodology applied to the development of the residential sector in TIM and explores the results, which provides new insights on optimal residential decarbonisation pathways.
 
- 
-\end{abstract}
+\vspace{0.25cm}
+\noindent
 
+\end{abstract}
 
 \begin{keyword}
 
@@ -198,13 +83,15 @@ Energy Systems Optimisation Model \sep TIMES \sep Residential decarbonisation \s
 \end{frontmatter}
 
 %% \linenumbers
-
+\newpage
 %% main text
+ \onehalfspacing
 \section{Introduction}
 \label{sec:Introduction}
 
 The Introduction section of this paper reviews bottom-up residential models, which have high technological granularity accounting for the residential sector only and ESOMs which have a bottom-up or hybrid approach and includes all energy-related sectors. The hybrid approach combines bottom-up technological detail and top-down macroeconomic detail. The introduction also analyses Ireland's distinctive residential sector, climate targets, and current energy policy. 
 
+ \onehalfspacing
 \subsection{Energy Systems Optimisation Modelling and the Residential Sector}
 \label{Intro:ESOM}
 
@@ -267,7 +154,7 @@ Ireland’s distinctive energy sectors are further separated from other EU membe
 In the last 30 years, the extraction of indigenous peat has declined and consequently peat consumption has halved, in 2018 peat accounted for 12.3\% of residential GHG emissions. GHG emissions from coal in the residential sector also declined to 6.9\% in 2018 \cite{Howley2020Energy-RelatedIreland.}. However, the decline in peat and coal has been offset by a more significant growth in oil in the same period, where oil accounted for 34.8\% of residential GHG emissions in 2018 \cite{Howley2020Energy-RelatedIreland.}. Despite being limited to some urban areas, gas still accounted for 15.5\% of residential GHG emission in 2018 \cite{Howley2020Energy-RelatedIreland.}. 
 The residential sector relied on fossil fuels for over 90\% of thermal energy in 2018, consequently Ireland currently has the lowest renewable heat among EU member states, at only 6.3\% \cite{Eurostat2021ShareSourcesnrg_ind_ren}. %Preliminary results from the Environmental Protection Agency (EPA) have indicated a 9\% increase of residential GHG emissions in 2020, mainly due to low home heating oil prices and covid-related restrictions, proving some consumers are economically rational by filling oil tanks when prices are low. 
 
-Space and water heating are the main energy services, accounting for 80 \% of the energy used in residential dwellings \cite{SustainableEnergyAuthorityofIreland2018EnergySector} and typically have a lifetime of at least 15 years, consequently leading to a slow turnover of technology in the residential sector. Apart from space and water heating, all EU member states are required under commission regulation (EU) 431/2014 to supply energy consumption data on space cooling, cooking, lighting \& appliances, and others (mainly outdoor appliances), the annual trend of these energy services is shown in Figure \ref{fig:IrelandServiceDemands}. These energy services were also used in TIM, however there is no space cooling data in Ireland and lighting \& appliances were separated while others was combined with appliances. 
+Space and water heating are the main energy services, accounting for 80\% of the energy used in residential dwellings \cite{SustainableEnergyAuthorityofIreland2018EnergySector} and typically have a lifetime of at least 15 years, consequently leading to a slow turnover of technology in the residential sector. Apart from space and water heating, all EU member states are required under commission regulation (EU) 431/2014 to supply energy consumption data on space cooling, cooking, lighting \& appliances, and others (mainly outdoor appliances), the annual trend of these energy services is shown in Figure \ref{fig:IrelandServiceDemands}. These energy services were also used in TIM, however there is no space cooling data in Ireland and lighting \& appliances were separated while others was combined with appliances. 
 
 % Space heating is the largest residential energy service, which accounted for 61.8\% of final energy usage in 2018. Other residential energy services and their share of final energy are shown in Fig.\ref{fig:Ireland2018ServiceDemands}. As building thermal efficiency and heating technology efficiency improves, both space and water heating energy would be expected to decline. 
 
@@ -595,7 +482,7 @@ Saving(\%)_{a,t} = Average(Saving(\%)_{a,rf}) * \frac{TIM_{r,a}} {TIM_{a}}
 \label{Eq:RetrofitSaving2}
 \end{equation}
 
-Where t is the type of retrofit. ${TIM_{r,a}}$ is the number of dwellings by rating and archetype and ${TIM_{a}}$ is the total number of dwellings of that archetype.The expected savings from each type of retrofit and for each archetype are outlined in Table \ref{Table:RetrofitSavings}.
+Where t is the type of retrofit. ${TIM_{r,a}}$ is the number of dwellings by rating and archetype and ${TIM_{a}}$ is the total number of dwellings of that archetype. The expected savings from each type of retrofit and for each archetype are outlined in Table \ref{Table:RetrofitSavings}.
 
 \begin{table}[htbp]
   \centering
@@ -842,7 +729,7 @@ The discussion section outlines the improvements which will be made to the resid
 \label{sec:Acknowledgements}
 The authors wish to acknowledge the contributions of Tomás Mac Uidhir, who supported filtering of the BER database, and Ankita Singh Gaur who developed the residential demands. 
 CAPACITY is funded under the Climate Action Modelling Group (CAMG) by DECC.
-Alessandro and Maurizio provided technical assistants on the development of the residential sector in TIMES. 
+Alessandro and Maurizio provided technical assistance on the development of the residential sector in TIMES. 
 % https://www.marei.ie/project/capacity/
 %CHIMERA is supported by a research grant from Science Foundation Ireland (SFI) and the National Natural Science Foundation of China (NSFC) under the SFI-NSFC Partnership Programme, grant no. 17/NSFC/5181 and
 %supported by MaREI, the SFI Research Centre for Energy, Climate, and Marine [Grant No: 12/RC/2302\_P2]
@@ -1085,29 +972,8 @@ R-SW\_???\_HET\_N2 & Decentralized & \checkmark & \checkmark & \checkmark & \che
  \label{HeatingTech}%
 \end{table}
 
-\newpage
+\bibliography{TIMref.bib}
 
-\printbibliography
-%\bibliography{TIM_V1.1}
-%\bibliographystyle{elsarticle-num}
-%\bibliography{TIM_V11}
-%\bibliographystyle{elsarticle-harv} 
-
-%\bibliography{references.bib}
-
-
-%% else use the following coding to input the bibitems directly in the
-%% TeX file.
-
-%%\begin{thebibliography}{00}
-
-
-% %% \bibitem[Author(year)]{label}
-% %% Text of bibliographic item
-
-% \bibitem[ ()]{}
-
-% \end{thebibliography}
 \end{document}
 %\endinput
 %%

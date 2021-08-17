@@ -1,4 +1,3 @@
-
 %%
 %% This is file `elsarticle.cls',
 %% generated with the docstrip utility.
@@ -37,7 +36,7 @@
 \ProvidesClass{\@shortjid}[\RCSdate, \RCSversion: \@journal]
 \def\ABD{\AtBeginDocument}
 \newif\ifpreprint \preprintfalse
-\newif\ifnobiblatex \nobiblatexfalse
+\newif\ifnonatbib \nonatbibfalse
 \newif\iflongmktitle \longmktitlefalse
 \newif\ifnopreprintline \nopreprintlinefalse
 \newif\ifdoubleblind \doubleblindfalse
@@ -75,7 +74,7 @@
 \DeclareOption{authoryear}{\xdef\@biboptions{round,authoryear}}
 \DeclareOption{number}{\xdef\@biboptions{numbers}}
 \DeclareOption{numbers}{\xdef\@biboptions{numbers}}
-\DeclareOption{nobiblatex}{\global\nobiblatextrue}
+\DeclareOption{nonatbib}{\global\nonatbibtrue}
 \DeclareOption{longtitle}{\global\longmktitletrue}
 \DeclareOption{5p}{\xdef\jtype{5}\global\preprintfalse
   \ExecuteOptions{twocolumn}}
@@ -1210,8 +1209,8 @@
 
 \@ifundefined{@biboptions}{\xdef\@biboptions{numbers}}{}
 \InputIfFileExists{\jobname.spl}{}{}
-\ifnobiblatex\relax\else
-  \RequirePackage[\@biboptions]{biblatex}
+\ifnonatbib\relax\else
+  \RequirePackage[\@biboptions]{natbib}
 \fi
 \newwrite\splwrite
 \immediate\openout\splwrite=\jobname.spl
@@ -1378,4 +1377,3 @@
 \endinput
 %%
 %% End of file `elsarticle.cls'.
-
