@@ -105,7 +105,7 @@ These models can be used to explore the residential sector in higher granularity
 The Integrated MARKAL-EFOM System (TIMES) has been extensively used in both the UK and Ireland, and there are several examples of using TIMES to focus on the residential sector. TIMES assumes perfect foresight to enable a least-cost solution to be calculated, but \textit{``in reality, the behaviours of consumers is not always economically rational"} \cite{Li2018IncorporatingModel}. In light of this,  \citet{Li2018IncorporatingModel} investigated the heating technology preference in the UK using UK TIMES Model (UKTM) by incorporating a Discrete Choice Model (DCM) to better reflect how homeowners choose heating technologies and thus correcting for error in the perfect foresight assumption. 
 
 There is a rising tendency for ESOMs to focus on new building fabric \cite{Leibowicz2018OptimalServices,Dineen2011ModellingHeating} and retrofitting to thermally improve the existing residential stock \cite{Dineen2015ImprovedSource}. Another trend observed is the electrification of energy-related sectors \cite{Chiodi2013ModellingSystem}, while a focus on photovoltaic (PV) systems can be examined in parallel \cite{Marczinkowski2018ResidentialSystems}. Retrofitting and electrification are a fundamental part of residential decarbonisation in Ireland, and therefore play a central role in the development of the model described here. 
-Furthermore, the new model includes technologies, which were not previously considered, one such technology is District Heating (DH), some initial studies have found it may be optimal to have 37\% of heat demand to be provided by DH in Ireland \cite{Thellufsen2019ImplementingIreland}, the full list of space and water heating technologies considered in the model can be found in \ref{sec:appendixA4}. The strength of an ESOM can be used to examine the sectoral interactions, one study by Hedegard and Münster \cite{Hedegaard2013InfluenceOperation} examined the interaction between heat pumps and wind generation investments in Denmark, the results find it is optimal to install air-to-water heat pumps in non-DH areas. 
+Furthermore, the new model includes technologies, which were not previously considered, one such technology is District Heating (DH), some initial studies have found it may be optimal to have 37\% of heat demand to be provided by DH in Ireland \cite{Thellufsen2019ImplementingIreland}, the full list of space and water heating technologies considered in the model can be found in Table \ref{AppHeatingTech}. The strength of an ESOM can be used to examine the sectoral interactions, one study by Hedegard and Münster \cite{Hedegaard2013InfluenceOperation} examined the interaction between heat pumps and wind generation investments in Denmark, the results find it is optimal to install air-to-water heat pumps in non-DH areas. 
 
 
 \subsubsection{Ireland: Residential Modelling}
@@ -308,7 +308,7 @@ The residential sector was developed in parallel with other sectors in TIM, and 
  \label{fig:RES}
 \end{figure}
 
-The BER database provides the base year bottom-up energy consumption data, this is scaled up to represent the entire stock and cross-checked with the top-down energy consumption from the 2018 SEAI Energy Balance. To compare from the two databases, fuels were were combined and condensed down to 13 fuels in TIM. Table \ref{Table:Fuels} shows an overview of the fuels combined from the different data sources. 
+The BER database provides the base year bottom-up energy consumption data, this is scaled up to represent the entire stock and cross-checked with the top-down energy consumption from the 2018 SEAI Energy Balance. To compare from the two databases, fuels were were combined and condensed down to 13 fuels in TIM. Table \ref{AppTable:Fuels} shows an overview of the fuels combined from the different data sources. 
 
 \par In TIM, fuels such as ``coal", represent a combination of fuels from the SEAI Energy Balance and BER database. Gasoil which has similar properties to kerosene, is accounted for in the SEAI Energy Balance,  but there is no evidence to support keeping gasoil and kerosene separate would provide further insight into residential decarbonisation, therefore these fuels are combined in TIM. However, disaggregating ambient heat could potentially provide insights on residential decarbonisation, so the model has separated space ambient heat and water ambient heat. The solid multi-fuel from the BER database represents an open fire or stove which is heated by either coal, peat, or wood. Through examining the SEAI Energy Balance and BER database, the fuel share for coal, peat, and wood in solid multi-fuel was set to 19.4\%, 74.4\% and 6.2\% respectively. 
 \par There are two types of energy services represented in Fig. \ref{fig:RES} - Non-Archetype and Archetype. Essentially Non-archetype energy services have a lack of data and could not be accurately assigned to an archetype. The six non-archetype energy services are not dependant on the type of dwelling in the model and the base year quantity is the total national consumption of that energy service. Non-Archetype data was retrieved from SEAI Residential Energy Report \cite{SustainableEnergyAuthorityofIreland2018EnergySector} and cross-checked with the POTEnCIA database and the top-down data from the SEAI Energy Balance, more details on non-archetype services are found in Section \ref{LitR:Lighting,Appliances}. The four archetype energy services are dependent on  building type and data is sourced from the BER database, which is discussed in Section \ref{LitR:StockData}. The internal temperature adjustment for space heating is also detailed in Section \ref{LitR:StockData}. The demand for archetype and non-archetype energy services is based on the growth of residential dwellings, which is detailed in section \ref{LitR:Demands}.
@@ -340,7 +340,7 @@ The dwelling stock data is obtained from the SEAI BER Public database, which is 
 
 The ArDEM-SQL, which was described in section \ref{Intro:ESOMIreland} is a simulation model built on space heating calculation EN 13790. ArDEM-SQL alters the primary energy consumption of the BER database by changing the internal temperatures assumed by DEAP in table \ref{Table:InternalTemps}.  
 
-Other concerns for uncertainties in the database, which are not related to DEAP calculation are statistically anomalous spikes in the data, caused by applying default values \cite{Ahern2020ADatabases} and different companies generating variations of ±20\% in the assessment of energy consumption \cite{Harsman2016OnCertificates}. While the BER database provides high granularity data, it must be filtered to improve the representation of the dwelling stock data. The filters applied to the raw BER database are outlined in \ref{sec:appendixA1}. 
+Other concerns for uncertainties in the database, which are not related to DEAP calculation are statistically anomalous spikes in the data, caused by applying default values \cite{Ahern2020ADatabases} and different companies generating variations of ±20\% in the assessment of energy consumption \cite{Harsman2016OnCertificates}. While the BER database provides high granularity data, it must be filtered to improve the representation of the dwelling stock data. The filters applied to the raw BER database are outlined in Table \ref{AppBERFilters}. 
 
 The Census 2016 data \cite{CentralStatisticsOffice2016CensusIreland} from the CSO is also used in calculating the dwelling stock. Dataset E1005 provides a split of seven building archetypes per county, which are aggregated to form three building archetypes. The total number of dwellings per archetype per county in 2016 is used to scale up the BER database. The gap in total dwellings between the census year in 2016 and the model base year in 2018 was initially ignored due to lack of data. However, later it was found that data on new dwelling electrical connections per archetype and per county are available from CSO dataset NDQ06, this would have filled the gap, the first iteration of the dwelling stock in TIM has a 2\% error. 
 \par Once the BER database and CSO database tables have been filled to include dwellings per archetype per county, the next step was to scale up the BER database. This was done by first finding the ratio of the building archetype per county between the BER database and CSO data, as shown in Equation \ref{Eq:BERtoCSO1}.
@@ -373,7 +373,7 @@ TIM_{r,y,a} = CSO_{y,a} * \frac{BER_{r,y,a}} {BER_{y,a}} * \frac{TIM_{a}} {BER_{
 \label{Eq:AgeBER}
 \end{equation}
 
-Where $TIM_{r,y,a}$ is the total dwellings in TIM by BER rating (r), year of construction (y), and archetype (a). $CSO_{y,a}$ is the number of dwellings by year of construction and archetype in the CSO dataset, the CSO dataset does not contain BER rating types. $BER_{r,y,a}$ is the number of BER ratings by year of construction and archetype from the BER database and dividing this value by $BER_{y,a}$ results in a probability of a certain age type falling within a BER rating, and the final part of the equation $\frac{TIM_{a}} {BER_{a}}$ compensates for the non-stated archetypes in the CSO data, $TIM_a$ was already calculated in equation \ref{Eq:BERtoCSO2}. The results of each of the correlations are in  \ref{sec:appendixA2}. Table \ref{Table:FinalDwellingStock} outlines the final dwelling stock used in TIM.
+Where $TIM_{r,y,a}$ is the total dwellings in TIM by BER rating (r), year of construction (y), and archetype (a). $CSO_{y,a}$ is the number of dwellings by year of construction and archetype in the CSO dataset, the CSO dataset does not contain BER rating types. $BER_{r,y,a}$ is the number of BER ratings by year of construction and archetype from the BER database and dividing this value by $BER_{y,a}$ results in a probability of a certain age type falling within a BER rating, and the final part of the equation $\frac{TIM_{a}} {BER_{a}}$ compensates for the non-stated archetypes in the CSO data, $TIM_a$ was already calculated in equation \ref{Eq:BERtoCSO2}. The results of each of the correlations are in  Table \ref{AppBERCor},\ref{AttBERCor} \& \ref{DetBERCor} and Table \ref{Table:FinalDwellingStock} outlines the final dwelling stock used in TIM. 
 
 
 \begin{table}[htbp]
@@ -404,7 +404,7 @@ This section only covers the costs applied in the residential sector, which incl
 The fuel costs are not applied in the residential sector, there are applied in the supply sector, and the data is sourced from World Energy Outlook reports from 2019 \cite{/content/publication/caf32f3b-en} and 2020 \cite{/content/publication/557a761b-en}. 
 The majority of the space and water heating cost data is obtained from the
 \textit{``Techno-economic projections until 2050 for smaller heating and cooling technologies in the residential and tertiary sectors in the EU”} report \cite{JointResearchCentre2017Techno-economicEU}. The cost data used in TIM was based on the north EU region (Denmark) and where data was missing, the central EU region (Germany) cost data was used. The high granularity of data allows for the cost of a technology to be disaggregated between apartments and non-apartments, costs and efficiencies are projected every five years from 2020 to 2050. The lifetime and emissions/pollutants are also included, while the cost data is further disaggregated between capital expenditure ( equipment, installation \& additional capital costs ) and Operational \& Maintenance (O\&M) costs.  
-\par TIM has two types of retrofitting options per archetype,  a shallow retrofit is when the primary energy ($kWh/m^2/yr$) is reduced by $ \leq 35\%$, and deep retrofit is where the primary energy is reduced by $>35\%$, while a reduction of $ \ >75\%$ is considered infeasible. The difference between the pre-retrofit and post-retrofit primary energy determines the type of retrofit, as shown in \ref{sec:appendixA3}.
+\par TIM has two types of retrofitting options per archetype,  a shallow retrofit is when the primary energy ($kWh/m^2/yr$) is reduced by $ \leq 35\%$, and deep retrofit is where the primary energy is reduced by $>35\%$, while a reduction of $ \ >75\%$ is considered infeasible. The difference between the pre-retrofit and post-retrofit primary energy determines the type of retrofit, as shown in Table \ref{AppDepthofRetrofit}.
 
 The retrofit cost data was sourced from Ali et. al \cite{Ali2020ABuildings} who derived costs from SEAI's Better Energy Homes (BEH) and Better Energy Warmer Homes (BEWH) datasets, combined this is Ireland's largest retrofitting dataset ( over 285,000 retrofits ). To provide more robust retrofit costs, data is also used from the Typology Approach for Building Stock Energy Assessment (TABULA) report \cite{IrishTABULANationalAdvisoryGroup2014BuildingIreland} which has more detailed cost data with two stages of retrofit (standard and advanced) for a sample of 31 dwellings. The formulas used to find the average cost of a retrofit per type of retrofit and archetype are shown in Equations \ref{Eq:RetrofitCost1} and \ref{Eq:RetrofitCost2}.
 
@@ -473,7 +473,7 @@ As TIM only inputs the savings per type of retrofit and archetype, some calculat
 
 Where $Saving(\%)_{a,rf-rt}$ are the savings ( or reduced running cost) per archetype (a), where the pre-retrofit BER rating is defined as the rating from (rf), and the post-retrofit BER rating is defined as the rating to (rt). 
 
-Allocating each retrofit change to either shallow or deep is the next step, this is shown in \ref{sec:appendixA3}. The next calculation is to find the weighted average of each retrofit depth per archetype, this is then a TIM input. 
+Allocating each retrofit change to either shallow or deep is the next step, this is shown in Table \ref{AppDepthofRetrofit}. The next calculation is to find the weighted average of each retrofit depth per archetype, this is then a TIM input. 
 
 \begin{equation} 
 \begin{split}
@@ -557,7 +557,7 @@ Min \text{\euro} \sum_k VAR\_ACT_{k,i}(y)  \geq DM_i(y)
 
 Where VAR\_ACT are the activity levels of end-use technology (k) for demand category (i) in year (y). DM is the exogenous demand per energy service per year. The cost of the technology used is minimised while also satisfying all constraints. 
 
-All space and water heating technologies are archetype specific and some technologies deliver both water and space heating, while other technologies can only deliver one type of heating, the list of available technologies is outlined in \ref{sec:appendixA4}. Retrofits are included as they satisfy the residential space heating demand, even though retrofits do not consume fuel similar to a solar water heating system, from that perspective. 
+All space and water heating technologies are archetype specific and some technologies deliver both water and space heating, while other technologies can only deliver one type of heating, the list of available technologies is outlined in Table \ref{AppHeatingTech}. Retrofits are included as they satisfy the residential space heating demand, even though retrofits do not consume fuel similar to a solar water heating system, from that perspective. 
 Danish Energy Agency's Technology Data for Individual Heat Production dataset was used  was input to TIM \cite{JointResearchCentre2017Techno-economicEU}, this dataset is also used in the EU TIMES model, the dataset has high granularity and is continuously updated.
 
 In TIM, the number of main heating systems equals the number of dwellings, this assumption ignores any impact of secondary system heating. One exception to the rule is stoves are considered as secondary heating systems only.  The base year heating energy consumption is derived from the BER database, but uses census data \cite{CentralStatisticsOffice2016CensusIreland} from the CSO dataset E1008 to calibrate the fuel used in heating systems per archetype. 
@@ -611,20 +611,21 @@ Where $VAR\_CAP$ is the technology capacity in time period (t), G is the growth 
 \section{Results}
 \label{Results}
 
-The results from TIM can provide some valuable insights on the residential sector and the sectoral interconnections when targeting carbon budgets, and long-term climate targets. While the purpose of this paper was to describe the residential methodology, the results used here only scrape the surface in terms of exploring residential decarbonisation. However, the results provide some initial insights into residential decarbonisation and are discussed in section \ref{Discussion}. Three different scenarios are used to explore the results, those scenarios and descriptions are:
+The results from TIM can provide some valuable insights on the residential sector and the sectoral interconnections in achieving long-term climate targets. While the purpose of this paper was to describe the residential methodology, the results used here only scrape the surface in terms of exploring residential decarbonisation. However, the results provide some initial insights into residential decarbonisation and are discussed in section \ref{Discussion}. Two different scenarios are used to explore the results and those scenarios and descriptions detailed here:
 
 \begin{enumerate}[(a)]
-    \item \textbf{No Mitigation} Least cost solution, where no emissions constraints are imposed
-    \item \textbf{Previous Effort } complies with Climate Action Plan 2019, reduces Non-ETS GHG by 30\% in 2030 compared to 2005, and net-zero in 2050.
+    
+    \item \textbf{Previous Effort } complies with Climate Action Plan 2019, reduces Non-ETS GHG by 30\% in 2030 compared to 2005, and post-2030 targets are forward extrapolated.
     \item \textbf{Current Effort} complies with Climate Action Bill 2021, energy system GHG emissions reduces by 65\% by 2030 compared to 2018 \& net-zero in 2050 ( complies if agriculture GHG emissions reduces by 25\% in 2030 ).
 \end{enumerate}
 
-While the first two scenarios do not comply with the Climate Action and Low Carbon Development (Amendment) Act 2021 target of an overall 51\% GHG reduction in 2030 compared to 2018, they do provide insights on the incremental steps required to achieve these targets. 
 
 \subsection{Residential Results}
 \label{Results:Residential }
 
 The quantity and mix of fuel going into the residential for each scenario and year is  shown in Figure \ref{fig:ResFuel}. The base year is shown on the left, while annual snapshots of the fuel-mix for the other scenarios are shown for 2030, 2040, and 2050. 
+
+In 2018, the residential sector required 124 PJ of primary energy, the increase in households, and energy efficiency improvements resulted in a 9\% primary energy increase in 2030, under the Previous Effort scenario. Whereas under the Current Effort scenario, the primary energy is required to reduce by 13\% in 2030, this highlights the large incremental step in ambition required when moving from Climate Action Plan 2019 to the Climate Action Bill 2021. In 2050, under the Previous Effort scenario, the total primary energy shows a continued growth 17\% higher than 2018, whereas the Current Effort scenario shows an overall reduction of 11\% which indicates a post-2030 growth, highlighting the high ambition in the 2030 target. 
 
 \begin{figure}[!htbp]
  \centering
@@ -633,10 +634,10 @@ The quantity and mix of fuel going into the residential for each scenario and ye
  \label{fig:ResFuel}
 \end{figure}
 
-In 2018, the residential sector required 124 PJ of primary energy, the increase in households, and energy efficiency improvements resulted in a 9\% primary energy increase in 2030, under the Previous Effort scenario. Whereas under the Current Effort scenario, the primary energy is required to reduce by 13\% in 2030, this highlights the large incremental step in ambition required when moving from Climate Action Plan 2019 to the Climate Action Bill 2021. In 2050, under the Previous Effort scenario, the total primary energy shows a continued growth 17\% higher than 2018, whereas the Current Effort scenario shows an overall reduction of 11\% which indicates a post-2030 growth. 
-The fluctuation in the fuel-mix required is significant, especially to comply with 2030 targets, for example, oil reduces 60\% in the Previous Effort and 90\% in the Current Effort scenario in 2030. Furthermore, peat and coal are phased out in the residential sector in both scenarios. The lesser carbon intensive natural gas increases 211\% in Previous Effort without the upper constraint of the gas infrastructure and decreases 4\% in Current Effort scenario. The electricity continues to decarbonise rapidly in all scenarios, resulting in an increase in electricity in the residential sector. In both scenarios, the carbon intensity of electricity ($gCO_2/kWh$) falls by two-thirds, with the Current Effort scenario only marginally lower than the Previous Effort scenario. New emerging fuels which are prevalent in the Current Effort include space ambient heat and water ambient heat due to the increase of heat pumps in the residential sector, more on this in Figure \ref{fig:HeatPump}. 
+The fluctuation in the fuel-mix required is significant, especially to comply with 2030 targets, for example, oil reduces 60\% in the Previous Effort and 90\% in the Current Effort scenario in 2030. Furthermore, peat and coal are phased out completely in the residential sector in both scenarios in 2030. The lesser carbon intensive natural gas increases by 211\% in Previous Effort without the upper constraint of the gas infrastructure and decreases 4\% in Current Effort scenario. The electricity continues to decarbonise rapidly in all scenarios, resulting in an increase in electricity in the residential sector. In both scenarios, the carbon intensity of electricity ($gCO_2/kWh$) falls by two-thirds, with the Current Effort scenario only marginally lower than the Previous Effort scenario. New emerging fuels which are prevalent in the Current Effort include space ambient heat and water ambient heat due to the increase of heat pumps in the residential sector, more on this in Figure \ref{fig:HeatPump}. 
 
-The optimal number of retrofits by type and quantity up to 2030, 2040 and 2050 are summarised in Figure \ref{fig:Retrofits}. 
+
+The optimal cumulative number of retrofits by type and quantity up to 2030, 2040, and 2050 are summarised in Figure \ref{fig:Retrofits}. 
 
 \begin{figure}[!htbp]
  \centering
@@ -645,9 +646,9 @@ The optimal number of retrofits by type and quantity up to 2030, 2040 and 2050 a
  \label{fig:Retrofits}
 \end{figure}
   
-While the Climate Action Plan 2019 targeted 500,000 retrofits, the model only retrofitted 90,000 up to 2030, however, all these retrofits are deep and on larger detached dwellings. The number of retrofits jumps up to 615,000 in the Current Effort scenario, there is a mix of types of depth of retrofits with different dwelling types, but no apartments are retrofitted. The cumulative energy savings are displayed on the secondary axis.
+While the Climate Action Plan 2019 targeted 500,000 retrofits, the model only retrofitted 90,000 up to 2030, however, all these retrofits are deep and on larger detached dwellings. The cumulative energy saving is displayed on the secondary axis, the savings from the 90,000 retrofits continues to increase, despite no new retrofits post-2030. The number of retrofits jumps up to 615,000 in the Current Effort scenario up to 2030, there is a mix of retrofits with different dwelling types, but no apartments are retrofitted. Again, the difference in ambition is very apparent and the expected savings up to 2030, which is four times higher in the Current Effort compared to the Previous Effort scenario stretching to almost five times higher by 2050.
   
-As mentioned in Table \ref{tab:HeatPumpConstraint}, the rollout of retrofits constraints the amount of heat pumps which can be installed, however, a certain share of existing dwellings and all new dwellings are heat pump ready, i.e B2 rating or above. 
+As mentioned in Table \ref{tab:HeatPumpConstraint}, retrofits are sometimes required before a heat pump can be installed. A dwelling must hold approx. B2 BER to be ``heat pump ready". The model assumes the lifetime of a Heat Pump is 20 years, so it maybe possible for one dwelling to get two new heat pumps over the next 30 years, unlike retrofits, heat pumps can be applied to the new dwellings. In Figure \ref{fig:HeatPump} the total cumulative number of heat pumps installed up to a given year is shown. 
 
 \begin{figure}[!htbp]
  \centering
@@ -655,77 +656,72 @@ As mentioned in Table \ref{tab:HeatPumpConstraint}, the rollout of retrofits con
  \caption{Heat Pump by type per scenario}
  \label{fig:HeatPump}
 \end{figure}
- 
-In Figure \ref{fig:HeatPump}, SW represents space and water heating, HC is space heating and space cooling, and A-to-W represents air-to-water type heat pumps. The optimal number of heat pumps in each scenario ranges from 492,000 in A51E51 to 938,000 in A25E65, which equates to 23-45\% of dwellings having a heat pump in 2030. Close to 45,000 air to water heat pumps are installed in apartments across all scenarios, as there are no retrofits in apartments, these heat pumps are installed in the existing B2 rating or above apartments or new apartments. The detached air-to-water heat pumps are the most prevalent across scenarios and maybe considered the ``low hanging fruit". 
 
-The residential sector reduces $CO_2$ emissions by between 63-71\% in 2030 for the four scenarios which comply with the Climate Bill. Compare this to the ``No Mitigation" scenario, which shows an increase of 4\% $CO_2$ in 2030 and the  ``WAM" scenario which shows a 8\% reduction in $CO_2$ by 2030. These results assist in representing the scale of decarbonisation required in the residential sector. 
- 
-\subsection{Intersectoral Results}
-\label{Results:Intersectoral }
-The advantage of an energy system model is to observe the intersectoral connections. Figure \ref{fig:SectorFuel} presents  the base year primary energy fuel-mix for four sectors - power generation, transport, services, and residential and the 2030 fuel-mix for the four Climate Bill compliant scenarios. 
+In Figure \ref{fig:HeatPump}, SW represents space and water heating, HC is space heating and space cooling, and A-to-W represents air-to-water type heat pumps. The optimal number of heat pumps in each scenario ranges from 39,000 to 938,000, which equates to 2-45\% of dwellings having a heat pump by 2030 depending on which scenario is used. Similar to the retrofit results, the Current Effort scenario shows both a higher quantity and mix. While A-to-W heat pumps are the predominant type, gas hybrid heat pumps begin to gain some momentum and account for 7\% of all new heat pumps by 2030 and increases to 14\% by 2040. 
+
+The residential sector reduces $CO_2$ emissions by between 8-70\% in 2030, depending on the scenario explored, again highlighting the scale in step of ambition required in the residential sector. 
 
 \begin{figure}[!htbp]
  \centering
- \includegraphics[width=\textwidth]{Figures/IntesectoralFuels.png}
+ \includegraphics[width=\textwidth]{Figures/RSDCO2.png}
+ \caption{Residential Emissions}
+ \label{fig:RSDCO2}
+\end{figure}
+ 
+\subsection{Intersectoral Results}
+\label{Results:Intersectoral }
+The advantage of an energy system model is to observe the intersectoral connections. Figure \ref{fig:SectorFuel} presents the base year primary energy fuel-mix for four sectors - power generation, transport, services, and residential in 2030, 2040, and 2050 for both scenarios.
+
+\begin{figure}[!htbp]
+ \centering
+ \includegraphics[width=\textwidth]{Figures/Intersectoralresults.png}
  \caption{Sector Annual Fuel in 2018 and four scenarios in 2030}
  \label{fig:SectorFuel}
 \end{figure}
 
-Some consistencies across the scenarios show the large growth of renewables in the power generation sector and consequently the uptake of electricity across the remaining sectors. The least ambitious A51E51 scenario shows 59 PJ of electricity used in residential in 2030, but as constraints tighten, the electricity is used more in transport, while the residential sector invests more in solar panels and other forms of renewable energy. Because bioenergy is limited, the use of bioenergy in transport and services also affects the residential sector. 
+Some consistencies across the scenarios show the large growth of renewables in the power generation sector and consequently the uptake of electricity across the remaining sectors, especially in the Current Effort scenario. The Previous Effort scenario opts for natural gas, backed by low carbon intensity electricity, the increase in ambition and tightening of constraints requires natural gas to decrease, with electricity becoming the cornerstone of energy-system decarbonisation.
 
-By examining the same results further along the time horizon in 2050, we can begin to get a sense of the action required pre-2030 to help achieve net-zero in 2050. 
 
-\begin{figure}[!htbp]
- \centering
- \includegraphics[width=\textwidth]{Figures/Intersectoralfuel2050.png}
- \caption{Sector Annual Fuel in 2018 and four scenarios in 2050}
- \label{fig:SectorFuel2050}
-\end{figure}
-
-The results in Fig. \ref{fig:SectorFuel2050} show a growth of low carbon electricity in power generation in 2050 compared to 2030 results in Fig. \ref{fig:SectorFuel}. The results indicate increased electrification pre-2030 across all sectors and a substantial increase of energy efficiency, as primary energy does not correlate with expected growth.
-
-The ``No Mitigation" scenario is expected to cost $\text{\euro} 8.1 $ billion in 2030, that figure rises to $\text{\euro} 12.4 $ billion under the A51E51 scenario, with electricity ( Power generation ) requiring an extra $\text{\euro} 2 $ billion in annual investment in 2030.
-\par Moving from ``No Mitigation" to A51E51, the residential sector requires $\text{\euro} 0.7 $ billion annual extra investment in 2030 or 16.3\% of the extra investment across the energy system. While moving from ``No Mitigation" to the most ambitious energy system scenario, A25E65, would require  $\text{\euro} 1.5 $ billion annual extra residential investment in 2030 or 15\% of the extra investment across the energy system. 
 
 \section{Discussion}
 \label{Discussion}
-SOLAR??
-The methodology applied to the residential sector in TIM is transparent, up-to-date, and robust. The previous version of TIM, namely, the Ireland TIMES model, which was used for almost 10 years, and was continuously tweaked to react to the ever changing climate policy, climate targets, and technological advancements. 
+
+The previous version of TIM, namely, the Ireland TIMES model, was used for almost 10 years and was continuously tweaked to react to the ever-changing climate policy, climate targets, and technological advancements. 
 \par TIM is developed to provide insights on sectoral carbon budgets and 2030 and 2050 climate targets. As the first iteration of TIM, the core model is expected to be improved, while on-going research will continue to  analyse certain sectors in greater detail. 
-The large increase in electricity ?demand? may require some soft-linking with PLEXOS to investigate power generation operating constraints and reliability of supply. While LEAP is another powerful tool within the Energy Policy and Modelling Group of MaREI, which can be used to analyse individual climate policies.
-\par The model will require some future developments in the residential sector, DH, and renewable gas. The large growth of data centres expected in Ireland can provide waste heat to DH networks. While the capacity of biomethane in Ireland can effect the potential decarbonisation of natural gas, adding biomethane to the natural gas grid has not been accounted for in the model.
+The large increase in electricity demand may require some soft-linking with PLEXOS to investigate power generation operating constraints and reliability of supply. While LEAP is another powerful tool within the Energy Policy and Modelling Group of MaREI, which can be used to analyse individual climate policies.
 \par The dissagreation of archetypes by BER ratings will add to the model complexity, but help provide insights into optimal BER ratings to target in retrofitting and heat pump installation. While the dissageration of the model into 26 regions will provide spatial insights. The data in TIM is setup to allow for this, but due to the complexity the model was simplified for the initial release.    
 
 \subsection{Strengths}
 \label{Dis:Strengths}
 
-The model will be open sourced and be used to develop research and reports, while also used for insights by the Climate Change Advisory Council and the Irish government. During development of the model, the developers reached out to experts for feedback on results and the process will continue as the model is improved by a resourced modelling team.  
-The model provides key insights into the cost and scale of retrofits and heat pumps required, which are currently being addressed under CAP2019 and are therefore are likely pathways towards achieving climate targets. TIM also takes into account new technologies such as DH, Hydrotreated Vegetable Oil (HVO), and solar. 
+The methodology applied to the development of the residential sector in TIM is transparent, up-to-date, and robust. The model will be open sourced and be used to develop research and reports, while also used for insight by the Climate Change Advisory Council and the Irish government. During the development of the model, TIM developers reached out to experts for feedback on results and the process will continue as the model is improved by a resourced modelling team.  
+The model provides key insights into the cost and scale of the retrofits and heat pumps required, which are currently being addressed under CAP2019 and are therefore are likely pathways towards achieving climate targets. TIM takes into account new technologies such as DH, Hydrotreated Vegetable Oil (HVO), and solar.
 The model horizon is up to 2050, so the incremental steps and targets on the way to net-zero can be analysed.  
 Moreover, the usual advantage of using ESOM over bottom-up residential models applies to TIM, as the intersectoral effects can be explored.
-The joint effort of different researchers across different universities in Ireland, to output a dwelling stock, using a new filtering process to the BER database helps provide a more robust base year dwelling stock, this filtration process is expected to be improved and TIM can benefit from this process. 
-The internal temperature calculation applied in TIM reflects the actual residential energy consumption. 
+%The joint effort of different researchers across different universities in Ireland, to output a dwelling stock, using a new filtering process to the BER database helps provide a more robust base year dwelling stock, this filtration process is expected to be improved and TIM can benefit from this process. 
+The internal temperature calculation applied in TIM reflects will strengthen the model by better representing the actual residential energy consumption.
 
 \subsection{Limitations}
 \label{Dis:Limit}
 
-TIM is not a model to look at specific policies nor is it ideally suited to explore occupancy behaviour, instead it provides insights on optimal technological pathways. TIMES is an ESOM which assumes perfect foresight, we know this not to be entirely true, consumer choice is not only based on costs. The results in TIM show large changes from oil, peat, and coal to heat pumps pre-2030, while it maybe economical beneficial over the lifetime of a heat pump, there maybe financial or social barriers associated with investing in a heat pump and the hurdle rates in the residential sector need more focus to represent consumer choice. 
+TIM is not a model to look at specific policies nor is it ideally suited to explore behaviour, instead it provides insights on optimal technological pathways. TIMES is an ESOM which assumes perfect foresight, we know this not to be entirely true, consumer choice is not only based on costs. The pre-2030 results in TIM show large changes in end use from oil, peat, and coal to heat pumps. While it maybe economical beneficial over the lifetime of a heat pump, there maybe financial or social barriers associated with investing in a heat pump and the hurdle rates in the residential sector need more focus to represent consumer choice. 
 As previously mentioned, residential oil tanks were filled with low oil prices in 2020, because each consumer is responsible for their own investments and similarly consumers will unlikely invest in new low carbon heating technologies when their existing heating technologies are not at the end of life. While it may be optimal for the energy system, it may not be optimal for the consumer. 
-\par Primarily due to the lack of reliable data surrounding heat pump performance in B3 or lower rated dwellings, heat pumps can only be installed in B2 or above rated dwellings, similarly heat pump grants supplied by SEAI are for B2 rated or above dwellings. In future iterations of TIM, it could be helpful to account for heat pumps in C or D rated dwellings, while the efficiency will be less, it could still provide part of the optimal pathway. 
+\par Primarily due to the lack of reliable data surrounding heat pump performance in B3 or lower rated dwellings, heat pumps can only be installed in B2 or above rated dwellings, similarly heat pump grants supplied by SEAI are for B2 rated or above dwellings. In future iterations of TIM, it would be beneficial to account for heat pumps in C or D rated dwellings, while the efficiency will be less, it could still provide part of the optimal pathway. 
 
 TIM does not compensate for the warmer weather predicted, the change in floor area of a new dwelling, change in occupancy behaviour, or type of tenure.  
 Nor does TIM take account of the effect of higher BER ratings on property value, this could underestimate the role of retrofits in optimal decarbonisation. 
 Despite the filtration process in the BER database, limitations of the data exist, such as PV capacity, internal temperature assumption, default values, and heat loss indicator value ( which is a more accurate way of predicting a heat pump performance ). 
+The model does not account for any new renewable gas within natural gas, which may lower the carbon intensity of gas and improve the viability of gas in decarbonisation pathways.
 
 \section{Conclusions}
 \label{Conclusion}
-The discussion section outlines the improvements which will be made to the residential sector in TIM and some of the strengths and weaknesses. To conclude, the residential sector in TIM will be able to provide valuable insight into future research questions like ``How do changes to future technology developments affect the optimal residential heating decarbonisation pathway?" 
+The transparency and soft-linking capabilities will allow the residential sector in TIM will be able to provide valuable insight into future decarbonisation research questions. The residential sector has been developed with current climate policies such as retrofitting and heat pumps providing the cornerstone. Higher granularity in the model will be explored, while the current version of the model will provide insights  into how  changes to future technology developments affect the optimal residential heating decarbonisation pathway.
 
 \section{Acknowledgements}
 \label{sec:Acknowledgements}
-The authors wish to acknowledge the contributions of Tomás Mac Uidhir, who supported filtering of the BER database, and Ankita Singh Gaur who developed the residential demands. 
+
 CAPACITY is funded under the Climate Action Modelling Group (CAMG) by DECC.
-Alessandro and Maurizio provided technical assistance on the development of the residential sector in TIMES. 
+Alessandro Chiodiand and Maurizio Gargiulo from E4sma provided technical assistance on the development of the residential sector in TIM. 
 % https://www.marei.ie/project/capacity/
 %CHIMERA is supported by a research grant from Science Foundation Ireland (SFI) and the National Natural Science Foundation of China (NSFC) under the SFI-NSFC Partnership Programme, grant no. 17/NSFC/5181 and
 %supported by MaREI, the SFI Research Centre for Energy, Climate, and Marine [Grant No: 12/RC/2302\_P2]
@@ -736,13 +732,12 @@ https://www.marei.ie/project/capacity
 
 \appendix
 
-\section{}
+\section{Additional input data and assumption}
 \label{sec:appendix}
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
-\subsection{}
-\label{sec:appendixA}
-Residential Fuel data is sourced from SEAI Energy Balance and BER Database, the right column shows how the fuels are structured in TIM. 
+
+%Residential Fuel data is sourced from SEAI Energy Balance and BER Database, the right column shows how the fuels are structured in TIM. 
 \begin{table}[htbp]
   \centering
   \footnotesize
@@ -777,14 +772,12 @@ Biodiesel      & Biodiesel  & Biodiesel             \\ \hline
  &      & Peat                  \\
  &     & Wood                  \\ \hline
 \end{tabular}
-\label{Table:Fuels}
+\label{AppTable:Fuels}
 \end{table}
 
-\newpage
-\subsection{}
-\label{sec:appendixA1}
 
-BER Database Filters
+
+%BER Database Filters
 \begin{table}[htbp]
  \centering
  \footnotesize
@@ -805,18 +798,39 @@ Water System Efficiency Adjustment Factor & $<0.7$ & Consideorange erroneous\\
 Main Water System Efficiency & $\leq19\%$ \& $>320\%$ & Consideorange erroneous \\
  \hline
  \end{tabular}%
- \label{BERFilters}%
+ \label{AppBERFilters}%
 \end{table}%
 
 
-\subsection{}
-\label{sec:appendixA2}
-Age to BER Rating Correlation Index
+\begin{table}[htbp]
+ \centering
+ \footnotesize
+ \caption{Energy Savings per BER rating} 
+ \begin{tabular}{|cl|llllllll}
+\hline   
+&  \multicolumn{8}{c}{Pre-Retrofit Rating}     \\ 
+ & & G  & F & E & D  & C & B3  & B2  & B1 \\ \hline 
+\multirow{8}{*}{\rotatebox[origin=c]{90}{Post-Retrofit Rating}} & A       & \cellcolor{red}83\% & \cellcolor{orange}73\% & \cellcolor{orange}67\% & \cellcolor{orange}57\% & \cellcolor{orange}38\%  & \cellcolor{orange}46\% & \cellcolor{yellow}35\% & \cellcolor{yellow}17\% \\
+ & B1 & \cellcolor{red}79\% & \cellcolor{orange}68\%  & \cellcolor{orange}61\% & \cellcolor{orange}48\% & \cellcolor{yellow}25\%  & \cellcolor{yellow}35\% & \cellcolor{yellow}22\% &      \\
+  & B2      & \cellcolor{orange}73\% & \cellcolor{orange}59\% & \cellcolor{orange}49\% & \cellcolor{yellow}33\% & \cellcolor{yellow}4\%   & \cellcolor{yellow}17\% &      &      \\
+  & B3      & \cellcolor{orange}68\% & \cellcolor{orange}50\% & \cellcolor{orange}39\% & \cellcolor{yellow}19\% & \cellcolor{yellow}0\% &      &      &      \\
+  & C       & \cellcolor{orange}72\% & \cellcolor{orange}57\% & \cellcolor{orange}47\% & \cellcolor{yellow}30\% &       &      &      &      \\
+ & D       & \cellcolor{orange}60\% & \cellcolor{orange}\cellcolor{orange}38\% & \cellcolor{yellow}25\% &      &       &      &      &      \\
+ & E       & \cellcolor{orange}47\% & \cellcolor{yellow}18\% &      &      &       &      &      &      \\
+  & F       & \cellcolor{yellow}35\% &      &      &      &       &      &      &     
+
+ \end{tabular}%
+ \label{AppDepthofRetrofit}%
+\end{table}
+
+\newpage
+%Age to BER Rating Correlation Index
 \begin{sidewaystable}
 
 \centering
  \footnotesize
  \caption{Apartment Age to BER Rating Correlation}
+ \label{AppBERCor}
 \begin{tabular}{l|lllllllll}
 Year   & A      & B1     & B2     & B3     & C      & D      & E      & F      & G      \\ \hline
 Before\_1919 & 0.0005 & 0.0021 & 0.0066 & 0.0139 & 0.0865 & 0.1618 & 0.1889 & 0.1447 & 0.3950 \\
@@ -834,6 +848,7 @@ Later\_2010  & 0.7996 & 0.0837 & 0.0713 & 0.0246 & 0.0140 & 0.0039 & 0.0019 & 0.
 \centering
  \footnotesize
  \caption{Attached Age to BER Rating Correlation}
+ \label{AttBERCor}
 \begin{tabular}{l|lllllllll}
 Year         & A      & B1     & B2     & B3     & C      & D      & E      & F      & G      \\ \hline
 Before\_1919 & 0.0021 & 0.0027 & 0.0091 & 0.0245 & 0.1239 & 0.1974 & 0.2109 & 0.1458 & 0.2837 \\
@@ -851,6 +866,7 @@ Later\_2010  & 0.9359 & 0.0391 & 0.0147 & 0.0064 & 0.0032 & 0.0006 & 0.0000 & 0.
 \centering
  \footnotesize
  \caption{Detached Age to BER Rating Correlation}
+ \label{DetBERCor}
 \begin{tabular}{l|lllllllll}
 Detached     & A      & B1     & B2     & B3     & C      & D      & E      & F      & G      \\ \hline
 Before\_1919 & 0.0035 & 0.0036 & 0.0078 & 0.0159 & 0.0912 & 0.1570 & 0.1791 & 0.1422 & 0.3996 \\
@@ -866,44 +882,9 @@ Later\_2010  & 0.8131 & 0.0868 & 0.0509 & 0.0295 & 0.0165 & 0.0029 & 0.0002 & 0.
 \end{sidewaystable}
 
 
-
-\newpage
-
-\subsection{}
-\label{sec:appendixA3}
-Depth of retrofit defined by expected energy savings. The red cells are unfeasible, orange cells show deep retrofits, and yellow represent shallow retrofits. 
-%The model has two types of retrofitting options per archetype,  a shallow retrofit is when the primary energy ($kWh/m^2/yr$) is reduced by $ \leq 35 \%$, and deep retrofit is where the primary energy is reduced by $>35 \%$, a reduction of $ \> 75 \%$ is considered infeasible. The different between the pre-retrofit and post-retrofit primary energy determines the type of retrofit, as shown i
-
-\begin{table}[htbp]
- \centering
- \footnotesize
- \caption{Energy Savings per BER rating}
- \begin{tabular}{|cl|llllllll}
-\hline   
-&  \multicolumn{8}{c}{Pre-Retrofit Rating}     \\ 
- & & G  & F & E & D  & C & B3  & B2  & B1 \\ \hline 
-\multirow{8}{*}{\rotatebox[origin=c]{90}{Post-Retrofit Rating}} & A       & \cellcolor{red}83\% & \cellcolor{orange}73\% & \cellcolor{orange}67\% & \cellcolor{orange}57\% & \cellcolor{orange}38\%  & \cellcolor{orange}46\% & \cellcolor{yellow}35\% & \cellcolor{yellow}17\% \\
- & B1 & \cellcolor{red}79\% & \cellcolor{orange}68\%  & \cellcolor{orange}61\% & \cellcolor{orange}48\% & \cellcolor{yellow}25\%  & \cellcolor{yellow}35\% & \cellcolor{yellow}22\% &      \\
-  & B2      & \cellcolor{orange}73\% & \cellcolor{orange}59\% & \cellcolor{orange}49\% & \cellcolor{yellow}33\% & \cellcolor{yellow}4\%   & \cellcolor{yellow}17\% &      &      \\
-  & B3      & \cellcolor{orange}68\% & \cellcolor{orange}50\% & \cellcolor{orange}39\% & \cellcolor{yellow}19\% & \cellcolor{yellow}0\% &      &      &      \\
-  & C       & \cellcolor{orange}72\% & \cellcolor{orange}57\% & \cellcolor{orange}47\% & \cellcolor{yellow}30\% &       &      &      &      \\
- & D       & \cellcolor{orange}60\% & \cellcolor{orange}\cellcolor{orange}38\% & \cellcolor{yellow}25\% &      &       &      &      &      \\
- & E       & \cellcolor{orange}47\% & \cellcolor{yellow}18\% &      &      &       &      &      &      \\
-  & F       & \cellcolor{yellow}35\% &      &      &      &       &      &      &     
-
- \end{tabular}%
- \label{DepthofRetrofit}%
-\end{table}
-
-
-\subsection{}
-\label{sec:appendixA4}
-List of water and space heating technologies available per archetype. The ``???" denotes either APT for Apartments, ATT for Attached, or DET for detached dwellings. 
-
-
 \begin{table}[htbp]
   \centering
-  \caption{Space and Water Heating Technologies}
+  \caption{Space and Water Heating Technologies, where ``???" denotes either APT for Apartments, ATT for Attached, or DET for detached dwellings.}
   \resizebox{\textwidth}{!}{\begin{tabular}{cc|cc|cc|cc}
  \hline
  
@@ -965,9 +946,12 @@ R-SW\_???\_HET\_N2 & Decentralized & \checkmark & \checkmark & \checkmark & \che
  R-FTFT-???\_Deep & Deep Retrofit & \checkmark & \ding{55} & \checkmark & \ding{55} & \checkmark & \ding{55} \\
  \end{tabular}%
  }
- \label{HeatingTech}%
+ \label{AppHeatingTech}%
 \end{table}
-\newpage
+
+
+\clearpage
+
 \bibliography{TIMref.bib}
 
 \end{document}
